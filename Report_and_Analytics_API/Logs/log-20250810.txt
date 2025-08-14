@@ -1,0 +1,921 @@
+2025-08-10 08:29:44.724 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:29:44.898 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:30:03.972 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:30:04.686 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:30:04.706 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:30:04.707 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:30:04.769 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-08-10 08:30:04.770 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:30:04.771 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:30:04.775 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:30:04.784 +08:00 [INF] Applying migration '20250810002946_INITIAL'.
+2025-08-10 08:30:04.831 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:30:04.832 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:30:04.833 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:30:04.835 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:30:04.837 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:30:04.850 +08:00 [ERR] Failed executing DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE SET NULL
+);
+2025-08-10 08:30:45.228 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:30:45.525 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:30:45.543 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:30:45.544 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:30:45.545 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:30:45.555 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:30:45.564 +08:00 [INF] Applying migration '20250810002946_INITIAL'.
+2025-08-10 08:30:45.618 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:30:45.620 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:30:45.621 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:30:45.622 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:30:45.623 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:30:45.629 +08:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE SET NULL
+);
+2025-08-10 08:32:53.259 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:32:53.878 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:32:53.896 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:32:53.897 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:32:53.898 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:32:53.908 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:32:53.918 +08:00 [INF] Applying migration '20250810002946_INITIAL'.
+2025-08-10 08:32:53.969 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:32:53.970 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:32:53.972 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:32:53.973 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:32:53.974 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:32:53.981 +08:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE SET NULL
+);
+2025-08-10 08:33:54.872 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:33:55.156 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:33:55.175 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:33:55.176 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:33:55.177 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:33:55.188 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:33:55.198 +08:00 [INF] Applying migration '20250810002946_INITIAL'.
+2025-08-10 08:33:55.250 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:33:55.251 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:33:55.253 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:33:55.254 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:33:55.255 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:33:55.261 +08:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE SET NULL
+);
+2025-08-10 08:37:46.120 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:37:46.263 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:37:58.562 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:37:58.839 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:37:58.857 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:37:58.858 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:37:58.859 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:37:58.869 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:37:58.878 +08:00 [INF] Applying migration '20250810003747_INITIAL'.
+2025-08-10 08:37:58.919 +08:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [PreviousMedicalRecords] DROP CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId];
+2025-08-10 08:39:56.394 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:39:56.537 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:40:33.966 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:40:34.107 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:41:42.993 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:41:43.145 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:42:35.474 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:42:35.623 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:42:36.441 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:42:36.465 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:42:36.473 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:42:48.602 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:42:48.749 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:43:18.187 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:43:18.329 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:43:49.298 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:43:49.578 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:43:49.595 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:43:49.597 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:43:49.597 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:43:49.607 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:43:49.617 +08:00 [INF] Applying migration '20250810004318_initital'.
+2025-08-10 08:43:49.671 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:43:49.672 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:43:49.673 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:43:49.675 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:43:49.677 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:43:49.679 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:43:49.681 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TreatmentHistories] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [serviceId] int NOT NULL,
+    [dateUsed] datetime2 NOT NULL,
+    [attendingStaff] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TreatmentHistories] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_TreatmentHistories_HospitalServices_serviceId] FOREIGN KEY ([serviceId]) REFERENCES [HospitalServices] ([serviceId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TreatmentHistories_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:43:49.771 +08:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Emr] (
+    [emrId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentId] int NOT NULL,
+    [visitDate] datetime2 NOT NULL,
+    [symptoms] nvarchar(max) NOT NULL,
+    [diagnosis] nvarchar(max) NOT NULL,
+    [treatment] nvarchar(max) NOT NULL,
+    [attendingPhysician] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Emr] PRIMARY KEY ([emrId]),
+    CONSTRAINT [FK_Emr_Appointments_appointmentId] FOREIGN KEY ([appointmentId]) REFERENCES [Appointments] ([appointmentId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Emr_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:45:25.803 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:45:25.950 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:45:39.515 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:45:39.789 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:45:39.806 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:45:39.808 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:45:39.808 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:45:39.818 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:45:39.827 +08:00 [INF] Applying migration '20250810004318_initital'.
+2025-08-10 08:45:39.880 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:45:39.881 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:45:39.882 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:45:39.883 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:45:39.884 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:45:39.886 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:45:39.887 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TreatmentHistories] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [serviceId] int NOT NULL,
+    [dateUsed] datetime2 NOT NULL,
+    [attendingStaff] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TreatmentHistories] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_TreatmentHistories_HospitalServices_serviceId] FOREIGN KEY ([serviceId]) REFERENCES [HospitalServices] ([serviceId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TreatmentHistories_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:45:39.894 +08:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Emr] (
+    [emrId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentId] int NOT NULL,
+    [visitDate] datetime2 NOT NULL,
+    [symptoms] nvarchar(max) NOT NULL,
+    [diagnosis] nvarchar(max) NOT NULL,
+    [treatment] nvarchar(max) NOT NULL,
+    [attendingPhysician] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Emr] PRIMARY KEY ([emrId]),
+    CONSTRAINT [FK_Emr_Appointments_appointmentId] FOREIGN KEY ([appointmentId]) REFERENCES [Appointments] ([appointmentId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Emr_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:47:46.105 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:47:46.261 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:47:46.745 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:47:46.766 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:47:46.776 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:47:54.463 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:47:54.620 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:47:55.113 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:47:55.130 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:47:55.137 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:48:12.826 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:48:12.970 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:48:33.015 +08:00 [WRN] No store type was specified for the decimal property 'cost' on entity type 'HospitalService'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-10 08:48:33.309 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:48:33.326 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:48:33.328 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-08-10 08:48:33.328 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-08-10 08:48:33.339 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-08-10 08:48:33.348 +08:00 [INF] Applying migration '20250810004813_INITIAL SET UP'.
+2025-08-10 08:48:33.403 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Beds] (
+    [bedId] int NOT NULL IDENTITY,
+    [bedNumber] nvarchar(max) NOT NULL,
+    [ward] nvarchar(max) NOT NULL,
+    [roomNumber] nvarchar(max) NOT NULL,
+    [bedType] int NOT NULL,
+    [bedStatus] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Beds] PRIMARY KEY ([bedId])
+);
+2025-08-10 08:48:33.405 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HospitalServices] (
+    [serviceId] int NOT NULL IDENTITY,
+    [serviceName] nvarchar(max) NOT NULL,
+    [description] nvarchar(max) NOT NULL,
+    [department] nvarchar(max) NOT NULL,
+    [cost] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_HospitalServices] PRIMARY KEY ([serviceId])
+);
+2025-08-10 08:48:33.406 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PatientInformation] (
+    [patientId] int NOT NULL IDENTITY,
+    [fname] nvarchar(max) NOT NULL,
+    [mname] nvarchar(max) NOT NULL,
+    [lname] nvarchar(max) NOT NULL,
+    [address] nvarchar(max) NOT NULL,
+    [age] int NOT NULL,
+    [dob] date NOT NULL,
+    [gender] nvarchar(max) NOT NULL,
+    [civilStatus] nvarchar(max) NOT NULL,
+    [phoneNumber] nvarchar(max) NOT NULL,
+    [email] nvarchar(max) NOT NULL,
+    [admissionType] nvarchar(max) NOT NULL,
+    [bedNumber] int NOT NULL,
+    [attendingDoctor] int NOT NULL,
+    CONSTRAINT [PK_PatientInformation] PRIMARY KEY ([patientId])
+);
+2025-08-10 08:48:33.407 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Appointments] (
+    [appointmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentDate] datetime2 NOT NULL,
+    [purpose] nvarchar(max) NOT NULL,
+    [status] int NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Appointments] PRIMARY KEY ([appointmentId]),
+    CONSTRAINT [FK_Appointments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId])
+);
+2025-08-10 08:48:33.409 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BedAssignments] (
+    [assignmentId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [bedId] int NOT NULL,
+    [assignedDate] datetime2 NOT NULL,
+    [releasedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BedAssignments] PRIMARY KEY ([assignmentId]),
+    CONSTRAINT [FK_BedAssignments_Beds_bedId] FOREIGN KEY ([bedId]) REFERENCES [Beds] ([bedId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BedAssignments_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:48:33.410 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PreviousMedicalRecords] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [conditionName] nvarchar(max) NOT NULL,
+    [diagnosisDate] date NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PreviousMedicalRecords] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_PreviousMedicalRecords_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:48:33.412 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TreatmentHistories] (
+    [recordId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [serviceId] int NOT NULL,
+    [dateUsed] datetime2 NOT NULL,
+    [attendingStaff] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TreatmentHistories] PRIMARY KEY ([recordId]),
+    CONSTRAINT [FK_TreatmentHistories_HospitalServices_serviceId] FOREIGN KEY ([serviceId]) REFERENCES [HospitalServices] ([serviceId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TreatmentHistories_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId]) ON DELETE CASCADE
+);
+2025-08-10 08:48:33.414 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Emr] (
+    [emrId] int NOT NULL IDENTITY,
+    [patientId] int NOT NULL,
+    [appointmentId] int NOT NULL,
+    [visitDate] datetime2 NOT NULL,
+    [symptoms] nvarchar(max) NOT NULL,
+    [diagnosis] nvarchar(max) NOT NULL,
+    [treatment] nvarchar(max) NOT NULL,
+    [attendingPhysician] nvarchar(max) NOT NULL,
+    [notes] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Emr] PRIMARY KEY ([emrId]),
+    CONSTRAINT [FK_Emr_Appointments_appointmentId] FOREIGN KEY ([appointmentId]) REFERENCES [Appointments] ([appointmentId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Emr_PatientInformation_patientId] FOREIGN KEY ([patientId]) REFERENCES [PatientInformation] ([patientId])
+);
+2025-08-10 08:48:33.571 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Prescriptions] (
+    [prescriptionId] int NOT NULL IDENTITY,
+    [emrId] int NOT NULL,
+    [medicationName] nvarchar(max) NOT NULL,
+    [dosage] nvarchar(max) NOT NULL,
+    [frequency] nvarchar(max) NOT NULL,
+    [duration] nvarchar(max) NOT NULL,
+    [instructions] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Prescriptions] PRIMARY KEY ([prescriptionId]),
+    CONSTRAINT [FK_Prescriptions_Emr_emrId] FOREIGN KEY ([emrId]) REFERENCES [Emr] ([emrId]) ON DELETE CASCADE
+);
+2025-08-10 08:48:33.576 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Appointments_patientId] ON [Appointments] ([patientId]);
+2025-08-10 08:48:33.577 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_BedAssignments_bedId] ON [BedAssignments] ([bedId]);
+2025-08-10 08:48:33.578 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_BedAssignments_patientId] ON [BedAssignments] ([patientId]);
+2025-08-10 08:48:33.578 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Emr_appointmentId] ON [Emr] ([appointmentId]);
+2025-08-10 08:48:33.579 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Emr_patientId] ON [Emr] ([patientId]);
+2025-08-10 08:48:33.580 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Prescriptions_emrId] ON [Prescriptions] ([emrId]);
+2025-08-10 08:48:33.581 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_PreviousMedicalRecords_patientId] ON [PreviousMedicalRecords] ([patientId]);
+2025-08-10 08:48:33.582 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TreatmentHistories_patientId] ON [TreatmentHistories] ([patientId]);
+2025-08-10 08:48:33.584 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TreatmentHistories_serviceId] ON [TreatmentHistories] ([serviceId]);
+2025-08-10 08:48:33.586 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250810004813_INITIAL SET UP', N'8.0.19');
+2025-08-10 17:00:16.630 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='ANALYTICS' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-10 17:00:16.754 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `__EFMigrationsHistory` (
+    `MigrationId` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+    `ProductVersion` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK___EFMigrationsHistory` PRIMARY KEY (`MigrationId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:16.764 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='ANALYTICS' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-10 17:00:16.770 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-10 17:00:16.780 +08:00 [INF] Applying migration '20250810090004_initial'.
+2025-08-10 17:00:16.835 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-10 17:00:16.859 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Beds` (
+    `bedId` int NOT NULL AUTO_INCREMENT,
+    `bedNumber` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ward` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `roomNumber` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `bedType` int NOT NULL,
+    `bedStatus` int NOT NULL,
+    `notes` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Beds` PRIMARY KEY (`bedId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:16.882 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `HospitalServices` (
+    `serviceId` int NOT NULL AUTO_INCREMENT,
+    `serviceName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `description` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `department` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `cost` decimal(65,30) NOT NULL,
+    CONSTRAINT `PK_HospitalServices` PRIMARY KEY (`serviceId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:16.905 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `PatientInformation` (
+    `patientId` int NOT NULL AUTO_INCREMENT,
+    `fname` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `mname` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `lname` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `address` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `age` int NOT NULL,
+    `dob` date NOT NULL,
+    `gender` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `civilStatus` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `phoneNumber` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `email` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `admissionType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `bedNumber` int NOT NULL,
+    `attendingDoctor` int NOT NULL,
+    CONSTRAINT `PK_PatientInformation` PRIMARY KEY (`patientId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:16.940 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Appointments` (
+    `appointmentId` int NOT NULL AUTO_INCREMENT,
+    `patientId` int NOT NULL,
+    `appointmentDate` datetime(6) NOT NULL,
+    `purpose` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `status` int NOT NULL,
+    `notes` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Appointments` PRIMARY KEY (`appointmentId`),
+    CONSTRAINT `FK_Appointments_PatientInformation_patientId` FOREIGN KEY (`patientId`) REFERENCES `PatientInformation` (`patientId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:16.980 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `BedAssignments` (
+    `assignmentId` int NOT NULL AUTO_INCREMENT,
+    `patientId` int NOT NULL,
+    `bedId` int NOT NULL,
+    `assignedDate` datetime(6) NOT NULL,
+    `releasedDate` datetime(6) NOT NULL,
+    CONSTRAINT `PK_BedAssignments` PRIMARY KEY (`assignmentId`),
+    CONSTRAINT `FK_BedAssignments_Beds_bedId` FOREIGN KEY (`bedId`) REFERENCES `Beds` (`bedId`) ON DELETE CASCADE,
+    CONSTRAINT `FK_BedAssignments_PatientInformation_patientId` FOREIGN KEY (`patientId`) REFERENCES `PatientInformation` (`patientId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:17.020 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `PreviousMedicalRecords` (
+    `recordId` int NOT NULL AUTO_INCREMENT,
+    `patientId` int NOT NULL,
+    `conditionName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `diagnosisDate` date NOT NULL,
+    `notes` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_PreviousMedicalRecords` PRIMARY KEY (`recordId`),
+    CONSTRAINT `FK_PreviousMedicalRecords_PatientInformation_patientId` FOREIGN KEY (`patientId`) REFERENCES `PatientInformation` (`patientId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:17.059 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `TreatmentHistories` (
+    `recordId` int NOT NULL AUTO_INCREMENT,
+    `patientId` int NOT NULL,
+    `serviceId` int NOT NULL,
+    `dateUsed` datetime(6) NOT NULL,
+    `attendingStaff` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `notes` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_TreatmentHistories` PRIMARY KEY (`recordId`),
+    CONSTRAINT `FK_TreatmentHistories_HospitalServices_serviceId` FOREIGN KEY (`serviceId`) REFERENCES `HospitalServices` (`serviceId`) ON DELETE CASCADE,
+    CONSTRAINT `FK_TreatmentHistories_PatientInformation_patientId` FOREIGN KEY (`patientId`) REFERENCES `PatientInformation` (`patientId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:17.202 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emr` (
+    `emrId` int NOT NULL AUTO_INCREMENT,
+    `patientId` int NOT NULL,
+    `appointmentId` int NOT NULL,
+    `visitDate` datetime(6) NOT NULL,
+    `symptoms` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `diagnosis` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `treatment` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `attendingPhysician` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `notes` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Emr` PRIMARY KEY (`emrId`),
+    CONSTRAINT `FK_Emr_Appointments_appointmentId` FOREIGN KEY (`appointmentId`) REFERENCES `Appointments` (`appointmentId`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Emr_PatientInformation_patientId` FOREIGN KEY (`patientId`) REFERENCES `PatientInformation` (`patientId`)
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:17.279 +08:00 [INF] Executed DbCommand (77ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Prescriptions` (
+    `prescriptionId` int NOT NULL AUTO_INCREMENT,
+    `emrId` int NOT NULL,
+    `medicationName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `dosage` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `frequency` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `duration` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `instructions` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Prescriptions` PRIMARY KEY (`prescriptionId`),
+    CONSTRAINT `FK_Prescriptions_Emr_emrId` FOREIGN KEY (`emrId`) REFERENCES `Emr` (`emrId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-08-10 17:00:17.309 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_patientId` ON `Appointments` (`patientId`);
+2025-08-10 17:00:17.332 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_BedAssignments_bedId` ON `BedAssignments` (`bedId`);
+2025-08-10 17:00:17.363 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_BedAssignments_patientId` ON `BedAssignments` (`patientId`);
+2025-08-10 17:00:17.386 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Emr_appointmentId` ON `Emr` (`appointmentId`);
+2025-08-10 17:00:17.408 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Emr_patientId` ON `Emr` (`patientId`);
+2025-08-10 17:00:17.425 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Prescriptions_emrId` ON `Prescriptions` (`emrId`);
+2025-08-10 17:00:17.449 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_PreviousMedicalRecords_patientId` ON `PreviousMedicalRecords` (`patientId`);
+2025-08-10 17:00:17.470 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_TreatmentHistories_patientId` ON `TreatmentHistories` (`patientId`);
+2025-08-10 17:00:17.490 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_TreatmentHistories_serviceId` ON `TreatmentHistories` (`serviceId`);
+2025-08-10 17:00:17.493 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250810090004_initial', '8.0.19');

@@ -1,0 +1,23 @@
+2025-08-08 06:28:49.188 +08:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-08-08 06:28:49.207 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger - null null
+2025-08-08 06:28:49.314 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-08 06:28:49.314 +08:00 [INF] Hosting environment: Development
+2025-08-08 06:28:49.314 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-08 06:28:49.378 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-08 06:28:49.386 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger - 301 null null 183.3622ms
+2025-08-08 06:28:49.430 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 51.9484ms
+2025-08-08 06:28:49.435 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-08 06:28:49.438 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui-bundle.js - null null
+2025-08-08 06:28:49.445 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui-standalone-preset.js - null null
+2025-08-08 06:28:49.445 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-08 06:28:49.447 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui.css - null null
+2025-08-08 06:28:49.457 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 21.3872ms
+2025-08-08 06:28:49.484 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-08-08 06:28:49.484 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-08-08 06:28:49.486 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui.css - 200 152034 text/css 38.7887ms
+2025-08-08 06:28:49.488 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 45.6955ms
+2025-08-08 06:28:49.495 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-08-08 06:28:49.513 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.7471ms
+2025-08-08 06:28:49.519 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 80.9867ms
+2025-08-08 06:28:49.682 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-08 06:28:49.689 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.1041ms

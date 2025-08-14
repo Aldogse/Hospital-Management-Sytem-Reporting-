@@ -1,0 +1,12 @@
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.deps.json
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.pdb
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.GeneratedMSBuildEditorConfig.editorconfig
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.AssemblyInfoInputs.cache
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.AssemblyInfo.cs
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.csproj.CoreCompileInputs.cache
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\refint\Report and Analytics Library.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.pdb
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\ref\Report and Analytics Library.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.csproj.AssemblyReference.cache

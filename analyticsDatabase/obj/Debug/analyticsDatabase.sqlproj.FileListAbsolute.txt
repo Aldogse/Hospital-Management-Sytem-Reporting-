@@ -1,0 +1,10 @@
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\bin\Debug\analyticsDatabase.dacpac
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\bin\Debug\analyticsDatabase.dll
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\bin\Debug\analyticsDatabase.pdb
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\analyticsDatabase.sqlproj.AssemblyReference.cache
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\analyticsDatabase.dll
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\analyticsDatabase.pdb
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\Model.xml
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\refactor.xml
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\postdeploy.sql
+F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\predeploy.sql
