@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="analyticsDatabase.dll" />
-			<Metadata Name="FileName" Value="F:\HOSPITAL MANAGEMENT SYSTEM\REPORT_AND_ANALYTICS_API\ANALYTICSDATABASE\OBJ\DEBUG\ANALYTICSDATABASE.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\MYPC\DESKTOP\REPORT_ANALYTICS\HOSPITAL-MANAGEMENT-SYTEM-REPORTING-\ANALYTICSDATABASE\OBJ\DEBUG\ANALYTICSDATABASE.DLL" />
 			<Metadata Name="AssemblyName" Value="analyticsDatabase" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\analyticsDatabase.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\analyticsDatabase.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

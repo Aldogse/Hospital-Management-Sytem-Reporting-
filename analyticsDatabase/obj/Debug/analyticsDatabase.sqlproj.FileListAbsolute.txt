@@ -8,3 +8,13 @@ F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Deb
 F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\refactor.xml
 F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\postdeploy.sql
 F:\Hospital Management System\Report_and_Analytics_API\analyticsDatabase\obj\Debug\predeploy.sql
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\bin\Debug\analyticsDatabase.dacpac
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\bin\Debug\analyticsDatabase.dll
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\bin\Debug\analyticsDatabase.pdb
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\analyticsDatabase.sqlproj.AssemblyReference.cache
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\Model.xml
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\refactor.xml
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\postdeploy.sql
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\predeploy.sql
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\analyticsDatabase.dll
+C:\Users\Mypc\Desktop\Report_Analytics\Hospital-Management-Sytem-Reporting-\analyticsDatabase\obj\Debug\analyticsDatabase.pdb
