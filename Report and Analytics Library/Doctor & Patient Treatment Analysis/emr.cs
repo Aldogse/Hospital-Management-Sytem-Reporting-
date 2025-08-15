@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
@@ -13,12 +14,15 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [Key]
         public int emr_id { get; set; }
 
-        [ForeignKey("")]
+        [ForeignKey("patientinfo")]
         public int patient_id { get; set; }
+        [JsonIgnore]
+        public patientinfo patientinfo { get; set; }
 
 
         [ForeignKey("appointment")]
         public int? appointment_id { get; set; }
+        [JsonIgnore]
         public appointment appointment { get; set; }
 
 

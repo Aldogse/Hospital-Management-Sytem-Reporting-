@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Billing
@@ -15,11 +16,13 @@ namespace Report_and_Analytics_Library.Billing
 
         [ForeignKey("bills")]
         public int bill_id { get; set; }
+        [JsonIgnore]
         public bills bills { get; set; }
 
 
         [ForeignKey("biiling_Service")]
         public int service_id { get; set; }
+        [JsonIgnore]
         public biiling_service biiling_Service { get; set; }
 
 

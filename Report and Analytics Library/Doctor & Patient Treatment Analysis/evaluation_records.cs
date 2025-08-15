@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Report_and_Analytics_Library.HR;
 
 namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
 {
@@ -12,8 +15,10 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [Key]
         public int evaluation_id { get; set; }
 
+        [ForeignKey("Employee")]
         public int employee_id { get; set; }
-
+        [JsonIgnore]
+        public hr_employees Employee { get; set; }
 
         public int evaluator_id { get; set; }
         public DateOnly evaluation_date { get; set; }

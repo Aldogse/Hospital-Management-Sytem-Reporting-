@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Report_and_Analytics_Library.Billing;
+using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 using Report_and_Analytics_Library.Enums;
 
 namespace Report_and_Analytics_Library.Insurance
@@ -17,14 +19,18 @@ namespace Report_and_Analytics_Library.Insurance
 
         [ForeignKey("bills")]
         public int bill_id { get; set; }
+        [JsonIgnore]
         public bills bills { get; set; }
 
-        [ForeignKey("")]
+        [ForeignKey("patientinfo")]
         public int patient_id { get; set; }
+        [JsonIgnore]
+        public patientinfo patientinfo { get; set; }
 
 
         [ForeignKey("insurance_Provider")]
         public int insurance_provider_id { get; set; }
+        [JsonIgnore]
         public insurance_provider insurance_Provider { get; set; }
 
         public decimal claim_amount { get; set; }

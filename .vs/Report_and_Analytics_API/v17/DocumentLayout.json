@@ -1,282 +1,316 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\",
+  "WorkspaceRootPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\treatment_history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\treatment_history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\payment_transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\payment_transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\previous_medical_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\previous_medical_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\pharmacy\\prescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\pharmacy\\prescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\report and analytics library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\report and analytics library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\services\\hospital_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\services\\hospital_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\services\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\services\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\services\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report_and_analytics_api\\report_and_analytics_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\report_and_analytics_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\services\\hospital_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\services\\hospital_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\property management\\beds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\property management\\beds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\property management\\bed_assignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\property management\\bed_assignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\pharmacy\\prescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\pharmacy\\prescriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\journalentry\\license_expiry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\license_expiry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\journalentry\\journal_entry_line.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\journal_entry_line.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\journalentry\\journal_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\journal_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\journal_account_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\journal_account_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\journalentry\\journal_entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\journal_entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\insurance\\insurance_coverage_rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_coverage_rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\insurance\\insurance_claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\insurance\\insurance_processing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_processing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\insurance\\insurance_provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_payslips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payslips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_payroll_disbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll_disbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_payroll_audit_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll_audit_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_employees_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employees_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_employee_salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employee_salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_daily_attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_daily_attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_attendance_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_attendance_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_applicant_tracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_applicant_tracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_applicant_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_applicant_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\compliance_licensing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\compliance_licensing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\claim_notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\claim_notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\billingsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billingsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\billing_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billing_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\bill_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\bill_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\biiling_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\biiling_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\patientinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\patientinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\billing\\billing_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billing_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\treatment_history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\treatment_history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\previous_medical_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\previous_medical_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\patient_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\patient_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\patient_reg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\patient_reg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\patient_receivables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\patient_receivables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\expense_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\expense_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_criteria_metrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_criteria_metrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\emr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\emr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\duty_assignment .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\duty_assignment .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\doctor_evaluation_score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\doctor_evaluation_score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_summary_reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_summary_reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\patient_receivables_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\patient_receivables_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\report and analytics library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\report and analytics library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\report_and_analytics_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\report_and_analytics_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|analyticsDatabase||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\emr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\emr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\property management\\beds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\property management\\beds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\bedstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\bedstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\bedstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\bedtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\bedtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\bedtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\property management\\bed_assignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\property management\\bed_assignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\journalentry\\license_expiry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\license_expiry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\compliance_licensing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\compliance_licensing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\journalentry\\journal_entry_line.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\journal_entry_line.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\journalentry\\journal_entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\journalentry\\journal_entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\insurance\\insurance_claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\insurance\\insurance_provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\insurance\\insurance_processing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_processing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\insurance\\insurance_coverage_rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\insurance\\insurance_coverage_rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\biiling_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\biiling_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\claimstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\claimstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\claimstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\claim_notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\claim_notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\billingsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billingsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\billing_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billing_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\billing_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\billing_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\billing\\bill_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\billing\\bill_items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_payslips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payslips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_payroll_disbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll_disbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_employees_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employees_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_employee_salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_employee_salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_daily_attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_daily_attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_attendance_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_attendance_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_applicant_tracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_applicant_tracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_applicant_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_applicant_documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\expense_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\expense_logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_summary_reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_summary_reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_records.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_criteria_metrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\evaluation_criteria_metrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\duty_assignment .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\duty_assignment .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\doctor_evaluation_score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\doctor_evaluation_score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\doctor \u0026 patient treatment analysis\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\doctor \u0026 patient treatment analysis\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\hr\\hr_payroll_audit_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\hr\\hr_payroll_audit_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\payroll_action_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\payroll_action_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\payroll_action_log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\pay_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\pay_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\pay_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\disbursement_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\disbursement_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\disbursement_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\pay_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\pay_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\pay_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\attendance_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\attendance_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\attendance_status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\attendance_log_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\attendance_log_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\attendance_log_method.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\attendance_log_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\attendance_log_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\attendance_log_type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\attendance_flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\billsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\billsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\billsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\billingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\billingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\billingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report and analytics library\\enums\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\enums\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|solutionrelative:report and analytics library\\enums\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report_and_analytics_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report_and_analytics_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|c:\\users\\mypc\\desktop\\report_analytics\\hospital-management-sytem-reporting-\\report_and_analytics_api\\logs\\log-20250810.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\logs\\log-20250810.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\logs\\log-20250810.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DESKTOP_7JK7O7F/AnalyticsDB/True/SqlTable/dbo.Appointments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -290,76 +324,192 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "payment_transaction.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\payment_transaction.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\payment_transaction.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\payment_transaction.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Billing\\payment_transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T12:29:28.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "journal_account_type.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\journal_account_type.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\journal_account_type.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\journal_account_type.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Enums\\journal_account_type.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T12:24:51.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "journal_account.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_account.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\JournalEntry\\journal_account.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_account.cs",
+              "RelativeToolTip": "Report and Analytics Library\\JournalEntry\\journal_account.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T12:23:56.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "patientinfo.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patientinfo.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patientinfo.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patientinfo.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patientinfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T11:35:28.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "patient_user.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_user.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_user.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_user.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_user.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T11:33:16.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "patient_reg.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_reg.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_reg.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_reg.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_reg.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T11:28:44.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "patient_receivables_status.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\patient_receivables_status.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\patient_receivables_status.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\patient_receivables_status.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Enums\\patient_receivables_status.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T11:27:02.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "patient_receivables.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_receivables.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_receivables.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_receivables.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\patient_receivables.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T11:21:47.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "treatment_history.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\treatment_history.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAIA5wBsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T20:19:16.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 42,
               "Title": "previous_medical_records.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\previous_medical_records.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAApwBgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAApwBMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T20:15:51.534Z"
+              "WhenOpened": "2025-08-14T20:15:51.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "prescriptions.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Pharmacy\\prescriptions.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Pharmacy\\prescriptions.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Pharmacy\\prescriptions.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Pharmacy\\prescriptions.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T20:08:59.459Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "prescriptions.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Pharmacy\\prescriptions.cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Pharmacy\\prescriptions.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Pharmacy\\prescriptions.cs",
-              "RelativeToolTip": "Report and Analytics Library\\Pharmacy\\prescriptions.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T20:08:59.459Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "hospital_services.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Services\\hospital_services.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Services\\hospital_services.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Services\\hospital_services.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Services\\hospital_services.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Services\\hospital_services.cs",
               "RelativeToolTip": "Report and Analytics Library\\Services\\hospital_services.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T20:02:01.385Z"
+              "WhenOpened": "2025-08-14T20:02:01.385Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "appointment.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\appointment.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:41:52.653Z"
+              "WhenOpened": "2025-08-13T22:41:52.653Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 55,
               "Title": "Report and Analytics Library.csproj",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Report and Analytics Library.csproj",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj",
               "RelativeToolTip": "Report and Analytics Library\\Report and Analytics Library.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -367,22 +517,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 57,
               "Title": "analyticsDatabase",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\analyticsDatabase\\analyticsDatabase.sqlproj",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\analyticsDatabase\\analyticsDatabase.sqlproj",
               "RelativeDocumentMoniker": "analyticsDatabase\\analyticsDatabase.sqlproj",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\analyticsDatabase\\analyticsDatabase.sqlproj",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\analyticsDatabase\\analyticsDatabase.sqlproj",
               "RelativeToolTip": "analyticsDatabase\\analyticsDatabase.sqlproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-08-10T00:16:46.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 56,
               "Title": "Report_and_Analytics_API.csproj",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
               "RelativeToolTip": "Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -390,47 +540,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "services.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Services\\services.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Services\\services.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Services\\services.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Services\\services.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Services\\services.cs",
               "RelativeToolTip": "Report and Analytics Library\\Services\\services.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:47:53.328Z"
+              "WhenOpened": "2025-08-13T22:47:53.328Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 49,
               "Title": "emr.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\emr.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAcwCAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T19:53:46.382Z"
+              "WhenOpened": "2025-08-14T19:53:46.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "beds.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Property Management\\beds.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Property Management\\beds.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Property Management\\beds.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Property Management\\beds.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Property Management\\beds.cs",
               "RelativeToolTip": "Report and Analytics Library\\Property Management\\beds.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:07:15.683Z"
+              "WhenOpened": "2025-08-14T13:07:15.683Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 59,
               "Title": "bedType.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\bedType.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\bedType.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\bedType.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\bedType.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\bedType.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\bedType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -438,35 +591,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 8,
               "Title": "journal_entry_line.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
               "RelativeToolTip": "Report and Analytics Library\\JournalEntry\\journal_entry_line.cs",
-              "ViewState": "AgIAAAEAAAAAGvvDYOECwBoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAGvvDYOECwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:25:22.551Z"
+              "WhenOpened": "2025-08-14T12:25:22.551Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "license_expiry.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\license_expiry.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\license_expiry.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\JournalEntry\\license_expiry.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\license_expiry.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\license_expiry.cs",
               "RelativeToolTip": "Report and Analytics Library\\JournalEntry\\license_expiry.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:51:36.948Z"
+              "WhenOpened": "2025-08-14T12:51:36.948Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 58,
               "Title": "bedStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\bedStatus.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\bedStatus.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\bedStatus.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\bedStatus.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\bedStatus.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\bedStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -474,107 +629,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 4,
               "Title": "bed_assignments.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Property Management\\bed_assignments.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Property Management\\bed_assignments.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Property Management\\bed_assignments.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Property Management\\bed_assignments.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Property Management\\bed_assignments.cs",
               "RelativeToolTip": "Report and Analytics Library\\Property Management\\bed_assignments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:02:10.814Z"
+              "WhenOpened": "2025-08-14T13:02:10.814Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 11,
               "Title": "journal_entry.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\journal_entry.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_entry.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\JournalEntry\\journal_entry.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\JournalEntry\\journal_entry.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\JournalEntry\\journal_entry.cs",
               "RelativeToolTip": "Report and Analytics Library\\JournalEntry\\journal_entry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:23:38.515Z"
+              "WhenOpened": "2025-08-14T12:23:38.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 15,
               "Title": "insurance_provider.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_provider.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_provider.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Insurance\\insurance_provider.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_provider.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_provider.cs",
               "RelativeToolTip": "Report and Analytics Library\\Insurance\\insurance_provider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:19:46.943Z"
+              "WhenOpened": "2025-08-14T12:19:46.943Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 14,
               "Title": "insurance_processing.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_processing.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_processing.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Insurance\\insurance_processing.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_processing.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_processing.cs",
               "RelativeToolTip": "Report and Analytics Library\\Insurance\\insurance_processing.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:17:57.073Z"
+              "WhenOpened": "2025-08-14T12:17:57.073Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 12,
               "Title": "insurance_coverage_rules.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
               "RelativeToolTip": "Report and Analytics Library\\Insurance\\insurance_coverage_rules.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:15:03.127Z"
+              "WhenOpened": "2025-08-14T12:15:03.127Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 13,
               "Title": "insurance_claims.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_claims.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_claims.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Insurance\\insurance_claims.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Insurance\\insurance_claims.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Insurance\\insurance_claims.cs",
               "RelativeToolTip": "Report and Analytics Library\\Insurance\\insurance_claims.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAACcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:07:13.221Z"
+              "WhenOpened": "2025-08-14T12:07:13.221Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 16,
               "Title": "hr_payslips.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payslips.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payslips.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_payslips.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payslips.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payslips.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_payslips.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:04:06.457Z"
+              "WhenOpened": "2025-08-14T12:04:06.457Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 17,
               "Title": "hr_payroll_disbursement.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_payroll_disbursement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:00:39.11Z"
+              "WhenOpened": "2025-08-14T12:00:39.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 62,
               "Title": "payroll_action_log.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\payroll_action_log.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\payroll_action_log.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\payroll_action_log.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\payroll_action_log.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\payroll_action_log.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\payroll_action_log.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -582,23 +745,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 18,
               "Title": "hr_payroll_audit_log.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_payroll_audit_log.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:43:44.307Z"
+              "WhenOpened": "2025-08-14T01:43:44.307Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 63,
               "Title": "pay_status.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\pay_status.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\pay_status.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\pay_status.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\pay_status.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\pay_status.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\pay_status.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -606,11 +770,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 64,
               "Title": "disbursement_method.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\disbursement_method.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\disbursement_method.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\disbursement_method.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\disbursement_method.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\disbursement_method.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\disbursement_method.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -618,71 +782,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 19,
               "Title": "hr_payroll.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_payroll.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_payroll.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_payroll.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_payroll.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCUAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAB8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:18:37.366Z"
+              "WhenOpened": "2025-08-14T01:18:37.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 20,
               "Title": "hr_leave.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_leave.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_leave.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_leave.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_leave.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_leave.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_leave.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:13:06.811Z"
+              "WhenOpened": "2025-08-14T01:13:06.811Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 21,
               "Title": "hr_job.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_job.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_job.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_job.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_job.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_job.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_job.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:11:08.282Z"
+              "WhenOpened": "2025-08-14T01:11:08.282Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 22,
               "Title": "hr_employees_documents.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employees_documents.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employees_documents.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_employees_documents.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employees_documents.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employees_documents.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_employees_documents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:08:26.093Z"
+              "WhenOpened": "2025-08-14T01:08:26.093Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 23,
               "Title": "hr_employees.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employees.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employees.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_employees.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employees.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employees.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_employees.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAA6wDEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:53:08.776Z"
+              "WhenOpened": "2025-08-14T00:53:08.776Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 65,
               "Title": "pay_type.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\pay_type.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\pay_type.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\pay_type.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\pay_type.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\pay_type.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\pay_type.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -690,35 +859,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 24,
               "Title": "hr_employee_salary.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employee_salary.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employee_salary.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_employee_salary.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_employee_salary.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_employee_salary.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_employee_salary.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:49:16.168Z"
+              "WhenOpened": "2025-08-14T00:49:16.168Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 25,
               "Title": "hr_daily_attendance.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_daily_attendance.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_daily_attendance.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_daily_attendance.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_daily_attendance.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_daily_attendance.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_daily_attendance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:45:39.081Z"
+              "WhenOpened": "2025-08-14T00:45:39.081Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 66,
               "Title": "attendance_status.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_status.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_status.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\attendance_status.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_status.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_status.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\attendance_status.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -726,23 +897,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 26,
               "Title": "hr_attendance_logs.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_attendance_logs.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_attendance_logs.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_attendance_logs.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_attendance_logs.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_attendance_logs.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_attendance_logs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:41:24.406Z"
+              "WhenOpened": "2025-08-14T00:41:24.406Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 67,
               "Title": "attendance_log_method.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_log_method.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_log_method.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\attendance_log_method.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_log_method.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_log_method.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\attendance_log_method.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -750,11 +922,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 68,
               "Title": "attendance_log_type.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_log_type.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_log_type.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\attendance_log_type.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_log_type.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_log_type.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\attendance_log_type.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -762,23 +934,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 27,
               "Title": "hr_attendance_flags.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_attendance_flags.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_attendance_flags.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_attendance_flags.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_attendance_flags.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_attendance_flags.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_attendance_flags.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:37:00.233Z"
+              "WhenOpened": "2025-08-14T00:37:00.233Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 69,
               "Title": "attendance_flags.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_flags.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_flags.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\attendance_flags.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\attendance_flags.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\attendance_flags.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\attendance_flags.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -786,155 +959,167 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 28,
               "Title": "hr_application.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_application.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_application.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_application.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_application.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_application.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_application.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:29:59.542Z"
+              "WhenOpened": "2025-08-14T00:29:59.542Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 29,
               "Title": "hr_applicant_tracking.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_applicant_tracking.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:25:05.86Z"
+              "WhenOpened": "2025-08-14T00:25:05.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 30,
               "Title": "hr_applicant_documents.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_applicant_documents.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_applicant_documents.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\HR\\hr_applicant_documents.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\HR\\hr_applicant_documents.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\HR\\hr_applicant_documents.cs",
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_applicant_documents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:22:48.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "expense_logs.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
-              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:21:01.367Z"
+              "WhenOpened": "2025-08-14T00:22:48.65Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 46,
+              "Title": "expense_logs.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\expense_logs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T00:21:01.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
               "Title": "evaluation_summary_reports.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_summary_reports.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:06:45.56Z"
+              "WhenOpened": "2025-08-14T00:06:45.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 47,
               "Title": "evaluation_records.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_records.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:02:34.297Z"
+              "WhenOpened": "2025-08-14T00:02:34.297Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 48,
               "Title": "evaluation_criteria_metrics.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
               "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\evaluation_criteria_metrics.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:01:08.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "duty_assignment .cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
-              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:57:51.252Z"
+              "WhenOpened": "2025-08-14T00:01:08.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 50,
-              "Title": "doctor_evaluation_score.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
-              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Title": "duty_assignment .cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\duty_assignment .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:51:59.511Z"
+              "WhenOpened": "2025-08-13T23:57:51.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 51,
-              "Title": "results.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
-              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Title": "doctor_evaluation_score.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\doctor_evaluation_score.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:45:10.942Z"
+              "WhenOpened": "2025-08-13T22:51:59.511Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 41,
+              "Title": "results.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Doctor \u0026 Patient Treatment Analysis\\results.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:45:10.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "compliance_licensing.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\compliance_licensing.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\compliance_licensing.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\compliance_licensing.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\compliance_licensing.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\compliance_licensing.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\compliance_licensing.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:36:47.496Z"
+              "WhenOpened": "2025-08-13T22:36:47.496Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "claim_notes.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\claim_notes.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\claim_notes.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\claim_notes.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\claim_notes.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\claim_notes.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\claim_notes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:31:01.693Z"
+              "WhenOpened": "2025-08-13T22:31:01.693Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 70,
               "Title": "billsStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\billsStatus.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\billsStatus.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\billsStatus.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\billsStatus.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\billsStatus.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\billsStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -942,35 +1127,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "bills.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\bills.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\bills.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\bills.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\bills.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\bills.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\bills.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:27:33.504Z"
+              "WhenOpened": "2025-08-13T22:27:33.504Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 34,
               "Title": "billingsummary.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billingsummary.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billingsummary.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\billingsummary.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billingsummary.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billingsummary.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\billingsummary.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:26:09.222Z"
+              "WhenOpened": "2025-08-13T22:26:09.222Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 71,
               "Title": "billingStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\billingStatus.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\billingStatus.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\billingStatus.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\billingStatus.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\billingStatus.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\billingStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -978,23 +1165,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 35,
               "Title": "billing_records.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billing_records.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billing_records.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\billing_records.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billing_records.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billing_records.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\billing_records.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:20:31.135Z"
+              "WhenOpened": "2025-08-13T22:20:31.135Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 72,
               "Title": "itemType.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\itemType.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\itemType.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\itemType.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\itemType.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\itemType.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\itemType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1002,47 +1190,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 39,
               "Title": "billing_items.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billing_items.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billing_items.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\billing_items.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\billing_items.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\billing_items.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\billing_items.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:15:53.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "bill_items.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\bill_items.cs",
+              "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\bill_items.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\bill_items.cs",
+              "RelativeToolTip": "Report and Analytics Library\\Billing\\bill_items.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:15:53.163Z"
+              "WhenOpened": "2025-08-13T22:11:52.321Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "bill_items.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\bill_items.cs",
-              "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\bill_items.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\bill_items.cs",
-              "RelativeToolTip": "Report and Analytics Library\\Billing\\bill_items.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:11:52.321Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 37,
               "Title": "biiling_service.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\biiling_service.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\biiling_service.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Billing\\biiling_service.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Billing\\biiling_service.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Billing\\biiling_service.cs",
               "RelativeToolTip": "Report and Analytics Library\\Billing\\biiling_service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:09:58.248Z"
+              "WhenOpened": "2025-08-13T22:09:58.248Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 74,
               "Title": "log-20250810.txt",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Logs\\log-20250810.txt",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Logs\\log-20250810.txt",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Logs\\log-20250810.txt",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Logs\\log-20250810.txt",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Logs\\log-20250810.txt",
               "RelativeToolTip": "Report_and_Analytics_API\\Logs\\log-20250810.txt",
               "ViewState": "AgIAAJ0BAAAAAAAAAAAAAMABAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
@@ -1050,7 +1241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 75,
               "Title": "dbo.Appointments.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DESKTOP_7JK7O7F/AnalyticsDB/True/SqlTable/dbo.Appointments.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/DESKTOP_7JK7O7F/AnalyticsDB/True/SqlTable/dbo.Appointments.sql",
@@ -1059,31 +1250,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 76,
               "Title": "20250810004526_UPDATE DATABASE.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs",
+              "RelativeDocumentMoniker": "Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs",
+              "RelativeToolTip": "Report_and_Analytics_API\\Migrations\\20250810004526_UPDATE DATABASE.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T00:45:26.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 77,
               "Title": "20250810004318_initital.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs",
+              "RelativeDocumentMoniker": "Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs",
+              "RelativeToolTip": "Report_and_Analytics_API\\Migrations\\20250810004318_initital.cs",
               "ViewState": "AgIAAK8AAAAAAAAAAAAgwHsAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T00:43:18.97Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 60,
               "Title": "appointmentStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\appointmentStatus.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\appointmentStatus.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\appointmentStatus.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\appointmentStatus.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\appointmentStatus.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\appointmentStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1091,11 +1286,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 61,
               "Title": "claimStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\claimStatus.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\claimStatus.cs",
               "RelativeDocumentMoniker": "Report and Analytics Library\\Enums\\claimStatus.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Enums\\claimStatus.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Enums\\claimStatus.cs",
               "RelativeToolTip": "Report and Analytics Library\\Enums\\claimStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1103,27 +1298,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 53,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\appsettings.json",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\appsettings.json",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\appsettings.json",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\appsettings.json",
               "RelativeToolTip": "Report_and_Analytics_API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-06T00:02:11.742Z"
+              "WhenOpened": "2025-08-06T00:02:11.742Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 73,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Program.cs",
+              "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Program.cs",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Program.cs",
-              "ToolTip": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Program.cs",
+              "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Program.cs",
               "RelativeToolTip": "Report_and_Analytics_API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-05T23:59:55.459Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

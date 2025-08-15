@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Report_and_Analytics_Library.Enums;
 
@@ -16,6 +17,7 @@ namespace Report_and_Analytics_Library.HR
 
         [ForeignKey("hr_payroll")]
         public int? payroll_id { get; set; }
+        [JsonIgnore]
         public hr_payroll hr_payroll { get; set; }
 
         public string processed_by { get; set; }

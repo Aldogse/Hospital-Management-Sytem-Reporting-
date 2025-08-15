@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Pharmacy
@@ -16,6 +17,7 @@ namespace Report_and_Analytics_Library.Pharmacy
 
         [ForeignKey("emr")]
         public int emr_id { get; set; }
+        [JsonIgnore]
         public emr emr { get; set; }
 
         public string? medication_name { get; set; }
