@@ -6771,23 +6771,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ezekiel\\.nuget\\packages\\": {},
+    "C:\\Users\\Mypc\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "projectUniqueName": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
       "projectName": "Report_and_Analytics_API",
-      "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
-      "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
-      "outputPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\obj\\",
+      "projectPath": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "packagesPath": "C:\\Users\\Mypc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ezekiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mypc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6795,14 +6795,15 @@
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj": {
-              "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj"
+            "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj": {
+              "projectPath": "C:\\Users\\Mypc\\Desktop\\Report_Analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj"
             }
           }
         }
@@ -6897,8 +6898,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }
