@@ -14,6 +14,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public int evaluation_id { get; set; }
         public int criterion_id { get; set; }
         public int score { get; set; }
-        public int MyProperty { get; set; }
+        public int remarks { get; set; }
     }
 }

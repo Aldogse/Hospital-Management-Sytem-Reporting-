@@ -17,7 +17,7 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [ForeignKey("Appointment")]
         public int appointmentID { get; set; }
         [JsonIgnore]
-        public appointment Appointment { get; set; }
+        public patient_appointment Appointment { get; set; }
 
         public DateOnly resultDate { get; set; }
         public string? result { get; set; }

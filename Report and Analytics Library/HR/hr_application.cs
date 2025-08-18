@@ -22,9 +22,10 @@ namespace Report_and_Analytics_Library.HR
         public string? role { get; set; }
         public string? specialization { get; set; }
         public string? status { get; set; }
-        public DateTime date_applied { get; set; }
+        public DateTime date_applied { get; set; }              
         public string? document_type { get; set; }
         public string? file_path { get; set; }
         public DateTime uploaded_at { get; set; }
+        public List<hr_applicant_documents> Documents { get; set; }
     }
 }

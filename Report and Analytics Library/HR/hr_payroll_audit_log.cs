@@ -20,7 +20,7 @@ namespace Report_and_Analytics_Library.HR
         [JsonIgnore]
         public hr_payroll hr_payroll { get; set; }
 
-        public string processed_by { get; set; }
+        public string? processed_by { get; set; }
         public payroll_action_log? action { get; set; }
         public string? remarks { get; set; }
         public DateTime timestamp { get; set; }

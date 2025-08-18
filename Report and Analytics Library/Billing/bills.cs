@@ -17,10 +17,10 @@ namespace Report_and_Analytics_Library.Billing
         public int bill_id { get; set; }
 
 
-        [ForeignKey("patientinfo")]
+        [ForeignKey("patient_Reg")]
         public int patient_id { get; set; }
         [JsonIgnore]
-        public patientinfo patientinfo { get; set; }
+        public patient_reg patient_Reg { get; set; }
 
 
         public decimal total_amount { get; set; }

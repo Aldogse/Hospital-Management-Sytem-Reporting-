@@ -23,7 +23,7 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [ForeignKey("appointment")]
         public int? appointment_id { get; set; }
         [JsonIgnore]
-        public appointment appointment { get; set; }
+        public p_appointment appointment { get; set; }
 
 
         public DateTime visit_date { get; set; }
