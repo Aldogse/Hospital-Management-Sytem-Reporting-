@@ -50,5 +50,9 @@ namespace Report_and_Analytics_Library.HR
         public DateTime? created_at { get; set; }
         public DateTime? update_at { get; set; }
         public List<hr_attendance_flags> attendance_Flags { get; set; }
+        public List<hr_leave> hr_Leaves { get; set; }
+        public List<hr_payroll> hr_Payrolls { get; set; }
+        public List<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }
+        public List<hr_payslips> hr_Payslips { get; set; }
     }
 }

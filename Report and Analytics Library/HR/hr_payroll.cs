@@ -40,5 +40,8 @@ namespace Report_and_Analytics_Library.HR
         public disbursement_method disbursement_method { get; set; }
         public pay_status status { get; set; }
         public DateTime date_generated { get; set; }
+        public List<hr_payroll_audit_log> hr_Payroll_Audit_Logs { get; set; }
+        public List<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }
+        public List<hr_payslips> hr_Payslips { get; set; }
     }
 }

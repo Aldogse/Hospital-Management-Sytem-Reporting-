@@ -28,5 +28,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string? purpose { get; set; }
         public appointmentStatus status { get; set; }
         public string? notes { get; set; }
+        public List<emr> emrs { get; set; }
     }
 }

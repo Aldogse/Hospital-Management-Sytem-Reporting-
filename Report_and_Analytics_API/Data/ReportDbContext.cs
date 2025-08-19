@@ -112,6 +112,99 @@ namespace Report_and_Analytics_API.Data
                 .WithMany(i => i.attendance_Flags)
                 .HasForeignKey(i => i.employee_id)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_leave>().
+                HasOne(i => i.hr_Employees)
+                .WithMany(i => i.hr_Leaves)
+                .HasForeignKey(i => i.employee_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_payroll>()
+                .HasOne(i => i.hr_Employees)
+                .WithMany(i => i.hr_Payrolls)
+                .HasForeignKey(i => i.employee_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_payroll_audit_log>()
+                .HasOne(i => i.hr_payroll)
+                .WithMany(i => i.hr_Payroll_Audit_Logs)
+                .HasForeignKey(i => i.payroll_id)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<hr_payroll_disbursement>()
+                .HasOne(i => hr_payroll)
+                .WithMany(i => hr_payroll_disbursement)
+                .HasForeignKey(i => i.payroll_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_payroll_disbursement>()
+                .HasOne(i => i.hr_Employees)
+                .WithMany(i => i.hr_Payroll_Disbursements)
+                .HasForeignKey(i => i.employee_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_payslips>()
+                .HasOne(i => i.hr_Payroll)
+                .WithMany(i => i.hr_Payslips)
+                .HasForeignKey(i => i.payroll_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<hr_payslips>()
+                .HasOne(i => i.hr_Employees)
+                .WithMany(i => i.hr_Payslips)
+                .HasForeignKey(i => i.employee_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<p_appointment>()
+                .HasOne(i => i.patientinfo)
+                .WithMany(i => i.p_Appointments)
+                .HasForeignKey(i => i.appointment_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<bed_assignments>()
+                .HasOne(i => i.patientinfo)
+                .WithMany(i => i.bed_Assignments)
+                .HasForeignKey(i => i.patient_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<bed_assignments>()
+               .HasOne(i => i.beds)
+               .WithMany(i => i.bed_Assignments)
+               .HasForeignKey(i => i.bed_id)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<emr>()
+                .HasOne(i => i.patientinfo)
+                .WithMany(i => i.emr)
+                .HasForeignKey(i => i.patient_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<emr>()
+                .HasOne(i => i.appointment)
+                .WithMany(i => i.emrs)
+                .HasForeignKey(i => i.appointment_id)
+                .OnDelete(DeleteBehavior.SetNull);
+
+
+            modelBuilder.Entity<prescriptions>()
+                .HasOne(i => i.emr)
+                .WithMany(i => i.prescriptions)
+                .HasForeignKey(i => i.emr_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<treatment_history>()
+               .HasOne(i => i.patientinfo)
+               .WithMany(i => i.treatment_Histories)
+               .HasForeignKey(i => i.patient_id)
+               .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<treatment_history>()
+               .HasOne(i => i.hospital_Services)
+               .WithMany(i => treatment_history)
+               .HasForeignKey(i => i.service_id)
+               .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

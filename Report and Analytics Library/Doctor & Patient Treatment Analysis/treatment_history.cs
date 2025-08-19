@@ -24,11 +24,12 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [ForeignKey("hospital_Services")]
         public int service_id { get; set; }
         [JsonIgnore]
-        public hospital_services hospital_Services { get; set; }
+         public List<hospital_services> hospital_Services { get; set; }
 
 
         public DateTime date_used { get; set; }
         public string? attending_staff { get; set; }
         public string? notes { get; set; }
+      
     }
 }

@@ -18,5 +18,6 @@ namespace Report_and_Analytics_Library.Property_Management
         public bedType bed_type { get; set; }
         public bedStatus status { get; set; }
         public string? notes { get; set; }
+        public List<bed_assignments> bed_Assignments { get; set; }
     }
 }

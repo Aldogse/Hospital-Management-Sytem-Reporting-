@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Report_and_Analytics_Library.Pharmacy;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,5 +33,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string? treatment { get; set; }
         public string? attending_physician { get; set; }
         public string? notes { get; set; }
+        public List<prescriptions> prescriptions { get; set; }
     }
 }
