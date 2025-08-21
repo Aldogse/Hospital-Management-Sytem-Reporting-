@@ -25,9 +25,9 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string admission_type { get; set; }
         public int bed_number { get; set; }
         public int attending_doctor { get; set; }
-        public List<p_appointment> p_Appointments { get; set; }
-        public List<bed_assignments> bed_Assignments { get; set; }
-        public List<emr> emr { get; set; }
-        public List<treatment_history> treatment_Histories { get; set; }
+        public ICollection<p_appointment> p_Appointments { get; set; }
+        public ICollection<bed_assignments> bed_Assignments { get; set; }
+        public ICollection<emr> emr { get; set; }
+        public ICollection<treatment_history> treatment_Histories { get; set; }
     }
 }

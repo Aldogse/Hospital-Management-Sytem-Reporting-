@@ -2465,6 +2465,16 @@
           }
         }
       },
+      "APIResponses/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/APIResponses.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/APIResponses.dll": {}
+        }
+      },
       "Report and Analytics Library/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -6746,6 +6756,11 @@
         "version.txt"
       ]
     },
+    "APIResponses/1.0.0": {
+      "type": "project",
+      "path": "../APIResponses/APIResponses.csproj",
+      "msbuildProject": "../APIResponses/APIResponses.csproj"
+    },
     "Report and Analytics Library/1.0.0": {
       "type": "project",
       "path": "../Report and Analytics Library/Report and Analytics Library.csproj",
@@ -6754,6 +6769,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "APIResponses >= 1.0.0",
       "EFCore.BulkExtensions >= 9.0.1",
       "Microsoft.AspNetCore.OpenApi >= 8.0.18",
       "Microsoft.Data.SqlClient >= 6.1.0-preview2.25178.5",
@@ -6771,23 +6787,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mypc\\.nuget\\packages\\": {},
+    "C:\\Users\\Ezekiel\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mypc\\Desktop\\Report and analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "projectUniqueName": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
       "projectName": "Report_and_Analytics_API",
-      "projectPath": "C:\\Users\\Mypc\\Desktop\\Report and analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
-      "packagesPath": "C:\\Users\\Mypc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mypc\\Desktop\\Report and analytics\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\obj\\",
+      "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
+      "outputPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mypc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ezekiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6795,15 +6811,17 @@
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mypc\\Desktop\\Report and analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj": {
-              "projectPath": "C:\\Users\\Mypc\\Desktop\\Report and analytics\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj"
+            "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj": {
+              "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj"
+            },
+            "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj": {
+              "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj"
             }
           }
         }
@@ -6898,7 +6916,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

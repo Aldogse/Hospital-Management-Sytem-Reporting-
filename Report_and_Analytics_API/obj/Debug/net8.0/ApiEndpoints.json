@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
+    "Method": "Get",
+    "RelativePath": "Hr/getPayrollInformation/{employee_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employee_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,406 @@
+2025-08-20 09:43:55.608 +08:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-08-20 09:43:55.624 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger - null null
+2025-08-20 09:43:55.704 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:43:55.705 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:43:55.705 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:43:55.826 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:43:55.834 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger - 301 null null 214.7246ms
+2025-08-20 09:43:55.880 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 54.3285ms
+2025-08-20 09:43:55.884 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui-bundle.js - null null
+2025-08-20 09:43:55.901 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:43:55.907 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui-standalone-preset.js - null null
+2025-08-20 09:43:55.907 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/swagger-ui.css - null null
+2025-08-20 09:43:55.910 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:43:55.914 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.3792ms
+2025-08-20 09:43:55.945 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-08-20 09:43:55.945 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-08-20 09:43:55.946 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui.css - 200 152034 text/css 39.3048ms
+2025-08-20 09:43:55.956 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 49.0677ms
+2025-08-20 09:43:55.960 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-08-20 09:43:55.976 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.7316ms
+2025-08-20 09:43:55.980 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 96.939ms
+2025-08-20 09:43:56.123 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:43:56.130 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.8305ms
+2025-08-20 09:43:56.147 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/favicon-32x32.png - null null
+2025-08-20 09:43:56.148 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-08-20 09:43:56.148 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/favicon-32x32.png - 200 628 image/png 1.5699ms
+2025-08-20 09:45:13.982 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:45:14.013 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:45:14.023 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:45:14.023 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:45:14.240 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:45:14.240 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:45:14.241 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 265.9451ms
+2025-08-20 09:45:14.243 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.1145ms
+2025-08-20 09:45:14.270 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.9209ms
+2025-08-20 09:45:14.385 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:45:14.394 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.3006ms
+2025-08-20 09:45:20.046 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:45:20.057 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:45:20.078 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:45:20.086 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API) in 4.8754ms
+2025-08-20 09:45:20.087 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:45:20.088 +08:00 [ERR] HTTP GET /hr_leave/GethrLeaves responded 500 in 38.1401 ms
+System.InvalidOperationException: Unable to resolve service for type 'Report_and_Analytics_API.Interface.IhrLeaveRepository' while attempting to activate 'Report_and_Analytics_API.Controllers.hr_leave_Controller'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-08-20 09:45:20.174 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Report_and_Analytics_API.Interface.IhrLeaveRepository' while attempting to activate 'Report_and_Analytics_API.Controllers.hr_leave_Controller'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 09:45:20.179 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - 500 null text/plain; charset=utf-8 133.1371ms
+2025-08-20 09:45:45.655 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:45:45.781 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:45:45.782 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:45:45.782 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:45:45.860 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 211.753ms
+2025-08-20 09:45:45.863 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:45:45.864 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:45:45.872 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.2356ms
+2025-08-20 09:45:45.900 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.3584ms
+2025-08-20 09:45:45.939 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:45:45.946 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.195ms
+2025-08-20 09:45:50.595 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:45:50.602 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:45:50.615 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:45:50.624 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API) in 2.6584ms
+2025-08-20 09:45:50.625 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:45:50.626 +08:00 [ERR] HTTP GET /hr_leave/GethrLeaves responded 500 in 26.3852 ms
+System.InvalidOperationException: Unable to resolve service for type 'Report_and_Analytics_API.Interface.IhrLeaveRepository' while attempting to activate 'Report_and_Analytics_API.Controllers.hr_leave_Controller'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-08-20 09:45:50.658 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Report_and_Analytics_API.Interface.IhrLeaveRepository' while attempting to activate 'Report_and_Analytics_API.Controllers.hr_leave_Controller'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 09:45:50.662 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - 500 null text/plain; charset=utf-8 66.9209ms
+2025-08-20 09:46:51.098 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:46:51.217 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:46:51.218 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:46:51.218 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:46:51.290 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:46:51.290 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:46:51.291 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 199.379ms
+2025-08-20 09:46:51.293 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 2.9506ms
+2025-08-20 09:46:51.341 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.9952ms
+2025-08-20 09:46:51.368 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:46:51.375 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.8439ms
+2025-08-20 09:46:54.756 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:46:54.763 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:46:54.778 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:47:34.813 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:47:34.842 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:47:34.852 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:47:34.852 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:47:35.042 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:47:35.042 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:47:35.043 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 235.6738ms
+2025-08-20 09:47:35.050 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.8609ms
+2025-08-20 09:47:35.083 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.1754ms
+2025-08-20 09:47:35.120 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:47:35.128 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.4163ms
+2025-08-20 09:47:38.109 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:47:38.115 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:47:38.129 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:50:09.803 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:50:09.836 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:50:09.845 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:50:09.845 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:50:10.029 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 232.9019ms
+2025-08-20 09:50:10.031 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:50:10.043 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:50:10.043 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.1056ms
+2025-08-20 09:50:10.077 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.7788ms
+2025-08-20 09:50:10.112 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:50:10.137 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.5078ms
+2025-08-20 09:50:12.472 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:50:12.478 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:50:12.492 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:51:23.473 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:51:23.503 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:51:23.513 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:51:23.513 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:51:23.675 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:51:23.676 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:51:23.675 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 209.0745ms
+2025-08-20 09:51:23.682 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.4326ms
+2025-08-20 09:51:23.721 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.7648ms
+2025-08-20 09:51:23.759 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:51:23.765 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.1844ms
+2025-08-20 09:51:31.563 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:51:31.568 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:51:31.582 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:52:42.141 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:52:42.172 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:52:42.182 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:52:42.182 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:52:42.351 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:52:42.351 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:52:42.351 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 215.5483ms
+2025-08-20 09:52:42.357 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.7257ms
+2025-08-20 09:52:42.404 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.4158ms
+2025-08-20 09:52:42.428 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:52:42.436 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.463ms
+2025-08-20 09:52:44.832 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:52:44.839 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:52:44.853 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:56:42.503 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:56:42.533 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:56:42.544 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:56:42.544 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:56:42.710 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:56:42.710 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:56:42.711 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 214.1002ms
+2025-08-20 09:56:42.717 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.5898ms
+2025-08-20 09:56:42.752 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.1526ms
+2025-08-20 09:56:42.780 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:56:42.786 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.9675ms
+2025-08-20 09:56:45.572 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:56:45.579 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:56:45.592 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:57:20.118 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:57:20.140 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:57:20.151 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:57:20.151 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:57:20.296 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 184.3671ms
+2025-08-20 09:57:20.299 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:57:20.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:57:20.305 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.605ms
+2025-08-20 09:57:20.349 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.9611ms
+2025-08-20 09:57:20.380 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:57:20.385 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.9983ms
+2025-08-20 09:57:22.764 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 09:57:22.770 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 09:57:22.783 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 09:59:57.764 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 09:59:57.793 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 09:59:57.803 +08:00 [INF] Hosting environment: Development
+2025-08-20 09:59:57.803 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 09:59:57.972 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 09:59:57.972 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 09:59:57.973 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 212.31ms
+2025-08-20 09:59:57.979 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.1517ms
+2025-08-20 09:59:58.010 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.2474ms
+2025-08-20 09:59:58.037 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 09:59:58.043 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.3319ms
+2025-08-20 10:00:00.167 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:00:00.173 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:00:00.187 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:03:04.388 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 10:03:04.420 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 10:03:04.430 +08:00 [INF] Hosting environment: Development
+2025-08-20 10:03:04.430 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 10:03:04.609 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 10:03:04.610 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 10:03:04.608 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 226.0467ms
+2025-08-20 10:03:04.617 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.9928ms
+2025-08-20 10:03:04.648 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.1761ms
+2025-08-20 10:03:04.681 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 10:03:04.688 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.2271ms
+2025-08-20 10:03:06.610 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:03:06.615 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:03:06.629 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:04:51.793 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 10:04:51.822 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 10:04:51.834 +08:00 [INF] Hosting environment: Development
+2025-08-20 10:04:51.834 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 10:04:51.986 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 198.8984ms
+2025-08-20 10:04:51.995 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 10:04:51.995 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 10:04:51.998 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 2.8518ms
+2025-08-20 10:04:52.031 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.1013ms
+2025-08-20 10:04:52.072 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 10:04:52.082 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.1144ms
+2025-08-20 10:04:54.408 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:04:54.415 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:04:54.429 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:05:28.506 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 10:05:28.534 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 10:05:28.544 +08:00 [INF] Hosting environment: Development
+2025-08-20 10:05:28.544 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 10:05:28.711 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 10:05:28.711 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 10:05:28.712 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 206.9046ms
+2025-08-20 10:05:28.718 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.4137ms
+2025-08-20 10:05:28.749 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.1447ms
+2025-08-20 10:05:28.778 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 10:05:28.786 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.2783ms
+2025-08-20 10:05:30.665 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:05:30.671 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:05:30.685 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:06:54.062 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 10:06:54.089 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 10:06:54.099 +08:00 [INF] Hosting environment: Development
+2025-08-20 10:06:54.099 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 10:06:54.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 10:06:54.252 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 10:06:54.251 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 196.7618ms
+2025-08-20 10:06:54.257 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 2.8025ms
+2025-08-20 10:06:54.290 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6951ms
+2025-08-20 10:06:54.328 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 10:06:54.334 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.2956ms
+2025-08-20 10:06:58.849 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:06:58.855 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:06:58.868 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:07:32.848 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 10:07:32.876 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 10:07:32.887 +08:00 [INF] Hosting environment: Development
+2025-08-20 10:07:32.887 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 10:07:33.041 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 10:07:33.043 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 10:07:33.044 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 199.606ms
+2025-08-20 10:07:33.049 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.0286ms
+2025-08-20 10:07:33.077 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.6459ms
+2025-08-20 10:07:33.119 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 10:07:33.126 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.1059ms
+2025-08-20 10:07:35.220 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 10:07:35.226 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:07:35.240 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 10:07:39.131 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+2025-08-20 10:07:41.290 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Report_and_Analytics_Library.HR.hr_leave, Report and Analytics Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-20 10:07:42.761 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API) in 7517.9591ms
+2025-08-20 10:07:42.761 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 10:07:42.763 +08:00 [INF] HTTP GET /hr_leave/GethrLeaves responded 200 in 7538.7982 ms
+2025-08-20 10:07:42.769 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - 200 null application/json; charset=utf-8 7549.1759ms
+2025-08-20 11:28:01.591 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-20 11:28:01.613 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 11:28:01.635 +08:00 [INF] Hosting environment: Development
+2025-08-20 11:28:01.635 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-20 11:28:01.821 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 236.7606ms
+2025-08-20 11:28:01.825 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-20 11:28:01.831 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 2.3622ms
+2025-08-20 11:28:01.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-20 11:28:01.868 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.2503ms
+2025-08-20 11:28:01.910 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-20 11:28:01.915 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.8112ms
+2025-08-20 11:28:08.619 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - null null
+2025-08-20 11:28:08.627 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 11:28:08.644 +08:00 [INF] Route matched with {action = "Get", controller = "hr_leave_"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[Report_and_Analytics_Library.HR.hr_leave]] Get() on controller Report_and_Analytics_API.Controllers.hr_leave_Controller (Report_and_Analytics_API).
+2025-08-20 11:28:15.911 +08:00 [ERR] An error occurred using the connection to database 'hmscapstone' on server 'localhost'.
+2025-08-20 11:28:15.990 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-08-20 11:28:16.163 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API) in 7516.5585ms
+2025-08-20 11:28:16.164 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hr_leave_Controller.Get (Report_and_Analytics_API)'
+2025-08-20 11:28:16.165 +08:00 [ERR] HTTP GET /hr_leave/GethrLeaves responded 500 in 7541.2863 ms
+System.Exception: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+   at Report_and_Analytics_API.Controllers.hr_leave_Controller.Get() in F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\Controllers\hr_leave_Controller.cs:line 28
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-08-20 11:28:16.178 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+   at Report_and_Analytics_API.Controllers.hr_leave_Controller.Get() in F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\Controllers\hr_leave_Controller.cs:line 28
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 11:28:16.193 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/hr_leave/GethrLeaves - 500 null text/plain; charset=utf-8 7573.8491ms

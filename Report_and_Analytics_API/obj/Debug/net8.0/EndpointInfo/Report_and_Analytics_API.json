@@ -4,6 +4,30 @@
     "title": "Report_and_Analytics_API",
     "version": "1.0"
   },
-  "paths": { },
+  "paths": {
+    "/Hr/getPayrollInformation/{employee_id}": {
+      "get": {
+        "tags": [
+          "hr"
+        ],
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
   "components": { }
 }

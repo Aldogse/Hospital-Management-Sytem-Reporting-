@@ -1,0 +1,12 @@
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\bin\Debug\net8.0\APIResponses.deps.json
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\bin\Debug\net8.0\APIResponses.dll
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\bin\Debug\net8.0\APIResponses.pdb
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.GeneratedMSBuildEditorConfig.editorconfig
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.AssemblyInfoInputs.cache
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.AssemblyInfo.cs
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.csproj.CoreCompileInputs.cache
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.sourcelink.json
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.dll
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\refint\APIResponses.dll
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.pdb
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\ref\APIResponses.dll

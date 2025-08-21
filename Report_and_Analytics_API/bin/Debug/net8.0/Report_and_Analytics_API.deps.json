@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "Report_and_Analytics_API/1.0.0": {
         "dependencies": {
+          "APIResponses": "1.0.0",
           "EFCore.BulkExtensions": "9.0.1",
           "Microsoft.AspNetCore.OpenApi": "8.0.18",
           "Microsoft.Data.SqlClient": "6.1.0-preview2.25178.5",
@@ -1512,6 +1513,14 @@
           }
         }
       },
+      "APIResponses/1.0.0": {
+        "runtime": {
+          "APIResponses.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Report and Analytics Library/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.0.32"
@@ -2419,6 +2428,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "APIResponses/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Report and Analytics Library/1.0.0": {
       "type": "project",

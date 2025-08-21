@@ -597,3 +597,6 @@ C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\
 C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_a.A0414363.Up2Date
 C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.genruntimeconfig.cache
 C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\ref\Report_and_Analytics_API.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.sourcelink.json
+F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\bin\Debug\net8.0\APIResponses.dll
+F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\bin\Debug\net8.0\APIResponses.pdb

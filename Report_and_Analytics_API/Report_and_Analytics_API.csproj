@@ -26,13 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\APIResponses\APIResponses.csproj" />
     <ProjectReference Include="..\Report and Analytics Library\Report and Analytics Library.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

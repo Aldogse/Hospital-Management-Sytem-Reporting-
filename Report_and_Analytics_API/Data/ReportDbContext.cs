@@ -131,11 +131,11 @@ namespace Report_and_Analytics_API.Data
                 .HasForeignKey(i => i.payroll_id)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            modelBuilder.Entity<hr_payroll_disbursement>()
-                .HasOne(i => hr_payroll)
-                .WithMany(i => hr_payroll_disbursement)
-                .HasForeignKey(i => i.payroll_id)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<hr_payroll_disbursement>()
+            //    .HasOne(i => hr_payroll)
+            //    .WithMany(i => hr_payroll_disbursement)
+            //    .HasForeignKey(i => i.payroll_id)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<hr_payroll_disbursement>()
                 .HasOne(i => i.hr_Employees)
@@ -201,7 +201,7 @@ namespace Report_and_Analytics_API.Data
 
             modelBuilder.Entity<treatment_history>()
                .HasOne(i => i.hospital_Services)
-               .WithMany(i => treatment_history)
+               .WithMany(i => i.treatment_Histories)
                .HasForeignKey(i => i.service_id)
                .OnDelete(DeleteBehavior.Cascade);
 

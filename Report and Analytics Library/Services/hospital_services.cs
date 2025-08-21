@@ -17,7 +17,7 @@ namespace Report_and_Analytics_Library.Services
 
         public string? department { get; set; }
         public decimal cost { get; set; }
-        public List<treatment_history> treatment_Histories { get; set; }
+        public ICollection<treatment_history> treatment_Histories { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Report_and_Analytics_Library.HR
 {
     public class hr_attendance_logs
     {
+        [Key]
         public int log_id { get; set; }
 
         [ForeignKey("hr_Employees")]

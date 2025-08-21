@@ -14,7 +14,8 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
     public class p_appointment
     {
         [Key]
-        public shift_scheduling appointment_id { get; set; }
+        public int appointment_id { get; set; }
+        [NotMapped]
         [JsonIgnore]
         public shift_scheduling shift_Scheduling { get; set; }
 
@@ -28,6 +29,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string? purpose { get; set; }
         public appointmentStatus status { get; set; }
         public string? notes { get; set; }
-        public List<emr> emrs { get; set; }
+        public ICollection<emr> emrs { get; set; }
     }
 }
