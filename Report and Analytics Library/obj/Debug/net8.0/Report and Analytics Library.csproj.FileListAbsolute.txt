@@ -37,3 +37,16 @@ C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\
 C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.pdb
 C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\ref\Report and Analytics Library.dll
 F:\Hospital Management System\Report_and_Analytics_API\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.sourcelink.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.deps.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\bin\Debug\net8.0\Report and Analytics Library.pdb
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.csproj.AssemblyReference.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.AssemblyInfoInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.AssemblyInfo.cs
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.csproj.CoreCompileInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.sourcelink.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\refint\Report and Analytics Library.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\Report and Analytics Library.pdb
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report and Analytics Library\obj\Debug\net8.0\ref\Report and Analytics Library.dll

@@ -16,5 +16,10 @@ namespace Report_and_Analytics_API.Repository
         {
             return await _reportDbContext.hr_employees.Where(i => i.employee_id == employeeId).FirstOrDefaultAsync();
         }
+
+        public Task<hr_employees> getTotalHoursWorked(int employeeId, int month)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

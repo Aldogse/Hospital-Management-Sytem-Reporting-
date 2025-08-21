@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EFCore.BulkExtensions" Version="9.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.18" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.0-preview2.25178.5" />
@@ -32,8 +43,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Migrations\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

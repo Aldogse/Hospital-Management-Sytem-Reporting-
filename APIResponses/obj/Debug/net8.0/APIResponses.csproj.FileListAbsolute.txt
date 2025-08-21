@@ -10,3 +10,15 @@ F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\ne
 F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\refint\APIResponses.dll
 F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.pdb
 F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\ref\APIResponses.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\bin\Debug\net8.0\APIResponses.deps.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\bin\Debug\net8.0\APIResponses.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\bin\Debug\net8.0\APIResponses.pdb
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.AssemblyInfoInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.AssemblyInfo.cs
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.csproj.CoreCompileInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.sourcelink.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\refint\APIResponses.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.pdb
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\ref\APIResponses.dll

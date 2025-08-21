@@ -600,3 +600,15 @@ C:\Users\Mypc\Desktop\Report and analytics\Hospital-Management-Sytem-Reporting-\
 F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.sourcelink.json
 F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\bin\Debug\net8.0\APIResponses.dll
 F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API\bin\Debug\net8.0\APIResponses.pdb
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.csproj.AssemblyReference.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.AssemblyInfoInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.AssemblyInfo.cs
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.csproj.CoreCompileInputs.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.sourcelink.json
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\refint\Report_and_Analytics_API.dll
+C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.pdb
