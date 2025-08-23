@@ -33,7 +33,7 @@ namespace Report_and_Analytics_API.Controllers
             }
             try
             {
-               
+                return Ok();
             }
             catch (NullReferenceException ex)
             {

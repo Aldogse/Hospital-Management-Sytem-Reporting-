@@ -18,23 +18,50 @@ namespace Report_and_Analytics_API.Repository
             return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.date_generated == dateGenerated).FirstOrDefaultAsync();
         }
 
+
         //THIS IS TO GET ALL THE AVAILABLE DATES ON PAYROLL THAT WILL BE USED TO GET CURRENT PAYROLL INFO
         //DURING THAT TIME
-        public async Task<List<DateTime>> payrollDates()
+        public async Task<List<DateTime>> payrollStatementDates()
         {
             return await _reportDbContext.hr_payroll.Select(i => i.date_generated).ToListAsync();
         }
 
-        public async Task<List<hr_payroll>> totalDeductionToAbsence(int month)
+
+        //THIS QUERY IS TO GET THE LOSS OF EMPLOYEES DUE TO ABSENCES FOR THE MONTH
+        public async Task<List<decimal>> totalDeductionToAbsence(int month)
         {
-            return await _reportDbContext.hr_payroll.Where(i => i.date_generated.Month == month
-                                                           && i.absence_deduction > 0).ToListAsync();
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.date_generated.Month == month
+                                                           && i.absence_deduction > 0)
+                                                           .Select(i => i.absence_deduction)
+                                                           .ToListAsync();
         }
 
-        public async Task<List<hr_payroll>> totalMonthSalaryPaid(int month)
+        //THIS IS TO CHECK HOW MUCH THE COMPANY PAID FOR SALARY AFTER TAXES ARE APPLIED
+        public async Task<List<decimal?>> totalMonthSalaryPaidAfterTaxes(int month)
         {
-            return await _reportDbContext.hr_payroll.Where(i => i.date_generated.Month == month
-                                                           && i.net_pay > 0).ToListAsync();
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.date_generated.Month == month
+                                                           && i.net_pay > 0)
+                                                           .Select(i => i.net_pay)
+                                                           .ToListAsync();
+        }
+
+
+
+        //THIS SECTION BELOW IS QUERY FOR PAYROLL STATEMENT FORM
+        public async Task<decimal?> payCycleOvertimeHours(int employeeId, DateOnly payStartDate)
+        {
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId
+                                                                                 && i.pay_period_start == payStartDate)
+                                                                                 .Select(i => i.overtime_hours)
+                                                                                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<decimal?> payCycleOvertimeHoursPaidAmount(int employeeId, DateOnly payStartDate)
+        {
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId 
+                                                                                        && i.pay_period_start == payStartDate)
+                                                                                 .Select(i => i.overtime_pay)
+                                                                                 .FirstOrDefaultAsync();
         }
     }
 }

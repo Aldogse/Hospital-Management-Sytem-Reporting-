@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mypc\\Desktop\\Thesis\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj": {}
+    "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mypc\\Desktop\\Thesis\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj": {
+    "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mypc\\Desktop\\Thesis\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj",
+        "projectUniqueName": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj",
         "projectName": "APIResponses",
-        "projectPath": "C:\\Users\\Mypc\\Desktop\\Thesis\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj",
-        "packagesPath": "C:\\Users\\Mypc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mypc\\Desktop\\Thesis\\Hospital-Management-Sytem-Reporting-\\APIResponses\\obj\\",
+        "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj",
+        "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
+        "outputPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mypc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ezekiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,6 @@
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

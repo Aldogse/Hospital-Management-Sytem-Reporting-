@@ -20,7 +20,7 @@ namespace Report_and_Analytics_Library.HR
         [JsonIgnore]
         public hr_employees hr_Employees { get; set; }
 
-        public DateOnly? pay_period_start { get; set; }
+        public DateOnly pay_period_start { get; set; }
         public DateOnly? pay_period_end { get; set; }
         public int days_worked { get; set; }
         public decimal overtime_hours { get; set; }

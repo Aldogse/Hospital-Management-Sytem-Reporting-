@@ -17,9 +17,27 @@ namespace Report_and_Analytics_API.Repository
             return await _reportDbContext.hr_employees.Where(i => i.employee_id == employeeId).FirstOrDefaultAsync();
         }
 
-        public Task<hr_employees> getTotalHoursWorked(int employeeId, int month)
+        //THIS SECTION BELOW IS FOR ANNUAL PAYROLL SUMMARY REPORT QUERIES
+        public async Task<List<decimal>> getMonthOvertimeHours(int employeeId, int month)
         {
-            throw new NotImplementedException();
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId &&
+                                                    i.pay_period_start.Month == month)
+                                                    .Select(t => t.overtime_hours).ToListAsync();
+        }
+
+        public async Task<List<decimal?>> getMonthTotalHoursWorked(int employeeId, int month)
+        {
+            return await _reportDbContext.hr_daily_attendance.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId
+                                                              && i.attendance_date.Month == month)
+                                                             .Select(w => w.working_hours)
+                                                             .ToListAsync();
+        }
+
+        public async Task<List<decimal?>> getMonthTotalWage(int employeeId, int month)
+        {
+            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId
+                                                           && i.pay_period_start.Month == month).Select(i => i.net_pay)
+                                                           .ToListAsync();
         }
     }
 }
