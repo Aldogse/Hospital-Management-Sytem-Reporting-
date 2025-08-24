@@ -21,9 +21,9 @@ namespace Report_and_Analytics_API.Repository
 
         //THIS IS TO GET ALL THE AVAILABLE DATES ON PAYROLL THAT WILL BE USED TO GET CURRENT PAYROLL INFO
         //DURING THAT TIME
-        public async Task<List<DateTime>> payrollStatementDates()
+        public async Task<List<DateOnly>> payrollStatementDates()
         {
-            return await _reportDbContext.hr_payroll.Select(i => i.date_generated).ToListAsync();
+            return await _reportDbContext.hr_payroll.Select(i => i.pay_period_start).ToListAsync();
         }
 
 
@@ -46,22 +46,5 @@ namespace Report_and_Analytics_API.Repository
         }
 
 
-
-        //THIS SECTION BELOW IS QUERY FOR PAYROLL STATEMENT FORM
-        public async Task<decimal?> payCycleOvertimeHours(int employeeId, DateOnly payStartDate)
-        {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId
-                                                                                 && i.pay_period_start == payStartDate)
-                                                                                 .Select(i => i.overtime_hours)
-                                                                                 .FirstOrDefaultAsync();
-        }
-
-        public async Task<decimal?> payCycleOvertimeHoursPaidAmount(int employeeId, DateOnly payStartDate)
-        {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId 
-                                                                                        && i.pay_period_start == payStartDate)
-                                                                                 .Select(i => i.overtime_pay)
-                                                                                 .FirstOrDefaultAsync();
-        }
     }
 }

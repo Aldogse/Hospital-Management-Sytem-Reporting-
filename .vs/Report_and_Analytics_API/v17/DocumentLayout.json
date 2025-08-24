@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\repository\\hremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\repository\\hremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\interface\\ihremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\interface\\ihremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\repository\\hrpayrollrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\repository\\hrpayrollrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +19,12 @@
       "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\interface\\ihrpayrollrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\interface\\ihremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\interface\\ihremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F96E4E36-15B6-4B91-B689-752F2258A37C}|APIResponses\\APIResponses.csproj|f:\\hospital management system\\report_and_analytics_api\\apiresponses\\ytddeductions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F96E4E36-15B6-4B91-B689-752F2258A37C}|APIResponses\\APIResponses.csproj|solutionrelative:apiresponses\\ytddeductions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F96E4E36-15B6-4B91-B689-752F2258A37C}|APIResponses\\APIResponses.csproj|f:\\hospital management system\\report_and_analytics_api\\apiresponses\\payrollstatementresponses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F96E4E36-15B6-4B91-B689-752F2258A37C}|APIResponses\\APIResponses.csproj|solutionrelative:apiresponses\\payrollstatementresponses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|f:\\hospital management system\\report_and_analytics_api\\report_and_analytics_api\\repository\\hremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E81EB27-B7BB-46A0-86EF-58C2B3BD9D3B}|Report_and_Analytics_API\\Report_and_Analytics_API.csproj|solutionrelative:report_and_analytics_api\\repository\\hremployeeinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13262B0A-C9DF-437E-8C52-815EB727FF44}|Report and Analytics Library\\Report and Analytics Library.csproj|f:\\hospital management system\\report_and_analytics_api\\report and analytics library\\hr\\hr_payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -413,7 +413,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -429,39 +429,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "IhrEmployeeInformation.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Interface\\IhrEmployeeInformation.cs",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Interface\\IhrEmployeeInformation.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Interface\\IhrEmployeeInformation.cs",
               "RelativeToolTip": "Report_and_Analytics_API\\Interface\\IhrEmployeeInformation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBsAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T02:19:37.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IhrPayrollRepository.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Interface\\IhrPayrollRepository.cs",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Interface\\IhrPayrollRepository.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Interface\\IhrPayrollRepository.cs",
               "RelativeToolTip": "Report_and_Analytics_API\\Interface\\IhrPayrollRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T01:43:04.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "hrPayrollRepository.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Repository\\hrPayrollRepository.cs",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Repository\\hrPayrollRepository.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Repository\\hrPayrollRepository.cs",
               "RelativeToolTip": "Report_and_Analytics_API\\Repository\\hrPayrollRepository.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAIwEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAjwCQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T01:45:58.37Z",
               "EditorCaption": ""
@@ -476,18 +476,17 @@
               "RelativeToolTip": "Report_and_Analytics_API\\Controllers\\hrController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAtwCcAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T01:40:42.154Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T01:40:42.154Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "hrEmployeeInformation.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Repository\\hrEmployeeInformation.cs",
               "RelativeDocumentMoniker": "Report_and_Analytics_API\\Repository\\hrEmployeeInformation.cs",
               "ToolTip": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Repository\\hrEmployeeInformation.cs",
               "RelativeToolTip": "Report_and_Analytics_API\\Repository\\hrEmployeeInformation.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwFoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T02:21:20.372Z",
               "EditorCaption": ""
@@ -502,8 +501,7 @@
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_payroll.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAiwCMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:18:37.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T01:18:37.366Z"
             },
             {
               "$type": "Document",
@@ -555,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "payrollStatementResponses.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\payrollStatementResponses.cs",
               "RelativeDocumentMoniker": "APIResponses\\payrollStatementResponses.cs",
@@ -563,12 +561,11 @@
               "RelativeToolTip": "APIResponses\\payrollStatementResponses.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T01:52:26.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T01:52:26.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ytdDeductions.cs",
               "DocumentMoniker": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\ytdDeductions.cs",
               "RelativeDocumentMoniker": "APIResponses\\ytdDeductions.cs",
@@ -576,8 +573,7 @@
               "RelativeToolTip": "APIResponses\\ytdDeductions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T10:53:28.034Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T10:53:28.034Z"
             },
             {
               "$type": "Document",
@@ -757,8 +753,7 @@
               "RelativeToolTip": "Report and Analytics Library\\HR\\hr_daily_attendance.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T00:45:39.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T00:45:39.081Z"
             },
             {
               "$type": "Document",
