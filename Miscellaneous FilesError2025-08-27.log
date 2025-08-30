@@ -1,0 +1,70 @@
+
+
+Date:2025-08-27 12:00:38,519
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 18:07:27,121
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 18:08:01,493
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 18:08:05,303
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 20:22:49,658
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 20:22:51,034
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386
+
+
+Date:2025-08-27 20:23:23,547
+Thread:[1]
+Level:ERROR
+Logger:InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand                         [(null)]
+Message:System.ArgumentException: The path is not of a legal form.
+   at System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   at System.IO.Path.InternalGetDirectoryName(String path)
+   at InsertBlazorCode.SyncfusionCodeGeneratorMenuCommand.queryStatusMenuCommand_BeforeQueryStatus(Object sender, EventArgs e) in C:\Git\RP\vsext_insertblazorcode\SyncfusionBlazorcodegenerator\SyncfusionCodeGeneratorMenuCommand.cs:line 386

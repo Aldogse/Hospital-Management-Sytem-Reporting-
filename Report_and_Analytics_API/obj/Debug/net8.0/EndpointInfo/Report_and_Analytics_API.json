@@ -5,14 +5,69 @@
     "version": "1.0"
   },
   "paths": {
-    "/Hr/getPayrollInformation/{employee_id}": {
+    "/Hr/getPayrollInformation/{employeeId}/{payPeriodStartDate}": {
       "get": {
         "tags": [
           "hr"
         ],
         "parameters": [
           {
-            "name": "employee_id",
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "payPeriodStartDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Hr/getPayperiodStartDates/{employeeId}": {
+      "get": {
+        "tags": [
+          "hr"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Hr/getYearToDatePayrollInformation/{employeeId}": {
+      "get": {
+        "tags": [
+          "hr"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
             "in": "path",
             "required": true,
             "schema": {

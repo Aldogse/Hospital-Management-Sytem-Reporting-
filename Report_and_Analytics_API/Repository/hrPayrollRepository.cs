@@ -21,9 +21,13 @@ namespace Report_and_Analytics_API.Repository
 
         //THIS IS TO GET ALL THE AVAILABLE DATES ON PAYROLL THAT WILL BE USED TO GET CURRENT PAYROLL INFO
         //DURING THAT TIME
-        public async Task<List<DateOnly>> payrollStatementDates()
+        public async Task<List<DateOnly>> payrollStatementDates(int employeeId)
         {
-            return await _reportDbContext.hr_payroll.Select(i => i.pay_period_start).ToListAsync();
+            return await _reportDbContext.hr_payroll.Where(i => i.employee_id == employeeId)
+                .Select(t => t.pay_period_start)
+                .Distinct()
+                .OrderBy(d => d.Month)
+                .ToListAsync();
         }
 
 

@@ -6,12 +6,20 @@ namespace Report_and_Analytics_API.Interface
     public interface IhrEmployeeInformation
     {
         //THIS SECTION IS FOR ANNUAL PAYROLL SUMMARY
+
+        //MONTH RECORDS
         Task<hr_employees> getEmployeeInformation(int employeeId);
-        Task<List<decimal?>> getMonthTotalHoursWorked(int employeeId,int month);
-        Task<List<decimal>> getMonthOvertimeHours(int employeeId,int month);
-        Task<List<decimal?>> getMonthTotalWage(int employeeId,int month);
+        Task<decimal?> getMonthTotalHoursWorked(int employeeId,int month);
+        Task<decimal> getMonthOvertimeHours(int employeeId,int month);
+        Task<decimal?> getMonthTotalWage(int employeeId,int month);
 
 
+        //YEAR RECORDS
+        Task<decimal?> yearTotalHoursWorked(int employeeId, int year);
+        Task<decimal?> yearTotalOvertimeHoursWorked(int employeeId, int year);
+        Task<decimal?> yearTotalWage(int employeeId, int year);
+
+  //-----------------------------------------------------------------------------------------------//
         //THIS SECTION IS FOR PAYROLL STATEMENT
         //PAYCYCLE QUERIES
         Task<decimal?> payCycleOvertimeHours(int employeeId, DateOnly payStartDate);
@@ -22,6 +30,8 @@ namespace Report_and_Analytics_API.Interface
         Task<decimal?> payCycleLoanDeductions(int employeeId, DateOnly payStartDate);
         Task<decimal> payCycleGrossPay(int employeeId,DateOnly payStartDate);
         Task<decimal?> payCycleTotalDeductions(int employeeId, DateOnly payStartDate);
+        Task<decimal?> payCycleNetPay(int employeeId, DateOnly payStartDate);
+        Task<decimal?> payCycleAbsenceDeduction(int employeeId, DateOnly payStartDate);
 
         //YEAR TO DATE QUERIES
         Task<decimal?> yearToDateSSSDeductions(int employeeId, int year);
@@ -30,5 +40,8 @@ namespace Report_and_Analytics_API.Interface
         Task<decimal?> yearToDateLoanDeductions(int employeeId, int year);
         Task<decimal?> yearToDateGrossPay(int employeeId,int year);
         Task<decimal?> yearToDateTotalDeductions(int employeeId, int year);
+        Task<decimal?> yearToDateNetPay(int employeeId, int year);
+        Task<decimal?> yearToDateAbsenceDeduction(int employeeId, int year);
+
     }
 }

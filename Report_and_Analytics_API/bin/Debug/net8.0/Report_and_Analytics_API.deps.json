@@ -1514,6 +1514,9 @@
         }
       },
       "APIResponses/1.0.0": {
+        "dependencies": {
+          "Report and Analytics Library": "1.0.0"
+        },
         "runtime": {
           "APIResponses.dll": {
             "assemblyVersion": "1.0.0.0",

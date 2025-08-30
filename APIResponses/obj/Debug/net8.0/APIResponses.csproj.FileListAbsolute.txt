@@ -22,3 +22,7 @@ C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\o
 C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\refint\APIResponses.dll
 C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\APIResponses.pdb
 C:\Users\Mypc\Desktop\Thesis\Hospital-Management-Sytem-Reporting-\APIResponses\obj\Debug\net8.0\ref\APIResponses.dll
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\bin\Debug\net8.0\Report and Analytics Library.dll
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\bin\Debug\net8.0\Report and Analytics Library.pdb
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIResponses.csproj.AssemblyReference.cache
+F:\Hospital Management System\Report_and_Analytics_API\APIResponses\obj\Debug\net8.0\APIRespo.1FF4CEDE.Up2Date

@@ -1,0 +1,52 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace Report_and_Analytics_API.Migrations
+{
+    /// <inheritdoc />
+    public partial class CreatePayrollInformationTable : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "payrollInformation",
+                columns: table => new
+                {
+                    reportId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    employeeId = table.Column<int>(type: "int", nullable: false),
+                    employeeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    payPeriodStartDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    overtimePay = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleGrossPay = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    GrossPay = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleTotalDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdTotalDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdNetPay = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleNetpay = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleSssDeduction = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdsssDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCyclePhilHealthDeduction = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdphilHealthDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleLoanDeduction = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdLoanDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    payCycleAbsenceDeduction = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ytdAbsenceDeductions = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    dateGenerated = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_payrollInformation", x => x.reportId);
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "payrollInformation");
+        }
+    }
+}

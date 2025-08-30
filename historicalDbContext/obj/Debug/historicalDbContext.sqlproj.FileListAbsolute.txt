@@ -1,0 +1,6 @@
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\bin\Debug\historicalDbContext.dacpac
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\bin\Debug\historicalDbContext.dll
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\bin\Debug\historicalDbContext.pdb
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\obj\Debug\historicalDbContext.sqlproj.AssemblyReference.cache
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\obj\Debug\historicalDbContext.dll
+F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\obj\Debug\historicalDbContext.pdb

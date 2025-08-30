@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Report and Analytics Library\Report and Analytics Library.csproj" />
+  </ItemGroup>
+
 </Project>

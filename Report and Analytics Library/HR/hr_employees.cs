@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Report_and_Analytics_Library.HR
 {
     public class hr_employees
@@ -42,17 +43,17 @@ namespace Report_and_Analytics_Library.HR
         public string? license_type { get; set; }
         public string? license_number { get; set; }
         public DateOnly? license_issued { get; set; }
-        public DateOnly  license_expiry { get; set; }
+        public DateOnly?  license_expiry { get; set; }
         public string? eg_name { get; set; }
         public string? eg_relationship { get; set; }
         public string? eg_cn { get; set; }
         public int leave_credits { get; set; }
         public DateTime? created_at { get; set; }
         public DateTime? update_at { get; set; }
-        public List<hr_attendance_flags> attendance_Flags { get; set; }
-        public List<hr_leave> hr_Leaves { get; set; }
-        public List<hr_payroll> hr_Payrolls { get; set; }
-        public List<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }
-        public List<hr_payslips> hr_Payslips { get; set; }
+        public ICollection<hr_attendance_flags> attendance_Flags { get; set; }
+        public ICollection<hr_leave> hr_Leaves { get; set; }
+        public ICollection<hr_payroll> hr_Payrolls { get; set; }
+        public ICollection<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }
+        public ICollection<hr_payslips> hr_Payslips { get; set; }
     }
 }

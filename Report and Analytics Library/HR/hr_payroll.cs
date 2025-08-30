@@ -37,8 +37,8 @@ namespace Report_and_Analytics_Library.HR
         public decimal gross_pay { get; set; }
         public decimal? total_deductions { get; set; }
         public decimal? net_pay { get; set; }
-        public disbursement_method disbursement_method { get; set; }
-        public pay_status status { get; set; }
+        public string disbursement_method { get; set; }
+        public string status { get; set; }
         public DateTime date_generated { get; set; }
         public List<hr_payroll_audit_log> hr_Payroll_Audit_Logs { get; set; }
         public List<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }

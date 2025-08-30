@@ -1,0 +1,392 @@
+2025-08-30 08:46:26.888 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`payroll_id`, `h`.`absence_deduction`, `h`.`allowances`, `h`.`basic_pay`, `h`.`bonuses`, `h`.`date_generated`, `h`.`days_worked`, `h`.`disbursement_method`, `h`.`employee_id`, `h`.`gross_pay`, `h`.`loan_deduction`, `h`.`net_pay`, `h`.`overtime_hours`, `h`.`overtime_pay`, `h`.`pagibig_deduction`, `h`.`pay_period_end`, `h`.`pay_period_start`, `h`.`philhealth_deduction`, `h`.`sss_deduction`, `h`.`status`, `h`.`thirteenth_month`, `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (EXTRACT(month FROM `h`.`pay_period_start`) = EXTRACT(month FROM CURRENT_TIMESTAMP())) OR (EXTRACT(month FROM `h`.`pay_period_start`) IS NULL AND (EXTRACT(month FROM CURRENT_TIMESTAMP()) IS NULL))
+2025-08-30 08:46:26.969 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-30 08:46:27.005 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-30 08:46:27.005 +08:00 [INF] Hosting environment: Development
+2025-08-30 08:46:27.005 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-30 08:46:40.472 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 13515.4514ms
+2025-08-30 08:46:40.485 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-30 08:46:40.485 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-30 08:46:40.493 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.5062ms
+2025-08-30 08:46:40.508 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 08:46:40.526 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.9395ms
+2025-08-30 08:46:40.578 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-30 08:46:40.586 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.081ms
+2025-08-30 08:46:41.391 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__item_pay_period_start_0='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `payrollInformation` AS `p`
+    WHERE `p`.`payPeriodStartDate` = @__item_pay_period_start_0)
+2025-08-30 08:46:43.625 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.675 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_hours`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.722 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`gross_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.753 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`gross_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.774 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.794 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`total_deductions`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.815 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`net_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.835 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`net_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.854 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`sss_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.873 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`sss_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.892 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`philhealth_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.911 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`philhealth_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.931 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`loan_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:43.970 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`loan_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:43.996 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`absence_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:44.038 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`absence_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & ((EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1) AND EXTRACT(year FROM `h`.`pay_period_start`) IS NOT NULL)
+2025-08-30 08:46:44.057 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`pagibig_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:44.077 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`pagibig_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:49.099 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 08:46:49.735 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__item_pay_period_start_0='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `payrollInformation` AS `p`
+    WHERE `p`.`payPeriodStartDate` = @__item_pay_period_start_0)
+2025-08-30 08:46:51.518 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.553 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_hours`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.569 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`gross_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.588 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`gross_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.607 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.625 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`total_deductions`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.665 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`net_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.684 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`net_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.725 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`sss_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.812 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`sss_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.827 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`philhealth_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.844 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`philhealth_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.861 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`loan_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.878 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`loan_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:51.895 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`absence_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.911 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`absence_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & ((EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1) AND EXTRACT(year FROM `h`.`pay_period_start`) IS NOT NULL)
+2025-08-30 08:46:51.929 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`pagibig_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-30 08:46:51.946 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`pagibig_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-30 08:46:55.153 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Decimal), @p5='?' (DbType = Decimal), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = Decimal), @p11='?' (DbType = Decimal), @p12='?' (DbType = Decimal), @p13='?' (DbType = Decimal), @p14='?' (DbType = Date), @p15='?' (DbType = Decimal), @p16='?' (DbType = Decimal), @p17='?' (DbType = Decimal), @p18='?' (DbType = Decimal), @p19='?' (DbType = Decimal), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Decimal), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (Size = 4000), @p26='?' (DbType = Decimal), @p27='?' (DbType = Decimal), @p28='?' (DbType = Decimal), @p29='?' (DbType = Decimal), @p30='?' (DbType = Decimal), @p31='?' (DbType = Decimal), @p32='?' (DbType = Decimal), @p33='?' (DbType = Decimal), @p34='?' (DbType = Decimal), @p35='?' (DbType = Decimal), @p36='?' (DbType = Date), @p37='?' (DbType = Decimal), @p38='?' (DbType = Decimal), @p39='?' (DbType = Decimal), @p40='?' (DbType = Decimal), @p41='?' (DbType = Decimal), @p42='?' (DbType = Decimal), @p43='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `payrollInformation` (`GrossPay`, `dateGenerated`, `employeeId`, `employeeName`, `overtimeHours`, `overtimePay`, `payCycleAbsenceDeduction`, `payCycleGrossPay`, `payCycleLoanDeduction`, `payCycleNetpay`, `payCyclePagibigDeductions`, `payCyclePhilHealthDeduction`, `payCycleSssDeduction`, `payCycleTotalDeductions`, `payPeriodStartDate`, `ytdAbsenceDeductions`, `ytdLoanDeductions`, `ytdNetPay`, `ytdPagibigDeductions`, `ytdTotalDeductions`, `ytdphilHealthDeductions`, `ytdsssDeductions`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `reportId`
+FROM `payrollInformation`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `payrollInformation` (`GrossPay`, `dateGenerated`, `employeeId`, `employeeName`, `overtimeHours`, `overtimePay`, `payCycleAbsenceDeduction`, `payCycleGrossPay`, `payCycleLoanDeduction`, `payCycleNetpay`, `payCyclePagibigDeductions`, `payCyclePhilHealthDeduction`, `payCycleSssDeduction`, `payCycleTotalDeductions`, `payPeriodStartDate`, `ytdAbsenceDeductions`, `ytdLoanDeductions`, `ytdNetPay`, `ytdPagibigDeductions`, `ytdTotalDeductions`, `ytdphilHealthDeductions`, `ytdsssDeductions`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43);
+SELECT `reportId`
+FROM `payrollInformation`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-08-30 08:47:42.288 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - null null
+2025-08-30 08:47:42.297 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:47:42.316 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:47:45.165 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-08-30 08:47:45.182 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-30 08:47:45.195 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API) in 2876.0228ms
+2025-08-30 08:47:45.196 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:47:45.197 +08:00 [INF] HTTP GET /Hr/getPayperiodStartDates/101 responded 200 in 2902.6279 ms
+2025-08-30 08:47:45.208 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 2920.433ms
+2025-08-30 08:47:45.230 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - null null
+2025-08-30 08:47:45.232 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:47:45.235 +08:00 [INF] Route matched with {action = "GetCurrentDeductions", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentDeductions(Int32, System.DateOnly) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:47:48.526 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 08:47:48.537 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payPeriodStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (`p`.`payPeriodStartDate` = @__payPeriodStartDate_1)
+LIMIT 1
+2025-08-30 08:47:48.541 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.payrollStatementResponses'.
+2025-08-30 08:47:48.556 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API) in 3320.3336ms
+2025-08-30 08:47:48.556 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:47:48.556 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-01 responded 200 in 3324.3062 ms
+2025-08-30 08:47:48.556 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - 200 null application/json; charset=utf-8 3326.0754ms
+2025-08-30 08:47:58.721 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - null null
+2025-08-30 08:47:58.722 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:47:58.722 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:48:00.157 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-08-30 08:48:00.158 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-30 08:48:00.159 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API) in 1436.3995ms
+2025-08-30 08:48:00.159 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:48:00.159 +08:00 [INF] HTTP GET /Hr/getPayperiodStartDates/101 responded 200 in 1436.8340 ms
+2025-08-30 08:48:00.159 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 1437.722ms
+2025-08-30 08:48:00.171 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-16 - null null
+2025-08-30 08:48:00.171 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:48:00.171 +08:00 [INF] Route matched with {action = "GetCurrentDeductions", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentDeductions(Int32, System.DateOnly) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:48:00.885 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 08:48:00.890 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payPeriodStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (`p`.`payPeriodStartDate` = @__payPeriodStartDate_1)
+LIMIT 1
+2025-08-30 08:48:00.890 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.payrollStatementResponses'.
+2025-08-30 08:48:00.891 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API) in 719.2496ms
+2025-08-30 08:48:00.891 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:48:00.891 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-16 responded 200 in 719.5693 ms
+2025-08-30 08:48:00.891 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-16 - 200 null application/json; charset=utf-8 720.0221ms
+2025-08-30 08:48:12.365 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - null null
+2025-08-30 08:48:12.366 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:48:12.366 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:48:13.565 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-08-30 08:48:13.565 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-30 08:48:13.566 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API) in 1200.1195ms
+2025-08-30 08:48:13.566 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 08:48:13.566 +08:00 [INF] HTTP GET /Hr/getPayperiodStartDates/101 responded 200 in 1200.6528 ms
+2025-08-30 08:48:13.566 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 1201.7406ms
+2025-08-30 08:48:13.579 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - null null
+2025-08-30 08:48:13.579 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:48:13.579 +08:00 [INF] Route matched with {action = "GetCurrentDeductions", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentDeductions(Int32, System.DateOnly) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 08:48:14.215 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 08:48:14.220 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payPeriodStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (`p`.`payPeriodStartDate` = @__payPeriodStartDate_1)
+LIMIT 1
+2025-08-30 08:48:14.220 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.payrollStatementResponses'.
+2025-08-30 08:48:14.221 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API) in 641.5985ms
+2025-08-30 08:48:14.221 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 08:48:14.221 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-01 responded 200 in 641.7842 ms
+2025-08-30 08:48:14.221 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - 200 null application/json; charset=utf-8 642.1679ms
+2025-08-30 09:17:23.965 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-30 09:17:24.000 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-30 09:17:24.013 +08:00 [INF] Hosting environment: Development
+2025-08-30 09:17:24.013 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-30 09:17:24.367 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-30 09:17:24.367 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-30 09:17:24.369 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 411.9792ms
+2025-08-30 09:17:24.376 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 4.0595ms
+2025-08-30 09:17:24.407 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.7402ms
+2025-08-30 09:17:24.452 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-30 09:17:24.458 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.3049ms
+2025-08-30 09:17:27.197 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - null null
+2025-08-30 09:17:27.205 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 09:17:27.224 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 09:17:31.021 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-08-30 09:17:31.065 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-30 09:17:31.074 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API) in 3846.8946ms
+2025-08-30 09:17:31.074 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 09:17:31.076 +08:00 [INF] HTTP GET /Hr/getPayperiodStartDates/101 responded 200 in 3872.6782 ms
+2025-08-30 09:17:31.087 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 3889.9388ms
+2025-08-30 09:17:31.091 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - null null
+2025-08-30 09:17:31.092 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 09:17:31.095 +08:00 [INF] Route matched with {action = "GetCurrentDeductions", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentDeductions(Int32, System.DateOnly) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 09:17:32.733 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 09:17:32.921 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payPeriodStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (`p`.`payPeriodStartDate` = @__payPeriodStartDate_1)
+LIMIT 1
+2025-08-30 09:17:32.972 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.payrollStatementResponses'.
+2025-08-30 09:17:32.986 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API) in 1890.3032ms
+2025-08-30 09:17:32.986 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 09:17:32.986 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-01 responded 200 in 1894.0112 ms
+2025-08-30 09:17:32.986 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-01 - 200 null application/json; charset=utf-8 1895.7988ms
+2025-08-30 09:17:36.455 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - null null
+2025-08-30 09:17:36.456 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 09:17:36.456 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 09:17:37.802 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-08-30 09:17:37.803 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-30 09:17:37.803 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API) in 1346.6281ms
+2025-08-30 09:17:37.803 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetPayrollDates (Report_and_Analytics_API)'
+2025-08-30 09:17:37.803 +08:00 [INF] HTTP GET /Hr/getPayperiodStartDates/101 responded 200 in 1347.1582 ms
+2025-08-30 09:17:37.803 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 1348.118ms
+2025-08-30 09:17:37.831 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-16 - null null
+2025-08-30 09:17:37.831 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 09:17:37.831 +08:00 [INF] Route matched with {action = "GetCurrentDeductions", controller = "hr"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentDeductions(Int32, System.DateOnly) on controller Report_and_Analytics_API.Controllers.hrController (Report_and_Analytics_API).
+2025-08-30 09:17:38.526 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-30 09:17:38.531 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payPeriodStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (`p`.`payPeriodStartDate` = @__payPeriodStartDate_1)
+LIMIT 1
+2025-08-30 09:17:38.531 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.payrollStatementResponses'.
+2025-08-30 09:17:38.532 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API) in 700.335ms
+2025-08-30 09:17:38.532 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
+2025-08-30 09:17:38.532 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-16 responded 200 in 700.6348 ms
+2025-08-30 09:17:38.532 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-16 - 200 null application/json; charset=utf-8 701.0963ms

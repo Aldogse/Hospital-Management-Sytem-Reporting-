@@ -30,7 +30,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj": {
+                "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

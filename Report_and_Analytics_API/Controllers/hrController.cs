@@ -13,19 +13,21 @@ namespace Report_and_Analytics_API.Controllers
         private readonly IhrPayrollRepository _payrollRepository;
         private readonly IhrEmployeeInformation _employeeInformation;
         private readonly ReportDbContext _reportDbContext;
+        private readonly HistoricalReportDbContext _historicalReportDbContext;
 
         public hrController(IhrPayrollRepository payrollRepository,IhrEmployeeInformation employeeInformation,
-            ReportDbContext reportDbContext)
+            ReportDbContext reportDbContext,HistoricalReportDbContext historicalReportDbContext)
         {
          
             _payrollRepository = payrollRepository;
             _employeeInformation = employeeInformation;
             _reportDbContext = reportDbContext;
+            _historicalReportDbContext = historicalReportDbContext;
         }
 
         //CURRENT DEDUCTIONS
-        [HttpGet("getPayrollInformation/{employeeId}")]
-        public async Task<IActionResult> GetCurrentDeductions(int employeeId)
+        [HttpGet("getPayrollInformation/{employeeId}/{payPeriodStartDate}")]
+        public async Task<IActionResult> GetCurrentDeductions(int employeeId,DateOnly payPeriodStartDate )
         {
             if(!ModelState.IsValid)
             {
@@ -33,7 +35,42 @@ namespace Report_and_Analytics_API.Controllers
             }
             try
             {
-                return Ok();
+                var employeeInformation = await _employeeInformation.getEmployeeInformation(employeeId);
+
+                if (employeeInformation == null)
+                {
+                    return Ok(new {});
+                }
+
+                var payroll = await _historicalReportDbContext.payrollInformation.Where(i => i.employeeId == employeeId &&
+                   i.payPeriodStartDate == payPeriodStartDate).FirstOrDefaultAsync();
+
+                var payrollInformation = new payrollStatementResponses()
+                {
+                    employeeName = $"{employeeInformation.first_name} {employeeInformation.middle_name} {employeeInformation.last_name}",
+                    payPeriodStartDate = payPeriodStartDate,
+                    overtimeHours = payroll.overtimeHours,
+                    overtimePay = payroll.overtimePay,
+                    payCycleGrossPay = payroll.payCycleGrossPay,
+                    GrossPay = payroll.GrossPay,
+                    payCycleTotalDeductions = payroll.payCycleTotalDeductions,
+                    ytdTotalDeductions = payroll.ytdTotalDeductions,
+                    ytdNetPay = payroll.ytdNetPay,
+                    payCycleNetpay = payroll.payCycleNetpay,
+                    payCycleSssDeduction = payroll.payCycleSssDeduction,
+                    ytdsssDeductions = payroll.ytdsssDeductions,
+                    payCyclePhilHealthDeduction = payroll.payCyclePhilHealthDeduction,
+                    ytdphilHealthDeductions = payroll.ytdphilHealthDeductions,
+                    payCycleLoanDeduction = payroll.payCycleLoanDeduction,
+                    ytdLoanDeductions = payroll.ytdLoanDeductions,
+                    payCycleAbsenceDeduction = payroll.payCycleAbsenceDeduction,
+                    ytdAbsenceDeductions = payroll.ytdAbsenceDeductions,   
+                    payCyclePagIbigDeductions = payroll.payCyclePagibigDeductions,
+                    ytdPagIbigDeductions = payroll.ytdPagibigDeductions,
+                    dateGenerated = DateTime.Now.ToShortDateString(),
+                };
+
+                return Ok(payrollInformation);
             }
             catch (NullReferenceException ex)
             {
@@ -42,6 +79,29 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500,ex.Message);
+            }
+        }
+
+
+        [HttpGet("getPayperiodStartDates/{employeeId}")]
+        public async Task<IActionResult> GetPayrollDates(int employeeId)
+        {
+            try
+            {
+                var dates = await _payrollRepository.payrollStatementDates(employeeId);
+
+                if(dates == null)
+                {
+                    return Ok(new { });
+                }
+                else
+                {
+                    return Ok(dates);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new NullReferenceException(ex.Message);
             }
         }
 
@@ -57,7 +117,7 @@ namespace Report_and_Analytics_API.Controllers
             
             try
             {
-                var payrolls = await _reportDbContext.hr_payroll.Where(i => i.employee_id == employeeId).ToListAsync();
+                var payrolls = await _reportDbContext.hr_payroll.Include(i => i.hr_Employees).Where(i => i.employee_id == employeeId).ToListAsync();
                 var deductions = new ytdDeductions();
 
                 foreach(var item in payrolls)
@@ -78,5 +138,6 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
     }
 }
