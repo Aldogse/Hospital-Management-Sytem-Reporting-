@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Report_and_Analytics_Library.Services;
 
 namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
 {
-    public class previous_medical_records
+    public class p_treatment_history
     {
         [Key]
         public int record_id { get; set; }
@@ -20,8 +21,16 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public patientinfo patientinfo { get; set; }
 
 
-        public string? condition_name { get; set; }
-        public DateTime? diagnosis_date { get; set; }
+        [ForeignKey("hospital_Services")]
+        public int service_id { get; set; }
+        [JsonIgnore]
+         public p_hospital_services hospital_Services { get; set; }
+
+
+        public DateTime date_used { get; set; }
+        public string? attending_staff { get; set; }
         public string? notes { get; set; }
+        public ICollection<p_hospital_services> services { get; set; }
+
     }
 }

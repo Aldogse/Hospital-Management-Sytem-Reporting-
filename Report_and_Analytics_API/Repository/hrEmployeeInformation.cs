@@ -8,6 +8,7 @@ namespace Report_and_Analytics_API.Repository
     public class hrEmployeeInformation : IhrEmployeeInformation
     {
         private readonly ReportDbContext _reportDbContext;
+
         public hrEmployeeInformation(ReportDbContext reportDbContext)
         {
             _reportDbContext = reportDbContext;
@@ -18,28 +19,28 @@ namespace Report_and_Analytics_API.Repository
         }
 
         //THIS SECTION BELOW IS FOR ANNUAL PAYROLL SUMMARY REPORT QUERIES
-        public async Task<decimal> getMonthOvertimeHours(int employeeId, int month)
+        public async Task<decimal?> getMonthOvertimeHours(int employeeId, int month, int year)
         {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId &&
-                i.pay_period_start.Month == month)
-                .SumAsync(i => i.overtime_hours);
+            return await _reportDbContext.payrollinformation
+                .Where(i => i.employeeId == employeeId &&
+                i.payPeriodStartDate.Month == month && i.payPeriodStartDate.Year == year)
+                .SumAsync(i => i.overtimeHours);
         }
 
-        public async Task<decimal?> getMonthTotalHoursWorked(int employeeId, int month)
+        public async Task<decimal?> getMonthTotalHoursWorked(int employeeId, int month, int year)
         {
             return await _reportDbContext.hr_daily_attendance.Include(i => i.hr_Employees)
                 .Where(i => i.employee_id == employeeId
-                && i.attendance_date.Month == month)
+                && i.attendance_date.Month == month && i.attendance_date.Year == year)
                 .SumAsync(i => i.working_hours);
         }
 
-        public async Task<decimal?> getMonthTotalWage(int employeeId, int month)
+        public async Task<decimal?> getMonthTotalWage(int employeeId, int month, int year)
         {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId
-                && i.pay_period_start.Month == month)
-                .SumAsync(i => i.net_pay);
+            return await _reportDbContext.payrollinformation
+                 .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Month == month
+                 && i.payPeriodStartDate.Year == year)
+                 .SumAsync(t => t.payCycleNetpay);
         }
 
         public async Task<decimal?> yearTotalHoursWorked(int employeeId, int year)
@@ -51,16 +52,16 @@ namespace Report_and_Analytics_API.Repository
 
         public async Task<decimal?> yearTotalOvertimeHoursWorked(int employeeId, int year)
         {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId && i.pay_period_start.Year == year)
-                .SumAsync(t => t.overtime_hours);
+            return await _reportDbContext.payrollinformation
+                .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Year == year)
+                .SumAsync(t => t.overtimeHours);
         }
 
         public async Task<decimal?> yearTotalWage(int employeeId, int year)
         {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId && i.pay_period_start.Year == year)
-                .SumAsync(t => t.net_pay);
+            return await _reportDbContext.payrollinformation
+               .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Year == year && i.payPeriodStartDate.Day == 16)
+               .SumAsync(t => t.ytdNetPay);
         }
 
 
@@ -110,13 +111,6 @@ namespace Report_and_Analytics_API.Repository
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<decimal?> payCycleLoanDeductions(int employeeId, DateOnly payStartDate)
-        {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId&& i.pay_period_start == payStartDate)
-                .Select(t => t.loan_deduction)
-                .FirstOrDefaultAsync();
-        }
 
         public async Task<decimal?> payCycleTotalDeductions(int employeeId, DateOnly payStartDate)
         {
@@ -172,12 +166,6 @@ namespace Report_and_Analytics_API.Repository
                 .SumAsync(t => t.pagibig_deduction);
         }
 
-        public async Task<decimal?> yearToDateLoanDeductions(int employeeId, int year)
-        {
-            return await _reportDbContext.hr_payroll.Include(i => i.hr_Employees)
-                .Where(i => i.employee_id == employeeId && i.pay_period_start.Year == year)
-                .SumAsync(t => t.loan_deduction);
-        }
 
         public async Task<decimal?> yearToDateGrossPay(int employeeId, int year)
         {

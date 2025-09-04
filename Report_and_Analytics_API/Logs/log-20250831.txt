@@ -1,0 +1,484 @@
+2025-08-31 08:20:40.871 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 08:20:40.913 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 08:20:40.929 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-31 08:20:40.939 +08:00 [INF] Applying migration '20250831002013_added new columns for annual payroll tables'.
+2025-08-31 08:20:40.995 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-31 08:20:41.007 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeeAnnualPayrollReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `yearTotalHoursWorked` decimal(65,30) NULL,
+    `yearTotalOvertimeHoursWorked` decimal(65,30) NULL,
+    `yearTotalWage` decimal(65,30) NULL,
+    `year` int NOT NULL,
+    CONSTRAINT `PK_employeeAnnualPayrollReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 08:20:41.015 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeePayrollMonthReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `monthOvertimeHours` decimal(65,30) NULL,
+    `monthTotalHoursWorked` decimal(65,30) NULL,
+    `monthTotalWage` decimal(65,30) NULL,
+    `month` int NOT NULL,
+    CONSTRAINT `PK_employeePayrollMonthReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 08:20:41.024 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `payrollInformation` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `employeeName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `payPeriodStartDate` date NOT NULL,
+    `overtimePay` decimal(18,2) NULL,
+    `overtimeHours` decimal(65,30) NULL,
+    `payCycleGrossPay` decimal(18,2) NULL,
+    `GrossPay` decimal(18,2) NULL,
+    `payCycleTotalDeductions` decimal(18,2) NULL,
+    `ytdTotalDeductions` decimal(18,2) NULL,
+    `ytdNetPay` decimal(18,2) NULL,
+    `payCycleNetpay` decimal(18,2) NULL,
+    `payCycleSssDeduction` decimal(18,2) NULL,
+    `ytdsssDeductions` decimal(18,2) NULL,
+    `payCyclePhilHealthDeduction` decimal(18,2) NULL,
+    `ytdphilHealthDeductions` decimal(18,2) NULL,
+    `payCycleLoanDeduction` decimal(18,2) NULL,
+    `ytdLoanDeductions` decimal(18,2) NULL,
+    `payCycleAbsenceDeduction` decimal(18,2) NULL,
+    `ytdAbsenceDeductions` decimal(18,2) NULL,
+    `payCyclePagibigDeductions` decimal(65,30) NULL,
+    `ytdPagibigDeductions` decimal(65,30) NULL,
+    `dateGenerated` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_payrollInformation` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 08:20:41.026 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250831002013_added new columns for annual payroll tables', '8.0.19');
+2025-08-31 18:39:53.265 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 18:39:53.305 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 18:39:53.322 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-31 18:39:53.332 +08:00 [INF] Applying migration '20250831103937_added new columns for annual payroll tables'.
+2025-08-31 18:39:53.392 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-31 18:39:53.397 +08:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeeAnnualPayrollReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `yearTotalHoursWorked` decimal(65,30) NULL,
+    `yearTotalOvertimeHoursWorked` decimal(65,30) NULL,
+    `yearTotalWage` decimal(65,30) NULL,
+    `year` int NOT NULL,
+    CONSTRAINT `PK_employeeAnnualPayrollReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 18:40:25.720 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 18:40:25.755 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-31 18:40:25.770 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-31 18:40:25.779 +08:00 [INF] Applying migration '20250831103937_added new columns for annual payroll tables'.
+2025-08-31 18:40:25.827 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-31 18:40:25.847 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeeAnnualPayrollReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `yearTotalHoursWorked` decimal(65,30) NULL,
+    `yearTotalOvertimeHoursWorked` decimal(65,30) NULL,
+    `yearTotalWage` decimal(65,30) NULL,
+    `year` int NOT NULL,
+    CONSTRAINT `PK_employeeAnnualPayrollReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 18:40:25.857 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeePayrollMonthReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `monthOvertimeHours` decimal(65,30) NULL,
+    `monthTotalHoursWorked` decimal(65,30) NULL,
+    `monthTotalWage` decimal(65,30) NULL,
+    `month` int NOT NULL,
+    `year` int NOT NULL,
+    CONSTRAINT `PK_employeePayrollMonthReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 18:40:25.864 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `payrollInformation` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `employeeName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `payPeriodStartDate` date NOT NULL,
+    `overtimePay` decimal(18,2) NULL,
+    `overtimeHours` decimal(65,30) NULL,
+    `payCycleGrossPay` decimal(18,2) NULL,
+    `GrossPay` decimal(18,2) NULL,
+    `payCycleTotalDeductions` decimal(18,2) NULL,
+    `ytdTotalDeductions` decimal(18,2) NULL,
+    `ytdNetPay` decimal(18,2) NULL,
+    `payCycleNetpay` decimal(18,2) NULL,
+    `payCycleSssDeduction` decimal(18,2) NULL,
+    `ytdsssDeductions` decimal(18,2) NULL,
+    `payCyclePhilHealthDeduction` decimal(18,2) NULL,
+    `ytdphilHealthDeductions` decimal(18,2) NULL,
+    `payCycleLoanDeduction` decimal(18,2) NULL,
+    `ytdLoanDeductions` decimal(18,2) NULL,
+    `payCycleAbsenceDeduction` decimal(18,2) NULL,
+    `ytdAbsenceDeductions` decimal(18,2) NULL,
+    `payCyclePagibigDeductions` decimal(65,30) NULL,
+    `ytdPagibigDeductions` decimal(65,30) NULL,
+    `dateGenerated` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_payrollInformation` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-31 18:40:25.868 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250831103937_added new columns for annual payroll tables', '8.0.19');
+2025-08-31 18:48:44.075 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`payroll_id`, `h`.`absence_deduction`, `h`.`allowances`, `h`.`basic_pay`, `h`.`bonuses`, `h`.`date_generated`, `h`.`days_worked`, `h`.`disbursement_method`, `h`.`employee_id`, `h`.`gross_pay`, `h`.`loan_deduction`, `h`.`net_pay`, `h`.`overtime_hours`, `h`.`overtime_pay`, `h`.`pagibig_deduction`, `h`.`pay_period_end`, `h`.`pay_period_start`, `h`.`philhealth_deduction`, `h`.`sss_deduction`, `h`.`status`, `h`.`thirteenth_month`, `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (EXTRACT(month FROM `h`.`pay_period_start`) = EXTRACT(month FROM CURRENT_TIMESTAMP())) OR (EXTRACT(month FROM `h`.`pay_period_start`) IS NULL AND (EXTRACT(month FROM CURRENT_TIMESTAMP()) IS NULL))
+2025-08-31 18:48:44.138 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 18:48:44.182 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 18:48:44.183 +08:00 [INF] Hosting environment: Development
+2025-08-31 18:48:44.183 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 18:51:14.682 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 18:51:14.698 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[@__todaysDate_Month_0='?' (DbType = Int32), @__todaysDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`payroll_id`, `h`.`absence_deduction`, `h`.`allowances`, `h`.`basic_pay`, `h`.`bonuses`, `h`.`date_generated`, `h`.`days_worked`, `h`.`disbursement_method`, `h`.`employee_id`, `h`.`gross_pay`, `h`.`loan_deduction`, `h`.`net_pay`, `h`.`overtime_hours`, `h`.`overtime_pay`, `h`.`pagibig_deduction`, `h`.`pay_period_end`, `h`.`pay_period_start`, `h`.`philhealth_deduction`, `h`.`sss_deduction`, `h`.`status`, `h`.`thirteenth_month`, `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (EXTRACT(month FROM `h`.`pay_period_start`) = @__todaysDate_Month_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__todaysDate_Year_1)
+2025-08-31 18:51:14.716 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 18:51:14.728 +08:00 [INF] Hosting environment: Development
+2025-08-31 18:51:14.728 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 18:51:24.821 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-31 18:51:24.887 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 10211.61ms
+2025-08-31 18:51:24.888 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-31 18:51:24.892 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-31 18:51:24.892 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.2985ms
+2025-08-31 18:51:25.800 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 908.6976ms
+2025-08-31 18:51:25.858 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-31 18:51:25.859 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__item_pay_period_start_0='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `payrollInformation` AS `p`
+    WHERE `p`.`payPeriodStartDate` = @__item_pay_period_start_0)
+2025-08-31 18:51:27.489 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1630.1489ms
+2025-08-31 18:51:27.516 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.564 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_hours`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.586 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`gross_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.617 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`gross_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.657 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.677 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`total_deductions`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.723 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`net_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.765 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`net_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.811 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`sss_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.850 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`sss_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.869 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`philhealth_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.889 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`philhealth_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.908 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`loan_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.928 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`loan_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:27.946 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`absence_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:27.966 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`absence_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & ((EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1) AND EXTRACT(year FROM `h`.`pay_period_start`) IS NOT NULL)
+2025-08-31 18:51:27.985 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`pagibig_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:28.004 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`pagibig_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:31.620 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-08-31 18:51:32.112 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__item_pay_period_start_0='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `payrollInformation` AS `p`
+    WHERE `p`.`payPeriodStartDate` = @__item_pay_period_start_0)
+2025-08-31 18:51:33.725 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.759 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`overtime_hours`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.799 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`gross_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.817 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`gross_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:33.834 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`total_deductions`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.877 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`total_deductions`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:33.917 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`net_pay`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.958 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`net_pay`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:33.973 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`sss_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:33.991 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`sss_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:34.007 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`philhealth_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:34.025 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`philhealth_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:34.042 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`loan_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:34.058 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`loan_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:34.076 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`absence_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:34.092 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`absence_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) & ((EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1) AND EXTRACT(year FROM `h`.`pay_period_start`) IS NOT NULL)
+2025-08-31 18:51:34.110 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__payStartDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`pagibig_deduction`
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (`h`.`pay_period_start` = @__payStartDate_1)
+LIMIT 1
+2025-08-31 18:51:34.126 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`pagibig_deduction`), 0.0)
+FROM `hr_payroll` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`pay_period_start`) = @__year_1)
+2025-08-31 18:51:37.393 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Decimal), @p5='?' (DbType = Decimal), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = Decimal), @p11='?' (DbType = Decimal), @p12='?' (DbType = Decimal), @p13='?' (DbType = Decimal), @p14='?' (DbType = Date), @p15='?' (DbType = Decimal), @p16='?' (DbType = Decimal), @p17='?' (DbType = Decimal), @p18='?' (DbType = Decimal), @p19='?' (DbType = Decimal), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Decimal), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (Size = 4000), @p26='?' (DbType = Decimal), @p27='?' (DbType = Decimal), @p28='?' (DbType = Decimal), @p29='?' (DbType = Decimal), @p30='?' (DbType = Decimal), @p31='?' (DbType = Decimal), @p32='?' (DbType = Decimal), @p33='?' (DbType = Decimal), @p34='?' (DbType = Decimal), @p35='?' (DbType = Decimal), @p36='?' (DbType = Date), @p37='?' (DbType = Decimal), @p38='?' (DbType = Decimal), @p39='?' (DbType = Decimal), @p40='?' (DbType = Decimal), @p41='?' (DbType = Decimal), @p42='?' (DbType = Decimal), @p43='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `payrollInformation` (`GrossPay`, `dateGenerated`, `employeeId`, `employeeName`, `overtimeHours`, `overtimePay`, `payCycleAbsenceDeduction`, `payCycleGrossPay`, `payCycleLoanDeduction`, `payCycleNetpay`, `payCyclePagibigDeductions`, `payCyclePhilHealthDeduction`, `payCycleSssDeduction`, `payCycleTotalDeductions`, `payPeriodStartDate`, `ytdAbsenceDeductions`, `ytdLoanDeductions`, `ytdNetPay`, `ytdPagibigDeductions`, `ytdTotalDeductions`, `ytdphilHealthDeductions`, `ytdsssDeductions`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `reportId`
+FROM `payrollInformation`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `payrollInformation` (`GrossPay`, `dateGenerated`, `employeeId`, `employeeName`, `overtimeHours`, `overtimePay`, `payCycleAbsenceDeduction`, `payCycleGrossPay`, `payCycleLoanDeduction`, `payCycleNetpay`, `payCyclePagibigDeductions`, `payCyclePhilHealthDeduction`, `payCycleSssDeduction`, `payCycleTotalDeductions`, `payPeriodStartDate`, `ytdAbsenceDeductions`, `ytdLoanDeductions`, `ytdNetPay`, `ytdPagibigDeductions`, `ytdTotalDeductions`, `ytdphilHealthDeductions`, `ytdsssDeductions`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43);
+SELECT `reportId`
+FROM `payrollInformation`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-08-31 18:53:57.882 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 18:53:57.991 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 18:53:57.991 +08:00 [INF] Hosting environment: Development
+2025-08-31 18:53:57.991 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 18:53:58.071 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-31 18:53:58.072 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-31 18:53:58.072 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 195.8984ms
+2025-08-31 18:53:58.074 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 2.9856ms
+2025-08-31 18:53:58.101 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.1984ms
+2025-08-31 18:53:58.152 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-31 18:53:58.160 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.2335ms
+2025-08-31 18:54:23.563 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 18:54:23.592 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 18:54:23.602 +08:00 [INF] Hosting environment: Development
+2025-08-31 18:54:23.602 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 18:54:23.759 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-31 18:54:23.759 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-31 18:54:23.760 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 203.5326ms
+2025-08-31 18:54:23.766 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.2928ms
+2025-08-31 18:54:23.795 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.2275ms
+2025-08-31 18:54:23.837 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-31 18:54:23.843 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.0004ms
+2025-08-31 18:55:03.646 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 18:55:03.675 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 18:55:03.679 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__prevMonthDate_Month_0='?' (DbType = Int32), @__prevMonthDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__prevMonthDate_Month_0) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__prevMonthDate_Year_1)
+2025-08-31 18:55:03.686 +08:00 [INF] Hosting environment: Development
+2025-08-31 18:55:03.686 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 18:55:09.924 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[@__prevMonthDate_Month_0='?' (DbType = Int32), @__prevMonthDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `employeePayrollMonthReports` AS `e`
+    WHERE (`e`.`month` = @__prevMonthDate_Month_0) AND (`e`.`year` = @__prevMonthDate_Year_1))
+2025-08-31 18:55:17.269 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 13628.3331ms
+2025-08-31 18:55:17.270 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-31 18:55:17.272 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-31 18:55:17.274 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.9ms
+2025-08-31 18:55:17.286 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`overtimeHours`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 18:55:17.339 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.1923ms
+2025-08-31 18:55:17.388 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-31 18:55:17.395 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.4363ms
+2025-08-31 18:55:17.860 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`working_hours`), 0.0)
+FROM `hr_daily_attendance` AS `h`
+WHERE ((`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(month FROM `h`.`attendance_date`) = @__month_1)) AND (EXTRACT(year FROM `h`.`attendance_date`) = @__year_2)
+2025-08-31 18:55:17.905 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`payCycleNetpay`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 18:55:21.320 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`overtimeHours`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 18:55:21.364 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`working_hours`), 0.0)
+FROM `hr_daily_attendance` AS `h`
+WHERE ((`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(month FROM `h`.`attendance_date`) = @__month_1)) AND (EXTRACT(year FROM `h`.`attendance_date`) = @__year_2)
+2025-08-31 18:55:21.392 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`payCycleNetpay`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 18:55:23.632 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = Decimal), @p11='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `employeePayrollMonthReports` (`employeeId`, `month`, `monthOvertimeHours`, `monthTotalHoursWorked`, `monthTotalWage`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `reportId`
+FROM `employeePayrollMonthReports`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `employeePayrollMonthReports` (`employeeId`, `month`, `monthOvertimeHours`, `monthTotalHoursWorked`, `monthTotalWage`, `year`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11);
+SELECT `reportId`
+FROM `employeePayrollMonthReports`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-08-31 19:01:13.535 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/index.html - null null
+2025-08-31 19:01:13.564 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-31 19:01:13.567 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__prevMonthDate_Month_0='?' (DbType = Int32), @__prevMonthDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`reportId`, `p`.`GrossPay`, `p`.`dateGenerated`, `p`.`employeeId`, `p`.`employeeName`, `p`.`overtimeHours`, `p`.`overtimePay`, `p`.`payCycleAbsenceDeduction`, `p`.`payCycleGrossPay`, `p`.`payCycleLoanDeduction`, `p`.`payCycleNetpay`, `p`.`payCyclePagibigDeductions`, `p`.`payCyclePhilHealthDeduction`, `p`.`payCycleSssDeduction`, `p`.`payCycleTotalDeductions`, `p`.`payPeriodStartDate`, `p`.`ytdAbsenceDeductions`, `p`.`ytdLoanDeductions`, `p`.`ytdNetPay`, `p`.`ytdPagibigDeductions`, `p`.`ytdTotalDeductions`, `p`.`ytdphilHealthDeductions`, `p`.`ytdsssDeductions`
+FROM `payrollInformation` AS `p`
+WHERE (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__prevMonthDate_Month_0) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__prevMonthDate_Year_1)
+2025-08-31 19:01:13.573 +08:00 [INF] Hosting environment: Development
+2025-08-31 19:01:13.573 +08:00 [INF] Content root path: F:\Hospital Management System\Report_and_Analytics_API\Report_and_Analytics_API
+2025-08-31 19:01:17.585 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__prevMonthDate_Month_0='?' (DbType = Int32), @__prevMonthDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `employeePayrollMonthReports` AS `e`
+    WHERE (`e`.`month` = @__prevMonthDate_Month_0) AND (`e`.`year` = @__prevMonthDate_Year_1))
+2025-08-31 19:01:24.473 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/index.html - 200 null text/html;charset=utf-8 10943.7854ms
+2025-08-31 19:01:24.476 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-31 19:01:24.481 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/_vs/browserLink - null null
+2025-08-31 19:01:24.482 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.1742ms
+2025-08-31 19:01:24.495 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`overtimeHours`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 19:01:24.548 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.4597ms
+2025-08-31 19:01:24.596 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - null null
+2025-08-31 19:01:24.605 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.0998ms
+2025-08-31 19:01:25.071 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`working_hours`), 0.0)
+FROM `hr_daily_attendance` AS `h`
+WHERE ((`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(month FROM `h`.`attendance_date`) = @__month_1)) AND (EXTRACT(year FROM `h`.`attendance_date`) = @__year_2)
+2025-08-31 19:01:25.105 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`payCycleNetpay`), 0.0)
+FROM `payrollInformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(month FROM `p`.`payPeriodStartDate`) = @__month_1)) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_2)
+2025-08-31 19:01:26.985 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `employeePayrollMonthReports` (`employeeId`, `month`, `monthOvertimeHours`, `monthTotalHoursWorked`, `monthTotalWage`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `reportId`
+FROM `employeePayrollMonthReports`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-08-31 19:01:30.353 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__prevMonthDate_Month_0='?' (DbType = Int32), @__prevMonthDate_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `employeePayrollMonthReports` AS `e`
+    WHERE (`e`.`month` = @__prevMonthDate_Month_0) AND (`e`.`year` = @__prevMonthDate_Year_1))

@@ -32,7 +32,6 @@ namespace Report_and_Analytics_Library.HR
         public decimal sss_deduction { get; set; }
         public decimal philhealth_deduction { get; set; }
         public decimal pagibig_deduction { get; set; }
-        public decimal loan_deduction { get; set; }
         public decimal absence_deduction { get; set; }
         public decimal gross_pay { get; set; }
         public decimal? total_deductions { get; set; }
@@ -41,7 +40,6 @@ namespace Report_and_Analytics_Library.HR
         public string status { get; set; }
         public DateTime date_generated { get; set; }
         public List<hr_payroll_audit_log> hr_Payroll_Audit_Logs { get; set; }
-        public List<hr_payroll_disbursement> hr_Payroll_Disbursements { get; set; }
-        public List<hr_payslips> hr_Payslips { get; set; }
+
     }
 }

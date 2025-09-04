@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
 {
-    public class emr
+    public class p_emr
     {
         [Key]
         public int emr_id { get; set; }
@@ -33,6 +33,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string? treatment { get; set; }
         public string? attending_physician { get; set; }
         public string? notes { get; set; }
-        public List<prescriptions> prescriptions { get; set; }
+        public List<p_prescriptions> prescriptions { get; set; }
     }
 }

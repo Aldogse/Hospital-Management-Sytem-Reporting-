@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Services
 {
-    public class hospital_services
+    public class p_hospital_services
     {
         [Key]
         public int service_id { get; set; }
@@ -17,7 +17,7 @@ namespace Report_and_Analytics_Library.Services
 
         public string? department { get; set; }
         public decimal cost { get; set; }
-        public ICollection<treatment_history> treatment_Histories { get; set; }
+        public ICollection<p_treatment_history> treatment_Histories { get; set; }
 
     }
 }

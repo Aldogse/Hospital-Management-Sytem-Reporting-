@@ -19,6 +19,61 @@ namespace Report_and_Analytics_API.Data.Migrations.Historical
                 .HasAnnotation("ProductVersion", "8.0.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("APIResponses.Historical_report.employeeAnnualPayrollReport", b =>
+                {
+                    b.Property<int>("reportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("employeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("year")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("yearTotalHoursWorked")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal?>("yearTotalOvertimeHoursWorked")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal?>("yearTotalWage")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("reportId");
+
+                    b.ToTable("employeeAnnualPayrollReports");
+                });
+
+            modelBuilder.Entity("APIResponses.Historical_report.employeePayrollMonthReport", b =>
+                {
+                    b.Property<int>("reportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("employeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("month")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("monthOvertimeHours")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal?>("monthTotalHoursWorked")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal?>("monthTotalWage")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("year")
+                        .HasColumnType("int");
+
+                    b.HasKey("reportId");
+
+                    b.ToTable("employeePayrollMonthReports");
+                });
+
             modelBuilder.Entity("APIResponses.Historical_report.employeeReportFinalData", b =>
                 {
                     b.Property<int?>("reportId")
@@ -77,7 +132,7 @@ namespace Report_and_Analytics_API.Data.Migrations.Historical
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateOnly?>("payPeriodStartDate")
+                    b.Property<DateOnly>("payPeriodStartDate")
                         .HasColumnType("date");
 
                     b.Property<decimal?>("ytdAbsenceDeductions")

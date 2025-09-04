@@ -14,12 +14,6 @@ namespace Report_and_Analytics_Library.HR
         [Key]
         public int document_id { get; set; }
 
-
-        [ForeignKey("Hr_Application")]
-        public int? applicant_id { get; set; }
-        [JsonIgnore]
-        public hr_application Hr_Application { get; set; }
-
         public string? document_type { get; set; }
         public string? file_path { get; set; }
         public DateTime uploaded_at { get; set; }

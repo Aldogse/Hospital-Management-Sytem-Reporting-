@@ -10,7 +10,7 @@ using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 
 namespace Report_and_Analytics_Library.Property_Management
 {
-    public class bed_assignments
+    public class p_bed_assignments
     {
         [Key]
         public int assignment_id { get; set; }
@@ -24,7 +24,7 @@ namespace Report_and_Analytics_Library.Property_Management
         [ForeignKey("beds")]
         public int bed_id { get; set; }
         [JsonIgnore]
-        public beds beds { get; set; }
+        public p_beds beds { get; set; }
 
 
         public DateTime assigned_date { get; set; }

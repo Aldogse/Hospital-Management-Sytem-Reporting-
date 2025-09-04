@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Pharmacy
 {
-    public class prescriptions
+    public class p_prescriptions
     {
         [Key]
         public int prescription_id { get; set; }
@@ -18,7 +18,7 @@ namespace Report_and_Analytics_Library.Pharmacy
         [ForeignKey("emr")]
         public int emr_id { get; set; }
         [JsonIgnore]
-        public emr emr { get; set; }
+        public p_emr emr { get; set; }
 
         public string? medication_name { get; set; }
         public string? dosage { get; set; }

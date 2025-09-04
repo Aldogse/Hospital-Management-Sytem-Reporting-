@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using APIResponses.Historical_report;
+using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_Library.Billing;
 using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 using Report_and_Analytics_Library.Enums;
@@ -26,15 +27,13 @@ namespace Report_and_Analytics_API.Data
         public DbSet<bills> bills { get; set; }
         public DbSet<claim_notes> claim_notes { get; set; }
         public DbSet<compliance_licensing> compliance_licensing { get; set; }
-        public DbSet<payment_transaction> payment_transaction { get; set; }
 
 
         //Doctor and Patient Treatment Analysis Tables
-        public DbSet<dl_appointment> dl_appointments { get; set; }
         public DbSet<dl_services> dl_services { get; set; }
         public DbSet<doctor_evaluation_score> doctor_evaluation_score { get; set; }
         public DbSet<duty_assignment> duty_assignment { get; set; }
-        public DbSet<emr> emr { get; set; }
+        public DbSet<p_emr> p_emr { get; set; }
         public DbSet<evaluation_criteria_metrics> evaluation_criteria_metrics { get; set; }
         public DbSet<evaluation_records> evaluation_records { get; set; }
         public DbSet<evaluation_summary_reports> evaluation_summary_reports { get; set; }
@@ -44,19 +43,15 @@ namespace Report_and_Analytics_API.Data
         public DbSet<patient_reg> patient_reg { get; set; }
         public DbSet<patient_user> patient_user { get; set; }
         public DbSet<patientinfo> patientinfo { get; set; }
-        public DbSet<previous_medical_records> previous_medical_records { get; set; }
+        public DbSet<p_previous_medical_records> p_previous_medical_records { get; set; }
         public DbSet<professional_details> professional_details { get; set; }
-        public DbSet<results> results { get; set; }
         public DbSet<shift_scheduling> shift_scheduling { get; set; }
-        public DbSet<treatment_history> treatment_history { get; set; }
+        public DbSet<p_treatment_history> p_treatment_history { get; set; }
         public DbSet<users> users { get; set; }
 
 
         //HR related tables
         public DbSet<hr_applicant_documents> hr_Applicant_Documents { get; set; }
-        public DbSet<hr_application> hr_application { get; set; }
-        public DbSet<hr_attendance_flags> hr_attendance_flags { get; set; }
-        public DbSet<hr_attendance_logs> hr_attendance_logs { get; set; }
         public DbSet<hr_daily_attendance> hr_daily_attendance { get; set; }
         public DbSet<hr_employee_salary> hr_employee_salary { get; set; }
         public DbSet<hr_employees> hr_employees { get; set; }
@@ -65,8 +60,6 @@ namespace Report_and_Analytics_API.Data
         public DbSet<hr_leave> hr_leave { get; set; }
         public DbSet<hr_payroll> hr_payroll { get; set; }
         public DbSet<hr_payroll_audit_log> hr_payroll_audit_log { get; set; }
-        public DbSet<hr_payroll_disbursement> hr_payroll_disbursement { get; set; }
-        public DbSet<hr_payslips> hr_payslips { get; set; }
 
         //Insurance table
         public DbSet<insurance_claims> insurance_claims { get; set; }
@@ -85,15 +78,20 @@ namespace Report_and_Analytics_API.Data
         public DbSet<pharmacy_prescription> pharmacy_prescription { get; set; }
         public DbSet<pharmacy_prescription_items> pharmacy_prescription_items { get; set; }
         public DbSet<pharmacy_sales> pharmacy_sales { get; set; }
-        public DbSet<prescriptions> prescriptions { get; set; }
+        public DbSet<p_prescriptions> p_prescriptions { get; set; }
 
         //Property management table
-        public DbSet<bed_assignments> bed_assignments { get; set; }
-        public DbSet<beds> beds { get; set; }
+        public DbSet<p_bed_assignments> p_bed_assignments { get; set; }
+        public DbSet<p_beds> p_beds { get; set; }
 
         //Services  table
-        public DbSet<hospital_services> hospital_services { get; set; }
+        public DbSet<p_hospital_services> p_hospital_services { get; set; }
         public DbSet<services> services { get; set; }
+
+        //historical db
+        public DbSet<employeeReportFinalData> payrollinformation { get; set; }
+        public DbSet<employeeAnnualPayrollReport> employeeAnnualPayrollReports { get; set; }
+        public DbSet<employeePayrollMonthReport> employeePayrollMonthReports { get; set; }
 
 
 
@@ -101,17 +99,6 @@ namespace Report_and_Analytics_API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<hr_applicant_documents>()
-                .HasOne(i => i.Hr_Application)
-                .WithMany(i => i.Documents)
-                .HasForeignKey(i => i.applicant_id)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<hr_attendance_flags>()
-                .HasOne(i => i.hr_Employees)
-                .WithMany(i => i.attendance_Flags)
-                .HasForeignKey(i => i.employee_id)
-                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<hr_leave>().
                 HasOne(i => i.hr_Employees)
@@ -137,23 +124,7 @@ namespace Report_and_Analytics_API.Data
             //    .HasForeignKey(i => i.payroll_id)
             //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<hr_payroll_disbursement>()
-                .HasOne(i => i.hr_Employees)
-                .WithMany(i => i.hr_Payroll_Disbursements)
-                .HasForeignKey(i => i.employee_id)
-                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<hr_payslips>()
-                .HasOne(i => i.hr_Payroll)
-                .WithMany(i => i.hr_Payslips)
-                .HasForeignKey(i => i.payroll_id)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<hr_payslips>()
-                .HasOne(i => i.hr_Employees)
-                .WithMany(i => i.hr_Payslips)
-                .HasForeignKey(i => i.employee_id)
-                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<p_appointment>()
                 .HasOne(i => i.patientinfo)
@@ -161,49 +132,68 @@ namespace Report_and_Analytics_API.Data
                 .HasForeignKey(i => i.appointment_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<bed_assignments>()
+            modelBuilder.Entity<p_bed_assignments>()
                 .HasOne(i => i.patientinfo)
                 .WithMany(i => i.bed_Assignments)
                 .HasForeignKey(i => i.patient_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<bed_assignments>()
+            modelBuilder.Entity<p_bed_assignments>()
                .HasOne(i => i.beds)
                .WithMany(i => i.bed_Assignments)
                .HasForeignKey(i => i.bed_id)
                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<emr>()
+            modelBuilder.Entity<p_emr>()
                 .HasOne(i => i.patientinfo)
                 .WithMany(i => i.emr)
                 .HasForeignKey(i => i.patient_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<emr>()
+            modelBuilder.Entity<p_emr>()
                 .HasOne(i => i.appointment)
                 .WithMany(i => i.emrs)
                 .HasForeignKey(i => i.appointment_id)
                 .OnDelete(DeleteBehavior.SetNull);
 
 
-            modelBuilder.Entity<prescriptions>()
+            modelBuilder.Entity<p_prescriptions>()
                 .HasOne(i => i.emr)
                 .WithMany(i => i.prescriptions)
                 .HasForeignKey(i => i.emr_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<treatment_history>()
+            modelBuilder.Entity<p_treatment_history>()
                .HasOne(i => i.patientinfo)
                .WithMany(i => i.treatment_Histories)
                .HasForeignKey(i => i.patient_id)
                .OnDelete(DeleteBehavior.Cascade);
 
 
-            modelBuilder.Entity<treatment_history>()
+            modelBuilder.Entity<p_treatment_history>()
                .HasOne(i => i.hospital_Services)
                .WithMany(i => i.treatment_Histories)
                .HasForeignKey(i => i.service_id)
                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<employeeReportFinalData>(entity =>
+            {
+                entity.Property(e => e.overtimePay).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleGrossPay).HasPrecision(18, 2);
+                entity.Property(e => e.GrossPay).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleTotalDeductions).HasPrecision(18, 2);
+                entity.Property(e => e.ytdTotalDeductions).HasPrecision(18, 2);
+                entity.Property(e => e.ytdNetPay).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleNetpay).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleSssDeduction).HasPrecision(18, 2);
+                entity.Property(e => e.ytdsssDeductions).HasPrecision(18, 2);
+                entity.Property(e => e.payCyclePhilHealthDeduction).HasPrecision(18, 2);
+                entity.Property(e => e.ytdphilHealthDeductions).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleLoanDeduction).HasPrecision(18, 2);
+                entity.Property(e => e.ytdLoanDeductions).HasPrecision(18, 2);
+                entity.Property(e => e.payCycleAbsenceDeduction).HasPrecision(18, 2);
+                entity.Property(e => e.ytdAbsenceDeductions).HasPrecision(18, 2);
+            });
 
         }
     }

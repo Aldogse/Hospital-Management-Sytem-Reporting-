@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Report_and_Analytics_Library.Property_Management
 {
-    public class beds
+    public class p_beds
     {
         [Key]
         public int bed_id { get; set; }
@@ -18,6 +18,6 @@ namespace Report_and_Analytics_Library.Property_Management
         public bedType bed_type { get; set; }
         public bedStatus status { get; set; }
         public string? notes { get; set; }
-        public List<bed_assignments> bed_Assignments { get; set; }
+        public List<p_bed_assignments> bed_Assignments { get; set; }
     }
 }

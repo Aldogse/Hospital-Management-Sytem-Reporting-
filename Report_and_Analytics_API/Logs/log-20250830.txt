@@ -390,3 +390,67 @@ LIMIT 1
 2025-08-30 09:17:38.532 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.hrController.GetCurrentDeductions (Report_and_Analytics_API)'
 2025-08-30 09:17:38.532 +08:00 [INF] HTTP GET /Hr/getPayrollInformation/101/2025-08-16 responded 200 in 700.6348 ms
 2025-08-30 09:17:38.532 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44383/Hr/getPayrollInformation/101/2025-08-16 - 200 null application/json; charset=utf-8 701.0963ms
+2025-08-30 13:35:36.015 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-30 13:35:36.056 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-30 13:35:36.071 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-30 13:35:36.080 +08:00 [INF] Applying migration '20250830053434_new tables for annual reports'.
+2025-08-30 13:35:36.126 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-30 13:35:36.136 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeeAnnualPayrollReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `yearTotalHoursWorked` decimal(65,30) NULL,
+    `yearTotalOvertimeHoursWorked` decimal(65,30) NULL,
+    `yearTotalWage` decimal(65,30) NULL,
+    CONSTRAINT `PK_employeeAnnualPayrollReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-30 13:35:36.144 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeePayrollMonthReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `monthOvertimeHours` decimal(65,30) NULL,
+    `monthTotalHoursWorked` decimal(65,30) NULL,
+    `monthTotalWage` decimal(65,30) NULL,
+    CONSTRAINT `PK_employeePayrollMonthReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-30 13:35:36.146 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250830053434_new tables for annual reports', '8.0.19');
+2025-08-30 13:38:28.549 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-30 13:38:28.584 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='historicalDb' AND TABLE_NAME='__EFMigrationsHistory';
+2025-08-30 13:38:28.600 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2025-08-30 13:38:28.610 +08:00 [INF] Applying migration '20250830053743_new tables for annual reports'.
+2025-08-30 13:38:28.655 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-08-30 13:38:28.665 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeeAnnualPayrollReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `yearTotalHoursWorked` decimal(65,30) NULL,
+    `yearTotalOvertimeHoursWorked` decimal(65,30) NULL,
+    `yearTotalWage` decimal(65,30) NULL,
+    CONSTRAINT `PK_employeeAnnualPayrollReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-30 13:38:28.673 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `employeePayrollMonthReports` (
+    `reportId` int NOT NULL AUTO_INCREMENT,
+    `employeeId` int NOT NULL,
+    `monthOvertimeHours` decimal(65,30) NULL,
+    `monthTotalHoursWorked` decimal(65,30) NULL,
+    `monthTotalWage` decimal(65,30) NULL,
+    CONSTRAINT `PK_employeePayrollMonthReports` PRIMARY KEY (`reportId`)
+) CHARACTER SET=utf8mb4;
+2025-08-30 13:38:28.674 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250830053743_new tables for annual reports', '8.0.19');

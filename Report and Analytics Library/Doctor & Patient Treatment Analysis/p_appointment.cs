@@ -29,6 +29,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string? purpose { get; set; }
         public appointmentStatus status { get; set; }
         public string? notes { get; set; }
-        public ICollection<emr> emrs { get; set; }
+        public ICollection<p_emr> emrs { get; set; }
     }
 }

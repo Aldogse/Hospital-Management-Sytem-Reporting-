@@ -14,10 +14,6 @@ namespace Report_and_Analytics_Library.HR
         [Key]
         public int tracking_id { get; set; }
 
-        [ForeignKey("Hr_Application")]
-        public int? applicant_id { get; set; }
-        [JsonIgnore]
-        public hr_application Hr_Application { get; set; }
 
         public string? status { get; set; }
         public DateTime? interview_date { get; set; }

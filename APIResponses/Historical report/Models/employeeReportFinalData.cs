@@ -10,13 +10,14 @@ using Report_and_Analytics_Library.HR;
 
 namespace APIResponses.Historical_report
 {
+    [Table("payrollinformation")]
     public class employeeReportFinalData
     {
         [Key]
         public int? reportId { get; set; }
         public int employeeId { get; set; }
         public string employeeName { get; set; }
-        public DateOnly? payPeriodStartDate { get; set; }
+        public DateOnly payPeriodStartDate { get; set; }
         public decimal? overtimePay { get; set; }
         public decimal? overtimeHours { get; set; }
         public decimal? payCycleGrossPay { get; set; }
