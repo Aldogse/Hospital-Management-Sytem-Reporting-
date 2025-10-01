@@ -28,7 +28,10 @@ namespace Report_and_Analytics_API.Service
 
                 if(DateTime.Now.Day <= 13)
                 {
+                    _logger.LogInformation("Payroll extraction starting......");
                     await extractPaycleRecords(reportDbContext,employeeInformation1,employeeInformation2);
+                    _logger.LogInformation("Payroll extraction finished......");
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                 }
                 await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }

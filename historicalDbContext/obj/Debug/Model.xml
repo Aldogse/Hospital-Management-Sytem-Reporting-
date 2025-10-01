@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="historicalDbContext.dll" />
-			<Metadata Name="FileName" Value="F:\HOSPITAL MANAGEMENT SYSTEM\REPORT_AND_ANALYTICS_API\HISTORICALDBCONTEXT\OBJ\DEBUG\HISTORICALDBCONTEXT.DLL" />
+			<Metadata Name="FileName" Value="F:\HOSPITAL MANAGEMENT SYSTEM\HOSPITAL-MANAGEMENT-SYTEM-REPORTING-\HISTORICALDBCONTEXT\OBJ\DEBUG\HISTORICALDBCONTEXT.DLL" />
 			<Metadata Name="AssemblyName" Value="historicalDbContext" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="F:\Hospital Management System\Report_and_Analytics_API\historicalDbContext\obj\Debug\historicalDbContext.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\historicalDbContext\obj\Debug\historicalDbContext.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aU227ORQoDg=",
+  "dgSpecHash": "ZmOj7edu38M=",
   "success": true,
-  "projectFilePath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+  "projectFilePath": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ezekiel\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Ezekiel\\.nuget\\packages\\azure.identity\\1.13.2\\azure.identity.1.13.2.nupkg.sha512",

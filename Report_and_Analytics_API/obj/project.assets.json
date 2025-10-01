@@ -6796,11 +6796,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "projectUniqueName": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
       "projectName": "Report_and_Analytics_API",
-      "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
+      "projectPath": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\Report_and_Analytics_API.csproj",
       "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
-      "outputPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report_and_Analytics_API\\obj\\",
+      "outputPath": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report_and_Analytics_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6820,11 +6820,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj": {
-              "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\APIResponses\\APIResponses.csproj"
+            "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj": {
+              "projectPath": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\APIResponses\\APIResponses.csproj"
             },
-            "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj": {
-              "projectPath": "F:\\Hospital Management System\\Report_and_Analytics_API\\Report and Analytics Library\\Report and Analytics Library.csproj"
+            "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj": {
+              "projectPath": "F:\\Hospital Management System\\Hospital-Management-Sytem-Reporting-\\Report and Analytics Library\\Report and Analytics Library.csproj"
             }
           }
         }

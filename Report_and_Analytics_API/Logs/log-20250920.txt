@@ -1,0 +1,1480 @@
+2025-09-20 00:23:18.925 +08:00 [INF] Extraction starting.....
+2025-09-20 00:23:20.240 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 00:23:20.306 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 00:23:20.316 +08:00 [INF] Hosting environment: Development
+2025-09-20 00:23:20.318 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 00:23:22.882 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 00:23:23.024 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 00:23:23.049 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 172.6159ms
+2025-09-20 00:23:23.061 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 00:23:23.062 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 00:23:23.067 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.5004ms
+2025-09-20 00:23:23.090 +08:00 [INF] all data has been stored already....
+2025-09-20 00:23:23.096 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.01ms
+2025-09-20 00:23:23.134 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 00:23:23.145 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.5012ms
+2025-09-20 00:23:54.615 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 00:23:54.635 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 00:23:54.639 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 00:23:54.653 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 00:23:54.747 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 00:23:54.761 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 00:23:54.769 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 111.4043ms
+2025-09-20 00:23:54.771 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 00:23:54.774 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 135.6573 ms
+2025-09-20 00:23:54.782 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 168.2202ms
+2025-09-20 00:24:30.653 +08:00 [INF] Extraction starting.....
+2025-09-20 00:24:31.621 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 00:24:31.672 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 00:24:31.674 +08:00 [INF] Hosting environment: Development
+2025-09-20 00:24:31.676 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 00:24:33.182 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 00:24:33.322 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 142.6704ms
+2025-09-20 00:24:33.328 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 00:24:33.332 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 00:24:33.334 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.2225ms
+2025-09-20 00:24:33.360 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 00:24:33.367 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.1917ms
+2025-09-20 00:24:33.416 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 00:24:33.423 +08:00 [INF] all data has been stored already....
+2025-09-20 00:24:33.427 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.8794ms
+2025-09-20 00:24:37.345 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 00:24:37.353 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 00:24:37.356 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 00:24:37.367 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 00:24:40.633 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 00:25:47.981 +08:00 [INF] Extraction starting.....
+2025-09-20 00:25:48.963 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 00:25:49.008 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 00:25:49.009 +08:00 [INF] Hosting environment: Development
+2025-09-20 00:25:49.011 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 00:25:51.283 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 00:25:51.418 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 138.5014ms
+2025-09-20 00:25:51.428 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 00:25:51.431 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 00:25:51.436 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.1239ms
+2025-09-20 00:25:51.441 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 00:25:51.468 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6528ms
+2025-09-20 00:25:51.502 +08:00 [INF] all data has been stored already....
+2025-09-20 00:25:51.509 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 00:25:51.520 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.9443ms
+2025-09-20 00:25:55.834 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 00:25:55.841 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 00:25:55.844 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 00:25:55.855 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 00:25:57.681 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 00:26:12.148 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 00:26:12.156 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 16297.6426ms
+2025-09-20 00:26:12.158 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 00:26:12.161 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 16317.6342 ms
+2025-09-20 00:26:12.169 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 16335.0785ms
+2025-09-20 12:21:37.908 +08:00 [INF] Extraction starting.....
+2025-09-20 12:21:38.930 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 12:21:39.007 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 12:21:39.013 +08:00 [INF] Hosting environment: Development
+2025-09-20 12:21:39.022 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 12:21:41.850 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 12:21:42.091 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 249.63ms
+2025-09-20 12:21:42.103 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 12:21:42.107 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 12:21:42.112 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.2675ms
+2025-09-20 12:21:42.130 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 12:21:42.147 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.7821ms
+2025-09-20 12:21:42.189 +08:00 [INF] all data has been stored already....
+2025-09-20 12:21:42.190 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 12:21:42.201 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.1131ms
+2025-09-20 12:21:48.913 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 12:21:48.921 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 12:21:48.925 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 12:21:48.942 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 12:21:52.919 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 12:21:52.931 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 12:21:52.940 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 3993.8166ms
+2025-09-20 12:21:52.942 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 12:21:52.944 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 4020.0313 ms
+2025-09-20 12:21:52.952 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 4039.5379ms
+2025-09-20 13:39:15.487 +08:00 [INF] Extraction starting.....
+2025-09-20 13:39:16.571 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 13:39:16.614 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 13:39:16.617 +08:00 [INF] Hosting environment: Development
+2025-09-20 13:39:16.618 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 13:39:19.126 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 13:39:19.256 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 13:39:19.338 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 224.4984ms
+2025-09-20 13:39:19.346 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 13:39:19.347 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 13:39:19.353 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.4739ms
+2025-09-20 13:39:19.357 +08:00 [INF] all data has been stored already....
+2025-09-20 13:39:19.387 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.0445ms
+2025-09-20 13:39:19.423 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 13:39:19.433 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.5693ms
+2025-09-20 13:39:21.859 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 13:39:21.866 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 13:39:21.869 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 13:39:21.881 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 13:39:23.884 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 13:39:23.897 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 13:39:23.904 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 2019.3961ms
+2025-09-20 13:39:23.906 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 13:39:23.908 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 2040.0276 ms
+2025-09-20 13:39:23.916 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 2057.2027ms
+2025-09-20 13:45:09.238 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 13:45:09.341 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 13:45:09.343 +08:00 [INF] Hosting environment: Development
+2025-09-20 13:45:09.344 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 13:45:09.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 13:45:09.934 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 213.7701ms
+2025-09-20 13:45:09.944 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 13:45:09.944 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 13:45:09.950 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.8916ms
+2025-09-20 13:45:09.983 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.4561ms
+2025-09-20 13:45:10.025 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 13:45:10.038 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.9785ms
+2025-09-20 13:45:19.238 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 13:45:19.248 +08:00 [INF] CORS policy execution successful.
+2025-09-20 13:45:19.250 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 13:45:19.254 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 13:45:19.269 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 13:45:25.091 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 13:45:25.130 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 13:45:25.139 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 5865.4337ms
+2025-09-20 13:45:25.141 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 13:45:25.143 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 5889.6555 ms
+2025-09-20 13:45:25.151 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 5912.6916ms
+2025-09-20 13:49:50.352 +08:00 [INF] Extraction starting.....
+2025-09-20 13:49:51.369 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 13:49:51.418 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 13:49:51.420 +08:00 [INF] Hosting environment: Development
+2025-09-20 13:49:51.422 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 13:49:54.782 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 13:49:54.938 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 159.883ms
+2025-09-20 13:49:54.946 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 13:49:54.949 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 13:49:54.954 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.3771ms
+2025-09-20 13:49:54.981 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 13:50:01.369 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6420.3866ms
+2025-09-20 13:50:02.791 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 13:50:02.818 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.2458ms
+2025-09-20 13:50:03.114 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `revenue`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-20 13:50:10.707 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_revenue_breakdownreport` (`amount`, `description`, `isStored`, `month`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `report_id`
+FROM `month_revenue_breakdownreport`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_revenue_breakdownreport` (`amount`, `description`, `isStored`, `month`, `year`)
+VALUES (@p5, @p6, @p7, @p8, @p9);
+SELECT `report_id`
+FROM `month_revenue_breakdownreport`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-09-20 13:50:11.349 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__prevMonth_Month_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`m`.`amount`), 0.0)
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE (`m`.`month` = @__prevMonth_Month_0) AND (`m`.`year` = @__prevMonth_Year_1)
+2025-09-20 13:50:14.034 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `monthly_revenue_report` (`month`, `month_revenue`, `quarter`, `year`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `report_id`
+FROM `monthly_revenue_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-09-20 13:51:51.938 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 13:51:52.138 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 13:51:52.139 +08:00 [INF] Hosting environment: Development
+2025-09-20 13:51:52.140 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 13:51:52.603 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 13:51:52.800 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 201.3622ms
+2025-09-20 13:51:52.807 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 13:51:52.808 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 13:51:52.816 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.0225ms
+2025-09-20 13:51:52.846 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.3796ms
+2025-09-20 13:51:52.894 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 13:51:52.907 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.9204ms
+2025-09-20 13:51:58.313 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 13:51:58.320 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 13:51:58.324 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 13:51:58.342 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 13:51:59.754 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 13:51:59.851 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 13:51:59.864 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 1515.0896ms
+2025-09-20 13:51:59.866 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 13:51:59.869 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 1545.2152 ms
+2025-09-20 13:51:59.880 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 1567.2028ms
+2025-09-20 14:00:40.964 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 14:00:40.973 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:00:40.975 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 14:00:40.979 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:00:41.036 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 14:00:41.040 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 14:00:41.043 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 61.8413ms
+2025-09-20 14:00:41.044 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 14:00:41.045 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 69.9176 ms
+2025-09-20 14:00:41.046 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 83.4513ms
+2025-09-20 14:00:41.049 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 14:00:41.053 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:00:41.054 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 14:00:41.054 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:00:41.112 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 14:00:41.114 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:00:41.116 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 59.6961ms
+2025-09-20 14:00:41.117 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 14:00:41.118 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 64.7303 ms
+2025-09-20 14:00:41.120 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 70.6882ms
+2025-09-20 14:43:35.712 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 14:43:35.931 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 14:43:35.933 +08:00 [INF] Hosting environment: Development
+2025-09-20 14:43:35.934 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 14:43:36.505 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 14:43:36.703 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 208.1075ms
+2025-09-20 14:43:36.709 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 14:43:36.709 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 14:43:36.716 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.3012ms
+2025-09-20 14:43:36.747 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.0937ms
+2025-09-20 14:43:36.795 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 14:43:36.805 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.1077ms
+2025-09-20 14:48:44.440 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 14:48:44.560 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 14:48:44.562 +08:00 [INF] Hosting environment: Development
+2025-09-20 14:48:44.563 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 14:48:44.876 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 14:48:45.057 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 185.0359ms
+2025-09-20 14:48:45.074 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 14:48:45.074 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 14:48:45.081 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.8092ms
+2025-09-20 14:48:45.118 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.4288ms
+2025-09-20 14:48:45.162 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 14:48:45.182 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.9187ms
+2025-09-20 14:48:56.159 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 14:48:56.167 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 14:48:56.171 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:48:56.194 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:48:57.589 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:48:57.637 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:48:57.649 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 1448.5284ms
+2025-09-20 14:48:57.651 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:48:57.653 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 1482.9194 ms
+2025-09-20 14:48:57.661 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 1501.9328ms
+2025-09-20 14:49:02.509 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/9 - null null
+2025-09-20 14:49:02.514 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:49:02.515 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:49:02.538 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:49:02.540 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:49:02.542 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 24.8578ms
+2025-09-20 14:49:02.543 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:49:02.544 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/9 responded 200 in 29.7178 ms
+2025-09-20 14:49:02.546 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/9 - 200 null application/json; charset=utf-8 36.3912ms
+2025-09-20 14:49:21.642 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 14:49:21.731 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 14:49:21.733 +08:00 [INF] Hosting environment: Development
+2025-09-20 14:49:21.734 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 14:49:22.062 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 14:49:22.246 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 189.0015ms
+2025-09-20 14:49:22.255 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 14:49:22.256 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 14:49:22.262 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.349ms
+2025-09-20 14:49:22.299 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.7734ms
+2025-09-20 14:49:22.361 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 14:49:22.378 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.4134ms
+2025-09-20 14:49:34.600 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 14:49:34.608 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 14:49:34.611 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:49:34.630 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:49:38.402 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:49:44.287 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:49:44.297 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 9662.1588ms
+2025-09-20 14:49:44.299 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:49:44.301 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 9690.3835 ms
+2025-09-20 14:49:44.308 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 9708.0499ms
+2025-09-20 14:49:49.792 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 14:49:49.799 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:49:49.801 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:49:53.551 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:51:20.486 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 14:51:20.570 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 14:51:20.572 +08:00 [INF] Hosting environment: Development
+2025-09-20 14:51:20.574 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 14:51:21.108 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 14:51:21.296 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 194.4805ms
+2025-09-20 14:51:21.303 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 14:51:21.303 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 14:51:21.310 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.3936ms
+2025-09-20 14:51:21.344 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.3709ms
+2025-09-20 14:51:21.379 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 14:51:21.388 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.2523ms
+2025-09-20 14:51:57.929 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 14:51:57.939 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 14:51:57.942 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:51:57.961 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:51:59.251 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:51:59.298 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:51:59.308 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 1341.9104ms
+2025-09-20 14:51:59.309 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:51:59.312 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 1370.3138 ms
+2025-09-20 14:51:59.319 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 1393.0879ms
+2025-09-20 14:57:00.081 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 14:57:00.090 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.093 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 14:57:00.099 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.154 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 14:57:00.158 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 14:57:00.163 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 61.1178ms
+2025-09-20 14:57:00.164 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 14:57:00.165 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 72.6709 ms
+2025-09-20 14:57:00.167 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 86.1811ms
+2025-09-20 14:57:00.170 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 14:57:00.172 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.173 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 14:57:00.176 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.262 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 14:57:00.299 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:57:00.301 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 123.5746ms
+2025-09-20 14:57:00.302 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 14:57:00.303 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 130.3362 ms
+2025-09-20 14:57:00.305 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 135.1225ms
+2025-09-20 14:57:00.308 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 14:57:00.316 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 14:57:00.309 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 14:57:00.312 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 14:57:00.321 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.323 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.325 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.328 +08:00 [INF] CORS policy execution successful.
+2025-09-20 14:57:00.330 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.331 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.331 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.332 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.333 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.333 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.334 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.335 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 14:57:00.357 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:57:00.365 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:57:00.367 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 28.953ms
+2025-09-20 14:57:00.368 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.370 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 39.7415 ms
+2025-09-20 14:57:00.373 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:57:00.374 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 59.4619ms
+2025-09-20 14:57:00.382 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:57:00.379 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:57:00.382 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 14:57:00.390 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:57:00.391 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 54.7083ms
+2025-09-20 14:57:00.393 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 14:57:00.393 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 53.6752ms
+2025-09-20 14:57:00.394 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.396 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 48.737ms
+2025-09-20 14:57:00.397 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.398 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 67.7596 ms
+2025-09-20 14:57:00.398 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 14:57:00.399 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 67.8850 ms
+2025-09-20 14:57:00.401 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 92.9394ms
+2025-09-20 14:57:00.401 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 69.5010 ms
+2025-09-20 14:57:00.403 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 94.8624ms
+2025-09-20 14:57:00.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 95.374ms
+2025-09-20 15:08:43.123 +08:00 [INF] Extraction starting.....
+2025-09-20 15:08:44.153 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 15:08:44.215 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 15:08:44.217 +08:00 [INF] Hosting environment: Development
+2025-09-20 15:08:44.219 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 15:08:50.249 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 15:08:50.394 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 152.1214ms
+2025-09-20 15:08:50.413 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 15:08:50.415 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 15:08:50.417 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 15:08:50.425 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.4999ms
+2025-09-20 15:08:50.449 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.3218ms
+2025-09-20 15:08:50.523 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 15:08:56.802 +08:00 [INF] all data has been stored already....
+2025-09-20 15:08:59.336 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8813.8278ms
+2025-09-20 15:13:08.962 +08:00 [INF] Extraction starting.....
+2025-09-20 15:13:09.900 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 15:13:09.942 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 15:13:09.943 +08:00 [INF] Hosting environment: Development
+2025-09-20 15:13:09.944 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 15:13:12.446 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 15:13:12.681 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 238.4428ms
+2025-09-20 15:13:12.704 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 15:13:12.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 15:13:12.707 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 15:13:12.718 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.948ms
+2025-09-20 15:13:12.737 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.5278ms
+2025-09-20 15:13:12.811 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 15:13:20.304 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7492.8743ms
+2025-09-20 15:13:20.320 +08:00 [INF] all data has been stored already....
+2025-09-20 15:13:24.639 +08:00 [INF] all data has been stored already....
+2025-09-20 15:25:23.515 +08:00 [INF] Extraction starting.....
+2025-09-20 15:25:24.542 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 15:25:24.585 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 15:25:24.586 +08:00 [INF] Hosting environment: Development
+2025-09-20 15:25:24.587 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 15:25:28.776 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 15:25:29.015 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 256.3836ms
+2025-09-20 15:25:29.024 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 15:25:29.026 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 15:25:29.038 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.6214ms
+2025-09-20 15:25:29.064 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.0218ms
+2025-09-20 15:25:29.111 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 15:25:29.125 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.4903ms
+2025-09-20 15:25:29.247 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `revenue`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-20 15:52:47.764 +08:00 [INF] Extraction starting.....
+2025-09-20 15:52:48.773 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 15:52:48.848 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 15:52:48.851 +08:00 [INF] Hosting environment: Development
+2025-09-20 15:52:48.852 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 15:52:49.048 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+2025-09-20 15:52:59.418 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 15:52:59.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 212.1353ms
+2025-09-20 15:52:59.615 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 15:52:59.619 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 15:52:59.621 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.0924ms
+2025-09-20 15:52:59.675 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `revenue`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-20 16:11:48.777 +08:00 [INF] Extraction starting.....
+2025-09-20 16:11:49.876 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 16:11:49.927 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 16:11:49.933 +08:00 [INF] Hosting environment: Development
+2025-09-20 16:11:49.934 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 16:11:57.331 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 16:11:57.491 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 163.3071ms
+2025-09-20 16:11:57.499 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 16:11:57.503 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 16:11:57.512 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.9767ms
+2025-09-20 16:11:57.541 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.484ms
+2025-09-20 16:11:57.611 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 16:11:57.622 +08:00 [INF] Executed DbCommand (55ms) [Parameters=[@__prevMonth_Year_0='?' (DbType = Int32), @__prevMonth_Month_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`description`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE ((`m`.`year` = @__prevMonth_Year_0) AND (`m`.`month` = @__prevMonth_Month_1)) AND `m`.`isStored`
+2025-09-20 16:11:57.626 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.6028ms
+2025-09-20 16:12:06.001 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `revenue`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-20 16:12:42.095 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_revenue_breakdownreport` (`amount`, `description`, `isStored`, `month`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `report_id`
+FROM `month_revenue_breakdownreport`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-09-20 16:12:53.753 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__prevMonth_Month_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`m`.`amount`), 0.0)
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE (`m`.`month` = @__prevMonth_Month_0) AND (`m`.`year` = @__prevMonth_Year_1)
+2025-09-20 16:12:55.848 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `monthly_revenue_report` (`month`, `month_revenue`, `quarter`, `year`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `report_id`
+FROM `monthly_revenue_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-09-20 16:13:23.495 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 16:13:23.503 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.506 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 16:13:23.510 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 16:13:23.524 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.555 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 16:13:23.567 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 16:13:23.576 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 47.5175ms
+2025-09-20 16:13:23.578 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 16:13:23.580 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 70.7066 ms
+2025-09-20 16:13:23.588 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 92.1993ms
+2025-09-20 16:13:23.591 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 16:13:23.594 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.594 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 16:13:23.602 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.682 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 16:13:23.695 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:23.700 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 92.4496ms
+2025-09-20 16:13:23.701 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 16:13:23.702 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 107.7894 ms
+2025-09-20 16:13:23.704 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 113.6661ms
+2025-09-20 16:13:23.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 16:13:23.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 16:13:23.710 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 16:13:23.712 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 16:13:23.714 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.715 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.717 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.720 +08:00 [INF] CORS policy execution successful.
+2025-09-20 16:13:23.720 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.721 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.722 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.722 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.726 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.726 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.727 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.728 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:23.755 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:23.770 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:23.776 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 45.4057ms
+2025-09-20 16:13:23.779 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:23.779 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.781 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:23.784 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:23.784 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:23.784 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 62.8222 ms
+2025-09-20 16:13:23.787 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:23.788 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:23.789 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 61.9563ms
+2025-09-20 16:13:23.791 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 80.6586ms
+2025-09-20 16:13:23.792 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 63.0676ms
+2025-09-20 16:13:23.793 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 61.2364ms
+2025-09-20 16:13:23.794 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.797 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.798 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:23.799 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 78.8502 ms
+2025-09-20 16:13:23.800 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 79.0153 ms
+2025-09-20 16:13:23.801 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 78.5572 ms
+2025-09-20 16:13:23.803 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 95.8681ms
+2025-09-20 16:13:23.804 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 93.0469ms
+2025-09-20 16:13:23.806 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 94.0437ms
+2025-09-20 16:13:52.315 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 16:13:52.324 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:52.325 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:52.330 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:52.337 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:52.338 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 11.8037ms
+2025-09-20 16:13:52.339 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:52.340 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 16.0736 ms
+2025-09-20 16:13:52.341 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 25.9016ms
+2025-09-20 16:13:54.709 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 16:13:54.713 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:54.714 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 16:13:54.721 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 16:13:54.727 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 16:13:54.728 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 12.6273ms
+2025-09-20 16:13:54.729 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 16:13:54.730 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 17.0202 ms
+2025-09-20 16:13:54.732 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 22.6897ms
+2025-09-20 21:56:08.852 +08:00 [INF] Quarter data extraction starts......
+2025-09-20 21:56:24.192 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 21:56:24.234 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 21:56:24.237 +08:00 [INF] Hosting environment: Development
+2025-09-20 21:56:24.239 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 21:56:24.277 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__prevMonth_Month_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_revenue`, `m`.`quarter`, `m`.`year`
+FROM `monthly_revenue_report` AS `m`
+WHERE (`m`.`month` = @__prevMonth_Month_0) AND (`m`.`year` = @__prevMonth_Year_1)
+2025-09-20 21:56:53.414 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__month_quarter_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`quarter` = @__month_quarter_0) AND (`q`.`year` = @__prevMonth_Year_1)
+LIMIT 1
+2025-09-20 21:56:59.810 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 21:57:40.468 +08:00 [INF] Quarter data extraction starts......
+2025-09-20 21:57:53.479 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 21:57:53.521 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 21:57:53.528 +08:00 [INF] Hosting environment: Development
+2025-09-20 21:57:53.529 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 21:57:53.571 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__prevMonth_Month_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_revenue`, `m`.`quarter`, `m`.`year`
+FROM `monthly_revenue_report` AS `m`
+WHERE (`m`.`month` = @__prevMonth_Month_0) AND (`m`.`year` = @__prevMonth_Year_1)
+2025-09-20 21:57:58.086 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@__month_quarter_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`quarter` = @__month_quarter_0) AND (`q`.`year` = @__prevMonth_Year_1)
+LIMIT 1
+2025-09-20 21:58:01.689 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 21:58:09.979 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Decimal), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `quarter_revenue` SET `quarter` = @p0, `totalRevenue` = @p1, `year` = @p2
+WHERE `reportId` = @p3;
+SELECT ROW_COUNT();
+2025-09-20 21:58:12.007 +08:00 [INF] Quarter data extraction ended......
+2025-09-20 21:58:12.592 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 14494.6796ms
+2025-09-20 21:58:12.598 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 21:58:12.601 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 21:58:12.604 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.9975ms
+2025-09-20 21:58:12.635 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.9473ms
+2025-09-20 21:58:12.673 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 21:58:12.677 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - null null
+2025-09-20 21:58:12.684 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.8782ms
+2025-09-20 21:58:12.691 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-09-20 21:58:12.693 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - 200 628 image/png 15.31ms
+2025-09-20 21:58:29.114 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 21:58:29.120 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.122 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 21:58:29.125 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 21:58:29.136 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.166 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 21:58:29.176 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 21:58:29.184 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 42.8594ms
+2025-09-20 21:58:29.186 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 21:58:29.189 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 64.3234 ms
+2025-09-20 21:58:29.196 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 82.4738ms
+2025-09-20 21:58:29.199 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 21:58:29.202 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.203 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 21:58:29.212 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.278 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 21:58:29.283 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 21:58:29.288 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 73.7869ms
+2025-09-20 21:58:29.290 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 21:58:29.291 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 87.7400 ms
+2025-09-20 21:58:29.292 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 93.2197ms
+2025-09-20 21:58:29.296 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 21:58:29.296 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 21:58:29.297 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 21:58:29.297 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 21:58:29.299 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.301 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.303 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.307 +08:00 [INF] CORS policy execution successful.
+2025-09-20 21:58:29.307 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.308 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.309 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.309 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.313 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.313 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.313 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.315 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 21:58:29.339 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 21:58:29.365 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 21:58:29.390 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 73.2103ms
+2025-09-20 21:58:29.396 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.398 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 21:58:29.398 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 21:58:29.399 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 21:58:29.399 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 90.8920 ms
+2025-09-20 21:58:29.401 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 21:58:29.402 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 21:58:29.404 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 21:58:29.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 109.9395ms
+2025-09-20 21:58:29.407 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 88.6883ms
+2025-09-20 21:58:29.408 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 92.8418ms
+2025-09-20 21:58:29.409 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 89.1545ms
+2025-09-20 21:58:29.412 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.413 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.414 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 21:58:29.415 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 105.8886 ms
+2025-09-20 21:58:29.416 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 108.6990 ms
+2025-09-20 21:58:29.417 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 108.1459 ms
+2025-09-20 21:58:29.418 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 121.5045ms
+2025-09-20 21:58:29.420 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 123.622ms
+2025-09-20 21:58:29.422 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 124.9845ms
+2025-09-20 22:06:08.082 +08:00 [INF] Quarter data extraction starts......
+2025-09-20 22:06:27.133 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:06:27.205 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:06:27.207 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:06:27.208 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:06:27.773 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:06:27.929 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 160.4329ms
+2025-09-20 22:06:27.933 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:06:27.935 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:06:27.945 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.2617ms
+2025-09-20 22:06:27.974 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.2643ms
+2025-09-20 22:06:28.004 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:06:28.014 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.6889ms
+2025-09-20 22:06:33.968 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:06:33.975 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:06:33.977 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 22:06:33.980 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:06:33.995 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:06:35.253 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:06:35.294 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:06:35.303 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 1303.3957ms
+2025-09-20 22:06:35.304 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:06:35.306 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 1326.4414 ms
+2025-09-20 22:06:35.315 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 1347.1699ms
+2025-09-20 22:06:35.318 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:06:35.321 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:06:35.321 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:06:35.330 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:06:35.432 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:06:35.468 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:06:35.475 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 143.2979ms
+2025-09-20 22:06:35.476 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:06:35.477 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 155.9430 ms
+2025-09-20 22:06:35.479 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 161.5642ms
+2025-09-20 22:07:54.522 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:07:54.526 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.527 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:07:54.528 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.586 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:07:54.588 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:07:54.590 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 60.6254ms
+2025-09-20 22:07:54.591 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:07:54.592 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 64.9028 ms
+2025-09-20 22:07:54.593 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 71.1422ms
+2025-09-20 22:07:54.596 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:07:54.598 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.598 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:07:54.599 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.607 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:07:54.609 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:07:54.611 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 10.2423ms
+2025-09-20 22:07:54.612 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:07:54.613 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 14.4370 ms
+2025-09-20 22:07:54.614 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 18.5551ms
+2025-09-20 22:07:54.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:07:54.623 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:07:54.624 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:07:54.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:07:54.629 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.631 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.633 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.635 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:07:54.635 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.636 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.637 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.637 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.642 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.642 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.642 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.643 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:07:54.677 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:07:54.701 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:07:54.708 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 62.6392ms
+2025-09-20 22:07:54.716 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.717 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:07:54.717 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:07:54.718 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:07:54.718 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 81.4253 ms
+2025-09-20 22:07:54.720 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:07:54.722 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:07:54.723 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:07:54.725 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 101.0139ms
+2025-09-20 22:07:54.726 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 82.7403ms
+2025-09-20 22:07:54.727 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 79.8106ms
+2025-09-20 22:07:54.728 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 83.5511ms
+2025-09-20 22:07:54.731 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.732 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.733 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:07:54.734 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 98.5175 ms
+2025-09-20 22:07:54.735 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 97.1733 ms
+2025-09-20 22:07:54.736 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 99.4750 ms
+2025-09-20 22:07:54.737 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 119.3971ms
+2025-09-20 22:07:54.739 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 121.6906ms
+2025-09-20 22:07:54.740 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 119.1917ms
+2025-09-20 22:08:31.680 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:08:31.684 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.685 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:08:31.685 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.698 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:08:31.703 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:08:31.704 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 16.7886ms
+2025-09-20 22:08:31.705 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:08:31.706 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 21.1785 ms
+2025-09-20 22:08:31.708 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 29.6935ms
+2025-09-20 22:08:31.710 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:08:31.712 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.713 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:08:31.714 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.720 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:08:31.727 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:08:31.728 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 13.1057ms
+2025-09-20 22:08:31.729 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:08:31.730 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 17.3995 ms
+2025-09-20 22:08:31.732 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 21.5757ms
+2025-09-20 22:08:31.734 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:08:31.734 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:08:31.737 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:08:31.734 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:08:31.742 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.744 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.746 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.748 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:08:31.748 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.749 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.749 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.750 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.751 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.752 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.752 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.753 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:08:31.766 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:08:31.775 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:08:31.779 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:08:31.779 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:08:31.787 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:08:31.787 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:08:31.788 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:08:31.789 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 34.8362ms
+2025-09-20 22:08:31.791 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 34.0592ms
+2025-09-20 22:08:31.793 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:08:31.793 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 29.0353ms
+2025-09-20 22:08:31.794 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.795 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.796 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 25.0369ms
+2025-09-20 22:08:31.797 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.798 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 49.9709 ms
+2025-09-20 22:08:31.799 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 50.1661 ms
+2025-09-20 22:08:31.800 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:08:31.801 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 51.2850 ms
+2025-09-20 22:08:31.802 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 68.6079ms
+2025-09-20 22:08:31.804 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 70.0723ms
+2025-09-20 22:08:31.804 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 54.4153 ms
+2025-09-20 22:08:31.806 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 68.6859ms
+2025-09-20 22:08:31.813 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 78.7891ms
+2025-09-20 22:09:02.353 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:09:02.357 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.358 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:02.359 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.375 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:09:02.378 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:09:02.381 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 18.8343ms
+2025-09-20 22:09:02.382 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:02.384 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 25.8934 ms
+2025-09-20 22:09:02.386 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 33.3239ms
+2025-09-20 22:09:02.390 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:09:02.393 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.394 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:02.395 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.402 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:09:02.409 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:02.410 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 13.0337ms
+2025-09-20 22:09:02.411 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:02.412 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 18.0690 ms
+2025-09-20 22:09:02.414 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 23.459ms
+2025-09-20 22:09:02.416 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:09:02.419 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:09:02.416 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:09:02.416 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:09:02.423 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.425 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.427 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.429 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:02.429 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.430 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.430 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.431 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.432 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.433 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.433 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.434 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:02.446 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:02.457 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:02.457 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:02.459 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:02.463 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:02.464 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:02.465 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:02.466 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 30.7653ms
+2025-09-20 22:09:02.468 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:02.469 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 30.9774ms
+2025-09-20 22:09:02.471 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 25.0927ms
+2025-09-20 22:09:02.472 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.474 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 20.6867ms
+2025-09-20 22:09:02.475 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.476 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.477 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 47.6586 ms
+2025-09-20 22:09:02.478 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:02.479 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 48.8394 ms
+2025-09-20 22:09:02.479 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 49.0236 ms
+2025-09-20 22:09:02.481 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 65.1832ms
+2025-09-20 22:09:02.482 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 50.7699 ms
+2025-09-20 22:09:02.483 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 64.1804ms
+2025-09-20 22:09:02.485 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 69.2252ms
+2025-09-20 22:09:02.490 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 74.2359ms
+2025-09-20 22:09:30.402 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:09:30.411 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.412 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:30.413 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.425 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:09:30.431 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:09:30.433 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 18.2523ms
+2025-09-20 22:09:30.434 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:30.435 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 23.3471 ms
+2025-09-20 22:09:30.437 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 34.3648ms
+2025-09-20 22:09:30.439 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:09:30.442 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.442 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:30.443 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.450 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:09:30.452 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:30.453 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 8.4504ms
+2025-09-20 22:09:30.454 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:30.455 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 12.8670 ms
+2025-09-20 22:09:30.457 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 17.228ms
+2025-09-20 22:09:30.458 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:09:30.458 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:09:30.458 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:09:30.463 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:09:30.466 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.468 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.470 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.472 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:30.472 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.473 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.473 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.474 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.475 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.476 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.477 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.477 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:30.490 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:30.502 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:30.508 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:30.515 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:30.519 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:30.519 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:30.519 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 40.5686ms
+2025-09-20 22:09:30.521 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:30.522 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 40.2111ms
+2025-09-20 22:09:30.524 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:30.525 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.526 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 35.8311ms
+2025-09-20 22:09:30.527 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.528 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 30.9331ms
+2025-09-20 22:09:30.529 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 56.8629 ms
+2025-09-20 22:09:30.530 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.531 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 57.9830 ms
+2025-09-20 22:09:30.532 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:30.534 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 75.7664ms
+2025-09-20 22:09:30.535 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 60.8474 ms
+2025-09-20 22:09:30.536 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 78.0693ms
+2025-09-20 22:09:30.537 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 63.9044 ms
+2025-09-20 22:09:30.541 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 78.1163ms
+2025-09-20 22:09:30.546 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 87.4179ms
+2025-09-20 22:09:47.397 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:09:47.400 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.402 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:47.403 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.410 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:09:47.412 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:09:47.413 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 8.8981ms
+2025-09-20 22:09:47.415 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:09:47.416 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 14.1246 ms
+2025-09-20 22:09:47.418 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 20.8537ms
+2025-09-20 22:09:47.421 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:09:47.423 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.424 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:47.425 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.432 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:09:47.435 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:47.436 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 9.9118ms
+2025-09-20 22:09:47.438 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:09:47.439 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 14.7242 ms
+2025-09-20 22:09:47.440 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 19.2556ms
+2025-09-20 22:09:47.442 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:09:47.443 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:09:47.443 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:09:47.443 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:09:47.445 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.447 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.451 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.453 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:09:47.453 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.454 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.455 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.455 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.456 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.457 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.458 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.459 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:09:47.466 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:47.472 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:47.478 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:47.477 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:47.482 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:09:47.483 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:47.484 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 23.8023ms
+2025-09-20 22:09:47.486 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:47.488 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:09:47.489 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 24.7254ms
+2025-09-20 22:09:47.490 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.491 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 23.5712ms
+2025-09-20 22:09:47.492 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 19.877ms
+2025-09-20 22:09:47.493 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.494 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 40.5567 ms
+2025-09-20 22:09:47.495 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.496 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:09:47.497 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 42.7384 ms
+2025-09-20 22:09:47.499 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 56.2949ms
+2025-09-20 22:09:47.500 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 45.0009 ms
+2025-09-20 22:09:47.501 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 45.3994 ms
+2025-09-20 22:09:47.503 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 60.1389ms
+2025-09-20 22:09:47.507 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 64.0334ms
+2025-09-20 22:09:47.508 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 64.876ms
+2025-09-20 22:11:09.315 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:11:09.324 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.324 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:11:09.325 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.337 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:11:09.340 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:11:09.342 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 14.7183ms
+2025-09-20 22:11:09.343 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:11:09.344 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 19.9521 ms
+2025-09-20 22:11:09.346 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 30.7335ms
+2025-09-20 22:11:09.356 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:11:09.358 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.359 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:11:09.359 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.366 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:11:09.374 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:09.375 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 14.0181ms
+2025-09-20 22:11:09.376 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:11:09.377 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 18.1204 ms
+2025-09-20 22:11:09.378 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 22.1629ms
+2025-09-20 22:11:09.381 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:11:09.380 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:11:09.380 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:11:09.389 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:11:09.391 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.394 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.396 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.399 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:09.399 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.400 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.401 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.401 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.402 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.403 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.405 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.404 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:09.423 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:09.420 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:09.439 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:09.433 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:09.440 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:09.442 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:09.443 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 32.7906ms
+2025-09-20 22:11:09.445 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:09.447 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:09.448 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 41.0812ms
+2025-09-20 22:11:09.450 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.451 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 30.6693ms
+2025-09-20 22:11:09.453 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 24.8966ms
+2025-09-20 22:11:09.454 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.455 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 54.7743 ms
+2025-09-20 22:11:09.456 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.457 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:09.458 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 58.8343 ms
+2025-09-20 22:11:09.460 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 79.2268ms
+2025-09-20 22:11:09.460 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 59.1359 ms
+2025-09-20 22:11:09.461 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 60.8105 ms
+2025-09-20 22:11:09.463 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 82.5626ms
+2025-09-20 22:11:09.469 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 80.243ms
+2025-09-20 22:11:09.471 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 90.5955ms
+2025-09-20 22:11:20.185 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-09-20 22:11:20.187 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.189 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:11:20.190 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.197 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-09-20 22:11:20.199 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-20 22:11:20.200 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 8.3437ms
+2025-09-20 22:11:20.201 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-09-20 22:11:20.202 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 13.1585 ms
+2025-09-20 22:11:20.203 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 18.0267ms
+2025-09-20 22:11:20.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-09-20 22:11:20.208 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.209 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:11:20.211 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.218 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-09-20 22:11:20.220 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:20.221 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 8.1944ms
+2025-09-20 22:11:20.222 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-09-20 22:11:20.223 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 13.6400 ms
+2025-09-20 22:11:20.224 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 18.3772ms
+2025-09-20 22:11:20.228 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-09-20 22:11:20.228 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-09-20 22:11:20.228 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-09-20 22:11:20.228 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-09-20 22:11:20.230 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.232 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.234 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.236 +08:00 [INF] CORS policy execution successful.
+2025-09-20 22:11:20.236 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.237 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.238 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.238 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.239 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.240 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.242 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.241 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:11:20.253 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:20.249 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:20.260 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:20.263 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:20.258 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-09-20 22:11:20.264 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:20.265 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 17.589ms
+2025-09-20 22:11:20.266 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:20.268 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-09-20 22:11:20.269 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 25.0877ms
+2025-09-20 22:11:20.270 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.271 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 16.5517ms
+2025-09-20 22:11:20.272 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 21.5573ms
+2025-09-20 22:11:20.273 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.274 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 36.6801 ms
+2025-09-20 22:11:20.275 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.276 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-09-20 22:11:20.277 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 40.5730 ms
+2025-09-20 22:11:20.279 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 50.4152ms
+2025-09-20 22:11:20.279 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 41.6807 ms
+2025-09-20 22:11:20.280 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 41.8273 ms
+2025-09-20 22:11:20.282 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 53.4899ms
+2025-09-20 22:11:20.285 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 57.1254ms
+2025-09-20 22:11:20.287 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 58.5663ms
+2025-09-20 22:28:47.615 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:28:47.725 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:28:47.727 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:28:47.728 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:28:48.178 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:28:48.397 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 231.5508ms
+2025-09-20 22:28:48.401 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:28:48.404 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:28:48.411 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.3891ms
+2025-09-20 22:28:48.446 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.833ms
+2025-09-20 22:28:48.477 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:28:48.487 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4638ms
+2025-09-20 22:29:12.483 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:29:12.490 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 7.1545ms
+2025-09-20 22:29:12.501 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:29:12.503 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:29:12.509 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.0894ms
+2025-09-20 22:29:12.518 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.9716ms
+2025-09-20 22:29:12.537 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:29:12.537 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - null null
+2025-09-20 22:29:12.543 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.082ms
+2025-09-20 22:29:12.547 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-09-20 22:29:12.549 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - 200 628 image/png 11.4454ms
+2025-09-20 22:29:21.416 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:29:21.505 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:29:21.507 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:29:21.509 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:29:21.836 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:29:22.016 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 182.2028ms
+2025-09-20 22:29:22.022 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:29:22.022 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:29:22.034 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.5587ms
+2025-09-20 22:29:22.056 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.4829ms
+2025-09-20 22:29:22.093 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:29:22.102 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.1191ms
+2025-09-20 22:29:27.399 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterOneRevenueDetails/2025 - null null
+2025-09-20 22:29:27.406 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 22:29:27.409 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterOneRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:29:27.428 +08:00 [INF] Route matched with {action = "getQuarterOneRevenueDetails", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterOneRevenueDetails(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:29:32.140 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE ((`m`.`year` = @__year_0) AND (`m`.`month` = 4)) AND (`m`.`month` <= 6)
+2025-09-20 22:29:47.274 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0'.
+2025-09-20 22:29:47.283 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterOneRevenueDetails (Report_and_Analytics_API) in 19848.5898ms
+2025-09-20 22:29:47.285 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterOneRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:29:47.287 +08:00 [INF] HTTP GET /journal/getQuarterOneRevenueDetails/2025 responded 200 in 19878.1535 ms
+2025-09-20 22:29:47.295 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterOneRevenueDetails/2025 - 200 null application/json; charset=utf-8 19896.5827ms
+2025-09-20 22:33:03.362 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:33:03.439 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:33:03.441 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:33:03.442 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:33:04.028 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:33:04.244 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 221.9609ms
+2025-09-20 22:33:04.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:33:04.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:33:04.270 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.2035ms
+2025-09-20 22:33:04.308 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.4166ms
+2025-09-20 22:33:04.340 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:33:04.352 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.9208ms
+2025-09-20 22:33:12.365 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - null null
+2025-09-20 22:33:12.375 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 22:33:12.378 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:33:12.398 +08:00 [INF] Route matched with {action = "getQuarterThreeRevenueDetails", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterThreeRevenueDetails(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:33:16.707 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE ((`m`.`year` = @__year_0) AND (`m`.`month` = 7)) AND (`m`.`month` <= 9)
+2025-09-20 22:34:04.087 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:34:04.172 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:34:04.174 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:34:04.175 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:34:04.650 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:34:04.832 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 185.2361ms
+2025-09-20 22:34:04.837 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:34:04.839 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:34:04.848 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.3657ms
+2025-09-20 22:34:04.876 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.5108ms
+2025-09-20 22:34:04.910 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:34:04.920 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.7934ms
+2025-09-20 22:34:10.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - null null
+2025-09-20 22:34:10.116 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 22:34:10.119 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:34:10.138 +08:00 [INF] Route matched with {action = "getQuarterThreeRevenueDetails", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterThreeRevenueDetails(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:34:13.778 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE (`m`.`year` = @__year_0) AND (`m`.`month` = 9)
+2025-09-20 22:34:23.289 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_revenue_breakdownreport, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-20 22:34:24.996 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API) in 14852.4717ms
+2025-09-20 22:34:24.998 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:34:25.000 +08:00 [INF] HTTP GET /journal/getQuarterThreeRevenueDetails/2025 responded 200 in 14881.4950 ms
+2025-09-20 22:34:25.009 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - 200 null application/json; charset=utf-8 14903.607ms
+2025-09-20 22:36:35.542 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-20 22:36:35.692 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-20 22:36:35.694 +08:00 [INF] Hosting environment: Development
+2025-09-20 22:36:35.695 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-20 22:36:36.109 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-20 22:36:36.288 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 185.7034ms
+2025-09-20 22:36:36.293 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-20 22:36:36.295 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-20 22:36:36.305 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.8945ms
+2025-09-20 22:36:36.328 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.3548ms
+2025-09-20 22:36:36.364 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-20 22:36:36.375 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.8763ms
+2025-09-20 22:36:41.894 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - null null
+2025-09-20 22:36:41.903 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-09-20 22:36:41.907 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:36:41.926 +08:00 [INF] Route matched with {action = "getQuarterThreeRevenueDetails", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterThreeRevenueDetails(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-09-20 22:36:46.863 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE ((`m`.`year` = @__year_0) AND (`m`.`month` >= 7)) AND (`m`.`month` <= 9)
+2025-09-20 22:36:52.394 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_revenue_breakdownreport, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-20 22:36:53.824 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API) in 11891.3601ms
+2025-09-20 22:36:53.828 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-09-20 22:36:53.830 +08:00 [INF] HTTP GET /journal/getQuarterThreeRevenueDetails/2025 responded 200 in 11923.6701 ms
+2025-09-20 22:36:53.839 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - 200 null application/json; charset=utf-8 11944.1534ms

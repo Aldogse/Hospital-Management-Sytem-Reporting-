@@ -11,7 +11,7 @@ namespace Report_and_Analytics_Library.JournalEntry
     {
         [Key]
         public int journal_entry_id { get; set; }
-        public DateOnly entry_date { get; set; }
+        public DateTime entry_date { get; set; }
         public string description { get; set; }
         public string? source_document { get; set; }
         public DateTime created_at { get; set; }

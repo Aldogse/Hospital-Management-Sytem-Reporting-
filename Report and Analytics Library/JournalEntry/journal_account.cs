@@ -13,7 +13,7 @@ namespace Report_and_Analytics_Library.JournalEntry
         [Key]
         public int account_id { get; set; }
         public string account_name { get; set; }
-        public journal_account_type account_type { get; set; }
+        public string account_type { get; set; }
         public DateTime created_at { get; set; }
     }
 }

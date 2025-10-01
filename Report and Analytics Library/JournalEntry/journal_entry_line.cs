@@ -26,7 +26,7 @@ namespace Report_and_Analytics_Library.JournalEntry
         [JsonIgnore]
         public journal_account journal_Account { get; set; }
 
-        public decimal debit_amount { get; set; }
-        public decimal credit_amount { get; set; }
+        public decimal debit { get; set; }
+        public decimal credit { get; set; }
     }
 }

@@ -1,0 +1,350 @@
+2025-09-16 20:17:18.663 +08:00 [INF] Extraction starting.....
+2025-09-16 20:17:28.501 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 20:17:28.558 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 20:17:28.565 +08:00 [INF] Hosting environment: Development
+2025-09-16 20:17:28.566 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 20:17:40.334 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger - null null
+2025-09-16 20:17:40.585 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger - 301 0 null 271.1745ms
+2025-09-16 20:17:40.590 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 20:17:40.647 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 56.3998ms
+2025-09-16 20:17:40.652 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui.css - null null
+2025-09-16 20:17:40.654 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-standalone-preset.js - null null
+2025-09-16 20:17:40.654 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-bundle.js - null null
+2025-09-16 20:17:40.701 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-09-16 20:17:40.701 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-09-16 20:17:40.701 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-09-16 20:17:40.706 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 51.7331ms
+2025-09-16 20:17:40.706 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui.css - 200 152034 text/css 53.5484ms
+2025-09-16 20:17:40.707 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 53.3491ms
+2025-09-16 20:17:40.714 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 20:17:40.718 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 20:17:40.722 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.6878ms
+2025-09-16 20:17:40.791 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.5235ms
+2025-09-16 20:17:40.876 +08:00 [ERR] Failed executing DbCommand (51ms) [Parameters=[@__prevMonth_Year_1='?' (DbType = Int32), @__prevMonth_Month_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_1 AS `year`, @__prevMonth_Month_0 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit_amount` - `j0`.`debit_amount`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((EXTRACT(month FROM `j`.`entry_date`) = @__prevMonth_Month_0) AND (EXTRACT(year FROM `j`.`entry_date`) = @__prevMonth_Year_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 20:17:40.882 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 20:17:40.887 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - null null
+2025-09-16 20:17:40.891 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-09-16 20:17:40.892 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/favicon-32x32.png - 200 628 image/png 5.8159ms
+2025-09-16 20:17:40.894 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.2105ms
+2025-09-16 20:17:40.968 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'j0.credit_amount' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'j0.credit_amount' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-09-16 20:18:12.416 +08:00 [INF] Extraction starting.....
+2025-09-16 20:18:15.486 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 20:18:15.548 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 20:18:15.554 +08:00 [INF] Hosting environment: Development
+2025-09-16 20:18:15.555 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 20:18:27.438 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 20:18:27.652 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 229.9905ms
+2025-09-16 20:18:27.660 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 20:18:27.666 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.2227ms
+2025-09-16 20:18:27.672 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 20:18:27.706 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.6223ms
+2025-09-16 20:18:27.858 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 20:18:27.885 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.3812ms
+2025-09-16 20:18:27.887 +08:00 [ERR] Failed executing DbCommand (50ms) [Parameters=[@__prevMonth_Year_1='?' (DbType = Int32), @__prevMonth_Month_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_1 AS `year`, @__prevMonth_Month_0 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit_amount` - `j0`.`debit_amount`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((EXTRACT(month FROM `j`.`entry_date`) = @__prevMonth_Month_0) AND (EXTRACT(year FROM `j`.`entry_date`) = @__prevMonth_Year_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 20:18:27.939 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'j0.credit_amount' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'j0.credit_amount' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-09-16 20:21:05.558 +08:00 [INF] Extraction starting.....
+2025-09-16 20:21:09.742 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 20:21:09.784 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 20:21:09.786 +08:00 [INF] Hosting environment: Development
+2025-09-16 20:21:09.788 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 20:21:13.999 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 20:21:14.179 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 202.5947ms
+2025-09-16 20:21:14.186 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 20:21:14.189 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 20:21:14.198 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.1364ms
+2025-09-16 20:21:14.217 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.1056ms
+2025-09-16 20:21:14.280 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 20:21:14.290 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.3443ms
+2025-09-16 20:21:14.406 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__prevMonth_Year_1='?' (DbType = Int32), @__prevMonth_Month_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_1 AS `year`, @__prevMonth_Month_0 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((EXTRACT(month FROM `j`.`entry_date`) = @__prevMonth_Month_0) AND (EXTRACT(year FROM `j`.`entry_date`) = @__prevMonth_Year_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 20:21:54.187 +08:00 [ERR] Failed executing DbCommand (25ms) [Parameters=[@__prevMonth_Month_0='?' (DbType = Int32), @__prevMonth_Year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`m`.`amount`), 0.0)
+FROM `monthRevenueBreakdownReport` AS `m`
+WHERE (`m`.`month` = @__prevMonth_Month_0) AND (`m`.`year` = @__prevMonth_Year_1)
+2025-09-16 20:21:54.229 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Table 'mydb.monthRevenueBreakdownReport' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Table 'mydb.monthRevenueBreakdownReport' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-09-16 20:25:03.433 +08:00 [INF] Extraction starting.....
+2025-09-16 20:25:06.680 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 20:25:06.722 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 20:25:06.730 +08:00 [INF] Hosting environment: Development
+2025-09-16 20:25:06.731 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 20:25:11.284 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 20:25:11.429 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 148.3092ms
+2025-09-16 20:25:11.452 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 20:25:11.453 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 20:25:11.457 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`account_id`, `j`.`account_name`, `j`.`account_type`, `j`.`created_at`
+FROM `journal_account` AS `j`
+2025-09-16 20:25:11.462 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.8654ms
+2025-09-16 20:25:11.480 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.7527ms
+2025-09-16 20:25:11.551 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 20:25:12.259 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_id`, `j`.`created_at`, `j`.`description`, `j`.`entry_date`, `j`.`source_document`
+FROM `journal_entry` AS `j`
+2025-09-16 20:25:12.260 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 709.517ms
+2025-09-16 20:25:12.935 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 20:27:32.366 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__prevMonth_Year_1='?' (DbType = Int32), @__prevMonth_Month_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_1 AS `year`, @__prevMonth_Month_0 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((EXTRACT(month FROM `j`.`entry_date`) = @__prevMonth_Month_0) AND (EXTRACT(year FROM `j`.`entry_date`) = @__prevMonth_Year_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 21:14:51.378 +08:00 [INF] Extraction starting.....
+2025-09-16 21:14:55.037 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 21:14:55.078 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 21:14:55.080 +08:00 [INF] Hosting environment: Development
+2025-09-16 21:14:55.081 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 21:15:05.162 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 21:15:05.351 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 193.8865ms
+2025-09-16 21:15:05.377 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 21:15:05.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 21:15:05.381 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`account_id`, `j`.`account_name`, `j`.`account_type`, `j`.`created_at`
+FROM `journal_account` AS `j`
+2025-09-16 21:15:05.385 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.2834ms
+2025-09-16 21:15:05.410 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.8801ms
+2025-09-16 21:15:05.471 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 21:15:06.029 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_id`, `j`.`created_at`, `j`.`description`, `j`.`entry_date`, `j`.`source_document`
+FROM `journal_entry` AS `j`
+2025-09-16 21:15:06.051 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 579.6683ms
+2025-09-16 21:15:06.643 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 21:15:09.009 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = Date), @__firstDayOfNextMonth_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 21:16:45.348 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_id`, `j`.`created_at`, `j`.`description`, `j`.`entry_date`, `j`.`source_document`
+FROM `journal_entry` AS `j`
+2025-09-16 21:17:06.162 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 21:17:06.201 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2025-09-16 21:17:17.128 +08:00 [ERR] Failed executing DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`account_id`, `j`.`account_name`, `j`.`account_type`, `j`.`created_at`
+FROM `journal_account` AS `j`
+2025-09-16 21:17:17.131 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2025-09-16 21:17:48.548 +08:00 [ERR] Failed executing DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 21:17:48.551 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+   at MySqlConnector.Core.ServerSession.StartQuerying(ICancellableCommand command) in /_/src/MySqlConnector/Core/ServerSession.cs:line 289
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 51
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2025-09-16 21:20:56.137 +08:00 [INF] Extraction starting.....
+2025-09-16 21:20:59.716 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 21:20:59.760 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 21:20:59.769 +08:00 [INF] Hosting environment: Development
+2025-09-16 21:20:59.770 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 21:21:06.309 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 21:21:06.518 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 211.0153ms
+2025-09-16 21:21:06.539 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 21:21:06.543 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 21:21:06.545 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`account_id`, `j`.`account_name`, `j`.`account_type`, `j`.`created_at`
+FROM `journal_account` AS `j`
+2025-09-16 21:21:06.549 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.0619ms
+2025-09-16 21:21:06.568 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.4007ms
+2025-09-16 21:21:06.644 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 21:21:07.444 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_id`, `j`.`created_at`, `j`.`description`, `j`.`entry_date`, `j`.`source_document`
+FROM `journal_entry` AS `j`
+2025-09-16 21:21:07.468 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 824.9336ms
+2025-09-16 21:21:08.055 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 21:21:10.731 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`
+2025-09-16 21:22:12.718 +08:00 [INF] Extraction starting.....
+2025-09-16 21:22:17.576 +08:00 [INF] Now listening on: http://localhost:5288
+2025-09-16 21:22:17.620 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-16 21:22:17.623 +08:00 [INF] Hosting environment: Development
+2025-09-16 21:22:17.624 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-09-16 21:22:23.300 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-09-16 21:22:23.448 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 152.3509ms
+2025-09-16 21:22:23.456 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-16 21:22:23.460 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-09-16 21:22:23.463 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.9648ms
+2025-09-16 21:22:23.493 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`account_id`, `j`.`account_name`, `j`.`account_type`, `j`.`created_at`
+FROM `journal_account` AS `j`
+2025-09-16 21:22:23.507 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.8063ms
+2025-09-16 21:22:23.584 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-09-16 21:22:24.227 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_id`, `j`.`created_at`, `j`.`description`, `j`.`entry_date`, `j`.`source_document`
+FROM `journal_entry` AS `j`
+2025-09-16 21:22:24.249 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 665.7506ms
+2025-09-16 21:22:24.841 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `j`.`journal_entry_line_id`, `j`.`account_id`, `j`.`credit`, `j`.`debit`, `j`.`journal_entry_id`
+FROM `journal_entry_line` AS `j`
+2025-09-16 21:22:26.693 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[@__prevMonth_Year_2='?' (DbType = Int32), @__prevMonth_Month_3='?' (DbType = Int32), @__firstDayOftheMonth_0='?' (DbType = DateTime), @__firstDayOfNextMonth_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__prevMonth_Year_2 AS `year`, @__prevMonth_Month_3 AS `month`, `j`.`description`, COALESCE(SUM(`j0`.`credit` - `j0`.`debit`), 0.0) AS `amount`
+FROM `journal_entry` AS `j`
+INNER JOIN `journal_entry_line` AS `j0` ON `j`.`journal_entry_id` = `j0`.`journal_entry_id`
+INNER JOIN `journal_account` AS `j1` ON `j0`.`account_id` = `j1`.`account_id`
+WHERE ((`j`.`entry_date` >= @__firstDayOftheMonth_0) AND (`j`.`entry_date` < @__firstDayOfNextMonth_1)) AND (`j1`.`account_type` = 'Revenue')
+GROUP BY `j`.`description`

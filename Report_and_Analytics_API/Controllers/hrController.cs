@@ -1,9 +1,11 @@
 ﻿using APIResponses;
 using APIResponses.Historical_report;
+using APIResponses.Historical_report.Payroll_Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_Library.HR;
 
 namespace Report_and_Analytics_API.Controllers
 {
@@ -89,7 +91,7 @@ namespace Report_and_Analytics_API.Controllers
             {
                 var dates = await _payrollRepository.payrollStatementDates(employeeId);
 
-                if (dates == null)
+                if (dates == null || dates.Count == 0)
                 {
                     return Ok(new { });
                 }
@@ -133,41 +135,7 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
-        //ENDPOINT TO POPULATE YEARLY SECTION IN ANNual summary report
-        [HttpGet("getMonthPayrollInformation/{employeeId}/{month}/{year}")]
-        public async Task<IActionResult> getMonthPayrollInformation(int employeeId, int month, int year)
-        {
-            try
-            {
-                var employeeMonthReport = await _reportDbContext.employeePayrollMonthReports
-                    .Where(i => i.employeeId == employeeId && i.month == month && i.year == year).ToListAsync();
-
-
-                var monthsInformation = new employeeMonthsBreakdownResponse();
-
-                foreach (var item in employeeMonthReport) 
-                {
-                    monthsInformation.monthOvertimeHours = item.monthOvertimeHours;
-                    monthsInformation.monthTotalHoursWorked = item.monthTotalHoursWorked;
-                    monthsInformation.monthTotalHoursWage = item.monthTotalWage;
-                }
-
-                if (monthsInformation == null)
-                {
-                    return Ok(new { });
-                }
-
-                return Ok(monthsInformation);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-
-        }
-
-
+       
         //YEAR TO DATE DEDUCTIONS
         [HttpGet("getYearToDatePayrollInformation/{employeeId}")]
         public async Task<IActionResult> GetYTDDeductions(int employeeId)
@@ -209,7 +177,13 @@ namespace Report_and_Analytics_API.Controllers
             {
                 var emp = await _reportDbContext.hr_employees.ToListAsync();
 
-                return Ok(emp);
+                var response = emp.Select(i => new employeeDetailsResponse
+                {
+                    employee_id = i.employee_id,
+                    fullname = $"{i.first_name} {i.middle_name} {i.last_name}"
+                }).ToList();
+
+                return Ok(response);
             }
             catch
             (Exception ex)
@@ -218,5 +192,62 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
+        //ENDPOINTS TO POPULATE EMPLOYEE MONTHLY PAYROLL INFORMATION
+        [HttpGet("getHospitalMonthlyPayrollReport/{month}/{year}")]
+        public async Task<IActionResult> getHospitalMonthlyPayrollReport(int month ,int year)
+        {
+            try
+            {
+                var monthPayrollReport = await (
+                    from hr_employees in _reportDbContext.hr_employees
+                    join employeeMonthReport in _reportDbContext.employeePayrollMonthReports
+                    on hr_employees.employee_id equals employeeMonthReport.employeeId
+                    join hr_payroll in _reportDbContext.hr_payroll
+                    on employeeMonthReport.employeeId equals hr_payroll.employee_id
+                    where employeeMonthReport.month == month && employeeMonthReport.year == year
+                    group new { hr_employees, hr_payroll, employeeMonthReport } by hr_employees.employee_id into x
+                    select new
+                    {
+                        employee_id = x.Key,
+                        firstName = x.Select(i => i.hr_employees.first_name).FirstOrDefault(),
+                        middleName = x.Select(i => i.hr_employees.middle_name).FirstOrDefault(),
+                        lastName = x.Select(i => i.hr_employees.last_name).FirstOrDefault(),
+                        department = x.Select(i => i.hr_employees.department).FirstOrDefault(),
+                        role = x.Select(i => i.hr_employees.role).FirstOrDefault(),
+                        basicSalary = x.Select(i => i.hr_payroll.basic_pay).FirstOrDefault(),
+                        overtimePay = x.Where(i => i.hr_payroll.pay_period_start.Day == 16).Select(i => i.hr_payroll.overtime_pay).FirstOrDefault(),
+                        deductions = x.Where(i => i.hr_payroll.employee_id == x.Key && i.hr_payroll.pay_period_start.Day == 16)
+                        .Sum(i => i.hr_payroll.sss_deduction),
+                        netPay = x.Where(i => i.employeeMonthReport.employeeId == x.Key && i.employeeMonthReport.month == month && 
+                        i.employeeMonthReport.year == year)
+                        .Select(i => i.employeeMonthReport.monthTotalWage).FirstOrDefault()
+                    }).ToListAsync();
+               
+                if(monthPayrollReport == null || monthPayrollReport.Count == 0)
+                {
+                    return Ok(new {});
+                }
+
+                var response = monthPayrollReport.Select(i => new hospitalPayrollReportMonthResponse
+                {
+                    employeeId = i.employee_id,
+                    fullName = $"{i.firstName} {i.middleName} {i.lastName}",
+                    basicSalary = i.basicSalary,
+                    deductions = i.deductions,
+                    department = i.department,
+                    role = i.role,
+                    netPay = i.netPay,
+                    overtimePay = i.overtimePay,
+                    totalSalaryPaid = monthPayrollReport.Sum(i => i.netPay)
+                }).ToList();
+
+                return Ok(response);
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode (500,ex.Message);
+            }
+        }
     }
 }
+

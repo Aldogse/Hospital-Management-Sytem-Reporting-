@@ -1,4 +1,5 @@
 ﻿using APIResponses.Historical_report;
+using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_Library.Billing;
 using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
@@ -66,6 +67,8 @@ namespace Report_and_Analytics_API.Data
         public DbSet<insurance_coverage_rules> insurance_coverage_rules { get; set; }
         public DbSet<insurance_processing> insurance_processing { get; set; }
         public DbSet<insurance_provider> insurance_provider { get; set; }
+        public DbSet<insurance_request> insurance_request { get; set; }
+        public DbSet<insurance_logs> insurance_logs { get; set; }
 
         //Journal Entry Table
         public DbSet<journal_account> journal_account { get; set; }
@@ -92,6 +95,10 @@ namespace Report_and_Analytics_API.Data
         public DbSet<employeeReportFinalData> payrollinformation { get; set; }
         public DbSet<employeeAnnualPayrollReport> employeeAnnualPayrollReports { get; set; }
         public DbSet<employeePayrollMonthReport> employeePayrollMonthReports { get; set; }
+        public DbSet<month_revenue_breakdownreport> month_revenue_breakdownreport { get; set; }
+        public DbSet<monthly_revenue_report> monthly_revenue_report { get; set; }
+        public DbSet<quarter_revenue> quarter_revenue { get; set; }
+        public DbSet<monthly_claim_report> monthly_claim_report { get; set; }
 
 
 
