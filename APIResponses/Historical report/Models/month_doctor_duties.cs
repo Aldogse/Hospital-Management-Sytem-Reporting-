@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace APIResponses.Historical_report.Models
+{
+    public class month_doctor_duties
+    {
+        [Key]
+        public int reportId { get; set; }
+        public int month { get; set; }
+        public int year { get; set; }
+        public int duty_id { get; set; }
+        public string notes { get; set; }
+        public string status { get; set; }
+    }
+}

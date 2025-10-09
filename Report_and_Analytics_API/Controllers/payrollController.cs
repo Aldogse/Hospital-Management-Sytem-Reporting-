@@ -10,14 +10,14 @@ using Report_and_Analytics_Library.HR;
 namespace Report_and_Analytics_API.Controllers
 {
     [ApiController]
-    [Route("Hr/")]
-    public class hrController : ControllerBase
+    [Route("payroll/")]
+    public class payrollController : ControllerBase
     {
         private readonly IhrPayrollRepository _payrollRepository;
         private readonly IhrEmployeeInformation _employeeInformation;
         private readonly ReportDbContext _reportDbContext;
 
-        public hrController(IhrPayrollRepository payrollRepository, IhrEmployeeInformation employeeInformation,
+        public payrollController(IhrPayrollRepository payrollRepository, IhrEmployeeInformation employeeInformation,
             ReportDbContext reportDbContext)
         {
 

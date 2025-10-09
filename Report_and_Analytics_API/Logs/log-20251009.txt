@@ -1,0 +1,84 @@
+2025-10-09 08:13:15.403 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-09 08:13:15.563 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-09 08:13:15.565 +08:00 [INF] Hosting environment: Development
+2025-10-09 08:13:15.567 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-09 08:13:16.174 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-09 08:13:16.375 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 206.9708ms
+2025-10-09 08:13:16.383 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-09 08:13:16.383 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-09 08:13:16.392 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.5886ms
+2025-10-09 08:13:16.416 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.2824ms
+2025-10-09 08:13:16.463 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-09 08:13:16.476 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.1877ms
+2025-10-09 08:13:23.432 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/monthEvaluationAndPerformanceReport/9/2025 - null null
+2025-10-09 08:13:23.440 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-09 08:13:23.444 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthEvaluationAndPerformanceReport (Report_and_Analytics_API)'
+2025-10-09 08:13:23.471 +08:00 [INF] Route matched with {action = "monthEvaluationAndPerformanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthEvaluationAndPerformanceReport(System.String, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-09 08:13:25.273 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__month_0='?' (Size = 4000), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`averagePerformanceScore`, `q`.`lowPerformers`, `q`.`month`, `q`.`totalEmployeesEvaluated`, `q`.`year`
+FROM `quarter_employees_performance_and_evaluation_report` AS `q`
+WHERE (`q`.`month` = @__month_0) AND (`q`.`year` = @__year_1)
+LIMIT 1
+2025-10-09 08:13:25.322 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-09 08:13:25.330 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthEvaluationAndPerformanceReport (Report_and_Analytics_API) in 1854.1381ms
+2025-10-09 08:13:25.333 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthEvaluationAndPerformanceReport (Report_and_Analytics_API)'
+2025-10-09 08:13:25.335 +08:00 [INF] HTTP GET /employee/monthEvaluationAndPerformanceReport/9/2025 responded 200 in 1892.1275 ms
+2025-10-09 08:13:25.343 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/monthEvaluationAndPerformanceReport/9/2025 - 200 null application/json; charset=utf-8 1910.7442ms
+2025-10-09 08:15:42.904 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-09 08:15:42.989 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-09 08:15:42.992 +08:00 [INF] Hosting environment: Development
+2025-10-09 08:15:42.994 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-09 08:15:43.578 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-09 08:15:43.750 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 176.8584ms
+2025-10-09 08:15:43.756 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-09 08:15:43.759 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-09 08:15:43.777 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.3161ms
+2025-10-09 08:15:43.794 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.5841ms
+2025-10-09 08:15:43.833 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-09 08:15:43.848 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.2091ms
+2025-10-09 08:15:52.034 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthShiftAndDutyReport/9/2025 - null null
+2025-10-09 08:15:52.041 +08:00 [INF] CORS policy execution successful.
+2025-10-09 08:15:52.044 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-09 08:15:52.048 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API)'
+2025-10-09 08:15:52.068 +08:00 [INF] Route matched with {action = "getMonthShiftAndDutyReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthShiftAndDutyReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-09 08:15:57.186 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__year_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`cancelled`, `m`.`completed`, `m`.`doctorDuties`, `m`.`month`, `m`.`nurseDuties`, `m`.`pending`, `m`.`totalAppointments`, `m`.`year`
+FROM `month_appointment_and_duty_report` AS `m`
+WHERE (`m`.`year` = @__year_0) AND (`m`.`month` = @__month_1)
+LIMIT 1
+2025-10-09 08:15:57.376 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`appointment_id` AS `Id`, COALESCE((
+    SELECT `d0`.`doctor_id`
+    FROM `p_appointments` AS `p0`
+    INNER JOIN `duty_assignments` AS `d0` ON `p0`.`appointment_id` = `d0`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p0`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p0`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p0`.`appointment_id`)
+    LIMIT 1), 0) AS `doctor`, (
+    SELECT `d1`.`bed_id`
+    FROM `p_appointments` AS `p1`
+    INNER JOIN `duty_assignments` AS `d1` ON `p1`.`appointment_id` = `d1`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p1`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p1`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p1`.`appointment_id`)
+    LIMIT 1) AS `bed`, (
+    SELECT `d2`.`nurse_assistant`
+    FROM `p_appointments` AS `p2`
+    INNER JOIN `duty_assignments` AS `d2` ON `p2`.`appointment_id` = `d2`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p2`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p2`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p2`.`appointment_id`)
+    LIMIT 1) AS `nurse`, (
+    SELECT `d3`.`procedure`
+    FROM `p_appointments` AS `p3`
+    INNER JOIN `duty_assignments` AS `d3` ON `p3`.`appointment_id` = `d3`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p3`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p3`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p3`.`appointment_id`)
+    LIMIT 1) AS `procedure`, (
+    SELECT `d4`.`status`
+    FROM `p_appointments` AS `p4`
+    INNER JOIN `duty_assignments` AS `d4` ON `p4`.`appointment_id` = `d4`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p4`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p4`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p4`.`appointment_id`)
+    LIMIT 1) AS `status`
+FROM `p_appointments` AS `p`
+INNER JOIN `duty_assignments` AS `d` ON `p`.`appointment_id` = `d`.`appointment_id`
+WHERE (EXTRACT(month FROM `p`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p`.`appointment_date`) = @__year_1)
+GROUP BY `p`.`appointment_id`
+2025-10-09 08:15:57.388 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthShiftAndDutyReportResponse'.
+2025-10-09 08:15:57.405 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API) in 5330.7746ms
+2025-10-09 08:15:57.407 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API)'
+2025-10-09 08:15:57.409 +08:00 [INF] HTTP GET /employee/getMonthShiftAndDutyReport/9/2025 responded 200 in 5362.3991 ms
+2025-10-09 08:15:57.416 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthShiftAndDutyReport/9/2025 - 200 null application/json; charset=utf-8 5382.8739ms

@@ -11,7 +11,7 @@ using Report_and_Analytics_Library.HR;
 
 namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
 {
-    public class p_appointment
+    public class p_appointments
     {
         [Key]
         public int appointment_id { get; set; }
@@ -27,7 +27,7 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
 
         public DateTime appointment_date { get; set; }
         public string? purpose { get; set; }
-        public appointmentStatus status { get; set; }
+        public string status { get; set; }
         public string? notes { get; set; }
         public ICollection<p_emr> emrs { get; set; }
     }

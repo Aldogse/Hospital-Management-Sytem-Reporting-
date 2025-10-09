@@ -1,8 +1,24 @@
 [
   {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "getEmployees",
-    "RelativePath": "Hr/getEmployee",
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "attendanceReport",
+    "RelativePath": "employee/attendanceReport/{date}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "dates",
+    "RelativePath": "employee/dates",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,9 +26,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "getHospitalMonthlyPayrollReport",
-    "RelativePath": "Hr/getHospitalMonthlyPayrollReport/{month}/{year}",
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "getMonthShiftAndDutyReport",
+    "RelativePath": "employee/getMonthShiftAndDutyReport/{month}/{year}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -31,73 +47,20 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "GetPayrollDates",
-    "RelativePath": "Hr/getPayperiodStartDates/{employeeId}",
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "monthEvaluationAndPerformanceReport",
+    "RelativePath": "employee/monthEvaluationAndPerformanceReport/{month}/{year}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "employeeId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "GetCurrentDeductions",
-    "RelativePath": "Hr/getPayrollInformation/{employeeId}/{payPeriodStartDate}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "employeeId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "payPeriodStartDate",
-        "Type": "System.DateOnly",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "getYearPayrollInformation",
-    "RelativePath": "Hr/getYearPayrollInformation/{employeeId}/{year}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "employeeId",
-        "Type": "System.Int32",
+        "Name": "month",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "year",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Report_and_Analytics_API.Controllers.hrController",
-    "Method": "GetYTDDeductions",
-    "RelativePath": "Hr/getYearToDatePayrollInformation/{employeeId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "employeeId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -251,6 +214,111 @@
     "Parameters": [
       {
         "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "getEmployees",
+    "RelativePath": "payroll/getEmployee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "getHospitalMonthlyPayrollReport",
+    "RelativePath": "payroll/getHospitalMonthlyPayrollReport/{month}/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "GetPayrollDates",
+    "RelativePath": "payroll/getPayperiodStartDates/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "GetCurrentDeductions",
+    "RelativePath": "payroll/getPayrollInformation/{employeeId}/{payPeriodStartDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "payPeriodStartDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "getYearPayrollInformation",
+    "RelativePath": "payroll/getYearPayrollInformation/{employeeId}/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.payrollController",
+    "Method": "GetYTDDeductions",
+    "RelativePath": "payroll/getYearToDatePayrollInformation/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
         "Type": "System.Int32",
         "IsRequired": true
       }

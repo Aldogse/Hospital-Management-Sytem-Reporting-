@@ -28,6 +28,6 @@ namespace Report_and_Analytics_Library.HR
         public int late_minutes { get; set; }
         public int undertime_minutes { get; set; }
         public int overtime_minutes { get; set; }
-        public attendance_status status { get; set; }
+        public string status { get; set; }
     }
 }

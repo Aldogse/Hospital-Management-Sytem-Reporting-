@@ -26,6 +26,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public TimeOnly end_time { get; set; }
         public int department_id { get; set; }
         public DateTime created_at { get; set; }
-        public List<p_appointment>Appointments { get; set; }
+        public List<p_appointments>Appointments { get; set; }
     }
 }

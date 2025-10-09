@@ -5,28 +5,19 @@
     "version": "1.0"
   },
   "paths": {
-    "/Hr/getPayrollInformation/{employeeId}/{payPeriodStartDate}": {
+    "/employee/attendanceReport/{date}": {
       "get": {
         "tags": [
-          "hr"
+          "Employee"
         ],
         "parameters": [
           {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "payPeriodStartDate",
+            "name": "date",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "date"
+              "format": "date-time"
             }
           }
         ],
@@ -37,21 +28,10 @@
         }
       }
     },
-    "/Hr/getPayperiodStartDates/{employeeId}": {
+    "/employee/dates": {
       "get": {
         "tags": [
-          "hr"
-        ],
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
+          "Employee"
         ],
         "responses": {
           "200": {
@@ -60,14 +40,14 @@
         }
       }
     },
-    "/Hr/getYearPayrollInformation/{employeeId}/{year}": {
+    "/employee/getMonthShiftAndDutyReport/{month}/{year}": {
       "get": {
         "tags": [
-          "hr"
+          "Employee"
         ],
         "parameters": [
           {
-            "name": "employeeId",
+            "name": "month",
             "in": "path",
             "required": true,
             "schema": {
@@ -92,45 +72,10 @@
         }
       }
     },
-    "/Hr/getYearToDatePayrollInformation/{employeeId}": {
+    "/employee/monthEvaluationAndPerformanceReport/{month}/{year}": {
       "get": {
         "tags": [
-          "hr"
-        ],
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/Hr/getEmployee": {
-      "get": {
-        "tags": [
-          "hr"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/Hr/getHospitalMonthlyPayrollReport/{month}/{year}": {
-      "get": {
-        "tags": [
-          "hr"
+          "Employee"
         ],
         "parameters": [
           {
@@ -138,8 +83,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           },
           {
@@ -365,6 +309,160 @@
           "journal"
         ],
         "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getPayrollInformation/{employeeId}/{payPeriodStartDate}": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "payPeriodStartDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getPayperiodStartDates/{employeeId}": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getYearPayrollInformation/{employeeId}/{year}": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getYearToDatePayrollInformation/{employeeId}": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getEmployee": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/payroll/getHospitalMonthlyPayrollReport/{month}/{year}": {
+      "get": {
+        "tags": [
+          "payroll"
+        ],
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "year",
             "in": "path",

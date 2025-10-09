@@ -807,10 +807,10 @@ F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_An
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\staticwebassets.build.json.cache
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\staticwebassets.development.json
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_a.A0414363.Up2Date
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.dll
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\refint\Report_and_Analytics_API.dll
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.pdb
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\Report_and_Analytics_API.genruntimeconfig.cache
 F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\ref\Report_and_Analytics_API.dll
+F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

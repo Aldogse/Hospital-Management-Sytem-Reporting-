@@ -33,13 +33,13 @@ namespace Report_and_Analytics_API.Data
         //Doctor and Patient Treatment Analysis Tables
         public DbSet<dl_services> dl_services { get; set; }
         public DbSet<doctor_evaluation_score> doctor_evaluation_score { get; set; }
-        public DbSet<duty_assignment> duty_assignment { get; set; }
+        public DbSet<duty_assignment> duty_assignments { get; set; }
         public DbSet<p_emr> p_emr { get; set; }
         public DbSet<evaluation_criteria_metrics> evaluation_criteria_metrics { get; set; }
         public DbSet<evaluation_records> evaluation_records { get; set; }
         public DbSet<evaluation_summary_reports> evaluation_summary_reports { get; set; }
         public DbSet<expense_logs> expense_logs { get; set; }
-        public DbSet<p_appointment> p_appointment { get; set; }
+        public DbSet<p_appointments> p_appointments { get; set; }
         public DbSet<patient_receivables> patient_receivables { get; set; }
         public DbSet<patient_reg> patient_reg { get; set; }
         public DbSet<patient_user> patient_user { get; set; }
@@ -99,6 +99,9 @@ namespace Report_and_Analytics_API.Data
         public DbSet<monthly_revenue_report> monthly_revenue_report { get; set; }
         public DbSet<quarter_revenue> quarter_revenue { get; set; }
         public DbSet<monthly_claim_report> monthly_claim_report { get; set; }
+        public DbSet<daily_attendance_report> daily_attendance_report { get; set; }
+        public DbSet<month_appointment_and_duty_report> month_appointment_and_duty_report { get; set; }
+        public DbSet<quarter_employees_performance_and_evaluation_report> quarter_employees_performance_and_evaluation_report { get; set; }
 
 
 
@@ -133,7 +136,7 @@ namespace Report_and_Analytics_API.Data
 
 
 
-            modelBuilder.Entity<p_appointment>()
+            modelBuilder.Entity<p_appointments>()
                 .HasOne(i => i.patientinfo)
                 .WithMany(i => i.p_Appointments)
                 .HasForeignKey(i => i.appointment_id)

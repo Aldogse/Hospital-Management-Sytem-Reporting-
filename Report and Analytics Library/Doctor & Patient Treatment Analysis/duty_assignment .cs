@@ -14,23 +14,16 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [Key]
         public int duty_id { get; set; }
 
-
-        [ForeignKey("hr_Employees")]
-        public int employee_id { get; set; }
-        public hr_employees hr_Employees { get; set; }
-
-
-        public DateOnly operation_date { get; set; }
-        public TimeOnly start_time { get; set; }
-        public TimeOnly end_time { get; set; }
-
-        public int patient_id { get; set; }
-
-
-        public string treatment_type { get; set; }
-        public string surgery_type { get; set; }
-        public string room_location { get; set; }
-        public string required_equipment { get; set; }
-        public int status { get; set; }
+        public int appointment_id { get; set; }
+        public int doctor_id { get; set; }
+        public int? bed_id { get; set; }
+        public int? nurse_assistant { get; set; }
+        public string procedure { get; set; }
+        public string? equipment { get; set; }
+        public string? tools { get; set; }
+        public string notes { get; set; }
+        public string status { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }
