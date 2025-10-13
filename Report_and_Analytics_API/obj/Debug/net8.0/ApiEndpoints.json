@@ -27,6 +27,32 @@
   },
   {
     "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "getDoctorDetailsAndEvaluation",
+    "RelativePath": "employee/getDoctorDetailsAndEvaluation/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "getDoctorsDetails",
+    "RelativePath": "employee/getDoctorsDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
     "Method": "getMonthShiftAndDutyReport",
     "RelativePath": "employee/getMonthShiftAndDutyReport/{month}/{year}",
     "HttpMethod": "GET",
@@ -44,6 +70,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "getStaffInformation",
+    "RelativePath": "employee/getStaffInformation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
