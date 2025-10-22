@@ -1,0 +1,6 @@
+[phases.setup]
+
+[phases.build]
+
+[start]
+cmd = './out/Report_and_Analytics_API'
