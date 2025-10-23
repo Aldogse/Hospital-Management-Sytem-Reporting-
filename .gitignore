@@ -20,3 +20,6 @@ Release/
 #ignore all bin and obj folders in all folders
 **/bin/
 **/obj/
+
+**/bin/*.*
+**/obj/*.*
