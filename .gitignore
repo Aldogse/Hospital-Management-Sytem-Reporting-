@@ -15,3 +15,8 @@ Release/
 # Ignore temporary files
 *.tmp
 *.cache
+
+
+#ignore all bin and obj folders in all folders
+**/bin/
+**/obj/

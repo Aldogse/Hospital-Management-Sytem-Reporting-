@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  report_and_analytics_api:
+    build: .
+    ports:
+      - "5288:5288"
+    restart: unless-stopped
