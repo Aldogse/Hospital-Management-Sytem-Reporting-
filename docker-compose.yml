@@ -1,8 +1,7 @@
 version: "3.8"
 
 services:
-  report_and_analytics_api:
+  app:
+    container_name: kiel_rpt_app
     build: .
-    ports:
-      - "5288:5288"
     restart: unless-stopped

@@ -11,8 +11,7 @@ RUN cd Report_and_Analytics_API
 # Build the application
 RUN dotnet build 
 
-# Expose port 5288
-EXPOSE 5288
+EXPOSE 80
 
 # Run the application
-CMD ["dotnet", "run", "--urls", "http://0.0.0.0:5288", "--project", "./Report_and_Analytics_API"]
+CMD ["dotnet", "run", "--urls", "http://0.0.0.0:80", "--project", "./Report_and_Analytics_API"]
