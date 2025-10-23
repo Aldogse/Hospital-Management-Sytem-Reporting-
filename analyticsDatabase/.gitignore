@@ -1,0 +1,22 @@
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Ignore build output
+bin/
+obj/
+Debug/
+Release/
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.cache
+
+
+#ignore all bin and obj folders in all folders
+**/bin/
+**/obj/
