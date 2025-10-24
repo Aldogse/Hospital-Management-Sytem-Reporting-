@@ -5,3 +5,10 @@ services:
     container_name: kiel_rpt_app
     build: .
     restart: unless-stopped
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true
+    name: coolify
