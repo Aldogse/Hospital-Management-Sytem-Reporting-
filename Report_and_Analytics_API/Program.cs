@@ -24,6 +24,8 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 36)));
 });
 
+Console.WriteLine(">>> Using connection string: " + builder.Configuration.GetConnectionString("MainDb"));
+
 
 //builder.Services.AddHostedService<payCyclePayrollSummaryReport>();
 //builder.Services.AddHostedService<monthlyRevenueReportService>();
