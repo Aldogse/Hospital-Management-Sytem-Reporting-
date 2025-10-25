@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -18,18 +19,27 @@ builder.Host.UseSerilog();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddDbContext<ReportDbContext>(options =>
-{
-    options.UseMySql(builder.Configuration.GetConnectionString("MainDb"),
-        new MySqlServerVersion(new Version(8, 0, 36)));
-});
 
+builder.Services.AddDbContext<ReportDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("MainDb"),
+        new MySqlServerVersion(new Version(8, 0, 36)),
+        mySqlOptions => mySqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,             
+            maxRetryDelay: TimeSpan.FromSeconds(10), 
+            errorNumbersToAdd: null          
+        )
+    )
+);
 
 //builder.Services.AddHostedService<payCyclePayrollSummaryReport>();
 //builder.Services.AddHostedService<monthlyRevenueReportService>();
 //builder.Services.AddHostedService<quarterlyRevenueReportService>();
 //builder.Services.AddHostedService<dailyAttendanceReportGeneratorService>();
-//builder.Services.AddHostedService<monthShiftAndDutiesReport>();
+////builder.Services.AddHostedService<monthShiftAndDutiesReport>();
+//builder.Services.AddHostedService<monthLeaveServiceReport>();
+//builder.Services.AddHostedService<monthPharmacySalesReport>();
+//builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();

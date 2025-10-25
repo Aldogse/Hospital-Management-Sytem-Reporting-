@@ -22,7 +22,7 @@ namespace Report_and_Analytics_API.Data
         //Billing tables
         public DbSet<biiling_service> biiling_service { get; set; }   
         public DbSet<bill_items> bill_Items { get; set; }
-        public DbSet<billing_records> billing_Items { get; set; }
+        public DbSet<billing_items> billing_items { get; set; }
         public DbSet<billing_records> billing_records { get; set; }
         public DbSet<billingsummary> billingsummary { get; set; }
         public DbSet<bills> bills { get; set; }
@@ -49,6 +49,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<shift_scheduling> shift_scheduling { get; set; }
         public DbSet<p_treatment_history> p_treatment_history { get; set; }
         public DbSet<users> users { get; set; }
+
 
 
         //HR related tables
@@ -86,6 +87,7 @@ namespace Report_and_Analytics_API.Data
         //Property management table
         public DbSet<p_bed_assignments> p_bed_assignments { get; set; }
         public DbSet<p_beds> p_beds { get; set; }
+        public DbSet<department_budgets> department_budgets { get; set; }
 
         //Services  table
         public DbSet<p_hospital_services> p_hospital_services { get; set; }
@@ -102,7 +104,10 @@ namespace Report_and_Analytics_API.Data
         public DbSet<daily_attendance_report> daily_attendance_report { get; set; }
         public DbSet<month_appointment_and_duty_report> month_appointment_and_duty_report { get; set; }
         public DbSet<quarter_employees_performance_and_evaluation_report> quarter_employees_performance_and_evaluation_report { get; set; }
-
+        public DbSet<month_leave_report> month_leave_report { get; set; }
+        public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
+        public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

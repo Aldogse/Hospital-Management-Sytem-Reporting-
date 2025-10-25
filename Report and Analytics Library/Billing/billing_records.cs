@@ -27,7 +27,7 @@ namespace Report_and_Analytics_Library.Billing
         public decimal? total_amount { get; set; }
         public decimal insurance_covered { get; set; }
         public decimal out_of_pocket { get; set; }
-        public billingStatus status { get; set; }
+        public string status { get; set; }
         public string? payment_method { get; set; }
         public string? transaction_id { get; set; }
     }

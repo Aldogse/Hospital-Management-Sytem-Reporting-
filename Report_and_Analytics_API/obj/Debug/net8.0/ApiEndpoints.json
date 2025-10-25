@@ -1,5 +1,52 @@
 [
   {
+    "ContainingType": "Report_and_Analytics_API.Controllers.billingController",
+    "Method": "getMonthPharmacySalesReport",
+    "RelativePath": "billing/getMonthPharmacySalesReport/{month}/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.billingController",
+    "Method": "getYearDepartmentBudgetDetails",
+    "RelativePath": "billing/getYearDepartmentBudgetDetails/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "Employee",
+    "RelativePath": "employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
     "Method": "attendanceReport",
     "RelativePath": "employee/attendanceReport/{date}",
@@ -53,6 +100,27 @@
   },
   {
     "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
+    "Method": "getMonthLeaveReports",
+    "RelativePath": "employee/getMonthLeaveReports/{month}/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.EmployeeController",
     "Method": "getMonthShiftAndDutyReport",
     "RelativePath": "employee/getMonthShiftAndDutyReport/{month}/{year}",
     "HttpMethod": "GET",
@@ -97,6 +165,43 @@
       },
       {
         "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.patientController",
+    "Method": "patientDetails",
+    "RelativePath": "employee/patientDetails/{page}/{size}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Report_and_Analytics_API.Controllers.patientController",
+    "Method": "patientMedicalRecords",
+    "RelativePath": "employee/patientMedicalRecords/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
         "Type": "System.Int32",
         "IsRequired": true
       }
