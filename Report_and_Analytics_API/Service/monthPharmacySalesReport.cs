@@ -51,8 +51,7 @@ namespace Report_and_Analytics_API.Service
                     join billingItems in database.billing_items
                     on billingRecords.billing_id equals billingItems.billing_id
                     where billingRecords.billing_date.Month == prevMonth.Month &&
-                    billingRecords.billing_date.Year == prevMonth.Year &&
-                    billingItems.item_type == "Pharmacy"
+                    billingRecords.billing_date.Year == prevMonth.Year
                     select billingRecords.billing_id
                     ).Distinct().CountAsync();
 
@@ -64,9 +63,8 @@ namespace Report_and_Analytics_API.Service
                          on bi.billing_id equals br.billing_id
                          where br.billing_date.Month == prevMonth.Month
                          && br.billing_date.Year == prevMonth.Year
-                         && bi.item_type == "Pharmacy"
                          && br.status == "Paid"
-                         group bi by bi.item_description into x 
+                         group bi by bi.item_id into x 
                          orderby x.Sum(x => x.total_price) descending
                          select x.Key
                      ).FirstOrDefaultAsync();
@@ -76,8 +74,7 @@ namespace Report_and_Analytics_API.Service
                     join billingItems in database.billing_items
                     on billingRecords.billing_id equals billingItems.billing_id
                     where billingRecords.billing_date.Month == prevMonth.Month &&
-                    billingRecords.billing_date.Year == prevMonth.Year &&
-                    billingItems.item_type == "Pharmacy" 
+                    billingRecords.billing_date.Year == prevMonth.Year
                     group new { billingRecords,billingItems } by 1 into x
                     select new month_pharmacy_sales               
                     {
@@ -85,7 +82,7 @@ namespace Report_and_Analytics_API.Service
                         month = prevMonth.Month,
                         totalSales = x.Select(x => x.billingRecords.total_amount).Sum(),
                         totalTransactions = monthTotalTransactions, 
-                        topSellingItem = topSellingItem,
+                        //topSellingItem = topSellingItem,
                     }).FirstOrDefaultAsync();
 
                 if(monthSalesReport == null)
