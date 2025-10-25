@@ -30,7 +30,7 @@ namespace Report_and_Analytics_Library.HR
         public string? leave_status { get; set; }
         public DateOnly? approval_date { get; set; }
         public string? leave_reason { get; set; }
-        public string? medical_cert { get; set; }
+        //public byte? medical_cert { get; set; }
         public DateTime submit_at { get; set; }
     }
 }
