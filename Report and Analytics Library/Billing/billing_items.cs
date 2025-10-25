@@ -22,7 +22,7 @@ namespace Report_and_Analytics_Library.Billing
         public billing_records Billing_Records { get; set; }
 
 
-        public itemType item_type { get; set; }
+        public string item_type { get; set; }
         public string item_description { get; set; }
         public int quantity { get; set; }
         public decimal? unit_price { get; set; }

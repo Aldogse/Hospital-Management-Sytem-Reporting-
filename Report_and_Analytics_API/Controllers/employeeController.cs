@@ -338,5 +338,61 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        //ENDPOINT FOR LEAVE REPORT 
+        [HttpGet("getMonthLeaveReports/{month}/{year}")]
+        public async Task<IActionResult> getMonthLeaveReports(int month, int year)
+        {
+            try
+            {
+                var prevMonthLeaveReports = await _reportDbContext.month_leave_report
+                    .Where(i => i.month == month && i.year == year)
+                    .FirstOrDefaultAsync();
+
+                var leaveDetails = await _reportDbContext.hr_leave
+                    .Where(i => i.submit_at.Month == month && i.submit_at.Year == year)
+                    .ToListAsync();
+
+                if (prevMonthLeaveReports == null)
+                {
+                    return Ok(new
+                    {
+                        successs = true,
+                        message = $"No leave report for {month}/{year}",
+                        data = (object?)null
+                    });
+                }
+
+                var response = new monthLeaveReportResponse()
+                {
+                    total_leaves = prevMonthLeaveReports.total_leave_request,
+                    approved = prevMonthLeaveReports.month_approved_leaves,
+                    rejected = prevMonthLeaveReports.month_rejected_leaves,
+                    pending = prevMonthLeaveReports.month_pending_leaves,
+                    leaves = leaveDetails
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Employee()
+        {
+            try
+            {
+                var emp = await _reportDbContext.hr_employees.ToListAsync();
+
+                return Ok(emp);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }

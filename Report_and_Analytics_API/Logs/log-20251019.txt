@@ -1,0 +1,1114 @@
+2025-10-19 11:39:04.942 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-19 11:39:05.049 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-19 11:39:05.050 +08:00 [INF] Hosting environment: Development
+2025-10-19 11:39:05.051 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-19 11:39:05.395 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-19 11:39:05.683 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 293.3558ms
+2025-10-19 11:39:05.685 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-19 11:39:05.693 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-19 11:39:05.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.8511ms
+2025-10-19 11:39:05.738 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.71ms
+2025-10-19 11:39:05.787 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-19 11:39:05.801 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.1988ms
+2025-10-19 11:39:13.076 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:39:13.084 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:39:13.087 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-19 11:39:13.091 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:39:13.118 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:39:17.872 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:39:18.073 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:39:18.086 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:39:18.107 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 4982.7188ms
+2025-10-19 11:39:18.109 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:39:18.112 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 5022.2135 ms
+2025-10-19 11:39:18.122 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 5045.978ms
+2025-10-19 11:45:20.579 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/dates - null null
+2025-10-19 11:45:20.586 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:45:20.592 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-19 11:45:20.599 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:45:20.648 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2025-10-19 11:45:20.652 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 11:45:20.654 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 52.9347ms
+2025-10-19 11:45:20.656 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-19 11:45:20.656 +08:00 [INF] HTTP GET /employee/dates responded 200 in 64.6634 ms
+2025-10-19 11:45:20.658 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/dates - 200 null application/json; charset=utf-8 79.464ms
+2025-10-19 11:45:20.662 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2025-10-03T10:08:18 - null null
+2025-10-19 11:45:20.666 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:45:20.667 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2025-10-19 11:45:20.670 +08:00 [INF] Route matched with {action = "attendanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] attendanceReport(System.DateTime) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:45:20.731 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `hr_employees` AS `h`
+2025-10-19 11:45:20.751 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`, `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`
+FROM `daily_attendance_report` AS `d`
+WHERE `d`.`reportDate` = @__date_0
+LIMIT 1
+2025-10-19 11:45:20.763 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.dailyAttendanceReportResponse'.
+2025-10-19 11:45:20.768 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API) in 95.994ms
+2025-10-19 11:45:20.769 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2025-10-19 11:45:20.770 +08:00 [INF] HTTP GET /employee/attendanceReport/2025-10-03T10:08:18 responded 200 in 103.5428 ms
+2025-10-19 11:45:20.772 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2025-10-03T10:08:18 - 200 null application/json; charset=utf-8 110.1737ms
+2025-10-19 11:45:22.572 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - null null
+2025-10-19 11:45:22.574 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:45:22.575 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:45:22.579 +08:00 [INF] Route matched with {action = "getStaffInformation", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getStaffInformation() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:45:22.594 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 11:45:22.660 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.staffInformationReportResponse'.
+2025-10-19 11:45:22.670 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API) in 89.0382ms
+2025-10-19 11:45:22.671 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:45:22.672 +08:00 [INF] HTTP GET /employee/getStaffInformation responded 200 in 96.8323 ms
+2025-10-19 11:45:22.674 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - 200 null application/json; charset=utf-8 102.0601ms
+2025-10-19 11:48:58.420 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:48:58.425 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:48:58.426 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:48:58.427 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:49:00.606 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:49:00.616 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:49:00.619 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:49:00.620 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 2190.8486ms
+2025-10-19 11:49:00.621 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:49:00.622 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 2195.8130 ms
+2025-10-19 11:49:00.623 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 2203.7355ms
+2025-10-19 11:49:36.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:49:36.112 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:49:36.113 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:49:36.126 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:49:36.134 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:49:36.137 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:49:36.138 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 23.3553ms
+2025-10-19 11:49:36.139 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:49:36.140 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 27.9198 ms
+2025-10-19 11:49:36.142 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 36.6165ms
+2025-10-19 11:50:35.867 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:50:35.875 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:50:35.876 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:50:35.877 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:50:35.891 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:50:35.898 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:50:35.900 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:50:35.902 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 22.6718ms
+2025-10-19 11:50:35.903 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:50:35.904 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 27.8068 ms
+2025-10-19 11:50:35.906 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 38.2066ms
+2025-10-19 11:51:15.426 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:51:15.432 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:51:15.433 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:51:15.434 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:51:15.446 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:51:15.463 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:51:15.466 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:51:15.467 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 31.8051ms
+2025-10-19 11:51:15.468 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:51:15.469 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 36.0107 ms
+2025-10-19 11:51:15.470 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 44.5991ms
+2025-10-19 11:52:43.668 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getDoctorsDetails - null null
+2025-10-19 11:52:43.675 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:52:43.676 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API)'
+2025-10-19 11:52:43.679 +08:00 [INF] Route matched with {action = "getDoctorsDetails", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getDoctorsDetails() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:52:43.700 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`middle_name`, `h`.`specialization`, `h`.`role`
+FROM `hr_employees` AS `h`
+WHERE (`h`.`profession` = 'Doctor') AND (`h`.`status` = 'Active')
+2025-10-19 11:52:43.702 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Report_and_Analytics_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 11:52:43.706 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API) in 25.7794ms
+2025-10-19 11:52:43.707 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API)'
+2025-10-19 11:52:43.708 +08:00 [INF] HTTP GET /employee/getDoctorsDetails responded 200 in 32.3133 ms
+2025-10-19 11:52:43.709 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getDoctorsDetails - 200 null application/json; charset=utf-8 41.3691ms
+2025-10-19 11:52:45.936 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - null null
+2025-10-19 11:52:45.940 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:52:45.941 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:52:45.942 +08:00 [INF] Route matched with {action = "getStaffInformation", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getStaffInformation() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:52:45.950 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 11:52:45.961 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.staffInformationReportResponse'.
+2025-10-19 11:52:45.963 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API) in 18.3204ms
+2025-10-19 11:52:45.964 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:52:45.965 +08:00 [INF] HTTP GET /employee/getStaffInformation responded 200 in 24.1660 ms
+2025-10-19 11:52:45.967 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - 200 null application/json; charset=utf-8 30.9334ms
+2025-10-19 11:52:51.806 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - null null
+2025-10-19 11:52:51.810 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:52:51.811 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:52:51.813 +08:00 [INF] Route matched with {action = "getStaffInformation", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getStaffInformation() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 11:52:51.822 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 11:52:51.824 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.staffInformationReportResponse'.
+2025-10-19 11:52:51.825 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API) in 9.2744ms
+2025-10-19 11:52:51.826 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 11:52:51.827 +08:00 [INF] HTTP GET /employee/getStaffInformation responded 200 in 16.1733 ms
+2025-10-19 11:52:51.829 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - 200 null application/json; charset=utf-8 22.8191ms
+2025-10-19 11:57:59.115 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:57:59.121 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:57:59.122 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:57:59.123 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:57:59.150 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:57:59.160 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:57:59.162 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:57:59.164 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 38.6323ms
+2025-10-19 11:57:59.165 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:57:59.166 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 43.4024 ms
+2025-10-19 11:57:59.167 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 52.405ms
+2025-10-19 11:59:25.629 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 11:59:25.635 +08:00 [INF] CORS policy execution successful.
+2025-10-19 11:59:25.635 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:59:25.636 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 11:59:25.649 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 11:59:25.655 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 11:59:25.658 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 11:59:25.660 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 21.8528ms
+2025-10-19 11:59:25.661 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 11:59:25.662 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 26.5018 ms
+2025-10-19 11:59:25.664 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 35.0035ms
+2025-10-19 12:05:37.358 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 12:05:37.365 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:05:37.366 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:05:37.367 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 12:05:37.387 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:05:37.395 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 12:05:37.397 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 12:05:37.398 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 30.3073ms
+2025-10-19 12:05:37.400 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:05:37.401 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 34.9133 ms
+2025-10-19 12:05:37.403 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 45.0145ms
+2025-10-19 12:10:18.316 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 12:10:18.324 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:18.326 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:10:18.327 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 12:10:18.345 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:10:18.353 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 12:10:18.355 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 12:10:18.356 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 28.1042ms
+2025-10-19 12:10:18.358 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:10:18.359 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 33.1937 ms
+2025-10-19 12:10:18.360 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 44.2612ms
+2025-10-19 12:10:42.241 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/dates - null null
+2025-10-19 12:10:42.244 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:42.244 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-19 12:10:42.246 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:10:42.258 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2025-10-19 12:10:42.263 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:10:42.265 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 16.9548ms
+2025-10-19 12:10:42.267 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-19 12:10:42.269 +08:00 [INF] HTTP GET /employee/dates responded 200 in 24.2378 ms
+2025-10-19 12:10:42.270 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/dates - 200 null application/json; charset=utf-8 29.3841ms
+2025-10-19 12:10:42.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2025-10-03T10:08:18 - null null
+2025-10-19 12:10:42.276 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:42.276 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2025-10-19 12:10:42.277 +08:00 [INF] Route matched with {action = "attendanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] attendanceReport(System.DateTime) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:10:42.284 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `hr_employees` AS `h`
+2025-10-19 12:10:42.289 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`, `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`
+FROM `daily_attendance_report` AS `d`
+WHERE `d`.`reportDate` = @__date_0
+LIMIT 1
+2025-10-19 12:10:42.291 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.dailyAttendanceReportResponse'.
+2025-10-19 12:10:42.292 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API) in 13.4232ms
+2025-10-19 12:10:42.293 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2025-10-19 12:10:42.294 +08:00 [INF] HTTP GET /employee/attendanceReport/2025-10-03T10:08:18 responded 200 in 17.8764 ms
+2025-10-19 12:10:42.296 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2025-10-03T10:08:18 - 200 null application/json; charset=utf-8 22.4858ms
+2025-10-19 12:10:45.451 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - null null
+2025-10-19 12:10:45.453 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:45.454 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2025-10-19 12:10:45.458 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2025-10-19 12:10:45.535 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2025-10-19 12:10:45.542 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType17`10[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Report_and_Analytics_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 12:10:45.550 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 89.8708ms
+2025-10-19 12:10:45.552 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2025-10-19 12:10:45.553 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/9/2025 responded 200 in 98.7704 ms
+2025-10-19 12:10:45.555 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - 200 null application/json; charset=utf-8 104.1309ms
+2025-10-19 12:10:48.012 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-19 12:10:48.015 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-19 12:10:48.018 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-19 12:10:48.026 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 12:10:48.030 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 12:10:48.031 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 11.3923ms
+2025-10-19 12:10:48.033 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-19 12:10:48.034 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 18.7994 ms
+2025-10-19 12:10:48.035 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 23.0787ms
+2025-10-19 12:10:51.106 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-10-19 12:10:51.109 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.110 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-10-19 12:10:51.113 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.122 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-10-19 12:10:51.126 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:10:51.128 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 13.0794ms
+2025-10-19 12:10:51.129 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-10-19 12:10:51.130 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 19.9257 ms
+2025-10-19 12:10:51.131 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 25.5549ms
+2025-10-19 12:10:51.134 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-10-19 12:10:51.138 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.138 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-10-19 12:10:51.142 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.153 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-10-19 12:10:51.172 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:10:51.175 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 31.2554ms
+2025-10-19 12:10:51.177 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-10-19 12:10:51.178 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 39.5884 ms
+2025-10-19 12:10:51.179 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 45.131ms
+2025-10-19 12:10:51.183 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-10-19 12:10:51.184 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-10-19 12:10:51.183 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-10-19 12:10:51.184 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-10-19 12:10:51.190 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.192 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.194 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.196 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:10:51.196 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.197 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.197 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.198 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.201 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.201 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.202 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.202 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:10:51.216 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:10:51.248 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:10:51.255 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 49.6326ms
+2025-10-19 12:10:51.259 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:10:51.260 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.261 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:10:51.261 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:10:51.263 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:10:51.264 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 66.6828 ms
+2025-10-19 12:10:51.265 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:10:51.267 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:10:51.268 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 64.4794ms
+2025-10-19 12:10:51.270 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 86.0352ms
+2025-10-19 12:10:51.271 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 64.1764ms
+2025-10-19 12:10:51.272 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 69.4796ms
+2025-10-19 12:10:51.274 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.277 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.278 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:10:51.279 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 81.0806 ms
+2025-10-19 12:10:51.280 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 82.4975 ms
+2025-10-19 12:10:51.281 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 84.4984 ms
+2025-10-19 12:10:51.282 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 97.937ms
+2025-10-19 12:10:51.284 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 100.5645ms
+2025-10-19 12:10:51.285 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 102.2972ms
+2025-10-19 12:12:46.682 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/availableYears - null null
+2025-10-19 12:12:46.691 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.692 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-10-19 12:12:46.693 +08:00 [INF] Route matched with {action = "years", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] years() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.702 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`year`
+FROM `quarter_revenue` AS `q`
+2025-10-19 12:12:46.705 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:12:46.707 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API) in 11.9927ms
+2025-10-19 12:12:46.708 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.years (Report_and_Analytics_API)'
+2025-10-19 12:12:46.709 +08:00 [INF] HTTP GET /journal/availableYears responded 200 in 16.8519 ms
+2025-10-19 12:12:46.710 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/availableYears - 200 null application/json; charset=utf-8 29.1104ms
+2025-10-19 12:12:46.718 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - null null
+2025-10-19 12:12:46.720 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.721 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-10-19 12:12:46.724 +08:00 [INF] Route matched with {action = "getYearRevenue", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearRevenue(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.732 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `q`.`reportId`, `q`.`quarter`, `q`.`totalRevenue`, `q`.`year`
+FROM `quarter_revenue` AS `q`
+WHERE `q`.`year` = @__year_0
+2025-10-19 12:12:46.740 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:12:46.742 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API) in 15.6306ms
+2025-10-19 12:12:46.744 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearRevenue (Report_and_Analytics_API)'
+2025-10-19 12:12:46.745 +08:00 [INF] HTTP GET /journal/getYearRevenue/2025 responded 200 in 24.4130 ms
+2025-10-19 12:12:46.747 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getYearRevenue/2025 - 200 null application/json; charset=utf-8 29.2968ms
+2025-10-19 12:12:46.749 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - null null
+2025-10-19 12:12:46.751 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - null null
+2025-10-19 12:12:46.749 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - null null
+2025-10-19 12:12:46.750 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - null null
+2025-10-19 12:12:46.756 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.759 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.760 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.762 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:46.763 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.763 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.764 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.765 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.765 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.766 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.767 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.768 +08:00 [INF] Route matched with {action = "getQuarterRevenues", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterRevenues(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:46.780 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:12:46.791 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:12:46.796 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:12:46.784 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:12:46.797 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__quarter_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`q`.`totalRevenue`), 0.0)
+FROM `quarter_revenue` AS `q`
+WHERE (`q`.`year` = @__year_0) AND (`q`.`quarter` = @__quarter_1)
+2025-10-19 12:12:46.798 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:12:46.800 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 30.5743ms
+2025-10-19 12:12:46.802 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:12:46.804 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Decimal'.
+2025-10-19 12:12:46.805 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 24.7766ms
+2025-10-19 12:12:46.806 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.807 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 34.3404ms
+2025-10-19 12:12:46.808 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API) in 23.3549ms
+2025-10-19 12:12:46.809 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.810 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/3 responded 200 in 46.9706 ms
+2025-10-19 12:12:46.811 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.812 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterRevenues (Report_and_Analytics_API)'
+2025-10-19 12:12:46.812 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/2 responded 200 in 48.4875 ms
+2025-10-19 12:12:46.814 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/3 - 200 null application/json; charset=utf-8 64.8791ms
+2025-10-19 12:12:46.815 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/1 responded 200 in 51.3316 ms
+2025-10-19 12:12:46.816 +08:00 [INF] HTTP GET /journal/getQuarterRevenues/2025/4 responded 200 in 50.9143 ms
+2025-10-19 12:12:46.817 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/2 - 200 null application/json; charset=utf-8 67.9646ms
+2025-10-19 12:12:46.821 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/1 - 200 null application/json; charset=utf-8 70.0506ms
+2025-10-19 12:12:46.823 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterRevenues/2025/4 - 200 null application/json; charset=utf-8 73.148ms
+2025-10-19 12:12:53.062 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - null null
+2025-10-19 12:12:53.067 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:12:53.067 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-10-19 12:12:53.070 +08:00 [INF] Route matched with {action = "getQuarterThreeRevenueDetails", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getQuarterThreeRevenueDetails(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-10-19 12:12:57.340 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`amount`, `m`.`description`, `m`.`isStored`, `m`.`month`, `m`.`year`
+FROM `month_revenue_breakdownreport` AS `m`
+WHERE ((`m`.`year` = @__year_0) AND (`m`.`month` >= 7)) AND (`m`.`month` <= 9)
+2025-10-19 12:12:57.355 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.monthRevenueBreakdownResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 12:12:57.358 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API) in 4286.0246ms
+2025-10-19 12:12:57.359 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getQuarterThreeRevenueDetails (Report_and_Analytics_API)'
+2025-10-19 12:12:57.360 +08:00 [INF] HTTP GET /journal/getQuarterThreeRevenueDetails/2025 responded 200 in 4292.8030 ms
+2025-10-19 12:12:57.362 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/journal/getQuarterThreeRevenueDetails/2025 - 200 null application/json; charset=utf-8 4299.3515ms
+2025-10-19 12:13:18.512 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getHospitalMonthlyPayrollReport/9/2025 - null null
+2025-10-19 12:13:18.517 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:18.517 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2025-10-19 12:13:18.521 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-19 12:13:18.557 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, (
+    SELECT `h1`.`first_name`
+    FROM `hr_employees` AS `h1`
+    INNER JOIN `employeepayrollmonthreports` AS `e0` ON `h1`.`employee_id` = `e0`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h2` ON `e0`.`employeeId` = `h2`.`employee_id`
+    WHERE ((`e0`.`month` = @__month_0) AND (`e0`.`year` = @__year_1)) AND (`h`.`employee_id` = `h1`.`employee_id`)
+    LIMIT 1) AS `firstName`, (
+    SELECT `h3`.`middle_name`
+    FROM `hr_employees` AS `h3`
+    INNER JOIN `employeepayrollmonthreports` AS `e1` ON `h3`.`employee_id` = `e1`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h4` ON `e1`.`employeeId` = `h4`.`employee_id`
+    WHERE ((`e1`.`month` = @__month_0) AND (`e1`.`year` = @__year_1)) AND (`h`.`employee_id` = `h3`.`employee_id`)
+    LIMIT 1) AS `middleName`, (
+    SELECT `h5`.`last_name`
+    FROM `hr_employees` AS `h5`
+    INNER JOIN `employeepayrollmonthreports` AS `e2` ON `h5`.`employee_id` = `e2`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h6` ON `e2`.`employeeId` = `h6`.`employee_id`
+    WHERE ((`e2`.`month` = @__month_0) AND (`e2`.`year` = @__year_1)) AND (`h`.`employee_id` = `h5`.`employee_id`)
+    LIMIT 1) AS `lastName`, (
+    SELECT `h7`.`department`
+    FROM `hr_employees` AS `h7`
+    INNER JOIN `employeepayrollmonthreports` AS `e3` ON `h7`.`employee_id` = `e3`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h8` ON `e3`.`employeeId` = `h8`.`employee_id`
+    WHERE ((`e3`.`month` = @__month_0) AND (`e3`.`year` = @__year_1)) AND (`h`.`employee_id` = `h7`.`employee_id`)
+    LIMIT 1) AS `department`, (
+    SELECT `h9`.`role`
+    FROM `hr_employees` AS `h9`
+    INNER JOIN `employeepayrollmonthreports` AS `e4` ON `h9`.`employee_id` = `e4`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h10` ON `e4`.`employeeId` = `h10`.`employee_id`
+    WHERE ((`e4`.`month` = @__month_0) AND (`e4`.`year` = @__year_1)) AND (`h`.`employee_id` = `h9`.`employee_id`)
+    LIMIT 1) AS `role`, (
+    SELECT `h12`.`basic_pay`
+    FROM `hr_employees` AS `h11`
+    INNER JOIN `employeepayrollmonthreports` AS `e5` ON `h11`.`employee_id` = `e5`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h12` ON `e5`.`employeeId` = `h12`.`employee_id`
+    WHERE ((`e5`.`month` = @__month_0) AND (`e5`.`year` = @__year_1)) AND (`h`.`employee_id` = `h11`.`employee_id`)
+    LIMIT 1) AS `basicSalary`, (
+    SELECT `h14`.`overtime_pay`
+    FROM `hr_employees` AS `h13`
+    INNER JOIN `employeepayrollmonthreports` AS `e6` ON `h13`.`employee_id` = `e6`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h14` ON `e6`.`employeeId` = `h14`.`employee_id`
+    WHERE (((`e6`.`month` = @__month_0) AND (`e6`.`year` = @__year_1)) AND (`h`.`employee_id` = `h13`.`employee_id`)) AND (EXTRACT(day FROM `h14`.`pay_period_start`) = 16)
+    LIMIT 1) AS `overtimePay`, COALESCE(SUM(CASE
+    WHEN (`h0`.`employee_id` = `h`.`employee_id`) AND (EXTRACT(day FROM `h0`.`pay_period_start`) = 16) THEN `h0`.`sss_deduction`
+END), 0.0) AS `deductions`, (
+    SELECT `e7`.`monthTotalWage`
+    FROM `hr_employees` AS `h15`
+    INNER JOIN `employeepayrollmonthreports` AS `e7` ON `h15`.`employee_id` = `e7`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h16` ON `e7`.`employeeId` = `h16`.`employee_id`
+    WHERE (((`e7`.`month` = @__month_0) AND (`e7`.`year` = @__year_1)) AND (`h`.`employee_id` = `h15`.`employee_id`)) AND (((`e7`.`employeeId` = `h`.`employee_id`) AND (`e7`.`month` = @__month_0)) AND (`e7`.`year` = @__year_1))
+    LIMIT 1) AS `netPay`
+FROM `hr_employees` AS `h`
+INNER JOIN `employeepayrollmonthreports` AS `e` ON `h`.`employee_id` = `e`.`employeeId`
+INNER JOIN `hr_payroll` AS `h0` ON `e`.`employeeId` = `h0`.`employee_id`
+WHERE (`e`.`month` = @__month_0) AND (`e`.`year` = @__year_1)
+GROUP BY `h`.`employee_id`
+2025-10-19 12:13:18.561 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.hospitalPayrollReportMonthResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 12:13:18.564 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 40.8793ms
+2025-10-19 12:13:18.565 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2025-10-19 12:13:18.566 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport/9/2025 responded 200 in 48.6503 ms
+2025-10-19 12:13:18.568 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getHospitalMonthlyPayrollReport/9/2025 - 200 null application/json; charset=utf-8 55.2884ms
+2025-10-19 12:13:29.684 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthShiftAndDutyReport/9/2025 - null null
+2025-10-19 12:13:29.687 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:29.688 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API)'
+2025-10-19 12:13:29.692 +08:00 [INF] Route matched with {action = "getMonthShiftAndDutyReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthShiftAndDutyReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:29.706 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`cancelled`, `m`.`completed`, `m`.`doctorDuties`, `m`.`month`, `m`.`nurseDuties`, `m`.`pending`, `m`.`totalAppointments`, `m`.`year`
+FROM `month_appointment_and_duty_report` AS `m`
+WHERE (`m`.`year` = @__year_0) AND (`m`.`month` = @__month_1)
+LIMIT 1
+2025-10-19 12:13:29.731 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`appointment_id` AS `Id`, COALESCE((
+    SELECT `d0`.`doctor_id`
+    FROM `p_appointments` AS `p0`
+    INNER JOIN `duty_assignments` AS `d0` ON `p0`.`appointment_id` = `d0`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p0`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p0`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p0`.`appointment_id`)
+    LIMIT 1), 0) AS `doctor`, (
+    SELECT `d1`.`bed_id`
+    FROM `p_appointments` AS `p1`
+    INNER JOIN `duty_assignments` AS `d1` ON `p1`.`appointment_id` = `d1`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p1`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p1`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p1`.`appointment_id`)
+    LIMIT 1) AS `bed`, (
+    SELECT `d2`.`nurse_assistant`
+    FROM `p_appointments` AS `p2`
+    INNER JOIN `duty_assignments` AS `d2` ON `p2`.`appointment_id` = `d2`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p2`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p2`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p2`.`appointment_id`)
+    LIMIT 1) AS `nurse`, (
+    SELECT `d3`.`procedure`
+    FROM `p_appointments` AS `p3`
+    INNER JOIN `duty_assignments` AS `d3` ON `p3`.`appointment_id` = `d3`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p3`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p3`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p3`.`appointment_id`)
+    LIMIT 1) AS `procedure`, (
+    SELECT `d4`.`status`
+    FROM `p_appointments` AS `p4`
+    INNER JOIN `duty_assignments` AS `d4` ON `p4`.`appointment_id` = `d4`.`appointment_id`
+    WHERE ((EXTRACT(month FROM `p4`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p4`.`appointment_date`) = @__year_1)) AND (`p`.`appointment_id` = `p4`.`appointment_id`)
+    LIMIT 1) AS `status`
+FROM `p_appointments` AS `p`
+INNER JOIN `duty_assignments` AS `d` ON `p`.`appointment_id` = `d`.`appointment_id`
+WHERE (EXTRACT(month FROM `p`.`appointment_date`) = @__month_0) AND (EXTRACT(year FROM `p`.`appointment_date`) = @__year_1)
+GROUP BY `p`.`appointment_id`
+2025-10-19 12:13:29.736 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthShiftAndDutyReportResponse'.
+2025-10-19 12:13:29.741 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API) in 46.9628ms
+2025-10-19 12:13:29.742 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthShiftAndDutyReport (Report_and_Analytics_API)'
+2025-10-19 12:13:29.743 +08:00 [INF] HTTP GET /employee/getMonthShiftAndDutyReport/9/2025 responded 200 in 54.9430 ms
+2025-10-19 12:13:29.745 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthShiftAndDutyReport/9/2025 - 200 null application/json; charset=utf-8 60.228ms
+2025-10-19 12:13:34.303 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/1/2025 - null null
+2025-10-19 12:13:34.306 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:34.307 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:34.311 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:34.322 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:34.331 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:34.333 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType11`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:13:34.336 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 23.5342ms
+2025-10-19 12:13:34.338 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:34.339 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/1/2025 responded 200 in 31.9336 ms
+2025-10-19 12:13:34.340 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/1/2025 - 200 null application/json; charset=utf-8 37.0499ms
+2025-10-19 12:13:38.051 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - null null
+2025-10-19 12:13:38.055 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:38.055 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:38.057 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:38.063 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:38.072 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:38.075 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType11`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:13:38.076 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 17.414ms
+2025-10-19 12:13:38.078 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:38.079 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/9/2025 responded 200 in 23.7552 ms
+2025-10-19 12:13:38.081 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - 200 null application/json; charset=utf-8 29.8389ms
+2025-10-19 12:13:40.147 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - null null
+2025-10-19 12:13:40.149 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:40.150 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.151 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:40.156 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:40.161 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:40.163 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType11`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:13:40.164 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 11.9651ms
+2025-10-19 12:13:40.165 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.166 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/9/2025 responded 200 in 15.9695 ms
+2025-10-19 12:13:40.167 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - 200 null application/json; charset=utf-8 20.0082ms
+2025-10-19 12:13:40.516 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - null null
+2025-10-19 12:13:40.520 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:40.520 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.521 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:40.527 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:40.532 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:40.534 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType11`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:13:40.535 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 12.539ms
+2025-10-19 12:13:40.536 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.537 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/9/2025 responded 200 in 16.6147 ms
+2025-10-19 12:13:40.538 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - 200 null application/json; charset=utf-8 22.5661ms
+2025-10-19 12:13:40.684 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - null null
+2025-10-19 12:13:40.687 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:40.687 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.688 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:40.694 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:40.699 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:40.700 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType11`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-19 12:13:40.702 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 11.856ms
+2025-10-19 12:13:40.703 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:40.703 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/9/2025 responded 200 in 15.9288 ms
+2025-10-19 12:13:40.705 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/9/2025 - 200 null application/json; charset=utf-8 20.973ms
+2025-10-19 12:13:42.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/8/2025 - null null
+2025-10-19 12:13:42.647 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:42.648 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:42.649 +08:00 [INF] Route matched with {action = "getMonthLeaveReports", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthLeaveReports(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:42.654 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`month_approved_leaves`, `m`.`month_pending_leaves`, `m`.`month_rejected_leaves`, `m`.`total_leave_request`, `m`.`year`
+FROM `month_leave_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:13:42.667 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`leave_id`, `h`.`approval_date`, `h`.`department`, `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`leave_end_date`, `h`.`leave_reason`, `h`.`leave_start_date`, `h`.`leave_status`, `h`.`leave_type`, `h`.`medical_cert`, `h`.`profession`, `h`.`role`, `h`.`submit_at`
+FROM `hr_leave` AS `h`
+WHERE (EXTRACT(month FROM `h`.`submit_at`) = @__month_0) AND (EXTRACT(year FROM `h`.`submit_at`) = @__year_1)
+2025-10-19 12:13:42.686 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.monthLeaveReportResponse'.
+2025-10-19 12:13:42.691 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API) in 40.8414ms
+2025-10-19 12:13:42.692 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthLeaveReports (Report_and_Analytics_API)'
+2025-10-19 12:13:42.693 +08:00 [INF] HTTP GET /employee/getMonthLeaveReports/8/2025 responded 200 in 44.8498 ms
+2025-10-19 12:13:42.694 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthLeaveReports/8/2025 - 200 null application/json; charset=utf-8 51.4264ms
+2025-10-19 12:13:50.055 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - null null
+2025-10-19 12:13:50.058 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:50.059 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 12:13:50.060 +08:00 [INF] Route matched with {action = "getStaffInformation", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getStaffInformation() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:50.066 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 12:13:50.069 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.staffInformationReportResponse'.
+2025-10-19 12:13:50.071 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API) in 8.9094ms
+2025-10-19 12:13:50.072 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 12:13:50.074 +08:00 [INF] HTTP GET /employee/getStaffInformation responded 200 in 14.5673 ms
+2025-10-19 12:13:50.076 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - 200 null application/json; charset=utf-8 20.5563ms
+2025-10-19 12:13:53.311 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getDoctorsDetails - null null
+2025-10-19 12:13:53.314 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:53.315 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API)'
+2025-10-19 12:13:53.316 +08:00 [INF] Route matched with {action = "getDoctorsDetails", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getDoctorsDetails() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:53.321 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`first_name`, `h`.`last_name`, `h`.`middle_name`, `h`.`specialization`, `h`.`role`
+FROM `hr_employees` AS `h`
+WHERE (`h`.`profession` = 'Doctor') AND (`h`.`status` = 'Active')
+2025-10-19 12:13:53.323 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Report_and_Analytics_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-19 12:13:53.325 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API) in 7.6988ms
+2025-10-19 12:13:53.326 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getDoctorsDetails (Report_and_Analytics_API)'
+2025-10-19 12:13:53.327 +08:00 [INF] HTTP GET /employee/getDoctorsDetails responded 200 in 12.2262 ms
+2025-10-19 12:13:53.328 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getDoctorsDetails - 200 null application/json; charset=utf-8 17.3865ms
+2025-10-19 12:13:55.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - null null
+2025-10-19 12:13:55.209 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:13:55.210 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 12:13:55.210 +08:00 [INF] Route matched with {action = "getStaffInformation", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getStaffInformation() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-19 12:13:55.217 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`leave_credits`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-19 12:13:55.219 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.staffInformationReportResponse'.
+2025-10-19 12:13:55.221 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API) in 8.4404ms
+2025-10-19 12:13:55.222 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getStaffInformation (Report_and_Analytics_API)'
+2025-10-19 12:13:55.223 +08:00 [INF] HTTP GET /employee/getStaffInformation responded 200 in 13.0685 ms
+2025-10-19 12:13:55.224 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getStaffInformation - 200 null application/json; charset=utf-8 18.4177ms
+2025-10-19 12:14:03.677 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - null null
+2025-10-19 12:14:03.679 +08:00 [INF] CORS policy execution successful.
+2025-10-19 12:14:03.680 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:14:03.681 +08:00 [INF] Route matched with {action = "getMonthPharmacySalesReport", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPharmacySalesReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2025-10-19 12:14:03.687 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-10-19 12:14:03.692 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`item_id` AS `itemId`, COALESCE((
+    SELECT `b1`.`item_description`
+    FROM `billing_items` AS `b1`
+    INNER JOIN `billing_records` AS `b2` ON `b1`.`billing_id` = `b2`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b2`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b2`.`billing_date`) = @__year_1)) AND (`b1`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b1`.`item_id`)
+    LIMIT 1), '') AS `description`, COALESCE((
+    SELECT `b3`.`quantity`
+    FROM `billing_items` AS `b3`
+    INNER JOIN `billing_records` AS `b4` ON `b3`.`billing_id` = `b4`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b4`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b4`.`billing_date`) = @__year_1)) AND (`b3`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b3`.`item_id`)
+    LIMIT 1), 0) AS `quantity`, COALESCE((
+    SELECT `b6`.`payment_method`
+    FROM `billing_items` AS `b5`
+    INNER JOIN `billing_records` AS `b6` ON `b5`.`billing_id` = `b6`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b6`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b6`.`billing_date`) = @__year_1)) AND (`b5`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b5`.`item_id`)
+    LIMIT 1), '') AS `paymentMethod`, (
+    SELECT `b8`.`total_amount`
+    FROM `billing_items` AS `b7`
+    INNER JOIN `billing_records` AS `b8` ON `b7`.`billing_id` = `b8`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b8`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b8`.`billing_date`) = @__year_1)) AND (`b7`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b7`.`item_id`)
+    LIMIT 1) AS `totalAmount`, COALESCE((
+    SELECT `b10`.`billing_date`
+    FROM `billing_items` AS `b9`
+    INNER JOIN `billing_records` AS `b10` ON `b9`.`billing_id` = `b10`.`billing_id`
+    WHERE (((EXTRACT(month FROM `b10`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b10`.`billing_date`) = @__year_1)) AND (`b9`.`item_type` = 'Pharmacy')) AND (`b`.`item_id` = `b9`.`item_id`)
+    LIMIT 1), TIMESTAMP '0001-01-01 00:00:00') AS `billingDate`
+FROM `billing_items` AS `b`
+INNER JOIN `billing_records` AS `b0` ON `b`.`billing_id` = `b0`.`billing_id`
+WHERE ((EXTRACT(month FROM `b0`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b0`.`billing_date`) = @__year_1)) AND (`b`.`item_type` = 'Pharmacy')
+GROUP BY `b`.`item_id`
+2025-10-19 12:14:03.694 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.monthPharmacySalesReportResponse'.
+2025-10-19 12:14:03.695 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API) in 12.7841ms
+2025-10-19 12:14:03.697 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.getMonthPharmacySalesReport (Report_and_Analytics_API)'
+2025-10-19 12:14:03.698 +08:00 [INF] HTTP GET /billing/getMonthPharmacySalesReport/9/2025 responded 200 in 17.5785 ms
+2025-10-19 12:14:03.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/billing/getMonthPharmacySalesReport/9/2025 - 200 null application/json; charset=utf-8 22.7945ms
