@@ -12,7 +12,7 @@ namespace Report_and_Analytics_Library.HR
     {
         [Key]
         public int employee_id { get; set; }
-        public string? name { get; set; }
+        //public string? name { get; set; }
         public string? username { get; set; }
         public string? password { get; set; }
         public string? first_name { get; set; }
