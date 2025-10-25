@@ -23,7 +23,7 @@ namespace Report_and_Analytics_Library.HR
         public string? last_name { get; set; }
         public string? profession { get; set; }
         public string? role { get; set; }
-        public string? department { get; set; }
+        //public string? department { get; set; }
         public DateOnly? leave_start_date { get; set; }
         public DateOnly? leave_end_date { get; set; }
         public string? leave_type { get; set; }
