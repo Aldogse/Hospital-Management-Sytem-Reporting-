@@ -19,10 +19,10 @@ namespace Report_and_Analytics_Library.HR
         [JsonIgnore]
         public hr_employees hr_Employees { get; set; }
 
-        public string? first_name { get; set; }
-        public string? last_name { get; set; }
-        public string? profession { get; set; }
-        public string? role { get; set; }
+        //public string? first_name { get; set; }
+        //public string? last_name { get; set; }
+        //public string? profession { get; set; }
+        //public string? role { get; set; }
         //public string? department { get; set; }
         public DateOnly? leave_start_date { get; set; }
         public DateOnly? leave_end_date { get; set; }
