@@ -20,10 +20,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-<<<<<<< HEAD
+
 Console.WriteLine(">>> Using connection string: " + builder.Configuration.GetConnectionString("MainDb"));
 
-=======
+
 builder.Services.AddDbContext<ReportDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("MainDb"),
@@ -35,7 +35,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
         )
     )
 );
->>>>>>> master
+
 
 //builder.Services.AddHostedService<payCyclePayrollSummaryReport>();
 //builder.Services.AddHostedService<monthlyRevenueReportService>();

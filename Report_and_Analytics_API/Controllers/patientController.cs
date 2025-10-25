@@ -6,7 +6,7 @@ using Report_and_Analytics_API.Data;
 namespace Report_and_Analytics_API.Controllers
 {
     [ApiController]
-    [Route("employee/")]
+    [Route("patient/")]
     public class patientController : ControllerBase
     {
         private readonly ILogger<patientController> _logger;
