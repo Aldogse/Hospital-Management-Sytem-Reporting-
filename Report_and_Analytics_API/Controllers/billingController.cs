@@ -32,13 +32,11 @@ namespace Report_and_Analytics_API.Controllers
                     join br in _reportDbContext.billing_records
                     on bi.billing_id equals br.billing_id
                     where br.billing_date.Month == month && 
-                    br.billing_date.Year == year && 
-                    bi.item_type == "Pharmacy"
+                    br.billing_date.Year == year
                     group new { bi , br } by bi.item_id into x
                     select new monthPharmacySalesDetailsResponse
                     {
                         itemId = x.Key,
-                        description = x.Select(x => x.bi.item_description).FirstOrDefault() ?? "",
                         quantity = x.Select(x => x.bi.quantity).FirstOrDefault(),
                         paymentMethod = x.Select(x => x.br.payment_method).FirstOrDefault() ?? "",
                         totalAmount = x.Select(x => x.br.total_amount).FirstOrDefault(),

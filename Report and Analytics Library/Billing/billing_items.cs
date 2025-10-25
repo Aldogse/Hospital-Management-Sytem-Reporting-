@@ -21,9 +21,9 @@ namespace Report_and_Analytics_Library.Billing
         [JsonIgnore]
         public billing_records Billing_Records { get; set; }
 
-
-        public string item_type { get; set; }
-        public string item_description { get; set; }
+        public int patient_id { get; set; }
+        public int service_id { get; set; }
+        //public string item_description { get; set; }
         public int quantity { get; set; }
         public decimal? unit_price { get; set; }
         public decimal? total_price { get; set; }
