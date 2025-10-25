@@ -1,18 +1,47 @@
-# Ignore Visual Studio files
+# Visual Studio files
 .vs/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
-# Ignore build output
+# Build output
 bin/
 obj/
 Debug/
 Release/
+[Bb]uild/
+[Ll]ogs/
 
-# Ignore logs
+# ASP.NET / Entity Framework
+appsettings.Development.json
+appsettings.Local.json
+*.db
+*.mdf
+*.ldf
+Migrations/
+
+# Logs
 *.log
+Logs/
+Report_and_Analytics_API/Logs/
 
-# Ignore temporary files
+# Temporary files
 *.tmp
 *.cache
-.vs/
+*.bak
+*.swp
+*.psess
+*.vspx
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Node-related (if you have frontend mixed in)
+node_modules/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
