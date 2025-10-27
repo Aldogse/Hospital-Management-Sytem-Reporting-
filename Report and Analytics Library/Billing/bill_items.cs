@@ -25,7 +25,6 @@ namespace Report_and_Analytics_Library.Billing
         [JsonIgnore]
         public biiling_service biiling_Service { get; set; }
 
-
         public int quantity { get; set; }
         public decimal unit_price { get; set; }
         public decimal total_price { get; set; }

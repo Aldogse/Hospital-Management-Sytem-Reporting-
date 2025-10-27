@@ -76,7 +76,7 @@ namespace Report_and_Analytics_API.Controllers
                     .ToListAsync();
 
 
-                //QUERY FOR EXTRACTING ALL THE NEEDED DATA
+                //QUERY FOR EXTRACTING ALL THE NEEDED DATA`
                 var patientMedicalRecords = await (
                     from patient in _reportDbContext.patientinfo
                     join medrecs in _reportDbContext.p_previous_medical_records
