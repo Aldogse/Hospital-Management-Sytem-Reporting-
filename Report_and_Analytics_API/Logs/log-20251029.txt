@@ -1,0 +1,216 @@
+2025-10-29 13:09:18.779 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-29 13:09:18.937 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 13:09:18.939 +08:00 [INF] Hosting environment: Development
+2025-10-29 13:09:18.940 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-29 13:09:19.249 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-29 13:09:19.470 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 225.5443ms
+2025-10-29 13:09:19.473 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-29 13:09:19.479 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-29 13:09:19.486 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.7102ms
+2025-10-29 13:09:19.512 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.5695ms
+2025-10-29 13:09:19.640 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-29 13:09:19.666 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.4015ms
+2025-10-29 13:09:22.552 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/dates - null null
+2025-10-29 13:09:22.566 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-29 13:09:22.571 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-29 13:09:22.598 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2025-10-29 13:09:24.586 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2025-10-29 13:09:24.663 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-29 13:09:24.675 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 2070.1707ms
+2025-10-29 13:09:24.678 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2025-10-29 13:09:24.680 +08:00 [INF] HTTP GET /employee/dates responded 200 in 2109.8093 ms
+2025-10-29 13:09:24.690 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/dates - 200 null application/json; charset=utf-8 2138.2837ms
+2025-10-29 13:21:03.704 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-29 13:21:03.884 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 13:21:03.885 +08:00 [INF] Hosting environment: Development
+2025-10-29 13:21:03.886 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-29 13:21:04.434 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-29 13:21:04.650 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 228.3683ms
+2025-10-29 13:21:04.655 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-29 13:21:04.656 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-29 13:21:04.665 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.2006ms
+2025-10-29 13:21:04.691 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.0045ms
+2025-10-29 13:21:04.734 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-29 13:21:04.753 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.7223ms
+2025-10-29 13:21:45.502 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getPayperiodStartDates/101 - null null
+2025-10-29 13:21:45.510 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-29 13:21:45.513 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API)'
+2025-10-29 13:21:45.538 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:21:47.397 +08:00 [INF] Executed DbCommand (53ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-10-29 13:21:47.450 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2025-10-29 13:21:47.459 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API) in 1916.9525ms
+2025-10-29 13:21:47.461 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API)'
+2025-10-29 13:21:47.463 +08:00 [INF] HTTP GET /payroll/getPayperiodStartDates/101 responded 200 in 1951.0298 ms
+2025-10-29 13:21:47.472 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getPayperiodStartDates/101 - 200 null application/json; charset=utf-8 1973.9122ms
+2025-10-29 13:22:38.401 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getEmployee - null null
+2025-10-29 13:22:38.406 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:22:38.411 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:22:38.479 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:22:38.575 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:22:38.579 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 165.934ms
+2025-10-29 13:22:38.580 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:22:38.581 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 174.8275 ms
+2025-10-29 13:22:38.583 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 182.1008ms
+2025-10-29 13:24:29.523 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getYearPayrollInformation/101/2025 - null null
+2025-10-29 13:24:29.558 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getYearPayrollInformation (Report_and_Analytics_API)'
+2025-10-29 13:24:29.562 +08:00 [INF] Route matched with {action = "getYearPayrollInformation", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPayrollInformation(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:24:29.657 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+WHERE `h`.`employee_id` = @__employeeId_0
+LIMIT 1
+2025-10-29 13:24:29.702 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`h`.`working_hours`), 0.0)
+FROM `hr_daily_attendance` AS `h`
+WHERE (`h`.`employee_id` = @__employeeId_0) AND (EXTRACT(year FROM `h`.`attendance_date`) = @__year_1)
+2025-10-29 13:24:29.721 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`overtimeHours`), 0.0)
+FROM `payrollinformation` AS `p`
+WHERE (`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_1)
+2025-10-29 13:24:29.729 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__employeeId_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`p`.`ytdNetPay`), 0.0)
+FROM `payrollinformation` AS `p`
+WHERE ((`p`.`employeeId` = @__employeeId_0) AND (EXTRACT(year FROM `p`.`payPeriodStartDate`) = @__year_1)) AND (EXTRACT(day FROM `p`.`payPeriodStartDate`) = 16)
+2025-10-29 13:24:29.732 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.employeeAnnualSalaryReportResponse'.
+2025-10-29 13:24:29.738 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getYearPayrollInformation (Report_and_Analytics_API) in 173.814ms
+2025-10-29 13:24:29.739 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getYearPayrollInformation (Report_and_Analytics_API)'
+2025-10-29 13:24:29.740 +08:00 [INF] HTTP GET /payroll/getYearPayrollInformation/101/2025 responded 200 in 182.4399 ms
+2025-10-29 13:24:29.742 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getYearPayrollInformation/101/2025 - 200 null application/json; charset=utf-8 218.4524ms
+2025-10-29 13:27:04.290 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-29 13:27:04.380 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 13:27:04.382 +08:00 [INF] Hosting environment: Development
+2025-10-29 13:27:04.383 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-29 13:27:04.980 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-29 13:27:05.199 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 224.2368ms
+2025-10-29 13:27:05.209 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-29 13:27:05.210 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-29 13:27:05.216 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.0985ms
+2025-10-29 13:27:05.251 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.3856ms
+2025-10-29 13:27:05.295 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-29 13:27:05.312 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.6311ms
+2025-10-29 13:28:23.471 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getEmployee - null null
+2025-10-29 13:28:23.480 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-29 13:28:23.484 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:28:23.499 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:28:24.772 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:28:24.922 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:28:24.930 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 1426.4519ms
+2025-10-29 13:28:24.932 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:28:24.934 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 1451.2269 ms
+2025-10-29 13:28:24.942 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 1471.0675ms
+2025-10-29 13:31:45.672 +08:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5288/payroll/getEmployee+ - null null
+2025-10-29 13:31:45.702 +08:00 [INF] HTTP GET /payroll/getEmployee+ responded 404 in 0.1158 ms
+2025-10-29 13:31:45.704 +08:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:5288/payroll/getEmployee+ - 404 0 null 32.0916ms
+2025-10-29 13:31:45.709 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://127.0.0.1:5288/payroll/getEmployee+, Response status code: 404
+2025-10-29 13:31:50.059 +08:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5288/payroll/getEmployee - null null
+2025-10-29 13:31:50.066 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:31:50.068 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:31:50.101 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:31:50.110 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:31:50.112 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 40.4895ms
+2025-10-29 13:31:50.113 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:31:50.114 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 47.7875 ms
+2025-10-29 13:31:50.116 +08:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 57.3094ms
+2025-10-29 13:31:50.136 +08:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5288/favicon.ico - null null
+2025-10-29 13:31:50.139 +08:00 [INF] HTTP GET /favicon.ico responded 404 in 0.0105 ms
+2025-10-29 13:31:50.141 +08:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:5288/favicon.ico - 404 0 null 5.51ms
+2025-10-29 13:31:50.145 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://127.0.0.1:5288/favicon.ico, Response status code: 404
+2025-10-29 13:38:18.733 +08:00 [INF] Now listening on: http://localhost:5288
+2025-10-29 13:38:18.824 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 13:38:18.826 +08:00 [INF] Hosting environment: Development
+2025-10-29 13:38:18.827 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-10-29 13:38:19.079 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-10-29 13:38:19.254 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 178.883ms
+2025-10-29 13:38:19.261 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-10-29 13:38:19.261 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-29 13:38:19.271 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.6828ms
+2025-10-29 13:38:19.309 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.3682ms
+2025-10-29 13:38:19.346 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-10-29 13:38:19.357 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.8518ms
+2025-10-29 13:38:22.844 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-29 13:38:22.851 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-10-29 13:38:22.854 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:38:22.870 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:38:24.076 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:38:24.234 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:38:24.244 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 1369.3841ms
+2025-10-29 13:38:24.246 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:38:24.249 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 1395.0262 ms
+2025-10-29 13:38:24.258 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 1413.9437ms
+2025-10-29 13:38:26.804 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-29 13:38:26.808 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:38:26.810 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:38:26.838 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:38:26.842 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:38:26.843 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 31.7501ms
+2025-10-29 13:38:26.844 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:38:26.845 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 36.7311 ms
+2025-10-29 13:38:26.847 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 42.9218ms
+2025-10-29 13:39:07.033 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-29 13:39:07.035 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:07.036 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:39:07.099 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:39:07.102 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:39:07.103 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 65.4339ms
+2025-10-29 13:39:07.104 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:07.105 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 69.8243 ms
+2025-10-29 13:39:07.107 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 74.2202ms
+2025-10-29 13:39:07.170 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-29 13:39:07.172 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:07.173 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:39:07.180 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:39:07.188 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:39:07.189 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 14.6153ms
+2025-10-29 13:39:07.191 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:07.192 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 19.8720 ms
+2025-10-29 13:39:07.194 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 24.2963ms
+2025-10-29 13:39:08.699 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - null null
+2025-10-29 13:39:08.702 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:08.703 +08:00 [INF] Route matched with {action = "getEmployees", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getEmployees() on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:39:08.710 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, `h`.`barangay`, `h`.`citizenship`, `h`.`city`, `h`.`contact_number`, `h`.`created_at`, `h`.`date_of_birth`, `h`.`degree_type`, `h`.`department`, `h`.`educational_status`, `h`.`eg_cn`, `h`.`eg_name`, `h`.`eg_relationship`, `h`.`email`, `h`.`employment_type`, `h`.`first_name`, `h`.`gender`, `h`.`graduation_year`, `h`.`hire_date`, `h`.`house_no`, `h`.`last_name`, `h`.`license_expiry`, `h`.`license_issued`, `h`.`license_number`, `h`.`license_type`, `h`.`medical_school`, `h`.`middle_name`, `h`.`password`, `h`.`profession`, `h`.`province`, `h`.`region`, `h`.`role`, `h`.`specialization`, `h`.`status`, `h`.`suffix_name`, `h`.`update_at`, `h`.`username`
+FROM `hr_employees` AS `h`
+2025-10-29 13:39:08.713 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Payroll_Responses.employeeDetailsResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 13:39:08.714 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API) in 10.1092ms
+2025-10-29 13:39:08.715 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getEmployees (Report_and_Analytics_API)'
+2025-10-29 13:39:08.716 +08:00 [INF] HTTP GET /payroll/getEmployee responded 200 in 14.8121 ms
+2025-10-29 13:39:08.718 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getEmployee - 200 null application/json; charset=utf-8 19.0668ms
+2025-10-29 13:39:08.722 +08:00 [INF] Request starting HTTP/1.1 GET http://host.docker.internal:5288/payroll/getPayperiodStartDates/102 - null null
+2025-10-29 13:39:08.724 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API)'
+2025-10-29 13:39:08.733 +08:00 [INF] Route matched with {action = "GetPayrollDates", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPayrollDates(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2025-10-29 13:39:08.853 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@__employeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`pay_period_start`
+FROM (
+    SELECT DISTINCT `h`.`pay_period_start`
+    FROM `hr_payroll` AS `h`
+    WHERE `h`.`employee_id` = @__employeeId_0
+) AS `t`
+ORDER BY EXTRACT(month FROM `t`.`pay_period_start`)
+2025-10-29 13:39:08.857 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2025-10-29 13:39:08.858 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API) in 123.5917ms
+2025-10-29 13:39:08.860 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.GetPayrollDates (Report_and_Analytics_API)'
+2025-10-29 13:39:08.861 +08:00 [INF] HTTP GET /payroll/getPayperiodStartDates/102 responded 200 in 136.6524 ms
+2025-10-29 13:39:08.863 +08:00 [INF] Request finished HTTP/1.1 GET http://host.docker.internal:5288/payroll/getPayperiodStartDates/102 - 200 null application/json; charset=utf-8 140.6017ms

@@ -15,8 +15,8 @@ namespace Report_and_Analytics_Library.Property_Management
         public string bed_number { get; set; }
         public string ward { get; set; }
         public string? room_number { get; set; }
-        public bedType bed_type { get; set; }
-        public bedStatus status { get; set; }
+        public string bed_type { get; set; }
+        public string status { get; set; }
         public string? notes { get; set; }
         public List<p_bed_assignments> bed_Assignments { get; set; }
     }

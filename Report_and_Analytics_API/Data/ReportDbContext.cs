@@ -94,7 +94,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<services> services { get; set; }
 
         //historical db
-        public DbSet<employeeReportFinalData> payrollinformation { get; set; }
+        public DbSet<month_payroll_summary> month_payroll_summary { get; set; }
         public DbSet<employeeAnnualPayrollReport> employeeAnnualPayrollReports { get; set; }
         public DbSet<employeePayrollMonthReport> employeePayrollMonthReports { get; set; }
         public DbSet<month_revenue_breakdownreport> month_revenue_breakdownreport { get; set; }
@@ -107,6 +107,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_leave_report> month_leave_report { get; set; }
         public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
         public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
+        public DbSet<month_admission_and_discharge_report> month_admission_and_discharge_reports { get; set; }
         
 
 
@@ -190,25 +191,6 @@ namespace Report_and_Analytics_API.Data
                .WithMany(i => i.treatment_Histories)
                .HasForeignKey(i => i.service_id)
                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<employeeReportFinalData>(entity =>
-            {
-                entity.Property(e => e.overtimePay).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleGrossPay).HasPrecision(18, 2);
-                entity.Property(e => e.GrossPay).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleTotalDeductions).HasPrecision(18, 2);
-                entity.Property(e => e.ytdTotalDeductions).HasPrecision(18, 2);
-                entity.Property(e => e.ytdNetPay).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleNetpay).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleSssDeduction).HasPrecision(18, 2);
-                entity.Property(e => e.ytdsssDeductions).HasPrecision(18, 2);
-                entity.Property(e => e.payCyclePhilHealthDeduction).HasPrecision(18, 2);
-                entity.Property(e => e.ytdphilHealthDeductions).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleLoanDeduction).HasPrecision(18, 2);
-                entity.Property(e => e.ytdLoanDeductions).HasPrecision(18, 2);
-                entity.Property(e => e.payCycleAbsenceDeduction).HasPrecision(18, 2);
-                entity.Property(e => e.ytdAbsenceDeductions).HasPrecision(18, 2);
-            });
 
         }
     }

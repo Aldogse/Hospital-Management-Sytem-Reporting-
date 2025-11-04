@@ -19,13 +19,6 @@ namespace Report_and_Analytics_API.Repository
         }
 
         //THIS SECTION BELOW IS FOR ANNUAL PAYROLL SUMMARY REPORT QUERIES
-        public async Task<decimal?> getMonthOvertimeHours(int employeeId, int month, int year)
-        {
-            return await _reportDbContext.payrollinformation
-                .Where(i => i.employeeId == employeeId &&
-                i.payPeriodStartDate.Month == month && i.payPeriodStartDate.Year == year)
-                .SumAsync(i => i.overtimeHours);
-        }
 
         public async Task<decimal?> getMonthTotalHoursWorked(int employeeId, int month, int year)
         {
@@ -35,35 +28,12 @@ namespace Report_and_Analytics_API.Repository
                 .SumAsync(i => i.working_hours);
         }
 
-        public async Task<decimal?> getMonthTotalWage(int employeeId, int month, int year)
-        {
-            return await _reportDbContext.payrollinformation
-                 .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Month == month
-                 && i.payPeriodStartDate.Year == year)
-                 .SumAsync(t => t.payCycleNetpay);
-        }
-
         public async Task<decimal?> yearTotalHoursWorked(int employeeId, int year)
         {
             return await _reportDbContext.hr_daily_attendance.Include(i => i.hr_Employees)
                 .Where(i => i.employee_id == employeeId && i.attendance_date.Year == year)
                 .SumAsync(t => t.working_hours);
         }
-
-        public async Task<decimal?> yearTotalOvertimeHoursWorked(int employeeId, int year)
-        {
-            return await _reportDbContext.payrollinformation
-                .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Year == year)
-                .SumAsync(t => t.overtimeHours);
-        }
-
-        public async Task<decimal?> yearTotalWage(int employeeId, int year)
-        {
-            return await _reportDbContext.payrollinformation
-               .Where(i => i.employeeId == employeeId && i.payPeriodStartDate.Year == year && i.payPeriodStartDate.Day == 16)
-               .SumAsync(t => t.ytdNetPay);
-        }
-
 
 
         //THIS SECTION BELOW IS QUERY FOR PAYROLL STATEMENT FORM       
@@ -195,5 +165,6 @@ namespace Report_and_Analytics_API.Repository
                  .Where(i => i.employee_id == employeeId & i.pay_period_start.Year == year)
                  .SumAsync(t => t.absence_deduction);
         }
+
     }
 }

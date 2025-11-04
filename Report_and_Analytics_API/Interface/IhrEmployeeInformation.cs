@@ -10,14 +10,9 @@ namespace Report_and_Analytics_API.Interface
         //MONTH RECORDS
         Task<hr_employees> getEmployeeInformation(int employeeId);
         Task<decimal?> getMonthTotalHoursWorked(int employeeId,int month, int year);
-        Task<decimal?> getMonthOvertimeHours(int employeeId,int month, int year);
-        Task<decimal?> getMonthTotalWage(int employeeId,int month, int year);
 
 
-        //YEAR RECORDS
-        Task<decimal?> yearTotalHoursWorked(int employeeId, int year);
-        Task<decimal?> yearTotalOvertimeHoursWorked(int employeeId, int year);
-        Task<decimal?> yearTotalWage(int employeeId, int year);
+        //YEAR RECORDS 
 
   //-----------------------------------------------------------------------------------------------//
         //THIS SECTION IS FOR PAYROLL STATEMENT
