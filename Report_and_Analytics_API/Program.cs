@@ -36,7 +36,6 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
     )
 );
 
-
 //builder.Services.AddHostedService<monthlyRevenueReportService>();
 //builder.Services.AddHostedService<quarterlyRevenueReportService>();
 //builder.Services.AddHostedService<dailyAttendanceReportGeneratorService>();
@@ -45,6 +44,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<monthPharmacySalesReport>();
 ////builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
 //builder.Services.AddHostedService<monthPayrollSummaryReportService>();
+//builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();

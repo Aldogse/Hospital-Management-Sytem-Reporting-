@@ -3,6 +3,7 @@ using APIResponses.PropertyAndManagementResponse;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_Library.Enums;
 
 namespace Report_and_Analytics_API.Repository
 {
@@ -37,7 +38,7 @@ namespace Report_and_Analytics_API.Repository
                 return monthAdmissions;
         }
 
-        public async Task<List<monthDischargeReportResponse>> getDischargeReport(int year, int month)
+        public async Task<List<monthDischargeReportResponse>>  getDischargeReport(int month, int year)
         {
                 var startDate = new DateTime(year,month,1);
                 var endDate = startDate.AddMonths(1);
@@ -61,9 +62,9 @@ namespace Report_and_Analytics_API.Repository
                 return monthDischarges;
         }
 
-        public async Task<month_admission_and_discharge_report> getMonthAdmissionAndDischargeReport(int year, int month)
+        public async Task<month_admission_and_discharge_report> getMonthAdmissionAndDischargeReport(int month, int year)
         {
-                var monthAdmissionReportSummary = await _reportDbContext.month_admission_and_discharge_reports
+                var monthAdmissionReportSummary = await _reportDbContext.month_admission_and_discharge_report
                     .Where(i => i.year == year && i.month == month).FirstOrDefaultAsync();
 
                 if(monthAdmissionReportSummary == null)
@@ -75,5 +76,38 @@ namespace Report_and_Analytics_API.Repository
         }
 
 
+        //DATABASE CALLS FOR BACKGROUND SERVICE
+        public async Task<month_admission_and_discharge_report> getPreviousMonthAdmissionReport(int month,int year)
+        {
+            var startDate = new DateTime(year,month,1);
+            var endDate = startDate.AddMonths(1);
+
+            var report = new month_admission_and_discharge_report();
+
+            var monthDischargedReport = await _reportDbContext.p_bed_assignments
+                .Where(i => i.released_date >= startDate && i.released_date < endDate).CountAsync();
+
+            var totalBeds = await _reportDbContext.p_beds.CountAsync();
+
+            var availableStatus = await _reportDbContext.p_beds
+                .Where(i => i.status == "Available").CountAsync();
+
+            var occupiedStatus = await _reportDbContext.p_beds
+                .Where(i => i.status == "Occupied").CountAsync();
+
+            var brokenBeds = await _reportDbContext.p_beds
+                .Where(i => i.status == null || i.status == "")
+                .CountAsync();
+
+            report.recently_discharged = monthDischargedReport;
+            report.total_beds = totalBeds;
+            report.available_beds = availableStatus;
+            report.occupied_beds = occupiedStatus;
+            report.month = month;
+            report.year = year;
+            report.broken_beds = brokenBeds;
+
+            return report;
+        }
     }
 }

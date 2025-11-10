@@ -15,6 +15,7 @@ namespace APIResponses.Historical_report.Models
         public int occupied_beds { get; set; }
         public int available_beds { get; set; }
         public int recently_discharged { get; set; }
+        public int broken_beds { get; set; }
         public int month{ get; set; }
         public int year { get; set; }
     }

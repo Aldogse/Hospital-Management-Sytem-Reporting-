@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using APIResponses.PayrollResponse;
+using Microsoft.AspNetCore.Mvc;
 using Report_and_Analytics_API.Interface;
 
 namespace Report_and_Analytics_API.Controllers
@@ -49,7 +50,7 @@ namespace Report_and_Analytics_API.Controllers
         {
             try
             {
-                var monthSummaryReport = await _propertyRepo.getMonthAdmissionAndDischargeReport(year,month);
+                var monthSummaryReport = await _propertyRepo.getMonthAdmissionAndDischargeReport(month,year);
 
                 if(monthSummaryReport == null)
                 {
@@ -71,5 +72,31 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
+        [HttpGet("getMonthDischargeReport/{month}/{year}")]
+        public async Task<IActionResult> getMonthDischargeReport(int month,int year)
+        {
+            try
+            {
+                var monthDischargeReport = await _propertyRepo.getDischargeReport(month,year);
+
+                if (monthDischargeReport == null || monthDischargeReport.Count == 0)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data extracted for {month}/{year}",
+                        data = (object?)null
+                    });
+                }
+                else
+                {
+                    return Ok(monthDischargeReport);
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                return StatusCode(500, $"Error: {ex.Message}");
+            }
+        }
     }
 }

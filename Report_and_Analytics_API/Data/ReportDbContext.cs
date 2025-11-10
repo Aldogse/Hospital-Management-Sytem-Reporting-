@@ -107,7 +107,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_leave_report> month_leave_report { get; set; }
         public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
         public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
-        public DbSet<month_admission_and_discharge_report> month_admission_and_discharge_reports { get; set; }
+        public DbSet<month_admission_and_discharge_report> month_admission_and_discharge_report { get; set; }
         
 
 
