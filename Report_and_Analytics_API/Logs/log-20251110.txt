@@ -1,0 +1,666 @@
+2025-11-10 23:29:45.285 +08:00 [INF] Error: The entity type 'month_attendance_report' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+2025-11-10 23:29:47.838 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:29:47.964 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:29:47.966 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:29:47.967 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:29:48.488 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger - null null
+2025-11-10 23:29:48.638 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger - 301 0 null 158.4653ms
+2025-11-10 23:29:48.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:29:48.698 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 55.4565ms
+2025-11-10 23:29:48.705 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui.css - null null
+2025-11-10 23:29:48.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-standalone-preset.js - null null
+2025-11-10 23:29:48.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-bundle.js - null null
+2025-11-10 23:29:48.708 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:29:48.713 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:29:48.735 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 27.761ms
+2025-11-10 23:29:48.764 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-11-10 23:29:48.765 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-11-10 23:29:48.774 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui.css - 200 152034 text/css 68.7439ms
+2025-11-10 23:29:48.774 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 66.9121ms
+2025-11-10 23:29:48.778 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-11-10 23:29:48.784 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 76.6136ms
+2025-11-10 23:29:48.793 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.8363ms
+2025-11-10 23:29:48.910 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:29:48.922 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.339ms
+2025-11-10 23:30:29.166 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-11-10 23:30:29.491 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:30:29.546 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:30:29.548 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:30:29.549 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:30:29.609 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT (
+    SELECT `t0`.`absent`
+    FROM (
+        SELECT `d0`.`reportId`, `d0`.`absent`, `d0`.`lastModifiedDate`, `d0`.`late`, `d0`.`leave`, `d0`.`present`, `d0`.`reportDate`, `d0`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d0`
+        WHERE (EXTRACT(month FROM `d0`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d0`.`reportDate`) = @__year_1)
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1) AS `absent`, (
+    SELECT `t1`.`late`
+    FROM (
+        SELECT `d1`.`reportId`, `d1`.`absent`, `d1`.`lastModifiedDate`, `d1`.`late`, `d1`.`leave`, `d1`.`present`, `d1`.`reportDate`, `d1`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d1`
+        WHERE (EXTRACT(month FROM `d1`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d1`.`reportDate`) = @__year_1)
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1) AS `late`, (
+    SELECT `t2`.`present`
+    FROM (
+        SELECT `d2`.`reportId`, `d2`.`absent`, `d2`.`lastModifiedDate`, `d2`.`late`, `d2`.`leave`, `d2`.`present`, `d2`.`reportDate`, `d2`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d2`
+        WHERE (EXTRACT(month FROM `d2`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d2`.`reportDate`) = @__year_1)
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1) AS `present`, (
+    SELECT `t3`.`leave`
+    FROM (
+        SELECT `d3`.`reportId`, `d3`.`absent`, `d3`.`lastModifiedDate`, `d3`.`late`, `d3`.`leave`, `d3`.`present`, `d3`.`reportDate`, `d3`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d3`
+        WHERE (EXTRACT(month FROM `d3`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d3`.`reportDate`) = @__year_1)
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1) AS `leave`, (
+    SELECT `t4`.`underTime`
+    FROM (
+        SELECT `d4`.`reportId`, `d4`.`absent`, `d4`.`lastModifiedDate`, `d4`.`late`, `d4`.`leave`, `d4`.`present`, `d4`.`reportDate`, `d4`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d4`
+        WHERE (EXTRACT(month FROM `d4`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d4`.`reportDate`) = @__year_1)
+    ) AS `t4`
+    WHERE `t`.`Key` = `t4`.`Key`
+    LIMIT 1) AS `underTime`, CURRENT_TIMESTAMP() AS `lastModifiedDate`
+FROM (
+    SELECT 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2025-11-10 23:33:35.355 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:33:35.454 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:33:35.455 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:33:35.457 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:33:35.464 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT (
+    SELECT `t0`.`absent`
+    FROM (
+        SELECT `d0`.`reportId`, `d0`.`absent`, `d0`.`lastModifiedDate`, `d0`.`late`, `d0`.`leave`, `d0`.`present`, `d0`.`reportDate`, `d0`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d0`
+        WHERE (EXTRACT(month FROM `d0`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d0`.`reportDate`) = @__year_1)
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1) AS `absent`, (
+    SELECT `t1`.`late`
+    FROM (
+        SELECT `d1`.`reportId`, `d1`.`absent`, `d1`.`lastModifiedDate`, `d1`.`late`, `d1`.`leave`, `d1`.`present`, `d1`.`reportDate`, `d1`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d1`
+        WHERE (EXTRACT(month FROM `d1`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d1`.`reportDate`) = @__year_1)
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1) AS `late`, (
+    SELECT `t2`.`present`
+    FROM (
+        SELECT `d2`.`reportId`, `d2`.`absent`, `d2`.`lastModifiedDate`, `d2`.`late`, `d2`.`leave`, `d2`.`present`, `d2`.`reportDate`, `d2`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d2`
+        WHERE (EXTRACT(month FROM `d2`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d2`.`reportDate`) = @__year_1)
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1) AS `present`, (
+    SELECT `t3`.`leave`
+    FROM (
+        SELECT `d3`.`reportId`, `d3`.`absent`, `d3`.`lastModifiedDate`, `d3`.`late`, `d3`.`leave`, `d3`.`present`, `d3`.`reportDate`, `d3`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d3`
+        WHERE (EXTRACT(month FROM `d3`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d3`.`reportDate`) = @__year_1)
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1) AS `leave`, (
+    SELECT `t4`.`underTime`
+    FROM (
+        SELECT `d4`.`reportId`, `d4`.`absent`, `d4`.`lastModifiedDate`, `d4`.`late`, `d4`.`leave`, `d4`.`present`, `d4`.`reportDate`, `d4`.`underTime`, 1 AS `Key`
+        FROM `daily_attendance_report` AS `d4`
+        WHERE (EXTRACT(month FROM `d4`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d4`.`reportDate`) = @__year_1)
+    ) AS `t4`
+    WHERE `t`.`Key` = `t4`.`Key`
+    LIMIT 1) AS `underTime`, CURRENT_TIMESTAMP() AS `lastModifiedDate`
+FROM (
+    SELECT 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:37:25.722 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:37:25.817 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:37:25.819 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:37:25.820 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `lastModifiedDate`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:37:25.821 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:37:37.945 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:37:38.721 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 781.0968ms
+2025-11-10 23:37:38.737 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:37:38.799 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:37:38.804 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 66.9905ms
+2025-11-10 23:37:38.826 +08:00 [ERR] Failed executing DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `lastModifiedDate`, `late`, `leave`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:37:38.834 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.8783ms
+2025-11-10 23:37:38.891 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:37:38.905 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'lastModifiedDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'lastModifiedDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:38:31.297 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:38:31.393 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:38:31.395 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:38:31.396 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:38:31.398 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `lastModifiedDate`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:38:31.601 +08:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `lastModifiedDate`, `late`, `leave`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:38:31.649 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'lastModifiedDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'lastModifiedDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:38:31.702 +08:00 [INF] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-11-10 23:38:31.948 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:38:32.137 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 193.798ms
+2025-11-10 23:38:32.143 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:38:32.143 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:38:32.155 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.3031ms
+2025-11-10 23:38:32.175 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.5198ms
+2025-11-10 23:38:32.215 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:38:32.229 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.3726ms
+2025-11-10 23:39:06.374 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:39:06.480 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:39:06.482 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:39:06.483 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:39:06.486 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:39:06.602 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:39:06.880 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 284.5436ms
+2025-11-10 23:39:06.885 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:39:06.887 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:39:06.891 +08:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:39:06.892 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.9389ms
+2025-11-10 23:39:06.930 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.4448ms
+2025-11-10 23:39:06.948 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'leave' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'leave' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:39:06.957 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:39:07.005 +08:00 [INF] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-11-10 23:39:07.017 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 59.509ms
+2025-11-10 23:40:59.205 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:40:59.312 +08:00 [INF] Executed DbCommand (58ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:40:59.313 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:40:59.317 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:40:59.318 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:40:59.514 +08:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:40:59.564 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'leave' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'leave' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:40:59.624 +08:00 [INF] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-11-10 23:40:59.742 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:40:59.908 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 171.5859ms
+2025-11-10 23:40:59.917 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:40:59.929 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:40:59.939 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.2236ms
+2025-11-10 23:40:59.967 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.8911ms
+2025-11-10 23:41:00.001 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:41:00.017 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.1207ms
+2025-11-10 23:41:11.010 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:41:11.101 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:41:11.102 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave_count`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:41:11.103 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:41:11.107 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:41:11.246 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:41:11.365 +08:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave_count`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:41:11.420 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'reportDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'reportDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:41:11.498 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:41:11.512 +08:00 [INF] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-11-10 23:41:11.512 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 273.2351ms
+2025-11-10 23:41:11.523 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:41:11.528 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 4.5648ms
+2025-11-10 23:41:11.541 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.2223ms
+2025-11-10 23:41:11.571 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:41:11.595 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.8346ms
+2025-11-10 23:41:54.887 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:41:54.979 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:41:54.980 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave_count`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:41:54.981 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:41:54.986 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:41:55.198 +08:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave_count`, `present`, `reportDate`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `reportId`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-11-10 23:41:55.245 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'reportDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'reportDate' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-10 23:41:55.297 +08:00 [INF] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-11-10 23:41:55.362 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:41:55.508 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 153.5728ms
+2025-11-10 23:41:55.515 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:41:55.516 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:41:55.522 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.2319ms
+2025-11-10 23:41:55.550 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.3106ms
+2025-11-10 23:41:55.586 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:41:55.601 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.12ms
+2025-11-10 23:42:05.831 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:42:05.919 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:42:05.920 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave_count`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:42:05.921 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:42:05.930 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:42:06.147 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:42:06.223 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave_count`, `present`, `report_date`, `underTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `report_id`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-11-10 23:42:06.316 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 174.1952ms
+2025-11-10 23:42:06.322 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:42:06.322 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:42:06.327 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.1798ms
+2025-11-10 23:42:06.355 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.772ms
+2025-11-10 23:42:06.387 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:42:06.400 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.6957ms
+2025-11-10 23:46:49.792 +08:00 [INF] Now listening on: http://localhost:5288
+2025-11-10 23:46:49.873 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:46:49.874 +08:00 [INF] Hosting environment: Development
+2025-11-10 23:46:49.875 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-11-10 23:46:49.880 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`absent`), 0) AS `absent`, COALESCE(SUM(`t`.`late`), 0) AS `late`, COALESCE(SUM(`t`.`present`), 0) AS `present`, COALESCE(SUM(`t`.`leave`), 0) AS `leave_count`, COALESCE(SUM(`t`.`underTime`), 0) AS `underTime`, CURRENT_TIMESTAMP() AS `last_modified_date`, @__month_0 AS `month`, @__year_1 AS `year`
+FROM (
+    SELECT `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`, 1 AS `Key`
+    FROM `daily_attendance_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`reportDate`) = @__month_0) AND (EXTRACT(year FROM `d`.`reportDate`) = @__year_1)
+) AS `t`
+GROUP BY `t`.`Key`
+ORDER BY CURRENT_TIMESTAMP()
+LIMIT 1
+2025-11-10 23:46:50.149 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/index.html - null null
+2025-11-10 23:46:50.160 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_attendance_report` (`absent`, `last_modified_date`, `late`, `leave_count`, `month`, `present`, `report_date`, `underTime`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT `report_id`
+FROM `month_attendance_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-11-10 23:46:50.304 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/index.html - 200 null text/html;charset=utf-8 163.0137ms
+2025-11-10 23:46:50.310 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:46:50.310 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/_vs/browserLink - null null
+2025-11-10 23:46:50.316 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.8928ms
+2025-11-10 23:46:50.345 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.3188ms
+2025-11-10 23:46:50.381 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - null null
+2025-11-10 23:46:50.399 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.3648ms

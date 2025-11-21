@@ -9,5 +9,6 @@ namespace Report_and_Analytics_API.Interface
         Task<List<monthAdmissionReportResponse>> getAdmissionReport(int year,int month);
         Task<List<monthDischargeReportResponse>> getDischargeReport(int month,int year);
         Task<month_admission_and_discharge_report> getPreviousMonthAdmissionReport(int month,int year);
+        Task<daily_beds_utilization_report> getDailyBedsUtilizationReport(DateTime date);
     }
 }

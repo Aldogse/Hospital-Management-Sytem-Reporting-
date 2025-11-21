@@ -21,5 +21,24 @@ namespace Report_and_Analytics_API.Repository
           
             return monthReports;
         }
+
+
+        //QUERY FOR BACKGROUND SERVICE
+        public async Task<daily_insurance_submitted_report> getDailyTransactionsSummary(DateOnly date)
+        {
+            var transactions = await (
+                from claims in _reportDbContext.insurance_claims
+                where claims.submmited_date == date
+                group claims by 1 into x
+                select new daily_insurance_submitted_report
+                {       
+                    report_date = DateTime.Now,
+                    claim_amount = x.Sum(i => i.claim_amount),
+                    number_of_claims_submitted = x.Where(i => i.submmited_date == date).Count(),
+                    claims_approved = x.Where(i => i.status == "Approved" && i.resolved_date == date).Count()
+                }).FirstOrDefaultAsync();
+
+            return transactions;
+        }
     }
 }

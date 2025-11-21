@@ -38,6 +38,25 @@ namespace Report_and_Analytics_API.Repository
                 return monthAdmissions;
         }
 
+        public async Task<daily_beds_utilization_report> getDailyBedsUtilizationReport(DateTime date)
+        {
+            var utilizationReport = await (
+                from assignBeds in _reportDbContext.p_bed_assignments
+                join beds in _reportDbContext.p_beds
+                on assignBeds.bed_id equals beds.bed_id
+                where assignBeds.assigned_date == date
+                group new { assignBeds , beds } by 1 into x select new daily_beds_utilization_report
+                {
+                    bed_assigned = x.Where(i => i.assignBeds.assigned_date == date).Count(),
+                    report_date = date,
+                    bed_released = x.Where(i => i.assignBeds.released_date == date).Count(),
+                    available_beds = x.Where(i => i.beds.status == "Available").Count(),
+                    occupied_beds = x.Where(i => i.beds.status == "Occupied").Count()
+                }).FirstOrDefaultAsync();
+
+            return utilizationReport;
+        }
+
         public async Task<List<monthDischargeReportResponse>>  getDischargeReport(int month, int year)
         {
                 var startDate = new DateTime(year,month,1);

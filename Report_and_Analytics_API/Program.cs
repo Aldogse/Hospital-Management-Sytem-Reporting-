@@ -45,12 +45,15 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 ////builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
 //builder.Services.AddHostedService<monthPayrollSummaryReportService>();
 //builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
+//builder.Services.AddHostedService<monthAttendanceReportService>();
+//builder.Services.AddHostedService<yearReportSummaryService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();
 builder.Services.AddScoped<IjournalRepository, journalRepository>();
 builder.Services.AddScoped<IinsuranceClaimRepository, claimRepository>();
 builder.Services.AddScoped<IpropertyRepository, propertyRepository>();
+builder.Services.AddScoped<IemployeeRepository, employeeRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

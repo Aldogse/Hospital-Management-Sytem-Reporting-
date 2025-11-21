@@ -1,4 +1,5 @@
-﻿using APIResponses.Historical_report.Models;
+﻿using APIResponses;
+using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -62,6 +63,45 @@ namespace Report_and_Analytics_API.Repository
                  .ToListAsync();
 
             return yearRecord.Sum(x => x.totalRevenue);
+        }
+
+        //PHARMACY SALES REPORT QUERY
+        public async Task<daily_pharmacy_sales> getDailyPharmacySalesReport(int month,int day,int year)
+        {
+            var start = new DateTime(year,month,day,0,0,0);
+            var end = start.AddDays(1);
+
+            var salesReport = await (
+                from sales in _reportDb.pharmacy_sales
+                where sales.sale_date >= start && sales.sale_date < end
+                group sales by 1 into x
+                select new daily_pharmacy_sales
+                {
+                     quantity_sold = x.Sum(i => i.quantity_sold),
+                     total_amount = x.Sum(i => i.total_price),
+                     sale_date = start
+
+                }).FirstOrDefaultAsync();
+
+            return salesReport;
+        }
+
+        public async Task<rangePharmacySalesReport> getRangePharmacySalesReport(DateTime start, DateTime end)
+        {
+            var startDate = new DateTime(start.Year, start.Month, start.Day, 0, 0, 0);
+            var endDate = new DateTime(end.Year, end.Month, end.Day, 0, 0, 0).AddDays(1);
+
+            var salesReport = await (
+                from sales in _reportDb.daily_pharmacy_sales
+                where sales.sale_date >= start && sales.sale_date <= end
+                group sales by 1 into x
+                select new rangePharmacySalesReport
+                {
+                    total_amount = x.Sum(i => i.total_amount),
+                    quantity_sold = x.Sum(i => i.quantity_sold)
+                }).FirstOrDefaultAsync();
+
+            return salesReport;
         }
     }
 }

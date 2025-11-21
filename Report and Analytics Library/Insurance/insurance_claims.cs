@@ -34,7 +34,7 @@ namespace Report_and_Analytics_Library.Insurance
         public insurance_provider insurance_Provider { get; set; }
 
         public decimal claim_amount { get; set; }
-        public claimStatus status { get; set; }
+        public string status { get; set; }
         public DateOnly submmited_date { get; set; }
         public DateOnly resolved_date { get; set; }
     }

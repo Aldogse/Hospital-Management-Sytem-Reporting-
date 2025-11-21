@@ -1,0 +1,60 @@
+﻿
+using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
+
+namespace Report_and_Analytics_API.Service
+{
+    public class dailyPharmacySalesReportService : BackgroundService
+    {
+        private readonly ILogger<dailyPharmacySalesReportService> _logger;
+        private readonly IServiceScopeFactory _serviceScope;
+
+        public dailyPharmacySalesReportService(ILogger<dailyPharmacySalesReportService>logger,IServiceScopeFactory serviceScope)
+        {
+            _logger = logger;
+            _serviceScope = serviceScope;
+        }
+        protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            try
+            {
+                using var scope = _serviceScope.CreateScope();
+                var db = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    await DailyPharmacySalesReportService(db,repo);
+                    await Task.Delay(TimeSpan.FromDays(1));
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
+            }
+        }
+
+        //RUNS EVERY DAY 
+        private async Task DailyPharmacySalesReportService(ReportDbContext reportDb, IjournalRepository repository)
+        {
+            DateTime date = DateTime.Now.AddDays(-1);
+            try
+            {
+                var salesReport = await repository.getDailyPharmacySalesReport(date.Month,date.Year,date.Day);
+
+                if(salesReport == null)
+                {
+                    _logger.LogInformation($"No sales report extracted for {date}");
+                    return;
+                }
+
+                await reportDb.daily_pharmacy_sales.AddAsync(salesReport);
+                await reportDb.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
+                return;
+            }
+        }
+    }
+}

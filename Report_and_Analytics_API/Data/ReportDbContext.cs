@@ -108,8 +108,11 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
         public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
         public DbSet<month_admission_and_discharge_report> month_admission_and_discharge_report { get; set; }
-        
-
+        public DbSet<month_attendance_report> month_attendance_report { get; set; }
+        public DbSet<year_attendance_report> year_attendance_report { get; set; }
+        public DbSet<daily_pharmacy_sales> daily_pharmacy_sales { get; set; }
+        public DbSet<daily_insurance_submitted_report> daily_insurance_submitted_reports { get; set; }
+        public DbSet<daily_beds_utilization_report> daily_beds_utilization_report { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -3,6 +3,7 @@ using APIResponses.Historical_report;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 
 namespace Report_and_Analytics_API.Controllers
@@ -13,11 +14,13 @@ namespace Report_and_Analytics_API.Controllers
     {
         private readonly ReportDbContext _reportDbContext;
         private readonly ILogger<EmployeeController> _logger;
+        private readonly IemployeeRepository _empRepo;
 
-        public EmployeeController(ReportDbContext reportDbContext,ILogger<EmployeeController> logger)
+        public EmployeeController(ReportDbContext reportDbContext,ILogger<EmployeeController> logger,IemployeeRepository empRepo)
         {
             _reportDbContext = reportDbContext;
             _logger = logger;
+            _empRepo = empRepo;
         }
 
         //ENDPOINT FOR DAILY ATTEDANCE REPORT
@@ -27,22 +30,16 @@ namespace Report_and_Analytics_API.Controllers
             try
             {
                 var employees = await _reportDbContext.hr_employees.CountAsync();
-                var report = await _reportDbContext.daily_attendance_report
-                    .Where(i => i.reportDate == date)
-                    .Select(i => new dailyAttendanceReportResponse
-                    {
-                        reportDate = i.reportDate.ToShortDateString(),
-                        absent = i.absent,
-                        late = i.late,
-                        leave = i.leave,
-                        present = i.present,
-                        underTime = i.underTime,
-                        totalEmployees = employees
-                    }).FirstOrDefaultAsync();
+                var report = await _empRepo.getDayAttendanceReport(date);
 
                 if (report == null)
                 {
-                    return Ok(new {});
+                    return Ok(new 
+                    {
+                        success = true,
+                        message = $"No report for {date}",
+                        data = (object?)null
+                    });
                 }
               
                 return Ok(report);
@@ -70,6 +67,68 @@ namespace Report_and_Analytics_API.Controllers
             }
             catch(Exception ex)
             {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        //ENDPOINT FOR MONTH ATTENDANCE REPORT
+        [HttpGet("getMonthAttendanceReport/{month}/{year}")]
+        public async Task<IActionResult> getMonthAttendanceReport(int month,int year) 
+        {
+            try
+            {
+                var report = await _empRepo.getMonthAttendanceReportSummary(month,year);
+
+                
+                if(report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data extracted {month}/{year}",
+                        dates = (object?)null
+                    });
+                }
+
+                var summary = new monthAttendanceReportResponse()
+                {
+                    late = report.late,
+                    absent = report.absent,
+                    leave = report.leave_count,
+                    present = report.present,
+                    underTime = report.underTime
+                };
+                             
+                return Ok(summary);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        //ENDPOINT FOR YEARLY ATTENDANCE REPORT DASHBOARD
+        [HttpGet("getYearAttendanceReport/{year}")]
+        public async Task<IActionResult> getYearAttendanceReport(int year)
+        {
+            try
+            {
+                var report = await _empRepo.getYearAttendanceReportSummary(year);
+
+                if(report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data extracted for {year}",
+                        data = (object?)null
+                    });
+                }
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error:{ex.Message}");
                 return StatusCode(500,ex.Message);
             }
         }

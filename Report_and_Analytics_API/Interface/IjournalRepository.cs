@@ -1,4 +1,5 @@
-﻿using APIResponses.Historical_report.Models;
+﻿using APIResponses;
+using APIResponses.Historical_report.Models;
 
 namespace Report_and_Analytics_API.Interface
 {
@@ -10,6 +11,11 @@ namespace Report_and_Analytics_API.Interface
         public Task<List<month_revenue_breakdownreport>> getQuarterTwoBreakdown(int year);
         public Task<List<month_revenue_breakdownreport>> getQuarterThreeBreakdown(int year);
         public Task<List<month_revenue_breakdownreport>> getQuarterFourBreakdown(int year);
+
+
+        //PHARMACY SALES QUERY
+        public Task <daily_pharmacy_sales> getDailyPharmacySalesReport(int month, int day, int year);
+        public Task<rangePharmacySalesReport> getRangePharmacySalesReport(DateTime start,DateTime end); 
     }
 }
   

@@ -12,11 +12,13 @@ namespace Report_and_Analytics_API.Controllers
     {
         private readonly ReportDbContext _reportDbContext;
         private readonly IjournalRepository _journalRepo;
+        private readonly ILogger<journalController> _logger;
 
-        public journalController(ReportDbContext reportDbContext,IjournalRepository journalRepo)
+        public journalController(ReportDbContext reportDbContext,IjournalRepository journalRepo,ILogger<journalController>logger)
         {
             _reportDbContext = reportDbContext;
             _journalRepo = journalRepo;
+            _logger = logger;
         }
 
         //THIS ENDPOINTS IS FOR HOSPITAL REVENUE REPORT
@@ -203,6 +205,34 @@ namespace Report_and_Analytics_API.Controllers
             }
             catch (Exception ex)
             {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+        //PHARMACY SALES ENDPOINT
+        [HttpGet("getRangeSalesReport/{startDate}/{endDate}")]
+        public async Task<IActionResult> getRangeSalesReport(DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                var salesReport = await _journalRepo.getRangePharmacySalesReport(startDate,endDate);
+
+                if(salesReport == null)
+                {
+                    return Ok(new 
+                    {
+                        success = true,
+                        message = "No date fetched from database",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(salesReport);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
