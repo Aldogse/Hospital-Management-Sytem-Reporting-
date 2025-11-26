@@ -24,8 +24,13 @@ namespace Report_and_Analytics_API.Service
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                     var repo = scope.ServiceProvider.GetRequiredService<IpropertyRepository>();
 
+
+                    DateTime now = DateTime.Now;
+                    DateTime nextMidnight = DateTime.Now.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;
+                    await Task.Delay(delay);
+
                     await DailyBedsUtilizationReportService(database,repo);
-                    await Task.Delay(TimeSpan.FromDays(1));
                 }
             }
             catch (Exception ex)

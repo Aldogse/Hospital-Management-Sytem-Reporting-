@@ -129,6 +129,55 @@ namespace Report_and_Analytics_API.Repository
             return yearSummary;
         }
 
+        //EMPLOYEE PERFORMANCE BACKGROUND SERVICE QUERY
+        public async Task<month_employees_performance_and_evaluation_report> getMonthEmployeePerformanceReport(int month, int year)
+        {
 
+                var report = await _reportDbContext.evaluation_records
+                    .Where(i => i.evaluation_date.Month == month && i.evaluation_date.Year == year)
+                    .ToListAsync();
+
+                var summary = new month_employees_performance_and_evaluation_report()
+                {
+                    month = month,
+                    year = year,
+                    average_score = report.Sum(i => i.score) / report.Count,
+                    total_evaluations = report.Count,
+                    poor_performer_count = report.Where(i => i.score <= 3).Count(),
+                };
+                return summary;           
+        }
+
+        public async Task<month_employees_performance_and_evaluation_report> monthEmployeesPerformanceReport(int month, int year)
+        {
+            var monthReport = await _reportDbContext.month_employees_performance_and_evaluation_report
+                .Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
+
+            return monthReport;
+        }
+
+        public async Task<List<monthPerformanceSummaryListResponse>> getMonthEmployeePerformanceSummarryList(int month, int year,int page,int size)
+        {
+            var monthPerformanceList = await (
+                from eval in _reportDbContext.evaluation_records
+                join emp in _reportDbContext.hr_employees
+                on eval.employee_id equals emp.employee_id
+                where eval.evaluation_date.Month == month && eval.evaluation_date.Year == year
+                group new {eval,emp} by emp.employee_id into x
+                select new monthPerformanceSummaryListResponse
+                {
+                    fullName = $"{x.Select(i => i.emp.first_name).FirstOrDefault()} {x.Select(i => i.emp.middle_name).FirstOrDefault()} {x.Select(i => i.emp.last_name).FirstOrDefault()}",
+                    comments = x.Select(i => i.eval.comments).FirstOrDefault() ?? "",
+                    evaluationDate = x.Select(i => i.eval.evaluation_date).FirstOrDefault(),
+                    rating = x.Select(i => i.eval.rating).FirstOrDefault() ?? "",
+                    score = x.Select(i => i.eval.score).FirstOrDefault()
+                })
+                .Skip((page - 1 ) * size)
+                .Take(size)
+                .OrderByDescending(i => i.score)
+                .ToListAsync();
+
+           return monthPerformanceList;
+        }
     }
 }

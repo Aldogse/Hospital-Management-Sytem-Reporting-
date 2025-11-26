@@ -15,7 +15,14 @@ namespace Report_and_Analytics_API.Interface
 
         //PHARMACY SALES QUERY
         public Task <daily_pharmacy_sales> getDailyPharmacySalesReport(int month, int day, int year);
-        public Task<rangePharmacySalesReport> getRangePharmacySalesReport(DateTime start,DateTime end); 
+        public Task<rangePharmacySalesReport> getRangePharmacySalesReport(DateTime start,DateTime end);
+
+        //BILLING SUMMARY QUERY
+        public Task<month_billing_report> getMonthBillingReport(int month,int year);
+        public Task<daily_billing_report> getDailyBillingReport(DateTime date);
+
+        public Task<month_billing_report> monthBillingReport(int month, int year);
+        public Task<daily_billing_report> dailyBillingReport(DateTime date);
     }
 }
   

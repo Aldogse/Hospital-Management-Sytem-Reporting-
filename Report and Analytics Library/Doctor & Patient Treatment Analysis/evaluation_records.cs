@@ -25,7 +25,7 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public int score { get; set; }
         public string rating { get; set; }
         public string comments { get; set; }
-        public int status { get; set; }
+        public string status { get; set; }
         public DateTime created_at { get; set; }
     }
 }

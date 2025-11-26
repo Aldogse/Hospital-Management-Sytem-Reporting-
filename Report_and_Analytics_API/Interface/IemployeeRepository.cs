@@ -10,5 +10,8 @@ namespace Report_and_Analytics_API.Interface
         Task<month_attendance_report> getMonthAttendanceReportSummary(int month, int year);
         Task<year_attendance_report> getYearAttendanceReport(int year);
         Task<year_attendance_report> getYearAttendanceReportSummary(int year);
+        Task<month_employees_performance_and_evaluation_report> getMonthEmployeePerformanceReport(int month,int year);
+        Task<month_employees_performance_and_evaluation_report> monthEmployeesPerformanceReport(int month,int year);
+        Task<List<monthPerformanceSummaryListResponse>> getMonthEmployeePerformanceSummarryList(int month,int year,int page,int size);
     }
 }

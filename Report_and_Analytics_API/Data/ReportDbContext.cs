@@ -103,7 +103,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<monthly_claim_report> monthly_claim_report { get; set; }
         public DbSet<daily_attendance_report> daily_attendance_report { get; set; }
         public DbSet<month_appointment_and_duty_report> month_appointment_and_duty_report { get; set; }
-        public DbSet<quarter_employees_performance_and_evaluation_report> quarter_employees_performance_and_evaluation_report { get; set; }
+        public DbSet<month_employees_performance_and_evaluation_report> month_employees_performance_and_evaluation_report { get; set; }
         public DbSet<month_leave_report> month_leave_report { get; set; }
         public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
         public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
@@ -113,6 +113,8 @@ namespace Report_and_Analytics_API.Data
         public DbSet<daily_pharmacy_sales> daily_pharmacy_sales { get; set; }
         public DbSet<daily_insurance_submitted_report> daily_insurance_submitted_reports { get; set; }
         public DbSet<daily_beds_utilization_report> daily_beds_utilization_report { get; set; }
+        public DbSet<daily_billing_report>daily_billing_report { get; set; }
+        public DbSet<month_billing_report> month_billing_report { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

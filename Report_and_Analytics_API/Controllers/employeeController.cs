@@ -1,6 +1,7 @@
 ﻿using APIResponses.Employee_Responses;
 using APIResponses.Historical_report;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -191,52 +192,7 @@ namespace Report_and_Analytics_API.Controllers
         [HttpGet("monthEvaluationAndPerformanceReport/{month}/{year}")]
         public async Task<IActionResult> monthEvaluationAndPerformanceReport(string month,int year)
         {
-            try
-            {
-                var monthEmployeesPerformanceReport = await _reportDbContext.quarter_employees_performance_and_evaluation_report
-                    .Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
-
-               if(monthEmployeesPerformanceReport == null)
-               {
-                    return Ok(new
-                    {
-                        success = true,
-                        message = $"No record was found for {month}/{year}",
-                        data = (object?)null
-                    });
-               }
-
-                var employeeDetails = await (
-                    from evaluation in _reportDbContext.evaluation_summary_reports
-                    join name in _reportDbContext.hr_employees
-                    on evaluation.employee_id equals name.employee_id
-                    where evaluation.evaluation_period == month 
-                    group new { evaluation , name } by name.employee_id into x
-                    select new evaluation_summary_reports
-                    {
-                        employee_id = x.Key,
-                        average_score = x.Select(i => i.evaluation.average_score).FirstOrDefault(),
-                        performance_level = x.Select(i => i.evaluation.performance_level).FirstOrDefault(),
-                        evaluation_period = x.Select(i => i.evaluation.evaluation_period).FirstOrDefault(),
-                        number_of_evaluations = x.Select(i => i.evaluation.number_of_evaluations).FirstOrDefault(),
-                        last_evaluated = x.Select(i => i.evaluation.last_evaluated).FirstOrDefault()
-                    }).ToListAsync();
-
-
-                var response = new monthEmployeePerformanceAndEvaluationReportResponse()
-                {
-                    totalEmployeesEvaluated = monthEmployeesPerformanceReport.totalEmployeesEvaluated,
-                    monthAveragePerformanceScore = monthEmployeesPerformanceReport.averagePerformanceScore,
-                    monthNumberOfLowPerformers = monthEmployeesPerformanceReport.lowPerformers,
-                    report = employeeDetails,
-                };
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500,ex.Message);
-            }
+            return Ok();
         }
 
         //ENDPOINT FOR DOCTOR EVALUATION AND DETAILS DASHBOARD
@@ -439,14 +395,50 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Employee()
+        //ENDPOINT FOR PERFORMANCE REPORT
+        [HttpGet("getEmployeeMonthReportPerformance/{month}/{year}")]
+        public async Task<IActionResult> getEmployeeMonthReportPerformance(int month,int year)
         {
             try
             {
-                var emp = await _reportDbContext.hr_employees.ToListAsync();
+                var response = await _empRepo.getMonthEmployeePerformanceReport(month,year);
 
-                return Ok(emp);
+                if(response == null)
+                {
+                    return Ok(new
+                    {
+                        successs = true,
+                        message = $"No record found for {month}/{year}",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthListReport/{month}/{year}/{page}/{size}")]
+        public async Task<IActionResult> getMonthListReport(int month,int year,int page,int size)
+        {
+            try
+            {
+                var report = await _empRepo.getMonthEmployeePerformanceSummarryList(month,year,page,size);
+
+                if(report == null || report.Count == 0)
+                {
+                    return Ok(new
+                    {
+                        successs = true,
+                        message = $"No report for {month}/{year}",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(report);
             }
             catch (Exception ex)
             {
@@ -455,3 +447,4 @@ namespace Report_and_Analytics_API.Controllers
         }
     }
 }
+  

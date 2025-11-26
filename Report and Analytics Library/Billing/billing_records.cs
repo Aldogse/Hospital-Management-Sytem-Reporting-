@@ -30,5 +30,6 @@ namespace Report_and_Analytics_Library.Billing
         public string status { get; set; }
         public string? payment_method { get; set; }
         public string? transaction_id { get; set; }
+        public decimal? grand_total { get; set; }
     }
 }

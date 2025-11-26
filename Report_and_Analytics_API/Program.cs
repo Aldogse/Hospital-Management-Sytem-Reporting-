@@ -47,6 +47,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
 //builder.Services.AddHostedService<monthAttendanceReportService>();
 //builder.Services.AddHostedService<yearReportSummaryService>();
+//builder.Services.AddHostedService<monthPerformanceReportService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();

@@ -20,8 +20,12 @@ namespace Report_and_Analytics_API.Service
 
             while (!stoppingToken.IsCancellationRequested)
             {
+                DateTime now = DateTime.Now;
+                DateTime nextMidnight = DateTime.Now.AddDays(1);
+                TimeSpan delay = now - nextMidnight;
+                await Task.Delay(delay);
+
                 await dailyAttendanceReport(dbContext);
-                await Task.Delay(TimeSpan.FromDays(1));
             }
         }
 

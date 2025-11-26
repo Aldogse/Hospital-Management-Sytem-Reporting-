@@ -21,10 +21,16 @@ namespace Report_and_Analytics_API.Service
                 using var scope = _serviceScope.CreateScope();
                 var db = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                 var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
+
                 while (!stoppingToken.IsCancellationRequested)
                 {
+
+                    DateTime now = DateTime.Now;
+                    DateTime nextMidnight = DateTime.Now.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;
+                    await Task.Delay(delay);
+
                     await DailyPharmacySalesReportService(db,repo);
-                    await Task.Delay(TimeSpan.FromDays(1));
                 }
             }
             catch (Exception ex)

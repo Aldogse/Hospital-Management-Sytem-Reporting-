@@ -236,5 +236,6 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet("getMonthBillingReport/{month}/{year}")]
     }
 }
