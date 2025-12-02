@@ -1,5 +1,7 @@
 ﻿using APIResponses;
 using APIResponses.Historical_report.Models;
+using APIResponses.journal_responses;
+using Report_and_Analytics_Library.Billing;
 
 namespace Report_and_Analytics_API.Interface
 {
@@ -19,10 +21,11 @@ namespace Report_and_Analytics_API.Interface
 
         //BILLING SUMMARY QUERY
         public Task<month_billing_report> getMonthBillingReport(int month,int year);
-        public Task<daily_billing_report> getDailyBillingReport(DateTime date);
+        public Task<daily_billing_report> getDailyBillingReport(DateOnly date);
 
         public Task<month_billing_report> monthBillingReport(int month, int year);
-        public Task<daily_billing_report> dailyBillingReport(DateTime date);
+        public Task<daily_billing_report> dailyBillingReport(DateOnly date);
+        public Task<List<daily_billing_report>> monthBillingTransactionSummary(int month,int year,int page,int size);
     }
 }
   

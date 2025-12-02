@@ -1,0 +1,972 @@
+2025-12-02 02:00:45.174 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-02 02:00:45.214 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-02 02:00:45.266 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-02 02:00:45.269 +08:00 [INF] Hosting environment: Development
+2025-12-02 02:00:45.270 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-02 02:00:46.266 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-02 02:00:46.501 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-02 02:00:46.501 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-02 02:00:46.502 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 241.6956ms
+2025-12-02 02:00:46.524 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 22.9071ms
+2025-12-02 02:00:46.553 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.2252ms
+2025-12-02 02:00:46.706 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-02 02:00:46.727 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.1648ms
+2025-12-02 02:02:11.349 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:02:11.357 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:02:11.361 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:11.382 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:02:13.455 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:02:13.558 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:02:13.574 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 2186.7926ms
+2025-12-02 02:02:13.576 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:13.578 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 2218.2514 ms
+2025-12-02 02:02:13.586 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 2237.1443ms
+2025-12-02 02:02:13.608 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - null null
+2025-12-02 02:02:13.614 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:02:13.614 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:02:13.618 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:02:13.693 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+2025-12-02 02:02:13.723 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:02:13.728 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 107.5348ms
+2025-12-02 02:02:13.730 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:02:13.731 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025 responded 200 in 116.1602 ms
+2025-12-02 02:02:13.732 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - 200 null application/json; charset=utf-8 124.6626ms
+2025-12-02 02:02:32.413 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:02:32.416 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:02:32.417 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:32.418 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:02:32.481 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:02:32.483 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:02:32.485 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 64.4661ms
+2025-12-02 02:02:32.486 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:32.487 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 69.9067 ms
+2025-12-02 02:02:32.489 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 75.6143ms
+2025-12-02 02:02:32.502 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - null null
+2025-12-02 02:02:32.505 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:02:32.506 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:02:32.507 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:02:32.515 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+2025-12-02 02:02:32.518 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:02:32.519 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 10.1745ms
+2025-12-02 02:02:32.521 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:02:32.522 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025 responded 200 in 16.1900 ms
+2025-12-02 02:02:32.525 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - 200 null application/json; charset=utf-8 23.0553ms
+2025-12-02 02:02:45.983 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:02:45.990 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:45.991 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:02:45.997 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:02:46.000 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:02:46.001 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.9238ms
+2025-12-02 02:02:46.002 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:02:46.003 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.3986 ms
+2025-12-02 02:02:46.005 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 22.6077ms
+2025-12-02 02:04:02.159 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:04:02.163 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:04:02.164 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:04:02.165 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:04:02.175 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:04:02.177 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:04:02.179 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 10.9019ms
+2025-12-02 02:04:02.180 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:04:02.181 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 17.4635 ms
+2025-12-02 02:04:02.183 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 24.2891ms
+2025-12-02 02:04:02.199 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - null null
+2025-12-02 02:04:02.203 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:04:02.204 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:04:02.205 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:04:02.212 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+2025-12-02 02:04:02.221 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:04:02.222 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 15.3392ms
+2025-12-02 02:04:02.223 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:04:02.224 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025 responded 200 in 20.0815 ms
+2025-12-02 02:04:02.226 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025 - 200 null application/json; charset=utf-8 27.0701ms
+2025-12-02 02:07:20.403 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-02 02:07:20.456 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-02 02:07:20.539 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-02 02:07:20.541 +08:00 [INF] Hosting environment: Development
+2025-12-02 02:07:20.542 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-02 02:07:21.424 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-02 02:07:21.740 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 319.3893ms
+2025-12-02 02:07:21.744 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-02 02:07:21.744 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-02 02:07:21.755 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.2746ms
+2025-12-02 02:07:21.789 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.7254ms
+2025-12-02 02:07:21.837 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-02 02:07:21.860 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.0569ms
+2025-12-02 02:07:32.925 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/10 - null null
+2025-12-02 02:07:32.935 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:07:32.956 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:07:33.994 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:07:33.996 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:07:34.228 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:07:34.327 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:07:34.341 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 1378.8445ms
+2025-12-02 02:07:34.343 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:07:34.345 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/10 responded 200 in 1410.6538 ms
+2025-12-02 02:07:34.352 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/10 - 200 null application/json; charset=utf-8 1427.8869ms
+2025-12-02 02:07:42.111 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:07:42.117 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:07:42.120 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:07:42.152 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:07:42.155 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:07:42.156 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 33.6209ms
+2025-12-02 02:07:42.158 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:07:42.158 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 41.5032 ms
+2025-12-02 02:07:42.160 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 49.5414ms
+2025-12-02 02:10:57.072 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:10:57.076 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:10:57.078 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:10:57.082 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:10:57.151 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:10:57.169 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:10:57.176 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 93.0994ms
+2025-12-02 02:10:57.178 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:10:57.180 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 101.9739 ms
+2025-12-02 02:10:57.182 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 110.1207ms
+2025-12-02 02:10:57.211 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:10:57.215 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:10:57.216 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:10:57.217 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:10:57.225 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:10:57.232 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:10:57.234 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 14.9083ms
+2025-12-02 02:10:57.235 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:10:57.236 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 20.0189 ms
+2025-12-02 02:10:57.238 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 27.2613ms
+2025-12-02 02:11:01.670 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:01.674 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:01.675 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:01.675 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:01.683 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:01.685 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:01.687 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.8518ms
+2025-12-02 02:11:01.688 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:01.689 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 14.6503 ms
+2025-12-02 02:11:01.691 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 20.9159ms
+2025-12-02 02:11:01.705 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:11:01.708 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:01.709 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:01.710 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:01.715 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:11:01.716 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:11:01.728 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_2 OFFSET @__p_2
+2025-12-02 02:11:01.731 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:01.733 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 20.8928ms
+2025-12-02 02:11:01.734 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:01.735 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 26.7871 ms
+2025-12-02 02:11:01.737 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 32.5888ms
+2025-12-02 02:11:02.655 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:02.658 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:02.659 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:02.660 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:02.667 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:02.669 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:02.670 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.0069ms
+2025-12-02 02:11:02.672 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:02.672 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.6533 ms
+2025-12-02 02:11:02.674 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.3227ms
+2025-12-02 02:11:02.682 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:11:02.685 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:02.685 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:02.686 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:02.693 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:02.695 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:02.697 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.0683ms
+2025-12-02 02:11:02.698 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:02.700 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 14.1530 ms
+2025-12-02 02:11:02.701 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 19.4046ms
+2025-12-02 02:11:03.439 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:03.442 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:03.442 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:03.443 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:03.450 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:03.452 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:03.453 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.4095ms
+2025-12-02 02:11:03.454 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:03.455 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 12.9173 ms
+2025-12-02 02:11:03.457 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.1877ms
+2025-12-02 02:11:03.468 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - null null
+2025-12-02 02:11:03.470 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:03.471 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:03.472 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:03.479 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:03.481 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-02 02:11:03.485 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 11.6026ms
+2025-12-02 02:11:03.486 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:03.487 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/4/5 responded 200 in 15.9506 ms
+2025-12-02 02:11:03.488 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - 200 null application/json; charset=utf-8 20.689ms
+2025-12-02 02:11:05.710 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:05.713 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:05.713 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:05.714 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:05.722 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:05.725 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:05.726 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 10.1423ms
+2025-12-02 02:11:05.728 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:05.729 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 15.3816 ms
+2025-12-02 02:11:05.730 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 21.0059ms
+2025-12-02 02:11:05.738 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:11:05.740 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:05.741 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:05.742 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:05.749 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:05.752 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:05.753 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.5183ms
+2025-12-02 02:11:05.754 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:05.755 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 14.0743 ms
+2025-12-02 02:11:05.757 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 18.9923ms
+2025-12-02 02:11:09.571 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/05/2025 - null null
+2025-12-02 02:11:09.574 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:09.575 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:09.576 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:09.583 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:09.585 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-02 02:11:09.587 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.7825ms
+2025-12-02 02:11:09.588 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:09.589 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/05/2025 responded 200 in 14.4686 ms
+2025-12-02 02:11:09.591 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/05/2025 - 200 null application/json; charset=utf-8 20.3727ms
+2025-12-02 02:11:09.599 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/05/2025/1/5 - null null
+2025-12-02 02:11:09.601 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:09.602 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:09.603 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:09.610 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:09.613 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-02 02:11:09.614 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.0426ms
+2025-12-02 02:11:09.615 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:09.616 +08:00 [INF] HTTP GET /journal/getMonthTransactions/05/2025/1/5 responded 200 in 14.0475 ms
+2025-12-02 02:11:09.617 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/05/2025/1/5 - 200 null application/json; charset=utf-8 18.7698ms
+2025-12-02 02:11:13.298 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:13.301 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:13.302 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:13.302 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:13.309 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:13.311 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:13.313 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.96ms
+2025-12-02 02:11:13.314 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:13.315 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.0949 ms
+2025-12-02 02:11:13.316 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.357ms
+2025-12-02 02:11:13.324 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:11:13.326 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:13.327 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:13.328 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:13.335 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:13.337 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:13.338 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.9534ms
+2025-12-02 02:11:13.340 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:13.341 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 14.0376 ms
+2025-12-02 02:11:13.343 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 19.5298ms
+2025-12-02 02:11:18.742 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:18.745 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:18.746 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:18.747 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:18.754 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:18.756 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:18.758 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.0078ms
+2025-12-02 02:11:18.759 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:18.760 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 14.2195 ms
+2025-12-02 02:11:18.762 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.7143ms
+2025-12-02 02:11:18.770 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:11:18.772 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:18.773 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:18.773 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:18.780 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_2 OFFSET @__p_2
+2025-12-02 02:11:18.783 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:18.784 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.3308ms
+2025-12-02 02:11:18.785 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:18.786 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 13.6569 ms
+2025-12-02 02:11:18.788 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 18.2467ms
+2025-12-02 02:11:20.975 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:20.979 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:20.979 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:20.980 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:20.987 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:20.990 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:20.991 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.6574ms
+2025-12-02 02:11:20.992 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:20.993 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 14.0778 ms
+2025-12-02 02:11:20.995 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 20.5124ms
+2025-12-02 02:11:21.003 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:11:21.006 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:21.007 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:21.008 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:21.015 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_3 OFFSET @__p_2
+2025-12-02 02:11:21.017 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:21.019 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.0726ms
+2025-12-02 02:11:21.020 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:21.021 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 13.3668 ms
+2025-12-02 02:11:21.022 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 19.0379ms
+2025-12-02 02:11:22.310 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:11:22.313 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:22.314 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:22.315 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:22.323 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:11:22.325 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:11:22.326 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.3155ms
+2025-12-02 02:11:22.327 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:11:22.328 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.4018 ms
+2025-12-02 02:11:22.329 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.3091ms
+2025-12-02 02:11:22.336 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:11:22.338 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:11:22.339 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:22.340 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:11:22.346 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+FROM `daily_billing_report` AS `d`
+WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+LIMIT @__p_2 OFFSET @__p_2
+2025-12-02 02:11:22.348 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:11:22.350 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.2862ms
+2025-12-02 02:11:22.351 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:11:22.352 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 12.9879 ms
+2025-12-02 02:11:22.354 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 18.0269ms
+2025-12-02 02:13:01.656 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-02 02:13:01.675 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 19.3653ms
+2025-12-02 02:13:01.686 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-02 02:13:01.688 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-02 02:13:01.694 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.4047ms
+2025-12-02 02:13:01.701 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.5958ms
+2025-12-02 02:13:01.889 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-02 02:13:01.898 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2025-12-02 02:13:01.902 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.4811ms
+2025-12-02 02:13:01.908 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-02 02:13:01.910 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 12.5139ms
+2025-12-02 02:13:04.640 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:04.643 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:04.644 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:04.647 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:04.656 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:04.658 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:04.661 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 11.9461ms
+2025-12-02 02:13:04.662 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:04.663 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 19.6152 ms
+2025-12-02 02:13:04.665 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 24.5209ms
+2025-12-02 02:13:04.680 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:13:04.684 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:04.685 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:04.689 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:04.694 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:04.695 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:04.710 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:04.711 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:04.713 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 22.976ms
+2025-12-02 02:13:04.714 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:04.715 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 30.5065 ms
+2025-12-02 02:13:04.717 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 37.5161ms
+2025-12-02 02:13:18.983 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-02 02:13:19.039 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-02 02:13:19.096 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-02 02:13:19.101 +08:00 [INF] Hosting environment: Development
+2025-12-02 02:13:19.104 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-02 02:13:19.920 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-02 02:13:20.087 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 170.2252ms
+2025-12-02 02:13:20.093 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-02 02:13:20.093 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-02 02:13:20.102 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.2122ms
+2025-12-02 02:13:20.137 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.0402ms
+2025-12-02 02:13:20.292 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-02 02:13:20.312 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.0519ms
+2025-12-02 02:13:22.791 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:22.802 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:22.806 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:22.828 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:24.178 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:24.268 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:24.284 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 1451.8474ms
+2025-12-02 02:13:24.287 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:24.290 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 1483.7964 ms
+2025-12-02 02:13:24.297 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 1508.2089ms
+2025-12-02 02:13:24.309 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:13:24.315 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:24.316 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:24.320 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:24.348 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:24.350 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:24.377 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:24.405 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:24.410 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 87.4432ms
+2025-12-02 02:13:24.412 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:24.413 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 97.3562 ms
+2025-12-02 02:13:24.415 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 106.6915ms
+2025-12-02 02:13:42.534 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:42.537 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:42.538 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:42.539 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:42.599 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:42.601 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:42.602 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 62.1005ms
+2025-12-02 02:13:42.604 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:42.605 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 67.1233 ms
+2025-12-02 02:13:42.607 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 72.6598ms
+2025-12-02 02:13:42.615 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:13:42.617 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:42.618 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:42.619 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:42.623 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:42.624 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-02 02:13:42.634 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_2 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:42.636 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:42.638 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 17.3569ms
+2025-12-02 02:13:42.639 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:42.640 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 21.9262 ms
+2025-12-02 02:13:42.642 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 26.6547ms
+2025-12-02 02:13:43.502 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:43.505 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:43.506 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:43.507 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:43.514 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:43.516 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:43.517 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.2729ms
+2025-12-02 02:13:43.519 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:43.520 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.9023 ms
+2025-12-02 02:13:43.521 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.2154ms
+2025-12-02 02:13:43.528 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:13:43.531 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:43.532 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:43.533 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:43.540 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:43.543 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:43.544 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.4649ms
+2025-12-02 02:13:43.545 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:43.546 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 14.3126 ms
+2025-12-02 02:13:43.548 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 19.6755ms
+2025-12-02 02:13:48.710 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:48.712 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:48.713 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:48.714 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:48.721 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:48.723 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:48.724 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.6427ms
+2025-12-02 02:13:48.726 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:48.726 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.2151 ms
+2025-12-02 02:13:48.728 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.595ms
+2025-12-02 02:13:48.735 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:13:48.738 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:48.738 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:48.739 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:48.746 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_2 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:48.749 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:48.750 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.3276ms
+2025-12-02 02:13:48.751 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:48.752 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 14.0675 ms
+2025-12-02 02:13:48.754 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 18.8953ms
+2025-12-02 02:13:51.391 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:51.393 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:51.394 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:51.395 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:51.402 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:51.404 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:51.405 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.0167ms
+2025-12-02 02:13:51.407 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:51.407 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.3669 ms
+2025-12-02 02:13:51.409 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.745ms
+2025-12-02 02:13:51.417 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:13:51.419 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:51.419 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:51.420 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:51.427 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:51.430 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:51.431 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.5873ms
+2025-12-02 02:13:51.432 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:51.433 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 13.4083 ms
+2025-12-02 02:13:51.435 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 18.2269ms
+2025-12-02 02:13:53.295 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:53.298 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:53.299 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:53.300 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:53.307 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:53.309 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:53.311 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.4962ms
+2025-12-02 02:13:53.312 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:53.313 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.8188 ms
+2025-12-02 02:13:53.314 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 20.1722ms
+2025-12-02 02:13:53.321 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - null null
+2025-12-02 02:13:53.324 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:53.324 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:53.325 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:53.332 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:53.335 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-02 02:13:53.339 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 11.9602ms
+2025-12-02 02:13:53.340 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:53.341 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/4/5 responded 200 in 16.5047 ms
+2025-12-02 02:13:53.342 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - 200 null application/json; charset=utf-8 21.2685ms
+2025-12-02 02:13:55.415 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:13:55.418 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:55.419 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:55.420 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:55.426 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:13:55.429 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:13:55.430 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.5522ms
+2025-12-02 02:13:55.431 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:13:55.432 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.6199 ms
+2025-12-02 02:13:55.434 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.6161ms
+2025-12-02 02:13:55.441 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:13:55.444 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:13:55.444 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:55.445 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:13:55.452 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:13:55.454 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:13:55.456 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.2825ms
+2025-12-02 02:13:55.457 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:13:55.458 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 13.7105 ms
+2025-12-02 02:13:55.460 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 19.1154ms
+2025-12-02 02:14:13.768 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:13.771 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:13.772 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:13.772 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:13.779 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:13.781 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:13.782 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.5094ms
+2025-12-02 02:14:13.784 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:13.785 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 12.9716 ms
+2025-12-02 02:14:13.786 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.8156ms
+2025-12-02 02:14:13.793 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:14:13.796 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:13.797 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:13.797 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:13.804 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_2 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:13.807 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:13.808 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.3928ms
+2025-12-02 02:14:13.810 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:13.810 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 13.8428 ms
+2025-12-02 02:14:13.812 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 19.0579ms
+2025-12-02 02:14:27.082 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:27.086 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:27.087 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:27.088 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:27.098 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:27.101 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:27.102 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 11.9483ms
+2025-12-02 02:14:27.104 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:27.105 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 18.2007 ms
+2025-12-02 02:14:27.107 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 24.3419ms
+2025-12-02 02:14:27.124 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:14:27.127 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:27.128 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:27.129 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:27.138 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:27.141 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:27.142 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 11.0222ms
+2025-12-02 02:14:27.144 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:27.145 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 16.4049 ms
+2025-12-02 02:14:27.146 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 22.3669ms
+2025-12-02 02:14:32.159 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:32.161 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:32.162 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:32.163 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:32.169 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:32.172 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:32.174 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 9.446ms
+2025-12-02 02:14:32.175 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:32.176 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 14.3380 ms
+2025-12-02 02:14:32.178 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.485ms
+2025-12-02 02:14:32.186 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:14:32.189 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:32.190 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:32.191 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:32.198 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_2 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:32.200 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:32.202 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.7982ms
+2025-12-02 02:14:32.203 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:32.204 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 13.6387 ms
+2025-12-02 02:14:32.205 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 19.2858ms
+2025-12-02 02:14:36.831 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:36.835 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:36.836 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:36.836 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:36.843 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:36.845 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:36.846 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.7083ms
+2025-12-02 02:14:36.848 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:36.848 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 12.7537 ms
+2025-12-02 02:14:36.850 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.1246ms
+2025-12-02 02:14:36.857 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:14:36.860 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:36.861 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:36.862 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:36.869 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:36.871 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:36.873 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.8811ms
+2025-12-02 02:14:36.874 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:36.875 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 13.7856 ms
+2025-12-02 02:14:36.876 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 19.2199ms
+2025-12-02 02:14:39.183 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:39.186 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:39.187 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:39.187 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:39.193 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:39.196 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:39.197 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.3449ms
+2025-12-02 02:14:39.198 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:39.199 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 12.8692 ms
+2025-12-02 02:14:39.201 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.1682ms
+2025-12-02 02:14:39.207 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - null null
+2025-12-02 02:14:39.209 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:39.210 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:39.211 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:39.218 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:39.220 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-02 02:14:39.221 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.9191ms
+2025-12-02 02:14:39.222 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:39.223 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/4/5 responded 200 in 13.0441 ms
+2025-12-02 02:14:39.224 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/4/5 - 200 null application/json; charset=utf-8 17.1771ms
+2025-12-02 02:14:42.078 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:42.080 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:42.081 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:42.081 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:42.088 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:42.090 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:42.092 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.4954ms
+2025-12-02 02:14:42.093 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:42.094 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 12.9865 ms
+2025-12-02 02:14:42.095 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 17.499ms
+2025-12-02 02:14:42.102 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - null null
+2025-12-02 02:14:42.105 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:42.106 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:42.107 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:42.115 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:42.118 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:42.120 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 10.839ms
+2025-12-02 02:14:42.122 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:42.123 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/3/5 responded 200 in 17.2600 ms
+2025-12-02 02:14:42.125 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/3/5 - 200 null application/json; charset=utf-8 22.9788ms
+2025-12-02 02:14:45.471 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:45.475 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:45.476 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:45.477 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:45.482 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:45.485 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:45.487 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.7495ms
+2025-12-02 02:14:45.488 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:45.489 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.1261 ms
+2025-12-02 02:14:45.490 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 19.3329ms
+2025-12-02 02:14:45.497 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - null null
+2025-12-02 02:14:45.500 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:45.501 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:45.502 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:45.509 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_2 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:45.511 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:45.512 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 8.5756ms
+2025-12-02 02:14:45.513 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:45.514 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/2/5 responded 200 in 13.4355 ms
+2025-12-02 02:14:45.516 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/2/5 - 200 null application/json; charset=utf-8 18.3166ms
+2025-12-02 02:14:49.351 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - null null
+2025-12-02 02:14:49.354 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:49.355 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:49.356 +08:00 [INF] Route matched with {action = "getMonthBillingReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBillingReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:49.362 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-02 02:14:49.365 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_billing_report'.
+2025-12-02 02:14:49.366 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API) in 8.6834ms
+2025-12-02 02:14:49.367 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthBillingReport (Report_and_Analytics_API)'
+2025-12-02 02:14:49.368 +08:00 [INF] HTTP GET /journal/getMonthBillingReport/10/2025 responded 200 in 13.5580 ms
+2025-12-02 02:14:49.370 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthBillingReport/10/2025 - 200 null application/json; charset=utf-8 18.6089ms
+2025-12-02 02:14:49.378 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - null null
+2025-12-02 02:14:49.381 +08:00 [INF] CORS policy execution successful.
+2025-12-02 02:14:49.382 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:49.383 +08:00 [INF] Route matched with {action = "getMonthTransactions", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTransactions(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-02 02:14:49.390 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`report_id`, `t`.`report_date`, `t`.`total_billed`, `t`.`total_insurance_covered`, `t`.`total_oop_collected`, `t`.`total_paid`, `t`.`total_pending_amount`, `t`.`total_pending_transactions`
+FROM (
+    SELECT `d`.`report_id`, `d`.`report_date`, `d`.`total_billed`, `d`.`total_insurance_covered`, `d`.`total_oop_collected`, `d`.`total_paid`, `d`.`total_pending_amount`, `d`.`total_pending_transactions`
+    FROM `daily_billing_report` AS `d`
+    WHERE (EXTRACT(month FROM `d`.`report_date`) = @__month_0) AND (EXTRACT(year FROM `d`.`report_date`) = @__year_1)
+    LIMIT @__p_3 OFFSET @__p_2
+) AS `t`
+ORDER BY `t`.`total_billed`
+2025-12-02 02:14:49.393 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.dailyBillingReportResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-02 02:14:49.395 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API) in 9.8418ms
+2025-12-02 02:14:49.400 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTransactions (Report_and_Analytics_API)'
+2025-12-02 02:14:49.401 +08:00 [INF] HTTP GET /journal/getMonthTransactions/10/2025/1/5 responded 200 in 18.7535 ms
+2025-12-02 02:14:49.402 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTransactions/10/2025/1/5 - 200 null application/json; charset=utf-8 24.2721ms

@@ -1,5 +1,6 @@
 ﻿using APIResponses.journal_responses;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -236,6 +237,113 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        //BILLING SUMMARY END POINTS
         [HttpGet("getMonthBillingReport/{month}/{year}")]
+        public async Task<IActionResult> getMonthBillingReport(int month,int year)
+        {
+            try
+            {
+                var monthBillingReport = await _journalRepo.monthBillingReport(month,year);
+
+                if(monthBillingReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No billing report for {month}/{year}",
+                    });
+                }
+                return Ok(monthBillingReport);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,$"Sql error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getDailyBillingReport/{date}")]
+        public async Task<IActionResult> getDailyBillingReport(DateOnly date)
+        {
+            try
+            {               
+                var dailyReport = await _journalRepo.dailyBillingReport(date);
+
+                if(dailyReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data available for {date}"
+                    });
+                }
+                else
+                {
+                    var response = new dailyBillingReportResponse()
+                    {
+                        report_date = dailyReport.report_date.ToShortDateString(),
+                        total_billed = dailyReport.total_billed,
+                        total_insurance_covered = dailyReport.total_insurance_covered,
+                        total_oop_collected = dailyReport.total_oop_collected,
+                        total_paid = dailyReport.total_paid,
+                        total_pending_amount = dailyReport.total_pending_amount,
+                        total_pending_transactions = dailyReport.total_pending_transactions,
+                    };
+                    return Ok(response);
+                }
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,$"Sql error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthTransactions/{month}/{year}/{page}/{size}")]
+        public async Task<IActionResult> getMonthTransactions(int month,int year,int page,int size)
+        {
+            try
+            {
+                var monthTransactions = await _journalRepo.monthBillingTransactionSummary(month,year,page,size);
+             
+
+                if(monthTransactions == null || monthTransactions.Count == 0)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data available for {month}/{year}"
+                    });
+                }
+
+                var response = monthTransactions.Select(i => new dailyBillingReportResponse
+                {
+                    report_date = i.report_date.ToShortDateString(),
+                    total_billed = i.total_billed,
+                    total_insurance_covered = i.total_insurance_covered,
+                    total_oop_collected = i.total_oop_collected,
+                    total_paid = i.total_paid,
+                    total_pending_amount = i.total_pending_amount,
+                    total_pending_transactions = i.total_pending_transactions,
+                }).ToList();
+
+                return Ok(response);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }

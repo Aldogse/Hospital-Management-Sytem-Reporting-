@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIResponses.Historical_report.Models
+namespace APIResponses.journal_responses
 {
-    public class daily_billing_report
+    public class dailyBillingReportResponse
     {
-        [Key]
-        public int report_id { get; set; }
-        public DateOnly report_date { get; set; }
+        public string report_date { get; set; }
         public decimal? total_billed { get; set; }
         public decimal? total_paid { get; set; }
+        public decimal? total_pending_transactions { get; set; }
         public decimal? total_pending_amount { get; set; }
         public decimal? total_oop_collected { get; set; }
         public decimal? total_insurance_covered { get; set; }
-        public decimal? total_pending_transactions { get; set; }
     }
 }

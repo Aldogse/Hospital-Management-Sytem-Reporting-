@@ -15,9 +15,10 @@ namespace APIResponses.Historical_report.Models
         public int year { get; set; }
         public decimal? total_billed  { get; set; }
         public decimal? total_paid { get; set; }
-        public decimal? total_pending { get; set; }
+        public int? total_pending_transaction { get; set; }
         public decimal? total_oop_collected { get; set; }
         public decimal? total_insurance_covered { get; set; }
+        public decimal? total_pending_amount { get; set; }
 
     }
 }

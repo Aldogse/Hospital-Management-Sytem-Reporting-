@@ -24,7 +24,7 @@ namespace Report_and_Analytics_API.Service
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                     var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
 
-                    if (DateTime.Now.Day >= 5)
+                    if (DateTime.Now.Day <= 5)
                     {
                         await MonthBillingSummaryReportGenerator(database,repo);
                         await Task.Delay(TimeSpan.FromDays(1));
@@ -43,7 +43,7 @@ namespace Report_and_Analytics_API.Service
         {
             try
             {
-                DateTime prevMonth = DateTime.Now.AddMonths(-1);
+                DateTime prevMonth = DateTime.Now.AddMonths(-2);
                 var monthReport = await repository.getMonthBillingReport(prevMonth.Month,prevMonth.Year);
 
                 if(monthReport == null)

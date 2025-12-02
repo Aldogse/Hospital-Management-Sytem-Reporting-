@@ -43,7 +43,7 @@ namespace Report_and_Analytics_API.Service
         {
             try
             {
-                DateTime prevDay = DateTime.Now.AddDays(-1);
+                DateOnly prevDay = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
                 var report = await repo.getDailyBillingReport(prevDay);
 
                 if (report == null)
