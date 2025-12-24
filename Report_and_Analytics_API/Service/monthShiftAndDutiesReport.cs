@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -18,17 +19,29 @@ namespace Report_and_Analytics_API.Service
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            using var scope = _serviceScope.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-
-            if(DateTime.Now.Day == 7)
+            try
             {
-                await getMonthShiftAndDutiesReport(dbContext);
-                await Task.Delay(TimeSpan.FromDays(1));
-            }
+                using var scope = _serviceScope.CreateScope();
+                var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
 
-            //USED TO AVOID RUNNING THE SERVICE TWICE
-            await Task.Delay(TimeSpan.FromDays(1));
+                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                DateTime date = DateTime.Now;
+
+                //this is should be equal to one to know the month already changes
+                if (DateTime.Now.Day >= 5)
+                {
+                    if (!await jobRepo.hasRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year))
+                    {
+                        await getMonthShiftAndDutiesReport(dbContext);
+                        await jobRepo.markAsRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year);
+                    }
+                }
+                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message: $"Error: {ex.Message}");
+            }
         }
 
 

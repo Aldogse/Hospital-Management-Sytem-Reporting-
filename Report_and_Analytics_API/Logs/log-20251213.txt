@@ -1,0 +1,264 @@
+2025-12-13 07:40:34.433 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-13 07:40:34.510 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-13 07:40:34.554 +08:00 [INF] Executed DbCommand (86ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`topSellingItem`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+GROUP BY `m`.`topSellingItem`
+ORDER BY COUNT(*) DESC
+LIMIT 1
+2025-12-13 07:40:34.990 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-13 07:40:35.006 +08:00 [INF] Hosting environment: Development
+2025-12-13 07:40:35.009 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-13 07:40:35.092 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-12-13 07:40:35.131 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32), @__topSellingItem_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`t`.`totalSales`), 0.0) AS `totalSales`, COALESCE(SUM(`t`.`totalTransactions`), 0) AS `totalTransactions`, @__year_0 AS `year`, @__topSellingItem_1 AS `topSellingItem`
+FROM (
+    SELECT `m`.`totalSales`, `m`.`totalTransactions`, 1 AS `Key`
+    FROM `month_pharmacy_sales` AS `m`
+    WHERE `m`.`year` = @__year_0
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2025-12-13 07:40:55.748 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2025-12-13 07:40:57.810 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `yearly_pharmacy_sales_report` (`topSellingItem`, `totalSales`, `totalTransactions`, `year`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `reportId`
+FROM `yearly_pharmacy_sales_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2025-12-13 07:40:57.822 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger - 301 0 null 2078.1688ms
+2025-12-13 07:40:57.835 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-13 07:40:57.948 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 112.6769ms
+2025-12-13 07:40:57.956 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - null null
+2025-12-13 07:40:57.957 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-13 07:40:57.957 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2025-12-13 07:40:58.011 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-13 07:40:58.011 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-13 07:40:58.015 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 58.1451ms
+2025-12-13 07:40:58.026 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-13 07:40:58.026 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-13 07:40:58.020 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - 200 152034 text/css 63.7944ms
+2025-12-13 07:40:58.062 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 36.0573ms
+2025-12-13 07:40:58.048 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-13 07:40:58.072 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 114.9587ms
+2025-12-13 07:40:58.104 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.488ms
+2025-12-13 07:40:58.277 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-13 07:40:58.301 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.3801ms
+2025-12-13 07:41:08.475 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 07:41:08.489 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 07:41:08.516 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 07:41:08.956 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 07:41:08.970 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_pharmacy_sales_report'.
+2025-12-13 07:41:08.989 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 463.5873ms
+2025-12-13 07:41:08.991 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 07:41:08.994 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 506.6590 ms
+2025-12-13 07:41:09.005 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 529.866ms
+2025-12-13 09:26:42.375 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-13 09:26:42.412 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-13 09:26:42.462 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-13 09:26:42.463 +08:00 [INF] Hosting environment: Development
+2025-12-13 09:26:42.465 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-13 09:26:43.457 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-13 09:26:43.631 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 177.245ms
+2025-12-13 09:26:43.651 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-13 09:26:43.651 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-13 09:26:43.669 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 17.8524ms
+2025-12-13 09:26:43.708 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.2014ms
+2025-12-13 09:26:43.817 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-13 09:26:43.838 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.0612ms
+2025-12-13 09:26:52.393 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:26:52.401 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:26:52.420 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:26:53.733 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:26:53.828 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:26:53.846 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:26:53.861 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 1434.3603ms
+2025-12-13 09:26:53.862 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:26:53.864 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 1464.0958 ms
+2025-12-13 09:26:53.871 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 1478.9115ms
+2025-12-13 09:27:55.501 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-13 09:27:55.542 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-13 09:27:55.629 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-13 09:27:55.639 +08:00 [INF] Hosting environment: Development
+2025-12-13 09:27:55.643 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-13 09:27:56.542 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-13 09:27:56.710 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 171.5175ms
+2025-12-13 09:27:56.720 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-13 09:27:56.720 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-13 09:27:56.739 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.6361ms
+2025-12-13 09:27:56.762 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.493ms
+2025-12-13 09:27:56.790 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-13 09:27:56.810 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.0974ms
+2025-12-13 09:28:29.413 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:28:29.424 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:28:29.450 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:28:30.755 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:28:30.848 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:28:30.865 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:28:30.880 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 1423.2303ms
+2025-12-13 09:28:30.882 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:28:30.885 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 1461.8713 ms
+2025-12-13 09:28:30.893 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 1480.4419ms
+2025-12-13 09:32:02.415 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:32:02.427 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:32:02.428 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:32:02.429 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:32:02.450 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:32:02.456 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:32:02.458 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:32:02.460 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 29.1736ms
+2025-12-13 09:32:02.461 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:32:02.462 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 33.8623 ms
+2025-12-13 09:32:02.464 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 49.2ms
+2025-12-13 09:33:29.798 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:33:29.802 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:33:29.803 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:33:29.804 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:33:29.864 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:33:29.876 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:33:29.878 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:33:29.879 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 73.8021ms
+2025-12-13 09:33:29.881 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:33:29.881 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 78.4894 ms
+2025-12-13 09:33:29.883 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 85.5024ms
+2025-12-13 09:35:14.661 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:35:14.668 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:35:14.669 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:14.670 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:35:14.678 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:35:14.687 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:35:14.689 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:35:14.690 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 19.0305ms
+2025-12-13 09:35:14.692 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:14.693 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 23.8340 ms
+2025-12-13 09:35:14.694 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 33.9692ms
+2025-12-13 09:35:18.009 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2023 - null null
+2025-12-13 09:35:18.012 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:35:18.013 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:18.014 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:35:18.020 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:35:18.026 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:35:18.028 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-13 09:35:18.032 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 16.8747ms
+2025-12-13 09:35:18.034 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:18.035 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2023 responded 200 in 21.9364 ms
+2025-12-13 09:35:18.036 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2023 - 200 null application/json; charset=utf-8 27.8062ms
+2025-12-13 09:35:25.571 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:35:25.574 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:35:25.574 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:25.575 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:35:25.582 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:35:25.587 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:35:25.589 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:35:25.591 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 13.9077ms
+2025-12-13 09:35:25.592 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:35:25.593 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 18.6418 ms
+2025-12-13 09:35:25.595 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 23.8703ms
+2025-12-13 09:37:00.000 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:37:00.016 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:37:00.017 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:00.019 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:37:00.026 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:37:00.039 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:37:00.041 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:37:00.042 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 21.9771ms
+2025-12-13 09:37:00.044 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:00.045 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 28.6430 ms
+2025-12-13 09:37:00.047 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 47.4986ms
+2025-12-13 09:37:09.545 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2023 - null null
+2025-12-13 09:37:09.548 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:37:09.549 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:09.550 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:37:09.558 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:37:09.565 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:37:09.567 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-13 09:37:09.569 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 16.7045ms
+2025-12-13 09:37:09.570 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:09.571 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2023 responded 200 in 22.2543 ms
+2025-12-13 09:37:09.573 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2023 - 200 null application/json; charset=utf-8 28.4949ms
+2025-12-13 09:37:11.489 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2025-12-13 09:37:11.491 +08:00 [INF] CORS policy execution successful.
+2025-12-13 09:37:11.492 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:11.493 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2025-12-13 09:37:11.499 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-13 09:37:11.504 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-13 09:37:11.507 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2025-12-13 09:37:11.508 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 14.2097ms
+2025-12-13 09:37:11.510 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2025-12-13 09:37:11.511 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 18.5228 ms
+2025-12-13 09:37:11.512 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 23.7759ms

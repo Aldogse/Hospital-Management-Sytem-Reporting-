@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace APIResponses.Historical_report.Models
 {
-    public class quarter_revenue
+    public class yearly_pharmacy_sales_report
     {
         [Key]
         public int reportId { get; set; }
         public int year { get; set; }
-        public int quarter { get; set; }
-        public decimal? totalRevenue { get; set; }
+        public int totalTransactions { get; set; }
+        public decimal? totalSales { get; set; }
+        public string? topSellingItem { get; set; }
     }
 }

@@ -1,0 +1,85 @@
+﻿
+using APIResponses.Training_Models;
+using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
+
+namespace Report_and_Analytics_API.Service
+{
+    public class monthBedOccupancyTrainingDataExtraction : BackgroundService
+    {
+        private readonly ILogger<monthBedOccupancyTrainingDataExtraction> _logger;
+        private readonly IServiceScopeFactory _serviceScope;
+
+        public monthBedOccupancyTrainingDataExtraction(ILogger<monthBedOccupancyTrainingDataExtraction>logger,IServiceScopeFactory serviceScope)
+        {
+            _logger = logger;
+            _serviceScope = serviceScope;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            try
+            {
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    using var scope = _serviceScope.CreateScope();
+                    var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    var repo = scope.ServiceProvider.GetRequiredService<IpropertyRepository>();
+                    var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    DateTime date = DateTime.Now;
+
+                    //this is should be equal to one to know the month already changes
+                    if (DateTime.Now.Day >= 1)
+                    {
+                        if(!await jobRepo.hasRunThisMonth("MonthBedOccupancyTrainingDataExtraction",date.Month,date.Year))
+                        {
+                            await MonthBedOccupancyTrainingDataExtraction(database,repo);
+                            await jobRepo.markAsRunThisMonth("MonthBedOccupancyTrainingDataExtraction", date.Month, date.Year);                         
+                        }
+                    }
+                    await Task.Delay(TimeSpan.FromHours(24),stoppingToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error: {ex.Message}");
+            }
+        }
+
+        private async Task MonthBedOccupancyTrainingDataExtraction(ReportDbContext reportDb,IpropertyRepository repository)
+        {
+            try
+            {
+                int year = DateTime.Now.Year - 1;
+
+                var monthData = await repository.getMonthsAdmissionData(year);
+
+                var report = monthData.Select(i => new month_bed_occupancy_training_data
+                {
+                    month = i.month,
+                    year = i.year,
+                    occupied_beds = i.occupied_beds,
+                    total_beds = i.total_beds,
+                    recently_discharged = i.recently_discharged,
+                    bed_occupancy_rate = ((decimal)i.occupied_beds / i.total_beds) * 100,
+                    broken_bed_rate  = ((decimal)i.broken_beds / i.total_beds) * 100
+                }).ToList();
+
+                if(monthData == null)
+                {
+                    _logger.LogCritical($"Expecting data but nothing was extracted for {year}");
+                    return;
+                }
+
+                await reportDb.month_bed_occupancy_training_data.AddRangeAsync(report);
+                await reportDb.SaveChangesAsync();
+            }
+            catch (Exception ex)  
+            {
+                _logger.LogError($"Error: {ex.Message}");
+                return;
+            }
+        }
+    }
+}

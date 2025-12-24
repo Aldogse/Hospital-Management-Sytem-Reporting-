@@ -22,194 +22,6 @@ namespace Report_and_Analytics_API.Controllers
             _logger = logger;
         }
 
-        //THIS ENDPOINTS IS FOR HOSPITAL REVENUE REPORT
-        [HttpGet("getYearRevenue/{year}")]
-        public async Task<IActionResult> getYearRevenue(int year)
-        {
-            try
-            {
-                var yearRevenue = await _journalRepo.getYearRevenue(year);
-
-                if (yearRevenue == null) 
-                {
-                    return Ok(new {});
-                }
-
-                return Ok(yearRevenue);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500,ex.Message);
-            }
-        }
-
-        [HttpGet("getQuarterRevenues/{year}/{quarter}")]
-        public async Task<IActionResult> getQuarterRevenues(int year,int quarter)
-        {
-            try
-            {
-                var quarterRevenues = await _reportDbContext.quarter_revenue
-                    .Where(i => i.year == year && i.quarter == quarter)
-                    .SumAsync(i => i.totalRevenue);
-
-                if(quarterRevenues == null)
-                {
-                    return Ok(new {});
-                }
-
-                return Ok(quarterRevenues);
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500,ex.Message);
-            }
-        }
-
-        [HttpGet("availableYears")]
-        public async Task<IActionResult> years()
-        {
-            try
-            {
-                var years = await _reportDbContext.quarter_revenue
-                    .Select(t => t.year).ToListAsync();
-
-                List<int> year = new List<int>();
-
-                foreach (var item in years)
-                {
-                    bool exist = year.Contains(item);
-
-                    if (!exist)
-                    {
-                        year.Add(item);
-                    }
-                }
-                return Ok(year);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500,ex.Message);
-            }
-        }
-
-        [HttpGet("getQuarterOneRevenueDetails/{year}")]
-        public async Task<IActionResult> getQuarterOneRevenueDetails(int year)
-        {
-            try
-            {
-                var details = await _journalRepo.getQuarterOneBreakdown(year);
-
-                if(details == null || details.Count == 0)
-                {
-                    return Ok(new {});
-                }
-
-                var response = details.Select(i => new monthRevenueBreakdownResponse
-                {
-                    report_id = i.report_id,
-                    description = i.description,
-                    month = i.month,
-                    year = i.year,
-                    amount = i.amount,
-                }).ToList();
-
-                return Ok(response);
-            }
-            catch(Exception ex)
-            {
-                return StatusCode(500,ex.Message);
-            }
-        }
-
-        [HttpGet("getQuarterTwoRevenueDetails/{year}")]
-        public async Task<IActionResult> getQuarterTwoRevenueDetails(int year)
-        {
-            try
-            {
-                var details = await _journalRepo.getQuarterTwoBreakdown(year);
-
-                if (details == null || details.Count == 0)
-                {
-                    return Ok(new { });
-                }
-
-                var response = details.Select(i => new monthRevenueBreakdownResponse
-                {
-                    report_id = i.report_id,
-                    description = i.description,
-                    month = i.month,
-                    year = i.year,
-                    amount = i.amount,
-                }).ToList();
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-
-
-        [HttpGet("getQuarterThreeRevenueDetails/{year}")]
-        public async Task<IActionResult> getQuarterThreeRevenueDetails(int year)
-        {
-            try
-            {
-                var details = await _journalRepo.getQuarterThreeBreakdown(year);
-
-                if (details == null || details.Count == 0)
-                {
-                    return Ok(new { });
-                }
-
-                var response = details.Select(i => new monthRevenueBreakdownResponse
-                {
-                    report_id = i.report_id,
-                    description = i.description,
-                    month = i.month,
-                    year = i.year,
-                    amount = i.amount,
-                }).ToList();
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-
-        [HttpGet("getQuarterFourRevenueDetails/{year}")]
-        public async Task<IActionResult> getQuarterFourRevenueDetails(int year)
-        {
-            try
-            {
-                var details = await _journalRepo.getQuarterOneBreakdown(year);
-
-                if (details == null || details.Count == 0)
-                {
-                    return Ok(new { });
-                }
-
-                var response = details.Select(i => new monthRevenueBreakdownResponse
-                {
-                    report_id = i.report_id,
-                    description = i.description,
-                    month = i.month,
-                    year = i.year,
-                    amount = i.amount,
-                }).ToList();
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-
 
         //PHARMACY SALES ENDPOINT
         [HttpGet("getRangeSalesReport/{startDate}/{endDate}")]
@@ -234,6 +46,74 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getYearPharmacySalesReport/{year}")]
+        public async Task<IActionResult> getYearPharmacySalesReport(int year)
+        {
+            try
+            {
+                var yearReport = await _journalRepo.yearPharmacySales(year);
+                var monthSales = await _journalRepo.monthsPharmacySales(year);
+
+                if(yearReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data fetched from database for {year}",
+                        data = (object?)null
+                    });
+                }
+
+                var response = new yearPharmacySalesResponse()
+                {
+                    topSellingItem = yearReport.topSellingItem,
+                    totalSales = yearReport.totalSales,
+                    totalTransactions = yearReport.totalTransactions,
+                    year = year,
+                    monthSales = monthSales,
+                };
+                
+                return Ok(response);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthPharmacySales/{month}/{year}")]
+        public async Task<IActionResult> getMonthPharmacySales(int month,int year)
+        {
+            try
+            {
+                var monthSales = await _journalRepo.monthPharmacySales(month,year);
+
+                if(monthSales == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data available for {month}/{year}",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(monthSales);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            catch (Exception ex)
+            {
                 return StatusCode(500, ex.Message);
             }
         }
@@ -266,8 +146,8 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
-        [HttpGet("getDailyBillingReport/{date}")]
-        public async Task<IActionResult> getDailyBillingReport(DateOnly date)
+        [HttpGet("getDailyBillingReport")]
+        public async Task<IActionResult> getDailyBillingReport([FromQuery]DateOnly date)
         {
             try
             {               
@@ -306,8 +186,8 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
-        [HttpGet("getMonthTransactions/{month}/{year}/{page}/{size}")]
-        public async Task<IActionResult> getMonthTransactions(int month,int year,int page,int size)
+        [HttpGet("getMonthTransactions/{month}/{year}")]
+        public async Task<IActionResult> getMonthTransactions(int month,int year,[FromQuery]int page,[FromQuery]int size)
         {
             try
             {
@@ -345,5 +225,75 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        [HttpGet("getYearBillSummaryReport/{year}")]
+        public  async Task<IActionResult> getYearBillSummaryReport(int year)
+        {
+            try
+            {
+                var report = await _journalRepo.yearBillingReport(year);
+
+                var monthReports = await _journalRepo.monthsBillingReport(year);
+
+                if(report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data available for {year}"
+                    });
+                }
+
+                var response = new yearlyBillingReportResponse()
+                {
+                    year = year,
+                    total_pending_amount = report.total_pending_amount,
+                    total_billed = report.total_billed,
+                    total_insurance_covered = report.total_insurance_covered,
+                    total_oop_collected = report.total_oop_collected,
+                    total_paid = report.total_paid,
+                    total_pending_transactions = report.total_pending_transaction,
+                };
+
+                var monthRep = monthReports.Select(i => new monthBillingReportResponse
+                {
+                    month = i.month,
+                    year = i.year,
+                    totalBilled = i.total_billed,
+                    totalPaid = i.total_paid,
+                }).ToList();
+
+                response.monthReports = monthRep;
+
+                return Ok(response);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        //REVENUE REPORT ENDPOINTS
+        [HttpGet("getMonthRevenueReport")]
+        public async Task<IActionResult> getMonthRevenueReport([FromQuery]int month, [FromQuery]int year)
+        {
+            try
+            {
+
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }
+ 

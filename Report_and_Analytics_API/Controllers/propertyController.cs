@@ -1,5 +1,7 @@
 ﻿using APIResponses.PayrollResponse;
+using APIResponses.PropertyAndManagementResponse;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Report_and_Analytics_API.Interface;
 
 namespace Report_and_Analytics_API.Controllers
@@ -45,8 +47,8 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
-        [HttpGet("getMonthSummaryAdmissionAndDischargeReport/{month}/{year}")]
-        public async Task<IActionResult> getMonthSummaryAdmissionAndDischargeReport(int month,int year)
+        [HttpGet("getMonthSummaryAdmissionAndDischargeReport")]
+        public async Task<IActionResult> getMonthSummaryAdmissionAndDischargeReport([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
@@ -96,6 +98,44 @@ namespace Report_and_Analytics_API.Controllers
             catch (InvalidOperationException ex)
             {
                 return StatusCode(500, $"Error: {ex.Message}");
+            }
+        }
+
+        [HttpGet  ("getYearBedsDistributionReport/{year}")]
+        public async Task<IActionResult> getYearBedsDistributionReport(int year)
+        {
+            try
+            {
+                var yearData = await _propertyRepo.yearlyAdmissionAndDischargeReport(year);
+                var monthData = await _propertyRepo.monthBedsDistribution(year);
+             
+                if(yearData == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data for {year}"
+                    });
+                }
+
+                var response = new yearBedsDistributionSummaryResponse()
+                {
+                    available_beds = yearData.available_beds,
+                    occupied_beds = yearData.occupied_beds,
+                    broken_beds = yearData.broken_beds,
+                    total_beds = yearData.total_beds,
+                    year = year,
+                    monthsAdmissionReport = monthData,
+                };
+                return Ok(response);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
             }
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -22,14 +23,20 @@ namespace Report_and_Analytics_API.Service
                 using var scope = _serviceScope.CreateScope();
                 var db = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                 var repo = scope.ServiceProvider.GetRequiredService<IemployeeRepository>();
+                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                DateTime date = DateTime.Now;
+
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    if(DateTime.Now.Day > 1)
+                    if(DateTime.Now.Day >= 5)
                     {
-                        await MonthAttendanceReportGenerator(db,repo);
-                        await Task.Delay(TimeSpan.FromDays(1));
+                        if(!await jobRepo.hasRunThisMonth("MonthAttendanceReportGenerator",date.Month,date.Year))
+                        {
+                            await MonthAttendanceReportGenerator(db,repo);
+                            await jobRepo.markAsRunThisMonth("MonthAttendanceReportGenerator",date.Month,date.Year);
+                        }
                     }
-                    await Task.Delay(TimeSpan.FromDays(1));
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
             }
             catch (Exception ex)
@@ -49,7 +56,7 @@ namespace Report_and_Analytics_API.Service
 
                 if(monthReport == null)
                 {
-                    _logger.LogInformation($"No date extracted {date.Month}/{date.Year}");
+                    _logger.LogInformation(message:$"No date extracted {date.Month}/{date.Year}");
                     return;
                 }
 

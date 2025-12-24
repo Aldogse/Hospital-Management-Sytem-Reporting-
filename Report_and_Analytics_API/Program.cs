@@ -1,16 +1,22 @@
 using System;
+using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_API.Repository;
 using Report_and_Analytics_API.Service;
 using Serilog;
+using Serilog.Sinks.Email;
+using Serilog.Events;
+
+
 
 Log.Logger = new LoggerConfiguration()
       .WriteTo.Console()
       .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
       .Enrich.FromLogContext()
       .CreateLogger();
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
@@ -36,8 +42,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
     )
 );
 
-//builder.Services.AddHostedService<monthlyRevenueReportService>();
-//builder.Services.AddHostedService<quarterlyRevenueReportService>();
+//builder.Services.AddHostedService<monthRevenueReportService>();
 //builder.Services.AddHostedService<dailyAttendanceReportGeneratorService>();
 ////builder.Services.AddHostedService<monthShiftAndDutiesReport>();
 //builder.Services.AddHostedService<monthLeaveServiceReport>();
@@ -49,6 +54,10 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<yearReportSummaryService>();
 //builder.Services.AddHostedService<monthPerformanceReportService>();
 //builder.Services.AddHostedService<monthBillingSummaryReportService>();
+////builder.Services.AddHostedService<yearBillingSummaryReport>();
+//builder.Services.AddHostedService<yearAdmissionAndBeddingSummary>();
+//builder.Services.AddHostedService<yearPharmacySalesReport>();
+//builder.Services.AddHostedService<monthBedOccupancyTrainingDataExtraction>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();

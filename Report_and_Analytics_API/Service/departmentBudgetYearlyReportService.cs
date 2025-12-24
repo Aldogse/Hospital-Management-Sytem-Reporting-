@@ -2,6 +2,9 @@
 using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
+using Serilog;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -19,31 +22,37 @@ namespace Report_and_Analytics_API.Service
         {
             try
             {
-                int lastYear = DateTime.Now.Year;
+                
                 while (!stoppingToken.IsCancellationRequested)
                 {
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    int year  = DateTime.Now.Year;
 
-                    //await Task.Delay(TimeSpan.FromHours(24),stoppingToken);
-                    if(lastYear  == DateTime.Now.Year)
+                    if(DateTime.Now.Month == 1 && DateTime.Now.Day >= 5)
                     {
-                        await DepartmentBudgetYearReportService(database);
-                        await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                        if (!await jobRepo.hasRunThisYear("DepartmentBudgetYearReportService",year))
+                        {
+                            await DepartmentBudgetYearReportService(database);
+                            await jobRepo.markAsRunThisYear("DepartmentBudgetYearReportService",year);
+                        }
                     }
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError(message:$"Job failed: {ex.Message}");
+                return;
             }
-        }
 
+        }
         //YEARLY EXTRACTION OF TOTAL BUDGET ACCUMULATED FOR THE PAST YEAR
         //WILL RUN EVERY 5TH OF JANUARY
         public async Task DepartmentBudgetYearReportService(ReportDbContext reportDb)
         {
-            DateTime prevYear = DateTime.Now.AddYears(-1);
+            int prevYear = DateTime.Now.Year - 1;
             try
             {
                 var records = await (
@@ -55,13 +64,13 @@ namespace Report_and_Analytics_API.Service
                         total_allocated = x.Sum(x => x.allocated_budget),
                         total_approved = x.Sum(x => x.approved_amount),
                         total_requested = x.Sum(x => x.requested_amount),
-                        year = prevYear.Year,
+                        year = prevYear,
                         last_update_date = DateTime.Now,
                     }).FirstOrDefaultAsync();
 
                 if(records == null)
                 {
-                    _logger.LogWarning($"No budget extracted for {prevYear.Year}");
+                    _logger.LogWarning($"No budget extracted for {prevYear}");
                     return;
                 }
 
@@ -70,7 +79,8 @@ namespace Report_and_Analytics_API.Service
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                _logger.LogError($"Error: {ex.Message}");
+                return;
             }
         }
     }

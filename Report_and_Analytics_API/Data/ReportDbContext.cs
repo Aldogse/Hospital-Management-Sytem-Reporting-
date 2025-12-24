@@ -1,5 +1,7 @@
 ﻿using APIResponses.Historical_report;
 using APIResponses.Historical_report.Models;
+using APIResponses.Historical_report.Run_Logs;
+using APIResponses.Training_Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_Library.Billing;
 using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
@@ -97,15 +99,13 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_payroll_summary> month_payroll_summary { get; set; }
         public DbSet<employeeAnnualPayrollReport> employeeAnnualPayrollReports { get; set; }
         public DbSet<employeePayrollMonthReport> employeePayrollMonthReports { get; set; }
-        public DbSet<month_revenue_breakdownreport> month_revenue_breakdownreport { get; set; }
-        public DbSet<monthly_revenue_report> monthly_revenue_report { get; set; }
-        public DbSet<quarter_revenue> quarter_revenue { get; set; }
         public DbSet<monthly_claim_report> monthly_claim_report { get; set; }
         public DbSet<daily_attendance_report> daily_attendance_report { get; set; }
         public DbSet<month_appointment_and_duty_report> month_appointment_and_duty_report { get; set; }
         public DbSet<month_employees_performance_and_evaluation_report> month_employees_performance_and_evaluation_report { get; set; }
         public DbSet<month_leave_report> month_leave_report { get; set; }
         public DbSet<month_pharmacy_sales> month_pharmacy_sales { get; set; }
+        public DbSet<month_revenue_report> month_revenue_report { get; set; }
         public DbSet<department_budget_year_report> department_budget_year_report { get; set; }
         public DbSet<month_admission_and_discharge_report> month_admission_and_discharge_report { get; set; }
         public DbSet<month_attendance_report> month_attendance_report { get; set; }
@@ -115,6 +115,12 @@ namespace Report_and_Analytics_API.Data
         public DbSet<daily_beds_utilization_report> daily_beds_utilization_report { get; set; }
         public DbSet<daily_billing_report>daily_billing_report { get; set; }
         public DbSet<month_billing_report> month_billing_report { get; set; }
+        public DbSet<yearly_billing_report> yearly_billing_report { get; set; }
+        public DbSet<yearly_admission_and_discharge_report> yearly_admission_and_discharge_report { get; set; }
+        public DbSet<yearly_pharmacy_sales_report> yearly_pharmacy_sales_report { get; set; }
+        public DbSet<month_bed_occupancy_training_data> month_bed_occupancy_training_data { get; set; }
+        public DbSet<job_run_logs> job_run_logs { get; set; }
+        public DbSet<month_job_run_logs> month_job_run_logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

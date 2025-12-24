@@ -2,6 +2,7 @@
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Validations;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_Library.Billing;
@@ -19,55 +20,6 @@ namespace Report_and_Analytics_API.Repository
             _logger = logger;
         }
 
-
-        //BREAKDOWN REPORTS DATA
-        public async Task<List<month_revenue_breakdownreport>> getQuarterOneBreakdown(int year)
-        {
-            return await _reportDb.month_revenue_breakdownreport
-                .Where(i => i.year == year && i.month == 1 && i.month <= 3)
-                .ToListAsync();
-        }
-
-        public async Task<List<month_revenue_breakdownreport>> getQuarterTwoBreakdown(int year)
-        {
-            return await _reportDb.month_revenue_breakdownreport
-                .Where(i => i.year == year && i.month >= 4 && i.month <= 6)
-                .ToListAsync();
-        }
-
-        public async Task<List<month_revenue_breakdownreport>> getQuarterThreeBreakdown(int year)
-        {
-            return await _reportDb.month_revenue_breakdownreport
-                .Where(i => i.year == year && i.month >= 7 && i.month <= 9)
-                .ToListAsync();
-        }
-
-        public async Task<List<month_revenue_breakdownreport>> getQuarterFourBreakdown(int year)
-        {
-            return await _reportDb.month_revenue_breakdownreport
-                .Where(i => i.year == year && i.month >= 10 && i.month <= 12)
-                .ToListAsync();
-        }
-
-
-
-        //HOSPITAL REVENUE REPORT SUMMARY LAND PAGE DATA
-        public async Task<decimal?> getQuarterRevenue(int year, int quarter)
-        {
-            var quarterlyRevenue = await _reportDb.quarter_revenue
-                .Where(i => i.year == year && i.quarter == quarter)
-                .ToListAsync();
-
-            return quarterlyRevenue.Sum(i => i.totalRevenue);
-        }
-
-        public async Task<decimal?> getYearRevenue(int year)
-        {
-            var yearRecord = await _reportDb.quarter_revenue.Where(i => i.year == year)
-                 .ToListAsync();
-
-            return yearRecord.Sum(x => x.totalRevenue);
-        }
 
         //PHARMACY SALES REPORT QUERY
         public async Task<daily_pharmacy_sales> getDailyPharmacySalesReport(int month,int day,int year)
@@ -108,7 +60,26 @@ namespace Report_and_Analytics_API.Repository
             return salesReport;
         }
 
-        //BILLING SUMMARY QUERIES
+        //REVENUE SUMMARY QUERIES
+
+        public async Task<decimal?> getMonthBillRevenueReport(int month, int year)
+        {
+            var monthBillRevenueReport = await _reportDb.billing_records
+                .Where(i => i.billing_date.Month == month && i.billing_date.Year == year)
+                .SumAsync(i => i.grand_total);
+
+            return monthBillRevenueReport;
+        }
+
+        public async Task<decimal?> getMonthPharmacyTotalSales(int month, int year)
+        {
+            var monthPharmacyRevenueReport = await _reportDb.month_pharmacy_sales
+                .Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+
+            return monthPharmacyRevenueReport?.totalSales;
+        }
+
 
         //BACKGROUND SERVICE QUERY
         public async Task<month_billing_report> getMonthBillingReport(int month, int year)
@@ -197,6 +168,30 @@ namespace Report_and_Analytics_API.Repository
 
         }
 
+        public async Task<yearly_pharmacy_sales_report> getYearPharmacySales(int year)
+        {
+
+            var topSellingItem = await _reportDb.month_pharmacy_sales.Where(i => i.year == year)
+                 .GroupBy(i => i.topSellingItem)
+                 .OrderByDescending(i => i.Count())
+                 .Select(i => i.Key)
+                 .FirstOrDefaultAsync();
+
+            var yearSales = await (
+                from sales in _reportDb.month_pharmacy_sales
+                where sales.year == year
+                group new { sales } by 1 into x
+                select new yearly_pharmacy_sales_report
+                {
+                    totalSales = x.Sum(i => i.sales.totalSales),
+                    totalTransactions = x.Sum(i => i.sales.totalTransactions),
+                    year = year,
+                    topSellingItem = topSellingItem
+                }).FirstOrDefaultAsync();
+
+            return yearSales;
+        }
+
         //ENDPOINT QUERIES
         public async Task<month_billing_report> monthBillingReport(int month, int year)
         {
@@ -225,5 +220,64 @@ namespace Report_and_Analytics_API.Repository
 
             return listOfTransactions;
         }
+
+        public async Task<yearly_billing_report> getYearBillingReport(int year)
+        {
+            var yearSummary = await (
+                from rec in _reportDb.month_billing_report
+                where rec.year == year
+                group new {rec} by 1 into x
+                select new yearly_billing_report
+                {
+                    year = year,
+                    total_pending_amount = x.Sum(i => i.rec.total_pending_amount),
+                    total_billed = x.Sum(i => i.rec.total_billed),
+                    total_insurance_covered = x.Sum(i => i.rec.total_insurance_covered),
+                    total_oop_collected = x.Sum(i => i.rec.total_oop_collected),
+                    total_paid = x.Sum(i => i.rec.total_paid),
+                    total_pending_transaction = x.Sum(i => i.rec.total_pending_transaction)
+                }).FirstOrDefaultAsync();
+
+            return yearSummary;
+        }
+
+        public async Task<yearly_billing_report> yearBillingReport(int year)
+        {
+            var yearReport = await _reportDb.yearly_billing_report.Where(i => i.year == year)
+                .FirstOrDefaultAsync();
+
+            return yearReport;
+        }
+
+        public async Task<List<month_billing_report>> monthsBillingReport(int year)
+        {
+            var monthReports = await _reportDb.month_billing_report.Where(i => i.year == year)
+                .ToListAsync();
+
+            return monthReports;
+        }
+
+        public async Task<yearly_pharmacy_sales_report> yearPharmacySales(int year)
+        {
+            var yearSaleSummary = await _reportDb.yearly_pharmacy_sales_report.Where(i => i.year == year)
+                .FirstOrDefaultAsync();
+
+            return yearSaleSummary;
+        }
+
+        public async Task<List<month_pharmacy_sales>> monthsPharmacySales(int year)
+        {
+            var monthsSales = await _reportDb.month_pharmacy_sales.Where(i => i.year == year).ToListAsync();
+            return monthsSales;
+        }
+
+        public async Task<month_pharmacy_sales> monthPharmacySales(int month, int year)
+        {
+            var monthSales = await _reportDb.month_pharmacy_sales.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+
+            return monthSales;
+        }
+
     }
 }

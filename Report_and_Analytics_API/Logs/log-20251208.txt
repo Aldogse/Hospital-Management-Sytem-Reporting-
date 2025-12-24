@@ -1,0 +1,654 @@
+2025-12-08 13:23:25.748 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-12-08 13:23:26.268 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 13:23:26.272 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 13:23:26.356 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 13:23:26.358 +08:00 [INF] Hosting environment: Development
+2025-12-08 13:23:26.359 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 13:23:28.233 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 13:23:28.493 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 264.1218ms
+2025-12-08 13:23:28.504 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 13:23:28.524 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 13:23:28.525 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 20.3983ms
+2025-12-08 13:23:28.609 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.0856ms
+2025-12-08 13:23:28.708 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 13:23:28.726 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2025-12-08 13:23:28.734 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.265ms
+2025-12-08 13:23:28.741 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-08 13:23:28.744 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 17.9594ms
+2025-12-08 13:23:30.114 +08:00 [ERR] An error occurred using the connection to database 'hmscapstone' on server 'localhost'.
+2025-12-08 13:23:30.203 +08:00 [INF] A transient exception occurred during execution. The operation will be retried after 0ms.
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-12-08 13:23:34.315 +08:00 [ERR] An error occurred using the connection to database 'hmscapstone' on server 'localhost'.
+2025-12-08 13:23:34.320 +08:00 [INF] A transient exception occurred during execution. The operation will be retried after 1010ms.
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-12-08 13:23:39.423 +08:00 [ERR] An error occurred using the connection to database 'hmscapstone' on server 'localhost'.
+2025-12-08 13:23:39.429 +08:00 [INF] A transient exception occurred during execution. The operation will be retried after 3059ms.
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-12-08 13:26:32.365 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-12-08 13:26:32.861 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 13:26:32.869 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 13:26:32.993 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 13:26:32.996 +08:00 [INF] Hosting environment: Development
+2025-12-08 13:26:32.998 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 13:26:33.097 +08:00 [INF] Executed DbCommand (194ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__year_0 AS `year`, COALESCE((
+    SELECT `t0`.`available_beds`
+    FROM (
+        SELECT `m0`.`report_id`, `m0`.`available_beds`, `m0`.`broken_beds`, `m0`.`month`, `m0`.`occupied_beds`, `m0`.`recently_discharged`, `m0`.`total_beds`, `m0`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m0`
+        WHERE `m0`.`year` = @__year_0
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1), 0) AS `available_beds`, COALESCE((
+    SELECT `t1`.`broken_beds`
+    FROM (
+        SELECT `m1`.`report_id`, `m1`.`available_beds`, `m1`.`broken_beds`, `m1`.`month`, `m1`.`occupied_beds`, `m1`.`recently_discharged`, `m1`.`total_beds`, `m1`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m1`
+        WHERE `m1`.`year` = @__year_0
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1), 0) AS `broken_beds`, COALESCE((
+    SELECT `t2`.`occupied_beds`
+    FROM (
+        SELECT `m2`.`report_id`, `m2`.`available_beds`, `m2`.`broken_beds`, `m2`.`month`, `m2`.`occupied_beds`, `m2`.`recently_discharged`, `m2`.`total_beds`, `m2`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m2`
+        WHERE `m2`.`year` = @__year_0
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1), 0) AS `occupied_beds`, COALESCE((
+    SELECT `t3`.`total_beds`
+    FROM (
+        SELECT `m3`.`report_id`, `m3`.`available_beds`, `m3`.`broken_beds`, `m3`.`month`, `m3`.`occupied_beds`, `m3`.`recently_discharged`, `m3`.`total_beds`, `m3`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m3`
+        WHERE `m3`.`year` = @__year_0
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1), 0) AS `total_beds`
+FROM (
+    SELECT 1 AS `Key`
+    FROM `month_admission_and_discharge_report` AS `m`
+    WHERE `m`.`year` = @__year_0
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2025-12-08 13:29:45.804 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-12-08 13:29:46.257 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 13:29:46.261 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 13:29:46.329 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 13:29:46.331 +08:00 [INF] Hosting environment: Development
+2025-12-08 13:29:46.333 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 13:29:46.339 +08:00 [INF] Executed DbCommand (52ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT @__year_0 AS `year`, COALESCE((
+    SELECT `t0`.`available_beds`
+    FROM (
+        SELECT `m0`.`report_id`, `m0`.`available_beds`, `m0`.`broken_beds`, `m0`.`month`, `m0`.`occupied_beds`, `m0`.`recently_discharged`, `m0`.`total_beds`, `m0`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m0`
+        WHERE `m0`.`year` = @__year_0
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1), 0) AS `available_beds`, COALESCE((
+    SELECT `t1`.`broken_beds`
+    FROM (
+        SELECT `m1`.`report_id`, `m1`.`available_beds`, `m1`.`broken_beds`, `m1`.`month`, `m1`.`occupied_beds`, `m1`.`recently_discharged`, `m1`.`total_beds`, `m1`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m1`
+        WHERE `m1`.`year` = @__year_0
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1), 0) AS `broken_beds`, COALESCE((
+    SELECT `t2`.`occupied_beds`
+    FROM (
+        SELECT `m2`.`report_id`, `m2`.`available_beds`, `m2`.`broken_beds`, `m2`.`month`, `m2`.`occupied_beds`, `m2`.`recently_discharged`, `m2`.`total_beds`, `m2`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m2`
+        WHERE `m2`.`year` = @__year_0
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1), 0) AS `occupied_beds`, COALESCE((
+    SELECT `t3`.`total_beds`
+    FROM (
+        SELECT `m3`.`report_id`, `m3`.`available_beds`, `m3`.`broken_beds`, `m3`.`month`, `m3`.`occupied_beds`, `m3`.`recently_discharged`, `m3`.`total_beds`, `m3`.`year`, 1 AS `Key`
+        FROM `month_admission_and_discharge_report` AS `m3`
+        WHERE `m3`.`year` = @__year_0
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1), 0) AS `total_beds`
+FROM (
+    SELECT 1 AS `Key`
+    FROM `month_admission_and_discharge_report` AS `m`
+    WHERE `m`.`year` = @__year_0
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2025-12-08 13:30:00.895 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 13:30:04.374 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `yearly_admission_and_discharge_report` (`available_beds`, `broken_beds`, `occupied_beds`, `total_beds`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `report_id`
+FROM `yearly_admission_and_discharge_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-12-08 13:30:04.460 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 3570.5759ms
+2025-12-08 13:30:04.473 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 13:30:04.485 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.0757ms
+2025-12-08 13:30:04.491 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 13:30:04.543 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.9958ms
+2025-12-08 13:30:04.669 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 13:30:04.698 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.5249ms
+2025-12-08 15:47:23.332 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 15:47:23.368 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 15:47:23.415 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 15:47:23.417 +08:00 [INF] Hosting environment: Development
+2025-12-08 15:47:23.418 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 15:47:24.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 15:47:24.485 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 188.5603ms
+2025-12-08 15:47:24.488 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 15:47:24.492 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 15:47:24.508 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 15.7796ms
+2025-12-08 15:47:24.530 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.4142ms
+2025-12-08 15:47:24.564 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 15:47:24.587 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.1516ms
+2025-12-08 15:48:01.559 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 15:48:01.568 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 15:48:01.589 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 15:48:03.613 +08:00 [INF] Executed DbCommand (49ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 15:48:03.718 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidCastException: Can't convert Double to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't convert Double to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-12-08 15:48:03.848 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-12-08 15:48:03.854 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 2259.6243ms
+2025-12-08 15:48:03.856 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 15:48:03.858 +08:00 [ERR] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 500 in 2290.8926 ms
+2025-12-08 15:48:03.865 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 500 null text/plain; charset=utf-8 2307.1362ms
+2025-12-08 15:52:55.493 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 15:52:55.539 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 15:52:55.582 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 15:52:55.584 +08:00 [INF] Hosting environment: Development
+2025-12-08 15:52:55.585 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 15:52:56.383 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 15:52:56.544 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 15:52:56.544 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 15:52:56.545 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 165.4258ms
+2025-12-08 15:52:56.558 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 14.2147ms
+2025-12-08 15:52:56.593 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.806ms
+2025-12-08 15:52:56.627 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 15:52:56.650 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.6105ms
+2025-12-08 15:53:03.639 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 15:53:03.650 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 15:53:03.670 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 15:53:04.934 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 15:53:05.018 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidCastException: Can't convert Float to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't convert Float to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-12-08 15:53:05.138 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-12-08 15:53:05.145 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 1468.8494ms
+2025-12-08 15:53:05.147 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 15:53:05.150 +08:00 [ERR] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 500 in 1501.2225 ms
+2025-12-08 15:53:05.158 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 500 null text/plain; charset=utf-8 1519.1541ms
+2025-12-08 19:47:27.768 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 19:47:27.824 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 19:47:27.910 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 19:47:27.913 +08:00 [INF] Hosting environment: Development
+2025-12-08 19:47:27.915 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 19:47:28.883 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 19:47:29.261 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 392.0932ms
+2025-12-08 19:47:29.268 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 19:47:29.268 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 19:47:29.310 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 41.4552ms
+2025-12-08 19:47:29.355 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 87.0353ms
+2025-12-08 19:47:29.409 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 19:47:29.454 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 45.4947ms
+2025-12-08 19:47:39.104 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 19:47:39.116 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:47:39.157 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 19:47:41.268 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 19:47:41.405 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidCastException: Can't convert Float to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't convert Float to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-12-08 19:47:41.621 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-12-08 19:47:41.628 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 2464.931ms
+2025-12-08 19:47:41.630 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:47:41.633 +08:00 [ERR] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 500 in 2518.1354 ms
+2025-12-08 19:47:41.644 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 500 null text/plain; charset=utf-8 2540.2905ms
+2025-12-08 19:49:51.778 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 19:49:51.834 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 19:49:51.897 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 19:49:51.899 +08:00 [INF] Hosting environment: Development
+2025-12-08 19:49:51.900 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 19:49:52.906 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 19:49:53.198 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 19:49:53.198 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 19:49:53.200 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 297.5292ms
+2025-12-08 19:49:53.234 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 36.4146ms
+2025-12-08 19:49:53.282 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.4515ms
+2025-12-08 19:49:53.343 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 19:49:53.383 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.0815ms
+2025-12-08 19:50:00.262 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 19:50:00.271 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:50:00.307 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 19:50:02.544 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 19:50:02.671 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 19:50:02.698 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 2382.7894ms
+2025-12-08 19:50:02.701 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:50:02.704 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 2433.2715 ms
+2025-12-08 19:50:02.714 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 2451.6725ms
+2025-12-08 19:57:24.815 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 19:57:24.829 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:57:24.831 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 19:57:24.877 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 19:57:24.881 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 19:57:24.883 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 50.9572ms
+2025-12-08 19:57:24.888 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:57:24.890 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 60.7791 ms
+2025-12-08 19:57:24.893 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 78.4954ms
+2025-12-08 19:57:59.333 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 19:57:59.381 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 19:57:59.447 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 19:57:59.449 +08:00 [INF] Hosting environment: Development
+2025-12-08 19:57:59.451 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 19:58:00.624 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 19:58:00.890 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 270.2973ms
+2025-12-08 19:58:00.899 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 19:58:00.901 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 19:58:00.908 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.5351ms
+2025-12-08 19:58:00.952 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.4329ms
+2025-12-08 19:58:01.009 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 19:58:01.050 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.3851ms
+2025-12-08 19:58:27.416 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 19:58:27.439 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:58:27.468 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 19:58:32.631 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 19:58:32.735 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 19:58:32.749 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 5274.604ms
+2025-12-08 19:58:32.751 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 19:58:32.755 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 5316.4325 ms
+2025-12-08 19:58:32.767 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 5351.6175ms
+2025-12-08 20:01:36.733 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 20:01:36.763 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:01:36.766 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:01:38.298 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 20:01:38.302 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 20:01:38.304 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 1535.606ms
+2025-12-08 20:01:38.306 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:01:38.307 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 1543.9195 ms
+2025-12-08 20:01:38.313 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 1579.6508ms
+2025-12-08 20:01:38.351 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/favicon.ico - null null
+2025-12-08 20:01:38.356 +08:00 [INF] HTTP GET /favicon.ico responded 404 in 0.0719 ms
+2025-12-08 20:01:38.358 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/favicon.ico - 404 0 null 7.0082ms
+2025-12-08 20:01:38.362 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7212/favicon.ico, Response status code: 404
+2025-12-08 20:02:45.223 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2020 - null null
+2025-12-08 20:02:45.227 +08:00 [INF] CORS policy execution successful.
+2025-12-08 20:02:45.233 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:02:45.235 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:02:46.929 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 20:02:46.935 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType18`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-08 20:02:46.940 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 1704.186ms
+2025-12-08 20:02:46.943 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:02:46.945 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2020 responded 200 in 1711.7322 ms
+2025-12-08 20:02:46.947 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2020 - 200 null application/json; charset=utf-8 1724.9432ms
+2025-12-08 20:02:56.131 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 20:02:56.136 +08:00 [INF] CORS policy execution successful.
+2025-12-08 20:02:56.138 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:02:56.140 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:02:58.287 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 20:02:58.289 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 20:02:58.291 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 2148.6898ms
+2025-12-08 20:02:58.292 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:02:58.293 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 2154.7749 ms
+2025-12-08 20:02:58.295 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 2164.3036ms
+2025-12-08 20:05:31.357 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 20:05:31.369 +08:00 [INF] CORS policy execution successful.
+2025-12-08 20:05:31.370 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:05:31.372 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:05:33.412 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 20:05:33.415 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.yearly_admission_and_discharge_report'.
+2025-12-08 20:05:33.417 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 2041.8922ms
+2025-12-08 20:05:33.419 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:05:33.420 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 2049.9882 ms
+2025-12-08 20:05:33.423 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 2065.9978ms
+2025-12-08 20:10:01.428 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 20:10:01.478 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 20:10:01.604 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 20:10:01.623 +08:00 [INF] Hosting environment: Development
+2025-12-08 20:10:01.632 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 20:10:02.657 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 20:10:02.898 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 246.0214ms
+2025-12-08 20:10:02.901 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 20:10:02.901 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 20:10:02.922 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 20.9287ms
+2025-12-08 20:10:02.975 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.006ms
+2025-12-08 20:10:03.021 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 20:10:03.056 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.108ms
+2025-12-08 20:10:05.625 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/property/getMonthSummaryAdmissionAndDischargeReport/10/2025 - null null
+2025-12-08 20:10:05.634 +08:00 [INF] CORS policy execution successful.
+2025-12-08 20:10:05.652 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/property/getMonthSummaryAdmissionAndDischargeReport/10/2025 - 307 0 null 26.1395ms
+2025-12-08 20:10:05.973 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthSummaryAdmissionAndDischargeReport/10/2025 - null null
+2025-12-08 20:10:05.979 +08:00 [INF] CORS policy execution successful.
+2025-12-08 20:10:05.983 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthSummaryAdmissionAndDischargeReport (Report_and_Analytics_API)'
+2025-12-08 20:10:06.007 +08:00 [INF] Route matched with {action = "getMonthSummaryAdmissionAndDischargeReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthSummaryAdmissionAndDischargeReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:10:07.593 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__year_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (`m`.`year` = @__year_0) AND (`m`.`month` = @__month_1)
+LIMIT 1
+2025-12-08 20:10:07.694 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_admission_and_discharge_report'.
+2025-12-08 20:10:07.706 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthSummaryAdmissionAndDischargeReport (Report_and_Analytics_API) in 1692.2278ms
+2025-12-08 20:10:07.708 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthSummaryAdmissionAndDischargeReport (Report_and_Analytics_API)'
+2025-12-08 20:10:07.711 +08:00 [INF] HTTP GET /property/getMonthSummaryAdmissionAndDischargeReport/10/2025 responded 200 in 1727.7646 ms
+2025-12-08 20:10:07.720 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthSummaryAdmissionAndDischargeReport/10/2025 - 200 null application/json; charset=utf-8 1748.0163ms
+2025-12-08 20:27:28.856 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 20:27:28.930 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 20:27:29.053 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 20:27:29.071 +08:00 [INF] Hosting environment: Development
+2025-12-08 20:27:29.074 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 20:27:30.088 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 20:27:30.460 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 20:27:30.460 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 20:27:30.492 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 569.3405ms
+2025-12-08 20:27:30.525 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 65.3335ms
+2025-12-08 20:27:30.576 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 116.3684ms
+2025-12-08 20:27:30.619 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 20:27:30.649 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.1907ms
+2025-12-08 20:27:37.290 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 20:27:37.304 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:27:37.335 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 20:27:40.731 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 20:27:40.858 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-08 20:27:40.882 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.yearBedsDistributionSummaryResponse'.
+2025-12-08 20:27:40.900 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 3559.6612ms
+2025-12-08 20:27:40.903 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 20:27:40.907 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 3605.6624 ms
+2025-12-08 20:27:40.917 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 3627.487ms
+2025-12-08 23:51:26.247 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-08 23:51:26.292 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-08 23:51:26.349 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 23:51:26.350 +08:00 [INF] Hosting environment: Development
+2025-12-08 23:51:26.352 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-08 23:51:27.205 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-08 23:51:27.491 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 290.4582ms
+2025-12-08 23:51:27.496 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-08 23:51:27.496 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-08 23:51:27.522 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 26.3133ms
+2025-12-08 23:51:27.593 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 97.5914ms
+2025-12-08 23:51:27.632 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-08 23:51:27.654 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.0292ms
+2025-12-08 23:51:35.928 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 23:51:35.937 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 23:51:35.963 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 23:51:41.635 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 23:51:41.771 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-08 23:51:41.796 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.yearBedsDistributionSummaryResponse'.
+2025-12-08 23:51:41.814 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 5843.7199ms
+2025-12-08 23:51:41.818 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 23:51:41.820 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 5883.8886 ms
+2025-12-08 23:51:41.831 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 5902.3093ms
+2025-12-08 23:54:10.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - null null
+2025-12-08 23:54:10.845 +08:00 [INF] CORS policy execution successful.
+2025-12-08 23:54:10.847 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 23:54:10.848 +08:00 [INF] Route matched with {action = "getMonthBedsDistributionReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthBedsDistributionReport(Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2025-12-08 23:54:12.090 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`available_beds`, `y`.`broken_beds`, `y`.`occupied_beds`, `y`.`total_beds`, `y`.`year`
+FROM `yearly_admission_and_discharge_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2025-12-08 23:54:12.099 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2025-12-08 23:54:12.101 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.yearBedsDistributionSummaryResponse'.
+2025-12-08 23:54:12.104 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API) in 1254.9048ms
+2025-12-08 23:54:12.106 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthBedsDistributionReport (Report_and_Analytics_API)'
+2025-12-08 23:54:12.107 +08:00 [INF] HTTP GET /property/getMonthBedsDistributionReport/2025 responded 200 in 1259.9105 ms
+2025-12-08 23:54:12.109 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthBedsDistributionReport/2025 - 200 null application/json; charset=utf-8 1276.1408ms

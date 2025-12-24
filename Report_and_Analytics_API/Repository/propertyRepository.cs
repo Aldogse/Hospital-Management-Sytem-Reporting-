@@ -1,5 +1,6 @@
 ﻿using APIResponses.Historical_report.Models;
 using APIResponses.PropertyAndManagementResponse;
+using APIResponses.Training_Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -17,6 +18,7 @@ namespace Report_and_Analytics_API.Repository
             _reportDbContext = reportDbContext;
             _logger = logger;
         }
+
         //DB CALLS FOR MONTH AND PATIENT ADMISSION AND DISCHARGE REPORT SUMMARY
         public async Task<List<monthAdmissionReportResponse>> getAdmissionReport(int month, int year)
         {
@@ -128,5 +130,48 @@ namespace Report_and_Analytics_API.Repository
 
             return report;
         }
+
+        public async Task<month_admission_and_discharge_report> getYearAdmissionsAndDischargeReport(int year)
+        {
+            var yearData = await (
+                from rec in _reportDbContext.month_admission_and_discharge_report
+                where  rec.year == year
+                group new {rec} by 1 into x 
+                select new month_admission_and_discharge_report
+                {
+                    year = year,
+                    available_beds = x.Select(i => i.rec.available_beds).FirstOrDefault(),
+                    broken_beds = x.Select(i => i.rec.broken_beds).FirstOrDefault(),
+                    occupied_beds = x.Select(i => i.rec.occupied_beds).FirstOrDefault(),
+                    total_beds = x.Select(i => i.rec.total_beds).FirstOrDefault()
+                }).FirstOrDefaultAsync();
+
+            return yearData;
+        }
+
+        public async Task<List<month_admission_and_discharge_report>> monthBedsDistribution(int year)
+        {
+            var monthData = await _reportDbContext.month_admission_and_discharge_report.Where(i => i.year == year)
+                .ToListAsync();
+
+            return monthData;
+        }
+
+        public async Task<yearly_admission_and_discharge_report> yearlyAdmissionAndDischargeReport(int year)
+        {
+            var yearData = await _reportDbContext.yearly_admission_and_discharge_report.Where(i => i.year == year)
+                .FirstOrDefaultAsync();
+
+            return yearData;
+        }
+
+        public async Task<List<month_admission_and_discharge_report>> getMonthsAdmissionData(int year)
+        {
+            var monthData = await _reportDbContext.month_admission_and_discharge_report.Where(i => i.year == year)
+                .ToListAsync();
+
+            return monthData;
+        }
     }
 }
+  

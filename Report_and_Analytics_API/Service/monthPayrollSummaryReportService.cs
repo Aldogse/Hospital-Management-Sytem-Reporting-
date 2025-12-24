@@ -2,6 +2,7 @@
 using APIResponses.Historical_report.Models;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -22,12 +23,19 @@ namespace Report_and_Analytics_API.Service
                 using var scope = _serviceScope.CreateScope();
                 var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
 
-                if(DateTime.Now.Day > 5)
+                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                DateTime date = DateTime.Now;
+
+                //this is should be equal to one to know the month already changes
+                if (DateTime.Now.Day >= 1)
                 {
-                    await MonthPayrollSummaryReport(database);
-                    await Task.Delay(TimeSpan.FromDays(1));
+                    if (!await jobRepo.hasRunThisMonth("MonthLeaveServiceReport", date.Month, date.Year))
+                    {
+                        await MonthLeaveServiceReport(database);
+                        await jobRepo.markAsRunThisMonth("MonthLeaveServiceReport", date.Month, date.Year);
+                    }
                 }
-                await Task.Delay(TimeSpan.FromDays(1));
+                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
             catch (Exception ex)
             {

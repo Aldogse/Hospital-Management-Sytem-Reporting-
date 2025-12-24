@@ -1,6 +1,8 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -22,16 +24,23 @@ namespace Report_and_Analytics_API.Service
                 var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                 var repo = scope.ServiceProvider.GetRequiredService<IpropertyRepository>();
 
-                if(DateTime.Now.Day > 5)
+                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                DateTime date = DateTime.Now;
+
+                //this is should be equal to one to know the month already changes
+                if (DateTime.Now.Day >= 5)
                 {
-                    await DischargeSummaryAndAdmissionReportService(database,repo);
-                    await Task.Delay(TimeSpan.FromDays(1));
+                    if (!await jobRepo.hasRunThisMonth("DischargeSummaryAndAdmissionReportService", date.Month, date.Year))
+                    {
+                        await DischargeSummaryAndAdmissionReportService(database,repo);
+                        await jobRepo.markAsRunThisMonth("DischargeSummaryAndAdmissionReportService", date.Month, date.Year);
+                    }
                 }
-                await Task.Delay(TimeSpan.FromDays(1));
+                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
             catch (InvalidOperationException ex)
             {
-                _logger.LogError($"Error: {ex.Message}");
+                _logger.LogError(message:$"Error: {ex.Message}");
             }
         }
 
@@ -45,6 +54,7 @@ namespace Report_and_Analytics_API.Service
 
                 if (report == null)
                 {
+                    _logger.LogError($"No Values extracted {prevMonth.Month}/{prevMonth.Year}");
                     return;
                 }
 
@@ -53,7 +63,7 @@ namespace Report_and_Analytics_API.Service
             }
             catch (InvalidOperationException ex)
             {
-                _logger.LogError($"Error: {ex.Message}");
+                _logger.LogError(message:$"Error: {ex.Message}");
                 return;
             }
         }

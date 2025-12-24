@@ -1,6 +1,7 @@
 ﻿
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -22,31 +23,38 @@ namespace Report_and_Analytics_API.Service
                 using var scope = _serviceScope.CreateScope();
                 var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                 var repo  = scope.ServiceProvider.GetRequiredService<IemployeeRepository>();
+                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                int year = DateTime.Now.Year;
 
-                if (DateTime.Now.Day > 1)
+                if(DateTime.Now.Month == 1 && DateTime.Now.Day >= 5)
                 {
-                    await YearReportSummaryGenerator(database,repo);
-                    await Task.Delay(TimeSpan.FromDays(1));
+                    if(await jobRepo.hasRunThisYear("YearReportSummaryGenerator",year))
+                    {
+                        await YearReportSummaryGenerator(database,repo);
+                        await jobRepo.markAsRunThisYear("YearReportSummaryGenerator",year);
+                    }
                 }
-                await Task.Delay(TimeSpan.FromDays(1));
+                await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"Error: {ex.Message}");
+                _logger.LogInformation(message:$"Error: {ex.Message}");
+                return;
             }
         }
 
         //RUNS EVERY 5TH OF JANUARY
         private async Task YearReportSummaryGenerator(ReportDbContext reportDb,IemployeeRepository empRepo)
         {
-            DateTime prevYear = DateTime.Now;
+            int year = DateTime.Now.Year - 1;
+
             try
             {
-                var summaryReport = await empRepo.getYearAttendanceReport(prevYear.Year);
+                var summaryReport = await empRepo.getYearAttendanceReport(year);
 
                 if (summaryReport == null)
                 {
-                    _logger.LogInformation($"No data extracted for {prevYear.Year}");
+                    _logger.LogInformation($"No data extracted for {year}");
                     return;
                 }
 

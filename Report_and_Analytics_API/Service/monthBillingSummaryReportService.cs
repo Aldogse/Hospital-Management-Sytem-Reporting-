@@ -1,6 +1,7 @@
 ﻿
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -23,11 +24,16 @@ namespace Report_and_Analytics_API.Service
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
                     var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
+                    var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    DateTime date = DateTime.Now;
 
                     if (DateTime.Now.Day <= 5)
                     {
-                        await MonthBillingSummaryReportGenerator(database,repo);
-                        await Task.Delay(TimeSpan.FromDays(1));
+                        if(!await jobRepo.hasRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year))
+                        {
+                            await MonthBillingSummaryReportGenerator(database,repo);
+                            await jobRepo.markAsRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year);
+                        }
                     }
                     await Task.Delay(TimeSpan.FromDays(1));
                 }
@@ -43,7 +49,7 @@ namespace Report_and_Analytics_API.Service
         {
             try
             {
-                DateTime prevMonth = DateTime.Now.AddMonths(-2);
+                DateTime prevMonth = DateTime.Now.AddMonths(-1);
                 var monthReport = await repository.getMonthBillingReport(prevMonth.Month,prevMonth.Year);
 
                 if(monthReport == null)
