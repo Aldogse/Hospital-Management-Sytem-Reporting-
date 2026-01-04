@@ -283,7 +283,19 @@ namespace Report_and_Analytics_API.Controllers
         {
             try
             {
+                var monthRevenue = await _reportDbContext.month_revenue_report.Where(i => i.month == month && i.year == year)
+                    .FirstOrDefaultAsync();
 
+                if(monthRevenue == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data for {month}/{year}",
+                    });
+                }
+
+                return Ok(monthRevenue);
             }
             catch (SqlException ex)
             {

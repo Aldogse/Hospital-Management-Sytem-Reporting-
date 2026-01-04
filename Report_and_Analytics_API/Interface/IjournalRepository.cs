@@ -1,6 +1,7 @@
 ﻿using APIResponses;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
+using APIResponses.Training_Models;
 using Report_and_Analytics_Library.Billing;
 
 namespace Report_and_Analytics_API.Interface
@@ -30,7 +31,21 @@ namespace Report_and_Analytics_API.Interface
         //REVENUE QUERIES
         public Task<decimal?> getMonthBillRevenueReport(int month,int year);
         public Task<decimal?> getMonthPharmacyTotalSales(int month,int year);
-        
+        public Task<month_pharmacy_sales> getTrainingDataRevenueForecastPharmacy(int month,int year);
+        public Task<List<billing_records>> getTrainingDataBillRecordsForecast(int month,int year);
+
+        //COST MANAGEMENT QEURIES
+
+        //GET SPECIFIC MONTH OPERATIONAL COST
+        public Task<decimal?> getLastThreeMonthsOperationalCost(DateTime startDate,DateTime endDate);
+        public Task<decimal?> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate);
+        public Task<decimal?> getPreviousMonthOperationalCost(int month,int year);
+        public Task<decimal?> getMonthOperationalCost(int month,int year);
+
+
+        public Task<decimal?> getMonthTotalGrossPaid(int month, int year);
+        public Task<decimal> getMonthTotalReceiptRecorded(int month,int year);
+        public Task<decimal> getMonthTotalMedicineDisposedCost(int month,int year);
 
 
     }

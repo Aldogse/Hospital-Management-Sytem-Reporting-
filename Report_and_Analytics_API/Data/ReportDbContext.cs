@@ -78,6 +78,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<journal_entry> journal_entry { get; set; }
         public DbSet<journal_entry_line> journal_entry_line { get; set; }
         public DbSet<license_expiry> license_expiry { get; set; }
+        public DbSet<receipts> receipts { get; set; }
 
         //pharmacy tables
         public DbSet<pharmacy_inventory> pharmacy_inventory { get; set; }
@@ -85,6 +86,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<pharmacy_prescription_items> pharmacy_prescription_items { get; set; }
         public DbSet<pharmacy_sales> pharmacy_sales { get; set; }
         public DbSet<p_prescriptions> p_prescriptions { get; set; }
+        public DbSet<disposed_medicines> disposed_medicines { get; set; }
 
         //Property management table
         public DbSet<p_bed_assignments> p_bed_assignments { get; set; }
@@ -121,6 +123,10 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_bed_occupancy_training_data> month_bed_occupancy_training_data { get; set; }
         public DbSet<job_run_logs> job_run_logs { get; set; }
         public DbSet<month_job_run_logs> month_job_run_logs { get; set; }
+        public DbSet<month_revenue_forecasting_training_data> month_revenue_forecasting_training_data { get; set; }
+        public DbSet<month_patient_admission_forecasting_training_data> month_patient_admission_forecasting_training_data { get; set; }
+        public DbSet<month_cost_management_and_training_data> month_cost_management_training_data { get; set; }
+        public DbSet<month_operational_records_report> month_operational_records_report { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

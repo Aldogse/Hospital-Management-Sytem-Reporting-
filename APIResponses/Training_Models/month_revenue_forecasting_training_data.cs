@@ -14,5 +14,13 @@ namespace APIResponses.Training_Models
         public int month { get; set; }
         public int year { get; set; }
 
+        //TARGET VALUE TO FORECAST 
+        public decimal? total_revenue { get; set; }
+
+        //derived values
+        public int pharmacy_total_transactions { get; set; }
+        public int total_patient { get; set; }
+        public decimal? average_bill_amount { get; set; }
+        public decimal? average_pharmacy_sale_per_transaction { get; set; }
     }
 }

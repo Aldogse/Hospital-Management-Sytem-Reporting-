@@ -1,6 +1,7 @@
 ﻿using APIResponses;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
+using APIResponses.Training_Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Validations;
 using Report_and_Analytics_API.Data;
@@ -279,5 +280,91 @@ namespace Report_and_Analytics_API.Repository
             return monthSales;
         }
 
+        public async Task<month_pharmacy_sales> getTrainingDataRevenueForecastPharmacy(int month, int year)
+        {
+            var pharmacData = await _reportDb.month_pharmacy_sales.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+
+            return pharmacData;
+        }
+
+        public async Task<List<billing_records>> getTrainingDataBillRecordsForecast(int month, int year)
+        {
+            var billRecs = await _reportDb.billing_records
+                .Where(i => i.billing_date.Month == month && i.billing_date.Year == year && i.status == "Paid")
+                .ToListAsync();
+
+            return billRecs;
+        }
+
+
+        //COST MANAGEMENT QUERIES
+        public async Task<decimal?> getLastThreeMonthsOperationalCost(DateTime startDate, DateTime endDate)
+        {
+            int startKey =  12 + startDate.Month;
+            int endKey =  12 + endDate.Month;
+
+            var lastThreeMonths = await _reportDb.month_operational_records_report.Where(i =>
+            ( 12 + i.month) >= startKey && (12 + i.month) <= endKey)
+                .SumAsync(i => i.total_operational_cost);
+
+            return lastThreeMonths;
+        }
+
+        public async Task<decimal?> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate)
+        {
+            var startKey = 12 + startDate.Month;
+            var endKey = 12 + endDate.Month;
+
+            var lastSixMonthsReport = await _reportDb.month_operational_records_report
+                .Where(i =>
+                (12 + i.month) >= startKey && (12 + i.month) <= endKey)
+                .SumAsync(i => i.total_operational_cost);
+
+            return lastSixMonthsReport;
+        }
+
+        public async Task<decimal?> getPreviousMonthOperationalCost(int month, int year)
+        {
+            var totalCost = await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
+               .Select(i => i.total_operational_cost).FirstOrDefaultAsync();
+
+            return totalCost;
+        }
+
+        public async Task<decimal?> getMonthOperationalCost(int month, int year)
+        {
+            var totalCost = await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
+                .Select(i => i.total_operational_cost).FirstOrDefaultAsync();
+
+            return totalCost;
+        }
+
+        public async Task<decimal?> getMonthTotalGrossPaid(int month, int year)
+        {
+            var monthReport = await _reportDb.month_payroll_summary.Where(i => i.month == month && i.year == year)
+                .Select(i => i.total_gross_pay).FirstOrDefaultAsync();
+
+            return monthReport;
+
+        }
+
+        public async Task<decimal> getMonthTotalReceiptRecorded(int month, int year)
+        {
+            var monthReport = await _reportDb.receipts.Where(i => i.created_at.Month == month && i.created_at.Year == year)
+                .Select(i => i.total).SumAsync();
+
+            return monthReport;
+        }
+
+        public async Task<decimal> getMonthTotalMedicineDisposedCost(int month, int year)
+        {
+            var monthReport = await _reportDb.disposed_medicines.Where(i => i.disposed_at.Month == month && i.disposed_at.Year == year)
+                .Select(i => i.price).SumAsync();
+
+            return monthReport;
+        }
+
     }
 }
+ 

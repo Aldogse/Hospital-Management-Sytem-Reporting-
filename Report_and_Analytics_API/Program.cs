@@ -8,6 +8,7 @@ using Report_and_Analytics_API.Service;
 using Serilog;
 using Serilog.Sinks.Email;
 using Serilog.Events;
+using Report_and_Analytics_API.job_logs;
 
 
 
@@ -58,6 +59,10 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<yearAdmissionAndBeddingSummary>();
 //builder.Services.AddHostedService<yearPharmacySalesReport>();
 //builder.Services.AddHostedService<monthBedOccupancyTrainingDataExtraction>();
+//builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
+//builder.Services.AddHostedService<monthPatientAdmissionTrainingDataExtraction>();
+//builder.Services.AddHostedService<monthOperationalCostReportService>();
+builder.Services.AddHostedService<monthCostManagementTrainingDataExtraction>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();
@@ -65,6 +70,8 @@ builder.Services.AddScoped<IjournalRepository, journalRepository>();
 builder.Services.AddScoped<IinsuranceClaimRepository, claimRepository>();
 builder.Services.AddScoped<IpropertyRepository, propertyRepository>();
 builder.Services.AddScoped<IemployeeRepository, employeeRepository>();
+builder.Services.AddScoped<IjoblogsRepository, jobLogsRepository>();
+builder.Services.AddScoped<IpatientAdmissionRepository, patientAdmissionRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

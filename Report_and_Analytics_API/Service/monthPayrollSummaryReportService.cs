@@ -22,17 +22,16 @@ namespace Report_and_Analytics_API.Service
             {
                 using var scope = _serviceScope.CreateScope();
                 var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-
                 var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
                 DateTime date = DateTime.Now;
 
                 //this is should be equal to one to know the month already changes
-                if (DateTime.Now.Day >= 1)
+                if (DateTime.UtcNow.Day >= 5)
                 {
-                    if (!await jobRepo.hasRunThisMonth("MonthLeaveServiceReport", date.Month, date.Year))
+                    if (!await jobRepo.hasRunThisMonth("MonthPayrollSummaryReport", date.Month, date.Year))
                     {
-                        await MonthLeaveServiceReport(database);
-                        await jobRepo.markAsRunThisMonth("MonthLeaveServiceReport", date.Month, date.Year);
+                        await MonthPayrollSummaryReport(database);
+                        await jobRepo.markAsRunThisMonth("MonthPayrollSummaryReport", date.Month, date.Year);
                     }
                 }
                 await Task.Delay(TimeSpan.FromHours(24), stoppingToken);

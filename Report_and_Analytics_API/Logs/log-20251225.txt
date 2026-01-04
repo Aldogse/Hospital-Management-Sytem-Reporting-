@@ -1,0 +1,114 @@
+2025-12-25 15:45:42.757 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-25 15:45:42.808 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-25 15:45:42.855 +08:00 [INF] Executed DbCommand (67ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(`b`.`grand_total`), 0.0)
+FROM `billing_records` AS `b`
+WHERE (EXTRACT(month FROM `b`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b`.`billing_date`) = @__year_1)
+2025-12-25 15:45:42.904 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-25 15:45:42.906 +08:00 [INF] Hosting environment: Development
+2025-12-25 15:45:42.907 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-25 15:45:43.073 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-25 15:45:43.311 +08:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_revenue_report` (`last_update_date`, `month`, `pharmacy_revenue`, `service_revenue`, `total_revenue`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `report_id`
+FROM `month_revenue_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2025-12-25 15:45:43.394 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '10-2025' for key 'uq_month_year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '10-2025' for key 'uq_month_year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-12-25 15:45:43.493 +08:00 [ERR] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2025-12-25 15:45:45.812 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2025-12-25 15:45:45.959 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger - 301 0 null 150.946ms
+2025-12-25 15:45:45.962 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-25 15:45:46.026 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 64.1305ms
+2025-12-25 15:45:46.030 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2025-12-25 15:45:46.029 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-25 15:45:46.029 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-25 15:45:46.029 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - null null
+2025-12-25 15:45:46.029 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2025-12-25 15:45:46.061 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 31.4507ms
+2025-12-25 15:45:46.084 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-25 15:45:46.084 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-25 15:45:46.087 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 57.692ms
+2025-12-25 15:45:46.090 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - 200 152034 text/css 60.8712ms
+2025-12-25 15:45:46.116 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-25 15:45:46.119 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 89.3525ms
+2025-12-25 15:45:46.159 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 129.567ms
+2025-12-25 15:45:46.255 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2025-12-25 15:45:46.274 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2025-12-25 15:45:46.275 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.1013ms
+2025-12-25 15:45:46.280 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-25 15:45:46.285 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 11.5906ms
+2025-12-25 15:56:31.547 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2025-12-25 15:56:31.582 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2025-12-25 15:56:31.616 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2025-12-25 15:56:31.632 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-25 15:56:31.633 +08:00 [INF] Hosting environment: Development
+2025-12-25 15:56:31.634 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2025-12-25 15:56:59.956 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2025-12-25 15:56:59.953 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2025-12-25 15:57:15.609 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`patient_id`, `b`.`payment_method`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE ((EXTRACT(month FROM `b`.`billing_date`) = @__month_0) AND (EXTRACT(year FROM `b`.`billing_date`) = @__year_1)) AND (`b`.`status` = 'Paid')
