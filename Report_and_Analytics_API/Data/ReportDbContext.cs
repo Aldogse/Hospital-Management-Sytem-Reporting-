@@ -1,7 +1,12 @@
-﻿using APIResponses.Historical_report;
+﻿using APIResponses.DTO;
+using APIResponses.forecast_results;
+using APIResponses.Historical_report;
 using APIResponses.Historical_report.Models;
 using APIResponses.Historical_report.Run_Logs;
+using APIResponses.Historical_report.training_models_prediction;
+using APIResponses.prediction_results;
 using APIResponses.Training_Models;
+using APIResponses.Training_Models_forecast;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_Library.Billing;
 using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
@@ -127,6 +132,27 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_patient_admission_forecasting_training_data> month_patient_admission_forecasting_training_data { get; set; }
         public DbSet<month_cost_management_and_training_data> month_cost_management_training_data { get; set; }
         public DbSet<month_operational_records_report> month_operational_records_report { get; set; }
+        public DbSet<nurses_month_attendance_report> nurses_month_attendance_report { get; set; }       
+        public DbSet<pharmacy_stock_batches> pharmacy_stock_batches { get; set; }
+
+        //PREDICTIONS TABLE
+        public DbSet<month_medicine_shortage_training_data> month_medicine_shortage_training_data { get; set; }
+        public DbSet<month_insurance_claims_status_training_data> month_insurance_claims_status_training_data { get; set; } 
+        public DbSet<month_insurance_claim_amount_training_data> month_insurance_claim_amount_training_data { get; set; }
+
+
+        //FORECASTING TABLE RESULTS
+        public DbSet<month_bed_occupancy_forecast_result> month_bed_occupancy_forecast_result { get;set; }
+        public DbSet<month_cost_management_forecast_result> month_cost_management_forecast_result { get; set; }
+        public DbSet<month_patient_admission_forecast_result> month_patient_admission_forecast_result { get; set; }
+        public DbSet<month_revenue_forecast_result> month_revenue_forecast_result { get; set; }
+        public DbSet<month_insurance_claims_status_forecast_result> month_insurance_claims_status_forecast_result { get; set; }
+        public DbSet<month_insurance_claim_amount_forecast_result> month_insurance_claim_amount_forecast_result { get; set; }
+        public DbSet<month_staffing_needs_forecast_training_data> month_staffing_needs_forecast_training_data { get; set; }
+        public DbSet<month_staffing_needs_forecast_result> month_staffing_needs_forecast_result { get; set; }
+        public DbSet<month_medicine_supply_forecast_result> month_medicine_supply_forecast_result { get;set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -87,5 +87,83 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("getMonthProviderPerformance")]
+        public async Task<IActionResult> getMonthProviderPerformance()
+        {
+            try
+            {
+                var prevMonth = DateTime.UtcNow.AddMonths(-1);
+                var statusReport = await _claimRepository.getProvidersMonthPerformance(prevMonth.Month,prevMonth.Year);
+
+                if (statusReport == null)
+                {
+                    return Ok(new 
+                    { 
+                        success = true,
+                        message = $"No data has been fetched",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(statusReport);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthProviderStatusForecast")]
+        public async Task<IActionResult> getMonthProviderStatusForecast()
+        {
+            try
+            {
+                var date = DateTime.UtcNow;
+                var statusReport = await _claimRepository.getMonthProviderClaimStatusForecast(date.Year);
+
+                if (statusReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data has been fetched",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(statusReport);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthProviderAmountForecast")]
+        public async Task<IActionResult> getMonthProviderAmountForecast()
+        {
+            try
+            {
+                var date = DateTime.UtcNow;
+                var statusReport = await _claimRepository.getMonthProviderClaimsAmountForecast(date.Year);
+
+                if (statusReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data has been fetched",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(statusReport);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

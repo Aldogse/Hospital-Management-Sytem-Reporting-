@@ -1,0 +1,48 @@
+2026-01-06 17:15:07.818 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-06 17:15:07.855 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-06 17:15:07.880 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-06 17:15:07.910 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-06 17:15:07.911 +08:00 [INF] Hosting environment: Development
+2026-01-06 17:15:07.912 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-06 17:15:20.772 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2026-01-06 17:15:20.875 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Decimal), @__date_3='?' (DbType = Date), @__next30Days_4='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p0`.`med_id`, @__month_0 AS `month`, @__year_1 AS `year`, COALESCE(SUM(`p`.`quantity_dispensed`), 0) AS `total_dispensed_month`, CAST(COALESCE(SUM(`p`.`quantity_dispensed`), 0) AS decimal(65,30)) / @__p_2 AS `avg_daily_use`, (
+    SELECT COALESCE(SUM(`p1`.`stock_quantity`), 0)
+    FROM `pharmacy_stock_batches` AS `p1`
+    WHERE `p0`.`med_id` = `p1`.`med_id`) AS `current_stock`, EXISTS (
+    SELECT 1
+    FROM `pharmacy_stock_batches` AS `p2`
+    WHERE (`p0`.`med_id` = `p2`.`med_id`) AND ((`p2`.`expiry_date` >= @__date_3) AND (`p2`.`expiry_date` <= @__next30Days_4))) AS `expiring_within_30_days`, NULL AS `shortage_occured`
+FROM `pharmacy_prescription_items` AS `p`
+INNER JOIN `pharmacy_inventory` AS `p0` ON `p`.`med_id` = `p0`.`med_id`
+WHERE (EXTRACT(month FROM `p`.`dispensed_date`) = @__month_0) AND (EXTRACT(year FROM `p`.`dispensed_date`) = @__year_1)
+GROUP BY `p0`.`med_id`
+2026-01-06 17:54:26.059 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-06 17:54:26.094 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-06 17:54:26.117 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-06 17:54:26.155 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-06 17:54:26.157 +08:00 [INF] Hosting environment: Development
+2026-01-06 17:54:26.158 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-06 17:54:42.720 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2026-01-06 17:54:51.000 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger - 301 0 null 8453.3713ms
+2026-01-06 17:54:51.004 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-06 17:54:51.086 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32), @__p_2='?' (DbType = Decimal), @__date_3='?' (DbType = Date), @__next30Days_4='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p0`.`med_id`, @__month_0 AS `month`, @__year_1 AS `year`, COALESCE(SUM(`p`.`quantity_dispensed`), 0) AS `total_dispensed_month`, CAST(COALESCE(SUM(`p`.`quantity_dispensed`), 0) AS decimal(65,30)) / @__p_2 AS `avg_daily_use`, (
+    SELECT COALESCE(SUM(`p1`.`stock_quantity`), 0)
+    FROM `pharmacy_stock_batches` AS `p1`
+    WHERE `p0`.`med_id` = `p1`.`med_id`) AS `current_stock`, EXISTS (
+    SELECT 1
+    FROM `pharmacy_stock_batches` AS `p2`
+    WHERE (`p0`.`med_id` = `p2`.`med_id`) AND ((`p2`.`expiry_date` >= @__date_3) AND (`p2`.`expiry_date` <= @__next30Days_4))) AS `expiring_within_30_days`, NULL AS `shortage_occured`
+FROM `pharmacy_prescription_items` AS `p`
+INNER JOIN `pharmacy_inventory` AS `p0` ON `p`.`med_id` = `p0`.`med_id`
+WHERE (EXTRACT(month FROM `p`.`dispensed_date`) = @__month_0) AND (EXTRACT(year FROM `p`.`dispensed_date`) = @__year_1)
+GROUP BY `p0`.`med_id`

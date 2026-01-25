@@ -1,5 +1,8 @@
 ﻿using APIResponses.Employee_Responses;
+using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
+using APIResponses.Training_Models;
+using APIResponses.Training_Models_forecast;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -178,6 +181,57 @@ namespace Report_and_Analytics_API.Repository
                 .ToListAsync();
 
            return monthPerformanceList;
+        }
+
+        //FORECAST QUERIES
+        public async Task<List<month_staffing_needs_forecast_training_data>> getMonthStaffingForecastNeeds(int month, int year)
+        {
+            var startDate = DateOnly.FromDateTime(new DateTime(year, month, 1));
+            var endDate = startDate.AddMonths(1);
+            var numberOfDaysInAMonth = DateTime.DaysInMonth(year,month);
+
+            var dailyStats = await (
+                from emp in _reportDbContext.hr_employees
+                join attendance in _reportDbContext.hr_daily_attendance
+                on emp.employee_id equals attendance.employee_id
+                where attendance.attendance_date >= startDate && attendance.attendance_date < endDate
+                group new {emp,attendance}by new {emp.department, attendance.attendance_date} into x
+                select new
+                {
+                    department = x.Key.department,
+                    avg_overtime_hours = x.Average(i => (decimal)i.attendance.overtime_minutes) / 60m,
+                    avg_working_hours = x.Average(i => i.attendance.working_hours),
+                    staffPresent = x.Select(i => i.emp.employee_id).Distinct().Count()
+                }).ToListAsync();
+
+            var report = dailyStats.GroupBy(i => i.department)
+                .Select(i => new month_staffing_needs_forecast_training_data
+                {
+                    department = i.Key,
+                    month = month,
+                    year = year,
+
+                    avg_working_hours = i.Average(i => i.avg_working_hours) ?? 0,
+                    avg_overtime_hours = i.Average(i => i.avg_overtime_hours),
+                    avg_staff_present = i.Average(i => (decimal)i.staffPresent)
+                }).ToList();
+
+            foreach(var item in report)
+            {
+                item.total_working_hours_needed = item.avg_staff_present * item.avg_working_hours * numberOfDaysInAMonth;
+                item.total_staff_needed = item.total_working_hours_needed / (item.avg_working_hours * numberOfDaysInAMonth);
+            }
+
+            return report;
+        }
+
+        //FORECAST QUERIES
+        public async Task<List<month_staffing_needs_forecast_result>> getMontStaffingNeedsForecast(int month, int year)
+        {
+            var report = await _reportDbContext.month_staffing_needs_forecast_result
+                .Where(i => i.month == month && i.year == year).ToListAsync();
+
+            return report;
         }
     }
 }

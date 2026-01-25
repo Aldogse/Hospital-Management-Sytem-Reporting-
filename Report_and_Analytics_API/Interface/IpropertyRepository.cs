@@ -1,4 +1,5 @@
-﻿using APIResponses.Historical_report.Models;
+﻿using APIResponses.forecast_results;
+using APIResponses.Historical_report.Models;
 using APIResponses.PropertyAndManagementResponse;
 using APIResponses.Training_Models;
 
@@ -14,9 +15,13 @@ namespace Report_and_Analytics_API.Interface
         Task<daily_beds_utilization_report> getDailyBedsUtilizationReport(DateTime date);
         Task<month_admission_and_discharge_report> getYearAdmissionsAndDischargeReport(int year);
         Task<List<month_admission_and_discharge_report>> getMonthsAdmissionData(int year);
+        Task<List<yearTotalOccupiedBedsResponse>> getYearAdmissionDataReport(int year);
 
         //ENDPOINT QUERIES
         Task<yearly_admission_and_discharge_report> yearlyAdmissionAndDischargeReport(int year);
         Task<List<month_admission_and_discharge_report>> monthBedsDistribution(int year);
+
+        //FORECASTED QUERY RESULTS
+        Task<month_bed_occupancy_forecast_result> monthForecastedBedOccupancyRate(int month,int year);
     }
 }

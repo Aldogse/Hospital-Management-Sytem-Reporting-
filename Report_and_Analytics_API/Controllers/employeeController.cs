@@ -445,6 +445,32 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        //FORECAST CONTROLLERS
+        [HttpGet("getMonthStaffForecastNeeds")]
+        public async Task<IActionResult> getMonthStaffForecastNeeds([FromQuery]int month, [FromQuery]int year)
+        {
+            try
+            {
+                var forecast = await _empRepo.getMonthStaffingForecastNeeds(month,year);
+
+                if(forecast == null || forecast.Count == 0)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No forecast recorded for the month yet",
+                    });
+                }
+
+                return Ok(forecast);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message:$"Error: {ex.Message}");
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }
   

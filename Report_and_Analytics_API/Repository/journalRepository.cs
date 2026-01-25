@@ -1,6 +1,8 @@
 ﻿using APIResponses;
+using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
+using APIResponses.prediction_results;
 using APIResponses.Training_Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Validations;
@@ -79,6 +81,21 @@ namespace Report_and_Analytics_API.Repository
                 .FirstOrDefaultAsync();
 
             return monthPharmacyRevenueReport?.totalSales;
+        }
+
+        public async Task<List<yearRevenueResponse>> getMonthsRevenueReport(int year)
+        {
+
+            var report = await _reportDb.month_revenue_report.Where(i => i.year == year).ToListAsync();    
+
+            var response = report.Select(i => new yearRevenueResponse
+            {
+                year = i.year,
+                month = i.month,
+                total_revenue = i.total_revenue
+            }).ToList();
+                
+            return response;
         }
 
 
@@ -299,24 +316,25 @@ namespace Report_and_Analytics_API.Repository
 
 
         //COST MANAGEMENT QUERIES
-        public async Task<decimal?> getLastThreeMonthsOperationalCost(DateTime startDate, DateTime endDate)
+        public async Task<float> getLastThreeMonthsOperationalCost(DateTime startDate, DateTime endDate)
         {
             int startKey =  12 + startDate.Month;
             int endKey =  12 + endDate.Month;
 
-            var lastThreeMonths = await _reportDb.month_operational_records_report.Where(i =>
+            var lastThreeMonths = (float)await _reportDb.month_operational_records_report.Where(i =>
             ( 12 + i.month) >= startKey && (12 + i.month) <= endKey)
                 .SumAsync(i => i.total_operational_cost);
+
 
             return lastThreeMonths;
         }
 
-        public async Task<decimal?> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate)
+        public async Task<float> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate)
         {
             var startKey = 12 + startDate.Month;
             var endKey = 12 + endDate.Month;
 
-            var lastSixMonthsReport = await _reportDb.month_operational_records_report
+            var lastSixMonthsReport = (float)await _reportDb.month_operational_records_report
                 .Where(i =>
                 (12 + i.month) >= startKey && (12 + i.month) <= endKey)
                 .SumAsync(i => i.total_operational_cost);
@@ -324,17 +342,17 @@ namespace Report_and_Analytics_API.Repository
             return lastSixMonthsReport;
         }
 
-        public async Task<decimal?> getPreviousMonthOperationalCost(int month, int year)
+        public async Task<float> getPreviousMonthOperationalCost(int month, int year)
         {
-            var totalCost = await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
+            var totalCost = (float)await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
                .Select(i => i.total_operational_cost).FirstOrDefaultAsync();
 
             return totalCost;
         }
 
-        public async Task<decimal?> getMonthOperationalCost(int month, int year)
+        public async Task<float> getMonthOperationalCost(int month, int year)
         {
-            var totalCost = await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
+            var totalCost = (float)await _reportDb.month_operational_records_report.Where(i => i.month == month && i.year == year)
                 .Select(i => i.total_operational_cost).FirstOrDefaultAsync();
 
             return totalCost;
@@ -365,6 +383,140 @@ namespace Report_and_Analytics_API.Repository
             return monthReport;
         }
 
+        //MEDICINE SHORTAGE QUERY 
+        public async Task<List<month_medicine_shortage_training_data>> getMonthMedicineSupplyTrainingData(int month, int year)
+        {
+            DateOnly date = DateOnly.FromDateTime(DateTime.UtcNow);
+            DateOnly next30Days = date.AddDays(30);
+            int daysInMonth = DateTime.DaysInMonth(year,month);
+
+            DateTime lastMonthStart = new DateTime(year,month,1);
+            DateTime lastMonthEnd = lastMonthStart.AddMonths(1);
+
+            var baseData = 
+                from pharmacy_items in _reportDb.pharmacy_prescription_items
+                join meds in _reportDb.pharmacy_inventory
+                on pharmacy_items.med_id equals meds.med_id
+                where pharmacy_items.dispensed_date >= lastMonthStart && pharmacy_items.dispensed_date < lastMonthEnd
+                group new { pharmacy_items, meds } by meds.med_id into x
+                select new
+                {
+                    med_id = x.Key,
+                    total_dispensed_month = x.Sum(i => i.pharmacy_items.quantity_dispensed),
+                    avg_daily_use = x.Sum(i => i.pharmacy_items.quantity_dispensed) / (decimal)daysInMonth,
+                };
+
+            var shortageReport = await (
+                from stockBatches in _reportDb.pharmacy_stock_batches
+                join item in _reportDb.pharmacy_inventory
+                on stockBatches.med_id equals item.med_id
+                where stockBatches.date_added >= lastMonthStart && stockBatches.date_added < lastMonthEnd
+                && item.status == "Out of Stock"
+                select item.med_id).Distinct().ToListAsync();
+
+            var medicineReports = await(
+                from baseItem in baseData
+                join batches in _reportDb.pharmacy_stock_batches
+                on baseItem.med_id equals batches.med_id into x
+                select new month_medicine_shortage_training_data
+                {
+                    med_id = baseItem.med_id,
+                    month = month,
+                    year = year,
+
+                    total_dispensed_month = baseItem.total_dispensed_month,
+                    avg_daily_use = baseItem.avg_daily_use,
+
+                    current_stock = x.Sum(i => i.stock_quantity),
+                    expiring_within_30_days = x.Any
+                    (i => i.expiry_date >= date && i.expiry_date <= next30Days),
+
+                    shortage_occured = shortageReport.Contains(baseItem.med_id),
+                }).ToListAsync();
+
+           return medicineReports;
+        }
+
+        public async Task<List<month_medicine_shortage_training_data>> populateCorrectDataforTheSupplyTraining(int month, int year)
+        {
+            var shortMedicinesSupply = await (
+                from stockBatches in _reportDb.pharmacy_stock_batches
+                join item in _reportDb.pharmacy_inventory
+                on stockBatches.med_id equals item.med_id
+                where stockBatches.date_added.Month == month && stockBatches.date_added.Year == year
+                && item.status == "Out of Stock"
+                group new {stockBatches,item} by item.med_id into x
+                select new month_medicine_shortage_training_data
+                {
+                    shortage_occured = true,
+                }).ToListAsync();
+
+            return shortMedicinesSupply;
+        }
+
+        //FORECAST RESULTS
+        public async Task<month_cost_management_forecast_result> getMonthCostForecast(int month, int year)
+        {
+            var report = await _reportDb.month_cost_management_forecast_result
+                .Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
+
+            return report;
+        }
+
+        public async Task<month_revenue_forecast_result> getMonthRevenueForecast(int month, int year)
+        {
+            var forecast = await _reportDb.month_revenue_forecast_result.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+
+            return forecast;
+        }
+
+        public async Task<List<month_medicine_supply_forecast_result>> getMonthMedicineShortageForecast(int month, int year)
+        {
+            var forecast = await _reportDb.month_medicine_supply_forecast_result
+                .Where(i => i.month == month && i.year == year && i.shortage_occured == true).ToListAsync();
+
+            return forecast;
+        }
+
+        public async Task<List<object>> getMedicineMonthDispensed(int month,int year)
+        {
+            var forecast = await (
+                from result in _reportDb.month_medicine_supply_forecast_result
+                join training in _reportDb.month_medicine_shortage_training_data
+                on result.med_id equals training.med_id
+                where result.shortage_occured == true && 
+                training.month == month && training.year == year
+                group new {result ,training} by result.med_id into x
+                select new 
+                {
+                    med_id = x.Key,
+                    dispensed = x.Sum(i => i.training.total_dispensed_month)
+                }).ToListAsync();
+
+            return forecast.Cast<object>().ToList();
+        }
+
+        public async Task<List<monthsOperationalCostResponse>> getPreviousMonthOperationalCostReport(int year)
+        {
+            var prevMonthsData = await _reportDb.month_cost_management_training_data
+                .Where(i => i.year == year)
+                .Select(i => new monthsOperationalCostResponse
+                {
+                    month = i.month,
+                    year = i.year,
+                    total_month_operational_cost = i.total_month_operational_cost
+                }).ToListAsync();
+
+            return prevMonthsData;
+        }
+
+        public async Task<month_cost_management_forecast_result> getMonthForecastResult(int month, int year)
+        {
+            var forecast = await _reportDb.month_cost_management_forecast_result.Where(i => i.month == month &&
+            i.year == year).FirstOrDefaultAsync();
+
+            return forecast;
+        }
     }
 }
- 

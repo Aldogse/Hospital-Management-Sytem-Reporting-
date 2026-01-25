@@ -306,6 +306,184 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        [HttpGet("getMonthsRevenueReport")]
+        public async Task<IActionResult> getMonthsRevenueReport()
+        {
+            try
+            {
+                DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
+                var monthsRevenue = await _journalRepo.getMonthsRevenueReport(prevMonth.Year);
+
+                if (monthsRevenue == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data for {prevMonth.Year}",
+                    });
+                }
+
+                return Ok(monthsRevenue);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        //FORECAST ENDPOINTS
+        [HttpGet("getMonthTotalCostForecast")]
+        public async Task<IActionResult> getMonthTotalCostForecast([FromQuery]int month, [FromQuery]int year)
+        {
+            try
+            {
+                var report = await _journalRepo.getMonthCostForecast(month,year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthTotalRevenueForecast")]
+        public async Task<IActionResult> getMonthTotalRevenueForecast([FromQuery] int month, [FromQuery] int year)
+        {
+            try
+            {
+                var report = await _journalRepo.getMonthRevenueForecast(month, year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthMedicineShortageResult")]
+        public async Task<IActionResult> getMonthMedicineShortageResult()
+        {
+            try
+            {
+                var date = DateTime.UtcNow;
+                var report = await _journalRepo.getMonthMedicineShortageForecast(date.Month, date.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getPreviousMonthMedicineDispensed")]
+        public async Task<IActionResult> getPreviousMonthMedicineDispensed()
+        {
+            try
+            {
+                var date = DateTime.UtcNow.AddMonths(-1);
+                var report = await _journalRepo.getMedicineMonthDispensed(date.Month, date.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getPreviousMonthsCostManagement")]
+        public async Task<IActionResult> getPreviousMonthsCostManagement()
+        {
+            try
+            {
+                var date = DateTime.UtcNow.AddMonths(-1);
+                var report = await _journalRepo.getPreviousMonthOperationalCostReport(date.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthCostManagementForecast")]
+        public async Task<IActionResult> getMonthCostManagementForecast()
+        {
+            try
+            {
+                var date = DateTime.UtcNow;
+                var report = await _journalRepo.getMonthForecastResult(date.Month,date.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
  

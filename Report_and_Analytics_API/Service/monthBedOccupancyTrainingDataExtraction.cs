@@ -44,6 +44,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
         }
 
@@ -62,8 +63,8 @@ namespace Report_and_Analytics_API.Service
                     occupied_beds = i.occupied_beds,
                     total_beds = i.total_beds,
                     recently_discharged = i.recently_discharged,
-                    bed_occupancy_rate = ((decimal)i.occupied_beds / i.total_beds) * 100,
-                    broken_bed_rate  = ((decimal)i.broken_beds / i.total_beds) * 100
+                    bed_occupancy_rate = ((float)i.occupied_beds / i.total_beds) * 100,
+                    broken_bed_rate  = ((float)i.broken_beds / i.total_beds) * 100
                 }).ToList();
 
                 if(monthData == null)
@@ -78,7 +79,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)  
             {
                 _logger.LogError($"Error: {ex.Message}");
-                return;
+                await Task.Delay(TimeSpan.FromMinutes(10));
             }
         }
     }

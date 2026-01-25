@@ -33,8 +33,14 @@ namespace Report_and_Analytics_API.Service
                     {
                         if (!await jobRepo.hasRunThisMonth("MonthLeaveServiceReport",date.Month, date.Year))
                         {
-                            await MonthLeaveServiceReport(database);
-                            await jobRepo.markAsRunThisMonth("MonthLeaveServiceReport",date.Month, date.Year);
+                            
+                                await MonthLeaveServiceReport(database);
+                                await jobRepo.markAsRunThisMonth("MonthLeaveServiceReport", date.Month, date.Year);
+                        }
+                        else
+                        {
+                            _logger.LogInformation(message:$"Job already run for the month");
+                            return;
                         }
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
@@ -43,6 +49,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogError(message:$"Error: {ex.Message}");
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
         }
 

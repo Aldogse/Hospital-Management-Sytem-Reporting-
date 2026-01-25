@@ -9,10 +9,12 @@ namespace Report_and_Analytics_API.Service
     public class monthInsuranceClaimReportService : BackgroundService
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly ILogger<monthInsuranceClaimReportService> _logger;
 
-        public monthInsuranceClaimReportService(IServiceScopeFactory serviceScopeFactory)
+        public monthInsuranceClaimReportService(IServiceScopeFactory serviceScopeFactory,ILogger<monthInsuranceClaimReportService>logger)
         {
             _serviceScopeFactory = serviceScopeFactory;
+            _logger = logger;
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -63,7 +65,8 @@ namespace Report_and_Analytics_API.Service
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError(message:$"Error: {ex.Message}");
+                return;
             }
         }
     }

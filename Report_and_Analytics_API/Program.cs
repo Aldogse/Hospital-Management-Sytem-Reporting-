@@ -1,14 +1,18 @@
 using System;
+using APIResponses.forecast;
 using APIResponses.Historical_report.Models;
+using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.forecastService;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
+using Report_and_Analytics_API.Middleware;
 using Report_and_Analytics_API.Repository;
 using Report_and_Analytics_API.Service;
 using Serilog;
-using Serilog.Sinks.Email;
 using Serilog.Events;
-using Report_and_Analytics_API.job_logs;
+using Serilog.Sinks.Email;
 
 
 
@@ -28,8 +32,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 
-Console.WriteLine(">>> Using connection string: " + builder.Configuration.GetConnectionString("MainDb"));
+if (builder.Environment.IsDevelopment())
+{
+    Env.Load();
+}
 
+builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddDbContext<ReportDbContext>(options =>
     options.UseMySql(
@@ -42,6 +50,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
         )
     )
 );
+
 
 //builder.Services.AddHostedService<monthRevenueReportService>();
 //builder.Services.AddHostedService<dailyAttendanceReportGeneratorService>();
@@ -62,16 +71,38 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
 //builder.Services.AddHostedService<monthPatientAdmissionTrainingDataExtraction>();
 //builder.Services.AddHostedService<monthOperationalCostReportService>();
-builder.Services.AddHostedService<monthCostManagementTrainingDataExtraction>();
+//builder.Services.AddHostedService<monthCostManagementTrainingDataExtraction>();
+//builder.Services.AddHostedService<monthMedicineSupplyPredictionTrainingDataExtraction>();
+//builder.Services.AddHostedService<monthApprovedClaimAmountDataExtraction>();
+//builder.Services.AddHostedService<monthNumberOfClaimsApprovedDataExtraction>();
+//builder.Services.AddHostedService<monthBedOccupancyForecastingService>();
+//builder.Services.AddHostedService<monthCostManagementForecastingService>();
+//builder.Services.AddHostedService<MonthPatientAdmissionForecastingService>();
+//builder.Services.AddHostedService<MonthRevenueForecastingService>();
+//builder.Services.AddHostedService<monthProviderClaimStatusDataExtraction>();
+//builder.Services.AddHostedService<MonthInsuranceClaimsStatusForecastingService>();
+//builder.Services.AddHostedService<monthProviderClaimAmountHistoryDataExtraction>();
+//builder.Services.AddHostedService<monthInsuranceClaimAmountForecastingService>();
+//builder.Services.AddHostedService<monthStaffingNeedsDataExtraction>();
+//builder.Services.AddHostedService<monthStaffingNeedsForecastingService>();
+//builder.Services.AddHostedService<monthMedicineSupplyForecastingService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
-builder.Services.AddScoped<IhrPayrollRepository, hrPayrollRepository>();
-builder.Services.AddScoped<IhrEmployeeInformation, hrEmployeeInformation>();
-builder.Services.AddScoped<IjournalRepository, journalRepository>();
-builder.Services.AddScoped<IinsuranceClaimRepository, claimRepository>();
-builder.Services.AddScoped<IpropertyRepository, propertyRepository>();
-builder.Services.AddScoped<IemployeeRepository, employeeRepository>();
-builder.Services.AddScoped<IjoblogsRepository, jobLogsRepository>();
-builder.Services.AddScoped<IpatientAdmissionRepository, patientAdmissionRepository>();
+builder.Services.AddScoped<IhrPayrollRepository,hrPayrollRepository>();
+builder.Services.AddScoped<IhrEmployeeInformation,hrEmployeeInformation>();
+builder.Services.AddScoped<IjournalRepository,journalRepository>();
+builder.Services.AddScoped<IinsuranceClaimRepository,claimRepository>();
+builder.Services.AddScoped<IpropertyRepository,propertyRepository>();
+builder.Services.AddScoped<IemployeeRepository,employeeRepository>();
+builder.Services.AddScoped<IjoblogsRepository,jobLogsRepository>();
+builder.Services.AddScoped<IpatientAdmissionRepository,patientAdmissionRepository>();
+builder.Services.AddSingleton<BedOccupancyPredictionService>();
+builder.Services.AddSingleton<monthCostForecastService>();
+builder.Services.AddSingleton<monthPatientAdmissionPredictionService>();
+builder.Services.AddSingleton<monthRevenueForecastPredictionService>();
+builder.Services.AddSingleton<monthInsuranceClaimsStatusPredictionService>();
+builder.Services.AddSingleton<monthInsuranceClaimAmountPredictionService>();
+builder.Services.AddSingleton<monthStaffingNeedsPredictionService>();
+builder.Services.AddSingleton<monthMedicineShortagePredictionService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,6 +112,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 //CORS Configuration
 app.UseCors(policy =>
 {
@@ -89,7 +121,7 @@ app.UseCors(policy =>
     policy.AllowAnyHeader();
 });
 
-
+//app.UseMiddleware<apiKeyMiddleWare>();
 app.UseHttpsRedirection();
 app.UseSerilogRequestLogging();
 app.MapControllers();

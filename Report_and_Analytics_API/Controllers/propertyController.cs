@@ -138,5 +138,57 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        //FORECAST ENDPOINT
+        [HttpGet("getMonthForecastResult")]
+        public async Task<IActionResult> getMonthForecastResult([FromQuery]int month, [FromQuery]int year)
+        {
+            try
+            {
+                var report = await _propertyRepo.monthForecastedBedOccupancyRate(month,year);
+
+                if(report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No forecast yet for the month",
+                        data = (object)null
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthsOccupiedBeds")]
+        public async Task<IActionResult> getMonthsOccupiedBeds()
+        {
+            try
+            {
+                var prevMonth = DateTime.UtcNow.AddMonths(-1);
+                var report = await _propertyRepo.getYearAdmissionDataReport(prevMonth.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No date for the year",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

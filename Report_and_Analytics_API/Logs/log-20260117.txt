@@ -1,0 +1,324 @@
+2026-01-17 11:30:43.039 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 11:30:45.945 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 11:30:45.948 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 11:30:45.983 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 11:30:45.999 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 11:30:46.007 +08:00 [INF] Hosting environment: Development
+2026-01-17 11:30:46.008 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 11:39:04.351 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 11:39:06.108 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 11:39:06.111 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 11:39:06.157 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 11:39:06.174 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 11:39:06.181 +08:00 [INF] Hosting environment: Development
+2026-01-17 11:39:06.182 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 11:39:08.165 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2026-01-17 11:39:08.225 +08:00 [INF] Insurance claim amount ML model retrained at "2026-01-17T03:39:08.2255938Z"
+2026-01-17 11:39:08.316 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id`
+FROM `insurance_provider` AS `i`
+2026-01-17 11:39:08.325 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger - 301 0 null 267.7445ms
+2026-01-17 11:39:08.331 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-17 11:39:08.411 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:39:08.426 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - null null
+2026-01-17 11:39:08.426 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - null null
+2026-01-17 11:39:08.430 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 99.2103ms
+2026-01-17 11:39:08.432 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:39:08.425 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2026-01-17 11:39:08.456 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:39:08.469 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-01-17 11:39:08.469 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-01-17 11:39:08.473 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:40:57.627 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 11:40:59.395 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 11:40:59.398 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 11:40:59.428 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 11:40:59.441 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 11:40:59.449 +08:00 [INF] Hosting environment: Development
+2026-01-17 11:40:59.450 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 11:41:00.029 +08:00 [INF] Insurance claim amount ML model retrained at "2026-01-17T03:41:00.0290930Z"
+2026-01-17 11:41:00.121 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-17 11:41:00.164 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id`
+FROM `insurance_provider` AS `i`
+2026-01-17 11:41:00.274 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:41:00.286 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:41:00.293 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:41:00.299 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:43:12.254 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 11:43:14.089 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 11:43:14.093 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 11:43:14.131 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 11:43:14.146 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 11:43:14.157 +08:00 [INF] Hosting environment: Development
+2026-01-17 11:43:14.158 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 11:43:15.402 +08:00 [INF] Insurance claim amount ML model retrained at "2026-01-17T03:43:15.4020051Z"
+2026-01-17 11:43:15.423 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-17 11:43:15.493 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id`
+FROM `insurance_provider` AS `i`
+2026-01-17 11:43:15.574 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:43:15.587 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:43:15.593 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:43:15.600 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 11:43:21.137 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2026-01-17 11:43:21.139 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-17 11:43:21.167 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 5722.9625ms
+2026-01-17 11:43:21.153 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-17 11:43:21.191 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 51.6678ms
+2026-01-17 15:17:07.005 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 15:17:09.096 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 15:17:09.099 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 15:17:09.132 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 15:17:09.148 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 15:17:09.157 +08:00 [INF] Hosting environment: Development
+2026-01-17 15:17:09.158 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 15:17:10.069 +08:00 [INF] Insurance claim amount ML model retrained at "2026-01-17T07:17:10.0691531Z"
+2026-01-17 15:17:10.152 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id`
+FROM `insurance_provider` AS `i`
+2026-01-17 15:17:10.173 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-17 15:17:10.250 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:17:10.262 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:17:10.270 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:17:10.275 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:10.597 +08:00 [INF] Insurance claim AMOUNT forecasting service started.
+2026-01-17 15:35:13.821 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-17 15:35:13.824 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-17 15:35:13.856 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`insurance_provider_id`, `m`.`last_month_total_claim_approved_amount`, `m`.`last_month_total_claim_declined_amount`, `m`.`month`, `m`.`total_claim_amount_submitted`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_training_data` AS `m`
+2026-01-17 15:35:13.870 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-17 15:35:13.876 +08:00 [INF] Hosting environment: Development
+2026-01-17 15:35:13.879 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-17 15:35:14.889 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-17 15:35:15.269 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 389.5269ms
+2026-01-17 15:35:15.273 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-17 15:35:15.273 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-17 15:35:15.273 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2026-01-17 15:35:15.288 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 14.9708ms
+2026-01-17 15:35:15.321 +08:00 [INF] Sending ["bytes 303077-303077/1456926"] of file /swagger-ui-bundle.js
+2026-01-17 15:35:15.331 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - 206 1 text/javascript 58.294ms
+2026-01-17 15:35:15.337 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2026-01-17 15:35:15.349 +08:00 [INF] Sending ["bytes 303077-1456925/1456926"] of file /swagger-ui-bundle.js
+2026-01-17 15:35:15.363 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 89.8348ms
+2026-01-17 15:35:15.399 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - 206 1153849 text/javascript 62.0058ms
+2026-01-17 15:35:15.536 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-17 15:35:15.560 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2026-01-17 15:35:15.560 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.7971ms
+2026-01-17 15:35:15.567 +08:00 [INF] Insurance claim amount ML model retrained at "2026-01-17T07:35:15.5676106Z"
+2026-01-17 15:35:15.569 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-01-17 15:35:15.572 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 12.4866ms
+2026-01-17 15:35:15.647 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id`
+FROM `insurance_provider` AS `i`
+2026-01-17 15:35:15.726 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:32.960 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:34.445 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:37.491 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:39.147 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:40.822 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:41.490 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:42.358 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:43.250 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:43.936 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:44.880 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:44.887 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:44.893 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:44.900 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:44.907 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__providerId_0='?' (DbType = Int32), @__8__locals1_forecastMonth_1='?' (DbType = Int32), @__8__locals1_forecastYear_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_insurance_claim_amount_forecast_result` AS `m`
+    WHERE ((`m`.`insurance_provider_id` = @__providerId_0) AND (`m`.`month` = @__8__locals1_forecastMonth_1)) AND (`m`.`year` = @__8__locals1_forecastYear_2))
+2026-01-17 15:35:45.006 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Decimal), @p13='?' (DbType = Decimal), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Decimal), @p18='?' (DbType = Decimal), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Decimal), @p23='?' (DbType = Decimal), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Decimal), @p28='?' (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Decimal), @p33='?' (DbType = Decimal), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Decimal), @p38='?' (DbType = Decimal), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Decimal), @p43='?' (DbType = Decimal), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Decimal), @p48='?' (DbType = Decimal), @p49='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p5, @p6, @p7, @p8, @p9);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p10, @p11, @p12, @p13, @p14);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p15, @p16, @p17, @p18, @p19);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p20, @p21, @p22, @p23, @p24);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p25, @p26, @p27, @p28, @p29);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p30, @p31, @p32, @p33, @p34);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p35, @p36, @p37, @p38, @p39);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p40, @p41, @p42, @p43, @p44);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+
+INSERT INTO `month_insurance_claim_amount_forecast_result` (`insurance_provider_id`, `month`, `total_claim_approved_amount`, `total_claim_declined_amount`, `year`)
+VALUES (@p45, @p46, @p47, @p48, @p49);
+SELECT `result_id`
+FROM `month_insurance_claim_amount_forecast_result`
+WHERE ROW_COUNT() = 1 AND `result_id` = LAST_INSERT_ID();
+2026-01-17 15:35:45.041 +08:00 [INF] Insurance claim amount forecast completed for 1/2026

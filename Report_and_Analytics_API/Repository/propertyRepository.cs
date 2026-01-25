@@ -1,4 +1,5 @@
-﻿using APIResponses.Historical_report.Models;
+﻿using APIResponses.forecast_results;
+using APIResponses.Historical_report.Models;
 using APIResponses.PropertyAndManagementResponse;
 using APIResponses.Training_Models;
 using Microsoft.EntityFrameworkCore;
@@ -171,6 +172,29 @@ namespace Report_and_Analytics_API.Repository
                 .ToListAsync();
 
             return monthData;
+        }
+
+        public async Task<month_bed_occupancy_forecast_result> monthForecastedBedOccupancyRate(int month, int year)
+        {
+            var monthForecast = await _reportDbContext.month_bed_occupancy_forecast_result
+                .Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
+
+            return monthForecast;
+        }
+
+        public async Task<List<yearTotalOccupiedBedsResponse>> getYearAdmissionDataReport(int year)
+        {
+
+            var report = await _reportDbContext.month_admission_and_discharge_report.Where(i => i.year == year)
+                .Select(i => new yearTotalOccupiedBedsResponse
+                {
+                    month = i.month,
+                    year = i.year,
+                    total_occupied_beds = i.occupied_beds
+                })
+                .ToListAsync();
+
+            return report;
         }
     }
 }

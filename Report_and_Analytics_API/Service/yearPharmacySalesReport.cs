@@ -41,7 +41,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogCritical($"Error: {ex.Message}");
-                return;
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
         }
 

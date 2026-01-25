@@ -1,6 +1,8 @@
 ﻿using APIResponses;
+using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
+using APIResponses.prediction_results;
 using APIResponses.Training_Models;
 using Report_and_Analytics_Library.Billing;
 
@@ -33,19 +35,28 @@ namespace Report_and_Analytics_API.Interface
         public Task<decimal?> getMonthPharmacyTotalSales(int month,int year);
         public Task<month_pharmacy_sales> getTrainingDataRevenueForecastPharmacy(int month,int year);
         public Task<List<billing_records>> getTrainingDataBillRecordsForecast(int month,int year);
+        public Task<month_cost_management_forecast_result> getMonthCostForecast(int month,int year);
+        public Task<month_revenue_forecast_result> getMonthRevenueForecast(int month,int year);
+        public Task<List<yearRevenueResponse>> getMonthsRevenueReport(int year);
 
-        //COST MANAGEMENT QEURIES
+        //MEDICINE AND SUPPKY MANAGEMENT QEURIES
+        public Task<List<month_medicine_shortage_training_data>> getMonthMedicineSupplyTrainingData(int month,int year);
+        public Task<List<month_medicine_shortage_training_data>> populateCorrectDataforTheSupplyTraining(int month,int year);
+        public Task<List<month_medicine_supply_forecast_result>> getMonthMedicineShortageForecast(int month,int year);
+        public Task<List<object>> getMedicineMonthDispensed(int month,int year);
 
         //GET SPECIFIC MONTH OPERATIONAL COST
-        public Task<decimal?> getLastThreeMonthsOperationalCost(DateTime startDate,DateTime endDate);
-        public Task<decimal?> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate);
-        public Task<decimal?> getPreviousMonthOperationalCost(int month,int year);
-        public Task<decimal?> getMonthOperationalCost(int month,int year);
-
+        public Task<float> getLastThreeMonthsOperationalCost(DateTime startDate,DateTime endDate);
+        public Task<float> getLastSixMonthsOperationalCost(DateTime startDate, DateTime endDate);
+        public Task<float> getPreviousMonthOperationalCost(int month,int year);
+        public Task<float> getMonthOperationalCost(int month,int year);
 
         public Task<decimal?> getMonthTotalGrossPaid(int month, int year);
         public Task<decimal> getMonthTotalReceiptRecorded(int month,int year);
         public Task<decimal> getMonthTotalMedicineDisposedCost(int month,int year);
+
+        public Task<List<monthsOperationalCostResponse>> getPreviousMonthOperationalCostReport(int year);
+        public Task<month_cost_management_forecast_result> getMonthForecastResult(int month,int year);
 
 
     }

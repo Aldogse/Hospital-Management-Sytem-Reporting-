@@ -40,7 +40,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogError(message: $"Job failed: {ex.Message}");
-                return;
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
         }
 

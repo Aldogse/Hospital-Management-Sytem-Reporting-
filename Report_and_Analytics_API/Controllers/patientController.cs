@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
 
 namespace Report_and_Analytics_API.Controllers
 {
@@ -11,11 +12,13 @@ namespace Report_and_Analytics_API.Controllers
     {
         private readonly ILogger<patientController> _logger;
         private readonly ReportDbContext _reportDbContext;
+        private readonly IpatientAdmissionRepository _repository;
 
-        public patientController(ILogger<patientController> logger, ReportDbContext reportDbContext)
+        public patientController(ILogger<patientController> logger, ReportDbContext reportDbContext,IpatientAdmissionRepository repository)
         {
             _logger = logger;
             _reportDbContext = reportDbContext;
+            _repository = repository;
         }
 
 
@@ -108,6 +111,56 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500,ex.Message);
+            }
+        }
+        //FORECAST ENDPOINTS
+        [HttpGet("getPatientAdmissionForecast")]
+        public async Task<IActionResult> getPatientAdmissionForecast()
+        {
+            try
+            {
+                var date = DateTime.UtcNow;
+                var report = await _repository.getMonthPatientForecast(date.Month, date.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No forecast yet for the month"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getPreviousMonthsAdmissionReport")]
+        public async Task<IActionResult> getPreviousMonthsAdmissionReport()
+        {
+            try
+            {
+                var prevMonth = DateTime.UtcNow.AddMonths(-1);
+                var report = await _repository.getPreviousMonthsPatientAdmission(prevMonth.Year);
+
+                if (report == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No data"
+                    });
+                }
+
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
     }

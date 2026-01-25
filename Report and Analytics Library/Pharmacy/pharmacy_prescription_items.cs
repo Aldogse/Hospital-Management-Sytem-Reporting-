@@ -30,5 +30,8 @@ namespace Report_and_Analytics_Library.Pharmacy
         public string? dosage { get; set; }
         public int? quantity_prescribed { get; set; }
         public int? quantity_dispensed { get; set; }
+        public decimal? unit_price { get; set; }
+        public decimal? total_price { get; set; }
+        public DateTime dispensed_date { get; set; }
     }
 }

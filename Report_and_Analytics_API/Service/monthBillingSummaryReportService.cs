@@ -35,12 +35,13 @@ namespace Report_and_Analytics_API.Service
                             await jobRepo.markAsRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year);
                         }
                     }
-                    await Task.Delay(TimeSpan.FromDays(1));
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
+                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
         }
 
