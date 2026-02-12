@@ -134,6 +134,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_operational_records_report> month_operational_records_report { get; set; }
         public DbSet<nurses_month_attendance_report> nurses_month_attendance_report { get; set; }       
         public DbSet<pharmacy_stock_batches> pharmacy_stock_batches { get; set; }
+        public DbSet<month_treatment_outcome_report> month_treatment_outcome_report { get; set; }
 
         //PREDICTIONS TABLE
         public DbSet<month_medicine_shortage_training_data> month_medicine_shortage_training_data { get; set; }
@@ -185,48 +186,48 @@ namespace Report_and_Analytics_API.Data
 
 
 
-            modelBuilder.Entity<p_appointments>()
-                .HasOne(i => i.patientinfo)
-                .WithMany(i => i.p_Appointments)
-                .HasForeignKey(i => i.appointment_id)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_appointments>()
+            //    .HasOne(i => i.patientinfo)
+            //    .WithMany(i => i.p_Appointments)
+            //    .HasForeignKey(i => i.appointment_id)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<p_bed_assignments>()
-                .HasOne(i => i.patientinfo)
-                .WithMany(i => i.bed_Assignments)
-                .HasForeignKey(i => i.patient_id)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_bed_assignments>()
+            //    .HasOne(i => i.patientinfo)
+            //    .WithMany(i => i.bed_Assignments)
+            //    .HasForeignKey(i => i.patient_id)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<p_bed_assignments>()
-               .HasOne(i => i.beds)
-               .WithMany(i => i.bed_Assignments)
-               .HasForeignKey(i => i.bed_id)
-               .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_bed_assignments>()
+            //   .HasOne(i => i.beds)
+            //   .WithMany(i => i.bed_Assignments)
+            //   .HasForeignKey(i => i.bed_id)
+            //   .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<p_emr>()
-                .HasOne(i => i.patientinfo)
-                .WithMany(i => i.emr)
-                .HasForeignKey(i => i.patient_id)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_emr>()
+            //    .HasOne(i => i.patientinfo)
+            //    .WithMany(i => i.emr)
+            //    .HasForeignKey(i => i.patient_id)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<p_emr>()
-                .HasOne(i => i.appointment)
-                .WithMany(i => i.emrs)
-                .HasForeignKey(i => i.appointment_id)
-                .OnDelete(DeleteBehavior.SetNull);
+            //modelBuilder.Entity<p_emr>()
+            //    .HasOne(i => i.appointment)
+            //    .WithMany(i => i.emrs)
+            //    .HasForeignKey(i => i.appointment_id)
+            //    .OnDelete(DeleteBehavior.SetNull);
 
 
-            modelBuilder.Entity<p_prescriptions>()
-                .HasOne(i => i.emr)
-                .WithMany(i => i.prescriptions)
-                .HasForeignKey(i => i.emr_id)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_prescriptions>()
+            //    .HasOne(i => i.emr)
+            //    .WithMany(i => i.prescriptions)
+            //    .HasForeignKey(i => i.emr_id)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<p_treatment_history>()
-               .HasOne(i => i.patientinfo)
-               .WithMany(i => i.treatment_Histories)
-               .HasForeignKey(i => i.patient_id)
-               .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<p_treatment_history>()
+            //   .HasOne(i => i.patientinfo)
+            //   .WithMany(i => i.treatment_Histories)
+            //   .HasForeignKey(i => i.patient_id)
+            //   .OnDelete(DeleteBehavior.Cascade);
 
 
             modelBuilder.Entity<p_treatment_history>()

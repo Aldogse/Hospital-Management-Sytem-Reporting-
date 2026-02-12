@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_Library.Enums;
+using Report_and_Analytics_Library.Insurance;
 
 namespace Report_and_Analytics_API.Repository
 {
@@ -45,6 +46,8 @@ namespace Report_and_Analytics_API.Repository
 
             return transactions;
         }
+
+
 
         //QUERY FOR PREDICTION TRAINING MODEL
         //QUERIES FOR ML MODEL
@@ -167,5 +170,71 @@ namespace Report_and_Analytics_API.Repository
             return report;
         }
 
+        public async Task<monthClaimsHistory> getMonthsClaimHistory(int month, int year,int page,int size)
+        {
+            var startDate = DateOnly.FromDateTime(new DateTime(year,month,1));
+            var endDate = startDate.AddMonths(1);
+
+            //SUMMARY OF MONTHLY CLAIMS
+            var monthClaimsInformation = await _reportDbContext.monthly_claim_report.Where(i => i.month == month
+            && i.year == year).FirstOrDefaultAsync();
+
+            var listOfClaims = await monthClaims(month,year,page,size);
+
+            var claimsReport = await (
+                from claims in _reportDbContext.insurance_claims
+                where claims.resolved_date >= startDate && claims.resolved_date < endDate
+                group claims by 1 into x
+                select new monthClaimsHistory
+                {
+                    month = month,
+                    year = year,
+                    totalClaims = monthClaimsInformation.total_claims,
+                    totalApprovedClaims = monthClaimsInformation.total_approved_claims,
+                    totalDeniedClaims = monthClaimsInformation.total_denied_claims,
+                    claimsList = listOfClaims
+                })            
+                .FirstAsync();
+        
+            return claimsReport;
+        }
+        //GET ALL CLAIMS FOR THE MONTH
+        public async Task<List<insurance_claims>> monthClaims(int month,int year,int page,int size)
+        {
+            var startDate = DateOnly.FromDateTime(new DateTime(year,month,1));
+            var endDate = startDate.AddMonths(1);
+
+            var claims = await _reportDbContext.insurance_claims
+                .Where(i => i.resolved_date >= startDate
+                 && i.resolved_date < endDate)
+                .Skip((page - 1) * size)
+                .Take(size)
+                .OrderBy(i => i.resolved_date)
+                .ToListAsync();
+
+            return claims;
+        }
+
+
+        public async Task<monthly_claim_report> getMonthClaimReport(int month, int year)
+        {
+            var startDate = DateOnly.FromDateTime(new DateTime(year,month,1));
+            var endDate = startDate.AddMonths(1);
+
+            var monthReport = await _reportDbContext.insurance_claims
+                .Where(i => i.resolved_date >= startDate && i.resolved_date < endDate).ToListAsync();
+
+            var response = monthReport.Select(i => new monthly_claim_report
+            {
+                month = month,
+                year = year,
+                total_claims = monthReport.Count(),
+                total_approved_claims = monthReport.Count(i => i.status == "approved"),
+                total_denied_claims = monthReport.Count(i => i.status == "denied")
+            }).FirstOrDefault();
+
+            return response;
+                
+        }
     }
-}
+} 

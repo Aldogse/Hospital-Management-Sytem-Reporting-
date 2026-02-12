@@ -1,0 +1,28 @@
+2026-02-09 22:27:47.576 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-09 22:27:47.652 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-09 22:27:47.782 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 22:27:47.812 +08:00 [INF] Hosting environment: Development
+2026-02-09 22:27:47.815 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-09 22:27:49.521 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-09 22:27:50.265 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 758.0874ms
+2026-02-09 22:27:50.265 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-09 22:27:50.265 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-09 22:27:50.320 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 54.5016ms
+2026-02-09 22:27:50.450 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 184.6012ms
+2026-02-09 22:27:50.572 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-09 22:27:50.625 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.8971ms
+2026-02-09 22:27:51.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-09 22:27:51.847 +08:00 [INF] CORS policy execution successful.
+2026-02-09 22:27:51.855 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-09 22:27:51.934 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-09 22:27:56.676 +08:00 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-09 22:27:56.811 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`
+FROM `patientinfo` AS `p`
+2026-02-09 22:27:56.830 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-09 22:27:56.854 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 4909.9107ms
+2026-02-09 22:27:56.857 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-09 22:27:56.860 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 5007.2521 ms
+2026-02-09 22:27:56.872 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 5038.0519ms

@@ -33,12 +33,18 @@ namespace Report_and_Analytics_API.Service
                         await MonthPayrollSummaryReport(database);
                         await jobRepo.markAsRunThisMonth("MonthPayrollSummaryReport", date.Month, date.Year);
                     }
+                    else
+                    {
+                        _logger.LogInformation("Job already run for the month");
+                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                    }
                 }
                 await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
             catch (Exception ex)
             {
                 _logger.LogWarning($"Error starting up the service,Details: {ex.Message}");
+                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
         }
 
@@ -49,7 +55,7 @@ namespace Report_and_Analytics_API.Service
             try
             {
                 var payrollReport = await reportDb.hr_payroll
-                    .Where(i => i.pay_period_start.Month == prevMonth.Month)
+                    .Where(i => i.pay_period_start.Month == prevMonth.Month && i.pay_period_start.Year == prevMonth.Year)
                     .ToListAsync();
 
                 if (payrollReport != null)

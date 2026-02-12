@@ -23,33 +23,33 @@ namespace Report_and_Analytics_API.Controllers
 
 
         //PAGINATED RESPONSE FOR PATIENT LISTS PAGE
-        [HttpGet("patientDetails/{page}/{size}")]
-        public async Task<IActionResult> patientDetails(int page, int size)
+        [HttpGet("patientDetails")]
+        public async Task<IActionResult> patientDetails([FromQuery]int page,[FromQuery]int size)
         {
             try
             {
-                var response = await _reportDbContext.patientinfo
-                    .OrderBy(i => i.patient_id)
+                var data = await _repository.patientInformation();
+                var ages = await _repository.getAges();
+                var patientsInfoResponse = data.Select(i => new patientInformationResponse
+                {
+                    age = i.age,
+                    contact = i.contact,
+                    fullName = i.fullName,
+                    gender = i.gender,
+                    patientId = i.patientId,
+                })
                     .Skip((page - 1) * size)
                     .Take(size)
-                    .Select(i => new patientInformationResponse
-                    {
-                        patientId = i.patient_id,
-                        fullName = $"{i.fname} {i.mname} {i.lname}",
-                        age = i.age,
-                        contact = i.phone_number,
-                        gender = i.gender
-                    }).ToListAsync();
+                    .ToList(); 
 
-                if(response == null || response.Count <= 0)
+                var response = new patientInformationOverviewResponse()
                 {
-                    return Ok(new
-                    {
-                        success = true,
-                        message = $"No data was extracted",
-                        data = (object?)null
-                    });
-                }
+                    averageAge = data.Average(i => i.age),
+                    maleCount = data.Where(i => i.gender == "Male").Count(),
+                    femaleCount = data.Where(i => i.gender == "Female").Count(),
+                    patients = patientsInfoResponse,
+                    ages = ages,
+                };
 
                 return Ok(response);
             }

@@ -34,6 +34,11 @@ namespace Report_and_Analytics_API.Service
                             await MonthBillingSummaryReportGenerator(database,repo);
                             await jobRepo.markAsRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year);
                         }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month.");
+                            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                        }
                     }
                     await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }

@@ -28,7 +28,7 @@ namespace Report_and_Analytics_API.Service
                     DateTime now = DateTime.Now;
                     DateTime nextMidnight = DateTime.Now.AddDays(1);
                     TimeSpan delay = now - nextMidnight;
-                    await Task.Delay(delay);
+                    await Task.Delay(delay, stoppingToken);
 
                     await DailyPharmacySalesReportService(db,repo);
                 }

@@ -6,6 +6,7 @@ using APIResponses.Training_Models_forecast;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_Library.HR;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Report_and_Analytics_API.Repository
@@ -132,6 +133,28 @@ namespace Report_and_Analytics_API.Repository
             return yearSummary;
         }
 
+        //RESPONSE QUERIES
+        public async Task<yearSummaryAttendanceReportResponse> yearAttendanceSummary(int year)
+        {
+            var monthsReport = await _reportDbContext.month_attendance_report.Where(i => i.year == year).ToListAsync();
+
+            var yearReport = await (
+                from report in _reportDbContext.year_attendance_report
+                where report.year == year
+                group report by 1 into x
+                select new yearSummaryAttendanceReportResponse
+                {
+                    attendanceRate = x.Select(i => i.attendanceRate).FirstOrDefault(),
+                    late = x.Select(i => i.late).FirstOrDefault(),
+                    present = x.Select(i => i.present).FirstOrDefault(),
+                    underTime = x.Select(i => i.underTime).FirstOrDefault(),
+                    year = x.Select(i => i.year).FirstOrDefault(),
+                    monthsReport = monthsReport,
+                }).FirstOrDefaultAsync();
+
+            return yearReport;
+        }
+
         //EMPLOYEE PERFORMANCE BACKGROUND SERVICE QUERY
         public async Task<month_employees_performance_and_evaluation_report> getMonthEmployeePerformanceReport(int month, int year)
         {
@@ -233,5 +256,48 @@ namespace Report_and_Analytics_API.Repository
 
             return report;
         }
+
+        //DOCTOR INFORMATION QUERIES
+        public async Task<List<doctorDetailsAndEvaluationSummaryResponse>> getDoctorsInformation(int page,int size)
+        {
+            var doctor = await (
+                from emp in _reportDbContext.hr_employees
+                join eval in _reportDbContext.evaluation_records
+                on emp.employee_id equals eval.employee_id into doctorDetails
+                from eval in doctorDetails.DefaultIfEmpty()
+                where emp.profession == "Doctor" && emp.status == "Active"
+                group eval by emp into x
+                select new doctorDetailsAndEvaluationSummaryResponse
+                {
+                    degreeType = x.Key.degree_type ?? "",
+                    department = x.Key.department ?? "",
+                    educationalStatus = x.Key.educational_status ?? "",
+                    employmentType = x.Key.employment_type ?? "",
+                    graduationYear = x.Key.graduation_year,
+                    licenseExpiry = x.Key.license_expiry,
+                    licenseIssued = x.Key.license_issued,
+                    licenseNumber = x.Key.degree_type ?? "",
+                    licenseType = x.Key.license_type ?? "",
+                    medicalSchool = x.Key.medical_school ?? "",
+                    name = $"{x.Key.first_name} {x.Key.middle_name} {x.Key.last_name}",
+                    role = x.Key.role ?? "",
+                    specialization = x.Key.specialization ?? "",
+
+                    evaluation_records = x.Where(e => e != null)
+                    .Select(i => new doctorSummaryEvaluationResponse
+                    {
+                        created_at = i.created_at.ToShortDateString(),
+                        comments = i.comments,
+                        rating = i.rating,
+                        score = i.score
+                    }).ToList()
+                })
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+
+            return doctor;
+        }
+
     }
 }

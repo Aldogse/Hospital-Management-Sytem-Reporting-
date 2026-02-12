@@ -18,6 +18,7 @@ namespace Report_and_Analytics_API.Interface
         public Task<yearly_pharmacy_sales_report> yearPharmacySales(int year);
         public Task<List<month_pharmacy_sales>> monthsPharmacySales(int year);
         public Task<month_pharmacy_sales> monthPharmacySales(int month,int year);
+        
 
         //BILLING SUMMARY QUERY
         public Task<month_billing_report> getMonthBillingReport(int month,int year);
@@ -27,7 +28,8 @@ namespace Report_and_Analytics_API.Interface
         public Task<daily_billing_report> dailyBillingReport(DateOnly date);
         public Task<List<daily_billing_report>> monthBillingTransactionSummary(int month,int year,int page,int size);
         public Task<yearly_billing_report> getYearBillingReport(int year);
-        public Task<yearly_billing_report> yearBillingReport(int year);
+        public Task<yearly_billing_report> baseYearBillingReport(int year);
+        public Task<yearly_billing_report> comparedYearBillingReport(int year);
         public Task<List<month_billing_report>> monthsBillingReport(int year);
 
         //REVENUE QUERIES
@@ -38,6 +40,9 @@ namespace Report_and_Analytics_API.Interface
         public Task<month_cost_management_forecast_result> getMonthCostForecast(int month,int year);
         public Task<month_revenue_forecast_result> getMonthRevenueForecast(int month,int year);
         public Task<List<yearRevenueResponse>> getMonthsRevenueReport(int year);
+        public Task<List<month_revenue_report>> monthsRevenueReport(int year);
+        public Task<month_revenue_report> monthRevenueReport(int month,int year);
+            
 
         //MEDICINE AND SUPPKY MANAGEMENT QEURIES
         public Task<List<month_medicine_shortage_training_data>> getMonthMedicineSupplyTrainingData(int month,int year);
@@ -58,7 +63,13 @@ namespace Report_and_Analytics_API.Interface
         public Task<List<monthsOperationalCostResponse>> getPreviousMonthOperationalCostReport(int year);
         public Task<month_cost_management_forecast_result> getMonthForecastResult(int month,int year);
 
+        //MONTH TREATMENT OUTCOMES SECTION
+        public Task<month_treatment_outcome_report> getMonthTreatmentOutcomeReport(int month,int year);
+        public Task<month_treatment_outcome_report> monthTreatmentOutcomeReport(int month,int year);
 
+        //DEPARTMENT BUDGET QUERIES
+        Task<yearBudgetComparisonResponse> departmentBudgetComparisonOutcome(int baseYear,int comparedYear);
+        
     }
 }
   

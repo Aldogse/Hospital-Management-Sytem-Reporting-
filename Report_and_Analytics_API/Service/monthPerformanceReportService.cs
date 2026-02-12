@@ -35,6 +35,11 @@ namespace Report_and_Analytics_API.Service
                             await MonthPerformanceReportExtraction(database,repository);
                             await jobRepo.markAsRunThisMonth("MonthPerformanceReportExtraction", date.Month, date.Year);
                         }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month");
+                            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                        }
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                 }

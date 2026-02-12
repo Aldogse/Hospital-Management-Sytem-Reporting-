@@ -1,4 +1,5 @@
-﻿using APIResponses.journal_responses;
+﻿using APIResponses.BillingResponse;
+using APIResponses.journal_responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -226,44 +227,31 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
-        [HttpGet("getYearBillSummaryReport/{year}")]
-        public  async Task<IActionResult> getYearBillSummaryReport(int year)
+        [HttpGet("getYearBillSummaryReport")]
+        public  async Task<IActionResult> getYearBillSummaryReport([FromQuery]int year,[FromQuery]int comparedYear)
         {
             try
             {
-                var report = await _journalRepo.yearBillingReport(year);
+                var baseYearReport = await _journalRepo.baseYearBillingReport(year);
+                var comparedYearReport = await _journalRepo.comparedYearBillingReport(comparedYear);
 
-                var monthReports = await _journalRepo.monthsBillingReport(year);
-
-                if(report == null)
+                var response = new yearsBillingReportComparisons()
                 {
-                    return Ok(new
-                    {
-                        success = true,
-                        message = $"No data available for {year}"
-                    });
-                }
-
-                var response = new yearlyBillingReportResponse()
-                {
-                    year = year,
-                    total_pending_amount = report.total_pending_amount,
-                    total_billed = report.total_billed,
-                    total_insurance_covered = report.total_insurance_covered,
-                    total_oop_collected = report.total_oop_collected,
-                    total_paid = report.total_paid,
-                    total_pending_transactions = report.total_pending_transaction,
+                    baseYear = baseYearReport.year,
+                    total_oop_collected = baseYearReport.total_oop_collected,
+                    total_pending_amount = baseYearReport.total_pending_amount,
+                    total_billed = baseYearReport.total_billed,
+                    total_paid =baseYearReport.total_paid,
+                    total_pending_transaction = baseYearReport.total_pending_transaction,
+                    comparedYear = comparedYearReport.year,
+                    prev_total_pending_amount = comparedYearReport.total_pending_amount,
+                    prev_total_billed = comparedYearReport.total_billed,
+                    prev_total_paid = comparedYearReport.total_paid,
+                    prev_total_insurance_covered = comparedYearReport.total_insurance_covered,
+                    prev_total_oop_collected = comparedYearReport.total_oop_collected,
+                    prev_total_pending_transaction = comparedYearReport.total_pending_transaction,
+                    total_insurance_covered = baseYearReport.total_insurance_covered
                 };
-
-                var monthRep = monthReports.Select(i => new monthBillingReportResponse
-                {
-                    month = i.month,
-                    year = i.year,
-                    totalBilled = i.total_billed,
-                    totalPaid = i.total_paid,
-                }).ToList();
-
-                response.monthReports = monthRep;
 
                 return Ok(response);
             }
@@ -312,15 +300,15 @@ namespace Report_and_Analytics_API.Controllers
         {
             try
             {
-                DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
-                var monthsRevenue = await _journalRepo.getMonthsRevenueReport(prevMonth.Year);
+                DateTime date = DateTime.Now;
+                var monthsRevenue = await _journalRepo.getMonthsRevenueReport(date.Year);
 
                 if (monthsRevenue == null)
                 {
                     return Ok(new
                     {
                         success = true,
-                        message = $"No data for {prevMonth.Year}",
+                        message = $"No data for {date.Year}",
                     });
                 }
 
@@ -478,6 +466,67 @@ namespace Report_and_Analytics_API.Controllers
                 }
 
                 return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthOutcomeReport")]
+        public async Task<IActionResult> getMonthOutcomeReport([FromQuery]int month, [FromQuery]int year)
+        {
+            try
+            {
+                var response = await _journalRepo.monthTreatmentOutcomeReport(month,year);
+
+                if (response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No data yet for the month",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("getMonthsDetailsRevenueReport")]
+        public async Task<IActionResult> getMonthsDetailsRevenueReport([FromQuery] int year)
+        {
+            try
+            {
+                var report = await _journalRepo.monthsRevenueReport(year);
+
+                var response = report.Select(i => new yearRevenueBreakdownResponse
+                {
+                    year = year,
+                    yearTotalRevenue = report.Select(i => i.total_revenue).Sum(),
+                    monthsRevenue = report,
+
+                    //FIX ISSUE NOT SHOWING ON THE FRONT END BUT ALL GOOD IN THE BACK END
+                    pharmacy_revenue = report.Select(i => i.pharmacy_revenue).Sum(),
+                    serviceRevenue = report.Select(i => i.service_revenue).Sum()
+                }).FirstOrDefault();
+
+                if (response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No data yet for the month", 
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
             }
             catch (Exception ex)
             {

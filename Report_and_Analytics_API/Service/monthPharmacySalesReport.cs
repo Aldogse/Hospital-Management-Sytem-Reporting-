@@ -103,7 +103,7 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex) 
             {
                 _logger.LogInformation($"Error: {ex.Message}");
-                throw new Exception(ex.Message);
+                return;
             }
         }
     }

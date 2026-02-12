@@ -35,7 +35,12 @@ namespace Report_and_Analytics_API.Service
                         if(!await jobRepo.hasRunThisMonth("MonthBedOccupancyTrainingDataExtraction",date.Month,date.Year))
                         {
                             await MonthBedOccupancyTrainingDataExtraction(database,repo);
-                            await jobRepo.markAsRunThisMonth("MonthBedOccupancyTrainingDataExtraction", date.Month, date.Year);                         
+                            await jobRepo.markAsRunThisMonth("MonthBedOccupancyTrainingDataExtraction", date.Month, date.Year);
+                        }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month.");
+                            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                         }
                     }
                     await Task.Delay(TimeSpan.FromHours(24),stoppingToken);

@@ -1,0 +1,74 @@
+2026-01-30 01:46:42.249 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-30 01:46:42.295 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-30 01:46:42.316 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-30 01:46:42.516 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 01:46:42.518 +08:00 [INF] Hosting environment: Development
+2026-01-30 01:46:42.520 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-30 01:46:56.321 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-30 01:46:56.367 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-01-30 01:46:56.420 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__month_2='?' (DbType = Int32), @__year_3='?' (DbType = Int32), @__startDate_0='?' (DbType = DateTime), @__endDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) AS `total_transactions`, @__month_2 AS `month`, @__year_3 AS `year`, COUNT(CASE
+    WHEN `t`.`status` = 'Paid' THEN 1
+END) AS `total_paid_count`, COUNT(CASE
+    WHEN `t`.`status` = 'Pending' THEN 1
+END) AS `total_pending_count`, COUNT(CASE
+    WHEN `t`.`status` = 'Cancelled' THEN 1
+END) AS `total_cancelled_count`, COALESCE(SUM(CASE
+    WHEN `t`.`status` = 'Paid' THEN `t`.`grand_total`
+END), 0.0) AS `total_paid_services`, COALESCE(SUM(CASE
+    WHEN `t`.`status` = 'Pending' THEN `t`.`grand_total`
+END), 0.0) AS `total_pending_amount_services`
+FROM (
+    SELECT `b`.`grand_total`, `b`.`status`, 1 AS `Key`
+    FROM `billing_records` AS `b`
+    WHERE (`b`.`billing_date` >= @__startDate_0) AND (`b`.`billing_date` < @__endDate_1)
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2026-01-30 01:47:52.246 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 55929.759ms
+2026-01-30 01:47:52.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-30 01:47:52.256 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-30 01:47:52.261 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.94ms
+2026-01-30 01:47:52.299 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.9443ms
+2026-01-30 01:47:52.336 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-30 01:47:52.339 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_treatment_outcome_report` (`month`, `total_cancelled_count`, `total_paid_count`, `total_paid_services`, `total_pending_amount_services`, `total_pending_count`, `total_transactions`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `report_id`
+FROM `month_treatment_outcome_report`
+WHERE ROW_COUNT() = 1 AND `report_id` = LAST_INSERT_ID();
+2026-01-30 01:47:52.359 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.8293ms
+2026-01-30 01:47:52.404 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `month_job_run_logs` (`job_name`, `last_run`, `run_month`, `run_year`)
+VALUES (@p0, @p1, @p2, @p3);
+2026-01-30 04:15:51.187 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-30 04:15:51.225 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-30 04:15:51.281 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 04:15:51.283 +08:00 [INF] Hosting environment: Development
+2026-01-30 04:15:51.284 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-30 04:15:51.982 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-30 04:15:52.185 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 206.5485ms
+2026-01-30 04:15:52.190 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-30 04:15:52.190 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-30 04:15:52.217 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 26.9563ms
+2026-01-30 04:15:52.240 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.0774ms
+2026-01-30 04:15:52.274 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-30 04:15:52.300 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.143ms
+2026-01-30 04:16:03.188 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthOutcomeReport?month=10&year=2025 - null null
+2026-01-30 04:16:03.204 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthOutcomeReport (Report_and_Analytics_API)'
+2026-01-30 04:16:03.233 +08:00 [INF] Route matched with {action = "getMonthOutcomeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthOutcomeReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-01-30 04:16:04.918 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_cancelled_count`, `m`.`total_paid_count`, `m`.`total_paid_services`, `m`.`total_pending_amount_services`, `m`.`total_pending_count`, `m`.`total_transactions`, `m`.`year`
+FROM `month_treatment_outcome_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-30 04:16:05.020 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_treatment_outcome_report'.
+2026-01-30 04:16:05.038 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthOutcomeReport (Report_and_Analytics_API) in 1800.187ms
+2026-01-30 04:16:05.040 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthOutcomeReport (Report_and_Analytics_API)'
+2026-01-30 04:16:05.043 +08:00 [INF] HTTP GET /journal/getMonthOutcomeReport responded 200 in 1841.1703 ms
+2026-01-30 04:16:05.052 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthOutcomeReport?month=10&year=2025 - 200 null application/json; charset=utf-8 1864.5966ms

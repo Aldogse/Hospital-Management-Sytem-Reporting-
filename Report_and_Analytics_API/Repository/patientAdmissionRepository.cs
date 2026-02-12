@@ -1,7 +1,9 @@
 ﻿using APIResponses.forecast_results;
+using APIResponses.PatientResponse;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 
 namespace Report_and_Analytics_API.Repository
 {
@@ -77,6 +79,32 @@ namespace Report_and_Analytics_API.Repository
                 }).ToListAsync();
 
             return monthsReport.Cast<object>().ToList();
+        }
+
+        public async Task<List<patientInformationResponse>> patientInformation()
+        {
+            var patients = await _reportDbContext.patientinfo
+                .Select(i => new patientInformationResponse
+                {
+                    age = i.age,
+                    contact = i.email,
+                    fullName = $"{i.fname} {i.mname} {i.lname}",
+                    gender = i.gender,
+                    patientId = i.patient_id
+                }).ToListAsync();
+               
+            return patients;
+            
+        }
+
+        public async Task<List<object>> getAges()
+        {
+            var ages = await _reportDbContext.patientinfo
+                .Select(i => new
+                {
+                    i.age,
+                }).ToListAsync();
+            return ages.Cast<object>().ToList();
         }
     }
 }

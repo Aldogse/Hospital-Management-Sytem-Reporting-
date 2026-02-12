@@ -3,6 +3,8 @@ using APIResponses.Historical_report.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
+using Report_and_Analytics_API.job_logs;
 
 namespace Report_and_Analytics_API.Service
 {
@@ -20,47 +22,59 @@ namespace Report_and_Analytics_API.Service
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                using var scope = _serviceScopeFactory.CreateScope();
-                var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                try
+                {
+                    using var scope = _serviceScopeFactory.CreateScope();
+                    var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    var repository = scope.ServiceProvider.GetRequiredService<IinsuranceClaimRepository>();
+                    var joblogsRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    var date = DateTime.UtcNow;
 
-                await monthInsuranceCoverageReport(database);
-                await Task.Delay(TimeSpan.FromDays(1));
+                    if (date.Day >= 5)
+                    {
+                        if(!await joblogsRepo.hasRunThisMonth("monthInsuranceCoverageReport", date.Month, date.Year))
+                        {
+                            await monthInsuranceCoverageReport(database,repository);
+                            await joblogsRepo.markAsRunThisMonth("monthInsuranceCoverageReport", date.Month, date.Year);
+                        }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month");
+                            await Task.Delay(TimeSpan.FromMinutes(60),stoppingToken);
+                        }
+                    }
+                    else
+                    {
+                        await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error:{ex.Message}");
+                    await Task.Delay(TimeSpan.FromMinutes(10),stoppingToken);
+                }
+                 
             }
         }
 
 
         //INSURANCE CLAIM REPORT SERVICE
-        // WILL RUN EVERY DAY THAT CHECK INFORMATION ON PREVIOUS MONTH TRANSACTIONS
-        private async Task monthInsuranceCoverageReport(ReportDbContext reportDbContext)
+        // RUNS EVERY 5TH OF THE MONTH
+        private async Task monthInsuranceCoverageReport(ReportDbContext reportDbContext,IinsuranceClaimRepository repository)
         {
             DateTime prevMonth = DateTime.Now.AddMonths(-1);
             try
             {
-                var existingReport = await reportDbContext.monthly_claim_report
-                    .FirstOrDefaultAsync(i => i.year == prevMonth.Year && i.month == prevMonth.Month);
+                var report = await repository.getMonthClaimReport(prevMonth.Month,prevMonth.Year);
 
-                var status = await reportDbContext.insurance_logs.Select(i => i.status).ToListAsync();
-
-                if (existingReport == null)
+                if(report == null)
                 {
-                    var newReport = new monthly_claim_report()
-                    {
-                        year = prevMonth.Year,
-                        month = prevMonth.Month,
-                        approveClaims = status.Where(i => i == "Approved").Count(),
-                        declinedClaims = status.Where(i => i == "Declined").Count(),
-                        pendingClaims = status.Where(i => i == "Pending").Count(),                    
-                    };
-                    await reportDbContext.monthly_claim_report.AddAsync(newReport);
+                    _logger.LogInformation("Expecting data but nothing was extracted");
+                    return;
                 }
-                else
-                {
-                    existingReport.approveClaims = status.Where(i => i == "Approved").Count();
-                    existingReport.pendingClaims = status.Where(i => i == "Pending").Count();
-                    existingReport.declinedClaims = status.Where(i => i == "Declined").Count();
 
-                    reportDbContext.monthly_claim_report.Update(existingReport);
-                }
+                await reportDbContext.monthly_claim_report.AddAsync(report);
                 await reportDbContext.SaveChangesAsync();
             }
             catch (Exception ex)

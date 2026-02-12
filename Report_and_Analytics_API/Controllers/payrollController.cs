@@ -66,55 +66,23 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         //ENDPOINTS TO POPULATE EMPLOYEE MONTHLY PAYROLL INFORMATION
-        [HttpGet("getHospitalMonthlyPayrollReport/{month}/{year}")]
-        public async Task<IActionResult> getHospitalMonthlyPayrollReport(int month ,int year)
+        [HttpGet("getHospitalMonthlyPayrollReport")]
+        public async Task<IActionResult> getHospitalMonthlyPayrollReport([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
-                var monthPayrollReport = await (
-                    from hr_employees in _reportDbContext.hr_employees
-                    join employeeMonthReport in _reportDbContext.employeePayrollMonthReports
-                    on hr_employees.employee_id equals employeeMonthReport.employeeId
-                    join hr_payroll in _reportDbContext.hr_payroll
-                    on employeeMonthReport.employeeId equals hr_payroll.employee_id
-                    where employeeMonthReport.month == month && employeeMonthReport.year == year
-                    group new { hr_employees, hr_payroll, employeeMonthReport } by hr_employees.employee_id into x
-                    select new
-                    {
-                        employee_id = x.Key,
-                        firstName = x.Select(i => i.hr_employees.first_name).FirstOrDefault(),
-                        middleName = x.Select(i => i.hr_employees.middle_name).FirstOrDefault(),
-                        lastName = x.Select(i => i.hr_employees.last_name).FirstOrDefault(),
-                        department = x.Select(i => i.hr_employees.department).FirstOrDefault(),
-                        role = x.Select(i => i.hr_employees.role).FirstOrDefault(),
-                        basicSalary = x.Select(i => i.hr_payroll.basic_pay).FirstOrDefault(),
-                        overtimePay = x.Where(i => i.hr_payroll.pay_period_start.Day == 16).Select(i => i.hr_payroll.overtime_pay).FirstOrDefault(),
-                        deductions = x.Where(i => i.hr_payroll.employee_id == x.Key && i.hr_payroll.pay_period_start.Day == 16)
-                        .Sum(i => i.hr_payroll.sss_deduction),
-                        netPay = x.Where(i => i.employeeMonthReport.employeeId == x.Key && i.employeeMonthReport.month == month && 
-                        i.employeeMonthReport.year == year)
-                        .Select(i => i.employeeMonthReport.monthTotalWage).FirstOrDefault()
-                    }).ToListAsync();
+                var monthPayrollReport = await _payrollRepository.hospitalMonthPayrollReport(month,year);
                
-                if(monthPayrollReport == null || monthPayrollReport.Count == 0)
+                if(monthPayrollReport == null)
                 {
-                    return Ok(new {});
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No report for the month yet"
+                    });
                 }
-
-                var response = monthPayrollReport.Select(i => new hospitalPayrollReportMonthResponse
-                {
-                    employeeId = i.employee_id,
-                    fullName = $"{i.firstName} {i.middleName} {i.lastName}",
-                    basicSalary = i.basicSalary,
-                    deductions = i.deductions,
-                    department = i.department,
-                    role = i.role,
-                    netPay = i.netPay,
-                    overtimePay = i.overtimePay,
-                    totalSalaryPaid = monthPayrollReport.Sum(i => i.netPay)
-                }).ToList();
-
-                return Ok(response);
+            
+                return Ok(monthPayrollReport);
             }
             catch (Exception ex) 
             {

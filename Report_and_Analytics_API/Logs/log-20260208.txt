@@ -1,0 +1,1229 @@
+2026-02-08 01:59:50.264 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 01:59:50.318 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 01:59:50.390 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 01:59:50.393 +08:00 [INF] Hosting environment: Development
+2026-02-08 01:59:50.395 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 01:59:51.566 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 01:59:52.007 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 01:59:52.007 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 01:59:52.020 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 459.6949ms
+2026-02-08 01:59:52.032 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 25.7963ms
+2026-02-08 01:59:52.082 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.7278ms
+2026-02-08 01:59:52.158 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 01:59:52.191 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.6578ms
+2026-02-08 02:01:18.818 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 02:01:18.838 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:01:19.052 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 02:01:21.838 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:01:21.962 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:01:21.972 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 02:01:21.992 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 2932.9651ms
+2026-02-08 02:01:21.994 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:01:21.998 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 3168.7148 ms
+2026-02-08 02:01:22.006 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 3188.9552ms
+2026-02-08 02:01:56.333 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 02:01:56.382 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 02:01:56.444 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 02:01:56.446 +08:00 [INF] Hosting environment: Development
+2026-02-08 02:01:56.447 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 02:01:57.407 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 02:01:57.631 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 228.4757ms
+2026-02-08 02:01:57.640 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 02:01:57.640 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 02:01:57.657 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 16.9799ms
+2026-02-08 02:01:57.701 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.6825ms
+2026-02-08 02:01:57.761 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 02:01:57.793 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.8677ms
+2026-02-08 02:02:14.406 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 02:02:14.419 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:02:14.442 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 02:02:16.159 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:02:16.271 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:02:16.281 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 02:02:16.301 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 1853.0552ms
+2026-02-08 02:02:16.303 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:02:16.307 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 1888.9869 ms
+2026-02-08 02:02:16.316 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 1910.2986ms
+2026-02-08 02:11:07.936 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 02:11:07.944 +08:00 [INF] CORS policy execution successful.
+2026-02-08 02:11:07.946 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:11:07.947 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 02:11:08.007 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:11:08.013 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:11:08.015 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 02:11:08.018 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 68.5444ms
+2026-02-08 02:11:08.019 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:11:08.020 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 73.8726 ms
+2026-02-08 02:11:08.022 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 86.3328ms
+2026-02-08 02:11:16.270 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2024&comparedYear=2023 - null null
+2026-02-08 02:11:16.287 +08:00 [INF] CORS policy execution successful.
+2026-02-08 02:11:16.288 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:11:16.290 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 02:11:16.396 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:11:16.406 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 02:11:16.411 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 02:11:16.413 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 120.9379ms
+2026-02-08 02:11:16.416 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 02:11:16.418 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 129.2501 ms
+2026-02-08 02:11:16.420 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2024&comparedYear=2023 - 200 null application/json; charset=utf-8 150.0249ms
+2026-02-08 03:22:26.701 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 03:22:26.784 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 03:22:26.867 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 03:22:26.869 +08:00 [INF] Hosting environment: Development
+2026-02-08 03:22:26.870 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 03:22:29.454 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 03:22:29.831 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 384.2842ms
+2026-02-08 03:22:29.838 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 03:22:29.839 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 03:22:29.848 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.0687ms
+2026-02-08 03:22:29.887 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.0689ms
+2026-02-08 03:22:29.957 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 03:22:29.985 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.2827ms
+2026-02-08 03:23:43.745 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 03:23:43.761 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:23:43.767 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:23:43.794 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:23:45.446 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:23:45.576 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:23:45.587 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:23:45.607 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 1807.0444ms
+2026-02-08 03:23:45.611 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:23:45.614 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 1848.7553 ms
+2026-02-08 03:23:45.622 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 1876.4543ms
+2026-02-08 03:23:45.702 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 03:23:45.711 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:23:45.712 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:23:45.714 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:23:45.737 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:23:45.744 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:23:45.746 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:23:45.748 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 31.6067ms
+2026-02-08 03:23:45.749 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:23:45.750 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 37.4330 ms
+2026-02-08 03:23:45.752 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 49.7949ms
+2026-02-08 03:29:33.112 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2023 - null null
+2026-02-08 03:29:33.121 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:29:33.122 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:29:33.123 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:29:33.210 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:29:33.215 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:29:33.218 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:29:33.219 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 93.9762ms
+2026-02-08 03:29:33.221 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:29:33.221 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 99.7655 ms
+2026-02-08 03:29:33.223 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2023 - 200 null application/json; charset=utf-8 111.4223ms
+2026-02-08 03:30:37.002 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 03:30:37.012 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:30:37.013 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:30:37.014 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:30:37.021 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:30:37.032 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:30:37.034 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:30:37.035 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 19.5185ms
+2026-02-08 03:30:37.037 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:30:37.038 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 25.2111 ms
+2026-02-08 03:30:37.040 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 37.4087ms
+2026-02-08 03:31:12.523 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - null null
+2026-02-08 03:31:12.527 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:31:12.528 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 03:31:12.528 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-08 03:31:12.531 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:31:12.533 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:31:12.534 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:31:12.536 +08:00 [INF] Route matched with {action = "getMonthsDetailsRevenueReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthsDetailsRevenueReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:31:12.550 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:31:12.556 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:31:12.559 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:31:12.560 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 23.8532ms
+2026-02-08 03:31:12.561 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:31:12.562 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 29.5284 ms
+2026-02-08 03:31:12.564 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 36.5035ms
+2026-02-08 03:31:12.573 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-08 03:31:12.577 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-08 03:31:12.582 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API) in 37.2535ms
+2026-02-08 03:31:12.583 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-08 03:31:12.584 +08:00 [INF] HTTP GET /journal/getMonthsDetailsRevenueReport responded 200 in 55.8306 ms
+2026-02-08 03:31:12.585 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - 200 null application/json; charset=utf-8 62.177ms
+2026-02-08 03:31:25.142 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 03:31:25.145 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:31:25.147 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:31:25.149 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:31:25.158 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:31:25.162 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 03:31:25.164 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 03:31:25.165 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 13.5579ms
+2026-02-08 03:31:25.167 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 03:31:25.167 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 20.0063 ms
+2026-02-08 03:31:25.169 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 27.868ms
+2026-02-08 03:31:54.311 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - null null
+2026-02-08 03:31:54.313 +08:00 [INF] CORS policy execution successful.
+2026-02-08 03:31:54.314 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-08 03:31:54.315 +08:00 [INF] Route matched with {action = "getMonthsDetailsRevenueReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthsDetailsRevenueReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 03:31:54.323 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-08 03:31:54.329 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-08 03:31:54.330 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API) in 12.4346ms
+2026-02-08 03:31:54.332 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-08 03:31:54.333 +08:00 [INF] HTTP GET /journal/getMonthsDetailsRevenueReport responded 200 in 18.6227 ms
+2026-02-08 03:31:54.335 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - 200 null application/json; charset=utf-8 23.7934ms
+2026-02-08 08:56:14.014 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getMonthPayrollSummary/null/null/5/1 - null null
+2026-02-08 08:56:14.039 +08:00 [INF] CORS policy execution successful.
+2026-02-08 08:56:14.062 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getMonthPayrollSummary/null/null/5/1 - 307 0 null 52.3598ms
+2026-02-08 08:56:14.441 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary/null/null/5/1 - null null
+2026-02-08 08:56:14.446 +08:00 [INF] CORS policy execution successful.
+2026-02-08 08:56:14.447 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-08 08:56:14.472 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-08 08:56:14.504 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-08 08:56:14.535 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 61.0481ms
+2026-02-08 08:56:14.537 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-08 08:56:14.538 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary/null/null/5/1 responded 400 in 91.9311 ms
+2026-02-08 08:56:14.540 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary/null/null/5/1 - 400 null application/problem+json; charset=utf-8 98.6791ms
+2026-02-08 08:57:28.299 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-08 08:57:28.303 +08:00 [INF] CORS policy execution successful.
+2026-02-08 08:57:28.303 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 08:57:28.304 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-08 08:57:28.387 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 08:57:28.395 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-08 08:57:28.397 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-08 08:57:28.398 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 92.6386ms
+2026-02-08 08:57:28.400 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-08 08:57:28.401 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 98.0966 ms
+2026-02-08 08:57:28.404 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 104.9723ms
+2026-02-08 09:19:25.883 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:19:25.927 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:19:25.994 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:19:25.995 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:19:25.996 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:19:26.982 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:19:27.248 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:19:27.248 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:19:27.257 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 281.0589ms
+2026-02-08 09:19:27.270 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 22.9761ms
+2026-02-08 09:19:27.306 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.2295ms
+2026-02-08 09:19:27.359 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:19:27.384 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.0032ms
+2026-02-08 09:19:53.534 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:19:53.554 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:19:53.582 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:19:55.030 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:19:55.033 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:19:55.406 +08:00 [ERR] Failed executing DbCommand (67ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`bed_number`, `p`.`civil_status`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:19:55.483 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:19:55.660 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:19:55.668 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 2080.1452ms
+2026-02-08 09:19:55.670 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:19:55.673 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 2119.9446 ms
+2026-02-08 09:19:55.683 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 2149.0452ms
+2026-02-08 09:20:42.090 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:20:42.103 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:20:42.104 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:20:42.140 +08:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`bed_number`, `p`.`civil_status`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:20:42.145 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:20:42.227 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:20:42.228 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 122.79ms
+2026-02-08 09:20:42.230 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:20:42.231 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 128.9163 ms
+2026-02-08 09:20:42.234 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 143.9304ms
+2026-02-08 09:20:53.887 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:20:53.923 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:20:53.973 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:20:53.974 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:20:53.976 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:20:54.645 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:20:54.842 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 201.6861ms
+2026-02-08 09:20:54.843 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:20:54.843 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:20:54.854 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.3395ms
+2026-02-08 09:20:54.889 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.5495ms
+2026-02-08 09:20:54.944 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:20:54.970 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.9008ms
+2026-02-08 09:21:02.239 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:21:02.256 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:21:02.284 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:21:11.115 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:21:11.118 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:21:11.433 +08:00 [ERR] Failed executing DbCommand (55ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`bed_number`, `p`.`civil_status`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:21:11.486 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:21:11.668 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:21:11.674 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 9383.9524ms
+2026-02-08 09:21:11.677 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:21:11.679 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 9424.4799 ms
+2026-02-08 09:21:11.687 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 9448.4549ms
+2026-02-08 09:24:21.485 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:24:21.512 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 26.751ms
+2026-02-08 09:24:21.519 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:24:21.522 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:24:21.530 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.4428ms
+2026-02-08 09:24:21.544 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.1504ms
+2026-02-08 09:24:21.584 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:24:21.591 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2026-02-08 09:24:21.602 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.5083ms
+2026-02-08 09:24:21.604 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-02-08 09:24:21.607 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 16.5936ms
+2026-02-08 09:26:20.544 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:26:20.557 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 13.1143ms
+2026-02-08 09:26:20.568 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:26:20.569 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:26:20.575 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.5628ms
+2026-02-08 09:26:20.590 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.5698ms
+2026-02-08 09:26:20.625 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:26:20.637 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.0512ms
+2026-02-08 09:26:27.648 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:26:27.701 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:26:27.753 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:26:27.754 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:26:27.755 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:26:28.616 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:26:28.828 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 215.0984ms
+2026-02-08 09:26:28.835 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:26:28.835 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:26:28.855 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 19.7803ms
+2026-02-08 09:26:28.891 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.3466ms
+2026-02-08 09:26:28.948 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:26:28.978 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.1516ms
+2026-02-08 09:26:35.454 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:26:35.472 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:26:35.499 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:26:40.333 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:26:40.336 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:26:40.656 +08:00 [ERR] Failed executing DbCommand (54ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`bed_number`, `p`.`civil_status`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:26:40.705 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.bed_number' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:26:40.878 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:26:40.884 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5380.0163ms
+2026-02-08 09:26:40.886 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:26:40.890 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 5418.9392 ms
+2026-02-08 09:26:40.898 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 5443.9871ms
+2026-02-08 09:29:00.035 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:29:00.078 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:29:00.143 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:29:00.145 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:29:00.146 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:29:00.812 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:29:01.138 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 331.8961ms
+2026-02-08 09:29:01.139 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:29:01.139 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:29:01.160 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 20.4071ms
+2026-02-08 09:29:01.190 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.8546ms
+2026-02-08 09:29:01.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:29:01.276 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.4212ms
+2026-02-08 09:29:08.353 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:29:08.367 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:29:08.396 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:34:28.017 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:34:28.063 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:34:28.147 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:34:28.149 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:34:28.150 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:34:28.918 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:34:29.143 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 228.4819ms
+2026-02-08 09:34:29.147 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:34:29.147 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:34:29.166 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.34ms
+2026-02-08 09:34:29.199 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.9004ms
+2026-02-08 09:34:29.261 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:34:29.288 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.2842ms
+2026-02-08 09:34:35.440 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:34:35.454 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:34:35.475 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:37:20.573 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:37:20.617 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:37:20.671 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:37:20.673 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:37:20.674 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:37:21.576 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:37:21.801 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 228.8825ms
+2026-02-08 09:37:21.806 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:37:21.806 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:37:21.826 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 20.0674ms
+2026-02-08 09:37:21.853 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.1497ms
+2026-02-08 09:37:21.906 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:37:21.932 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.0485ms
+2026-02-08 09:37:30.561 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:37:30.571 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:37:30.592 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:37:35.657 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:37:35.659 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:37:36.054 +08:00 [ERR] Failed executing DbCommand (73ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`created_at`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weigth`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:37:36.118 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.created_at' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.created_at' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:37:36.270 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:37:36.278 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5680.8739ms
+2026-02-08 09:37:36.281 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:37:36.283 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 5713.8882 ms
+2026-02-08 09:37:36.293 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 5732.742ms
+2026-02-08 09:38:37.869 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:38:37.905 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:38:37.908 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:38:37.915 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 45.9745ms
+2026-02-08 09:38:37.924 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 16.7572ms
+2026-02-08 09:38:37.930 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.1253ms
+2026-02-08 09:38:37.982 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:38:37.998 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.6426ms
+2026-02-08 09:38:47.728 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:38:47.775 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:38:47.827 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:38:47.829 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:38:47.830 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:38:48.431 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:38:48.659 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 231.7329ms
+2026-02-08 09:38:48.666 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:38:48.666 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:38:48.696 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 30.7943ms
+2026-02-08 09:38:48.740 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.7978ms
+2026-02-08 09:38:48.801 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:38:48.827 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.4773ms
+2026-02-08 09:38:55.852 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:38:55.868 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:38:55.910 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:39:01.161 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:39:01.163 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:39:01.475 +08:00 [ERR] Failed executing DbCommand (59ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weigth`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:39:01.529 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.weigth' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'p.weigth' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:39:01.719 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:39:01.728 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5810.3752ms
+2026-02-08 09:39:01.730 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:39:01.733 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 5866.9653 ms
+2026-02-08 09:39:01.741 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 5889.7396ms
+2026-02-08 09:41:24.543 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:41:24.592 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:41:24.639 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:41:24.641 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:41:24.642 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:41:25.228 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:41:25.433 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 208.6379ms
+2026-02-08 09:41:25.437 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:41:25.437 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:41:25.466 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.1691ms
+2026-02-08 09:41:25.495 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.2979ms
+2026-02-08 09:41:25.557 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:41:25.586 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.7953ms
+2026-02-08 09:41:32.422 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:41:32.431 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:41:32.451 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:41:37.231 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:41:37.234 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:41:37.516 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:41:37.614 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidCastException: Can't convert VarChar to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't convert VarChar to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:41:37.795 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:41:37.803 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5345.9739ms
+2026-02-08 09:41:37.807 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:41:37.809 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 5380.2310 ms
+2026-02-08 09:41:37.818 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 5396.8469ms
+2026-02-08 09:42:21.446 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:42:21.499 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:42:21.562 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:42:21.563 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:42:21.564 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:42:22.465 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:42:22.674 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 212.9655ms
+2026-02-08 09:42:22.677 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:42:22.677 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:42:22.704 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 26.2939ms
+2026-02-08 09:42:22.730 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.3555ms
+2026-02-08 09:42:22.790 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:42:22.821 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.3801ms
+2026-02-08 09:42:30.326 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:42:30.343 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:42:30.366 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:42:35.063 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:42:35.066 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:42:35.342 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:42:35.431 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+System.InvalidCastException: Can't convert Date to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't convert Date to Int32
+   at MySqlConnector.Core.Row.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 247
+   at MySqlConnector.MySqlDataReader.GetInt32(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 240
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadInt(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.InitializeAsync(DbDataReader reader, IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.InitializeAsync(IReadOnlyList`1 columns, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-08 09:42:35.597 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-08 09:42:35.604 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5233.0783ms
+2026-02-08 09:42:35.606 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:42:35.608 +08:00 [ERR] HTTP GET /patient/patientDetails responded 500 in 5265.8020 ms
+2026-02-08 09:42:35.616 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 500 null text/plain; charset=utf-8 5289.8117ms
+2026-02-08 09:43:08.362 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:43:08.374 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 11.8308ms
+2026-02-08 09:43:08.383 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:43:08.384 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:43:08.394 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.2698ms
+2026-02-08 09:43:08.409 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.5028ms
+2026-02-08 09:43:08.441 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:43:08.455 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.4711ms
+2026-02-08 09:43:17.571 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:43:17.626 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:43:17.682 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:43:17.683 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:43:17.685 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:43:18.250 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:43:18.480 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 232.5841ms
+2026-02-08 09:43:18.484 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:43:18.484 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:43:18.511 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 27.7152ms
+2026-02-08 09:43:18.541 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.1906ms
+2026-02-08 09:43:18.608 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:43:18.639 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.688ms
+2026-02-08 09:43:24.619 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:43:24.633 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:43:24.657 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:43:27.664 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:43:27.668 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:43:27.930 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:43:34.362 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 09:43:34.380 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 9716.2721ms
+2026-02-08 09:43:34.384 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:43:34.386 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 9754.5292 ms
+2026-02-08 09:43:34.394 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 9775.3313ms
+2026-02-08 09:43:59.419 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientMedicalRecords/41 - null null
+2026-02-08 09:43:59.435 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientMedicalRecords (Report_and_Analytics_API)'
+2026-02-08 09:43:59.440 +08:00 [INF] Route matched with {action = "patientMedicalRecords", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientMedicalRecords(Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:43:59.535 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__patientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`record_id` AS `recordId`, COALESCE(`p`.`condition_name`, '') AS `conditionName`, `p`.`diagnosis_date` AS `diagnosisDate`, `p`.`notes`
+FROM `p_previous_medical_records` AS `p`
+WHERE `p`.`patient_id` = @__patientId_0
+ORDER BY `p`.`diagnosis_date`
+2026-02-08 09:43:59.642 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@__patientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE((
+    SELECT `p1`.`patient_id`
+    FROM `patientinfo` AS `p1`
+    INNER JOIN `p_previous_medical_records` AS `p2` ON `p1`.`patient_id` = `p2`.`patient_id`
+    WHERE (`p1`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p2`.`record_id`)
+    LIMIT 1), 0), COALESCE((
+    SELECT `p3`.`address`
+    FROM `patientinfo` AS `p3`
+    INNER JOIN `p_previous_medical_records` AS `p4` ON `p3`.`patient_id` = `p4`.`patient_id`
+    WHERE (`p3`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p4`.`record_id`)
+    LIMIT 1), ''), (
+    SELECT `p5`.`fname`
+    FROM `patientinfo` AS `p5`
+    INNER JOIN `p_previous_medical_records` AS `p6` ON `p5`.`patient_id` = `p6`.`patient_id`
+    WHERE (`p5`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p6`.`record_id`)
+    LIMIT 1), (
+    SELECT `p7`.`mname`
+    FROM `patientinfo` AS `p7`
+    INNER JOIN `p_previous_medical_records` AS `p8` ON `p7`.`patient_id` = `p8`.`patient_id`
+    WHERE (`p7`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p8`.`record_id`)
+    LIMIT 1), (
+    SELECT `p9`.`lname`
+    FROM `patientinfo` AS `p9`
+    INNER JOIN `p_previous_medical_records` AS `p10` ON `p9`.`patient_id` = `p10`.`patient_id`
+    WHERE (`p9`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p10`.`record_id`)
+    LIMIT 1), COALESCE((
+    SELECT `p11`.`gender`
+    FROM `patientinfo` AS `p11`
+    INNER JOIN `p_previous_medical_records` AS `p12` ON `p11`.`patient_id` = `p12`.`patient_id`
+    WHERE (`p11`.`patient_id` = @__patientId_0) AND (`p0`.`record_id` = `p12`.`record_id`)
+    LIMIT 1), '')
+FROM `patientinfo` AS `p`
+INNER JOIN `p_previous_medical_records` AS `p0` ON `p`.`patient_id` = `p0`.`patient_id`
+WHERE `p`.`patient_id` = @__patientId_0
+GROUP BY `p0`.`record_id`
+LIMIT 1
+2026-02-08 09:43:59.648 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientMedicalRecordReport'.
+2026-02-08 09:43:59.655 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientMedicalRecords (Report_and_Analytics_API) in 214.0736ms
+2026-02-08 09:43:59.657 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientMedicalRecords (Report_and_Analytics_API)'
+2026-02-08 09:43:59.658 +08:00 [INF] HTTP GET /patient/patientMedicalRecords/41 responded 200 in 222.7849 ms
+2026-02-08 09:43:59.660 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientMedicalRecords/41 - 200 null application/json; charset=utf-8 241.0558ms
+2026-02-08 09:47:59.412 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:47:59.421 +08:00 [INF] CORS policy execution successful.
+2026-02-08 09:47:59.423 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:47:59.424 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:48:04.911 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:48:04.914 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 09:48:04.916 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 5490.7535ms
+2026-02-08 09:48:04.918 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:48:04.919 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 5495.9287 ms
+2026-02-08 09:48:04.921 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 5508.7318ms
+2026-02-08 09:48:10.591 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 09:48:10.595 +08:00 [INF] CORS policy execution successful.
+2026-02-08 09:48:10.596 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:48:10.597 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:48:12.104 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:48:12.105 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-08 09:48:12.117 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_0 OFFSET @__p_0
+2026-02-08 09:48:12.120 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 09:48:12.122 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 1522.7625ms
+2026-02-08 09:48:12.123 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:48:12.124 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 1528.5841 ms
+2026-02-08 09:48:12.126 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 1535.7272ms
+2026-02-08 09:49:39.120 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:49:39.123 +08:00 [INF] CORS policy execution successful.
+2026-02-08 09:49:39.124 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:49:39.126 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:49:39.135 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2026-02-08 09:49:39.143 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 09:49:39.144 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 16.4684ms
+2026-02-08 09:49:39.146 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:49:39.147 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 22.9630 ms
+2026-02-08 09:49:39.150 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 30.8853ms
+2026-02-08 09:54:07.380 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 09:54:07.428 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 09:54:07.517 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 09:54:07.520 +08:00 [INF] Hosting environment: Development
+2026-02-08 09:54:07.521 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 09:54:08.420 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 09:54:08.618 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 201.2111ms
+2026-02-08 09:54:08.623 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 09:54:08.623 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 09:54:08.641 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 17.6496ms
+2026-02-08 09:54:08.675 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.0726ms
+2026-02-08 09:54:08.731 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 09:54:08.757 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.335ms
+2026-02-08 09:54:18.447 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 09:54:18.463 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:54:18.489 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 09:54:20.220 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`patient_id`, `p`.`address`, `p`.`admission_type`, `p`.`age`, `p`.`attending_doctor`, `p`.`civil_status`, `p`.`color_of_eyes`, `p`.`dob`, `p`.`email`, `p`.`fname`, `p`.`gender`, `p`.`height`, `p`.`lname`, `p`.`mname`, `p`.`phone_number`, `p`.`weight`
+FROM `patientinfo` AS `p`
+2026-02-08 09:54:20.373 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 09:54:20.389 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 1893.248ms
+2026-02-08 09:54:20.391 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 09:54:20.393 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 1931.9258 ms
+2026-02-08 09:54:20.402 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 1955.4133ms
+2026-02-08 10:13:30.618 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 10:13:30.685 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 10:13:30.762 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 10:13:30.764 +08:00 [INF] Hosting environment: Development
+2026-02-08 10:13:30.765 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 10:13:31.477 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 10:13:31.691 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 216.9162ms
+2026-02-08 10:13:31.699 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 10:13:31.699 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 10:13:31.711 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.2374ms
+2026-02-08 10:13:31.755 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.3811ms
+2026-02-08 10:13:31.835 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 10:13:31.882 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 46.9315ms
+2026-02-08 10:13:38.746 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:13:38.766 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:13:38.794 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:13:40.813 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:13:40.895 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:13:40.913 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 2112.8139ms
+2026-02-08 10:13:40.915 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:13:40.918 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 2153.4989 ms
+2026-02-08 10:13:40.927 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 2181.4661ms
+2026-02-08 10:15:00.743 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:15:00.750 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:15:00.751 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:15:00.753 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:15:00.792 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:15:00.795 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:15:00.798 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 42.2567ms
+2026-02-08 10:15:00.799 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:15:00.800 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 49.2990 ms
+2026-02-08 10:15:00.803 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 60.4463ms
+2026-02-08 10:17:00.099 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:00.112 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:00.113 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:00.114 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:00.179 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:00.188 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:00.190 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 74.1546ms
+2026-02-08 10:17:00.192 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:00.193 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 79.8475 ms
+2026-02-08 10:17:00.194 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 95.5834ms
+2026-02-08 10:17:03.785 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:17:03.788 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:03.789 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:03.790 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:03.800 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:03.803 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:03.804 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 11.8926ms
+2026-02-08 10:17:03.806 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:03.807 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 18.6630 ms
+2026-02-08 10:17:03.810 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 25.6442ms
+2026-02-08 10:17:09.304 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:09.307 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:09.309 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:09.310 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:09.320 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:09.323 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:09.325 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 13.0566ms
+2026-02-08 10:17:09.327 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:09.329 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 20.2361 ms
+2026-02-08 10:17:09.332 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 27.8829ms
+2026-02-08 10:17:11.392 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:17:11.395 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:11.395 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:11.396 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:11.404 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:11.407 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:11.408 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 10.0059ms
+2026-02-08 10:17:11.410 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:11.411 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 16.2509 ms
+2026-02-08 10:17:11.414 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 22.4893ms
+2026-02-08 10:17:16.313 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:16.316 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:16.316 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:16.317 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:16.325 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:16.329 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:16.330 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 11.3321ms
+2026-02-08 10:17:16.333 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:16.334 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 17.5619 ms
+2026-02-08 10:17:16.337 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 24.3212ms
+2026-02-08 10:17:17.912 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:17:17.917 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:17.918 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:17.920 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:17.930 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:17.933 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:17.934 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 11.5269ms
+2026-02-08 10:17:17.936 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:17.937 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 18.5883 ms
+2026-02-08 10:17:17.939 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 26.7345ms
+2026-02-08 10:17:20.063 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:20.067 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:20.067 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:20.068 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:20.075 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:20.077 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:20.079 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 8.7613ms
+2026-02-08 10:17:20.080 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:20.081 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 13.4165 ms
+2026-02-08 10:17:20.082 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 19.0762ms
+2026-02-08 10:17:21.456 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:17:21.459 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:21.460 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:21.461 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:21.470 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:21.472 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:21.473 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 9.8487ms
+2026-02-08 10:17:21.475 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:21.476 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 15.8826 ms
+2026-02-08 10:17:21.478 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 22.2042ms
+2026-02-08 10:17:22.480 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:22.483 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:22.484 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:22.485 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:22.492 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:22.494 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:22.495 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 8.7031ms
+2026-02-08 10:17:22.497 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:22.498 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 13.7742 ms
+2026-02-08 10:17:22.499 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 19.3596ms
+2026-02-08 10:17:23.167 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:17:23.170 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:23.172 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:23.173 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:23.180 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:23.182 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:23.184 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 9.2812ms
+2026-02-08 10:17:23.185 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:23.186 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 14.2448 ms
+2026-02-08 10:17:23.188 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 20.678ms
+2026-02-08 10:17:52.200 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:17:52.208 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:17:52.209 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:52.210 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:17:52.218 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:17:52.225 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:17:52.226 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 14.1101ms
+2026-02-08 10:17:52.228 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:17:52.229 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 20.5860 ms
+2026-02-08 10:17:52.231 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 31.7824ms
+2026-02-08 10:20:39.668 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 10:20:39.708 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 10:20:39.773 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 10:20:39.775 +08:00 [INF] Hosting environment: Development
+2026-02-08 10:20:39.776 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 10:20:40.838 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 10:20:41.117 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 10:20:41.117 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 10:20:41.131 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 286.4816ms
+2026-02-08 10:20:41.149 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 32.3399ms
+2026-02-08 10:20:41.203 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.9646ms
+2026-02-08 10:20:41.268 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 10:20:41.296 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.709ms
+2026-02-08 10:22:57.810 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-08 10:22:57.848 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-08 10:22:57.898 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-08 10:22:57.900 +08:00 [INF] Hosting environment: Development
+2026-02-08 10:22:57.901 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-08 10:22:58.746 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-08 10:22:58.961 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 219.9681ms
+2026-02-08 10:22:58.964 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-08 10:22:58.964 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-08 10:22:58.981 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 16.689ms
+2026-02-08 10:22:59.023 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.2789ms
+2026-02-08 10:22:59.078 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-08 10:22:59.105 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.0804ms
+2026-02-08 10:23:05.452 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:23:05.469 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:23:05.496 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:23:07.453 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:23:07.553 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`
+FROM `patientinfo` AS `p`
+2026-02-08 10:23:07.567 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:23:07.583 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 2081.4095ms
+2026-02-08 10:23:07.586 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:23:07.589 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 2120.8678 ms
+2026-02-08 10:23:07.598 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 2146.3162ms
+2026-02-08 10:24:45.015 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:24:45.026 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:24:45.028 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:45.030 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:24:45.057 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:45.062 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:45.065 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:24:45.067 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 35.4713ms
+2026-02-08 10:24:45.068 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:45.069 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 41.0054 ms
+2026-02-08 10:24:45.072 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 56.681ms
+2026-02-08 10:24:46.961 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - null null
+2026-02-08 10:24:46.965 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:24:46.966 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:46.967 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:24:47.035 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:47.041 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:47.044 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:24:47.045 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 76.9407ms
+2026-02-08 10:24:47.047 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:47.048 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 82.4804 ms
+2026-02-08 10:24:47.050 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=2&size=5 - 200 null application/json; charset=utf-8 89.2701ms
+2026-02-08 10:24:48.832 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - null null
+2026-02-08 10:24:48.835 +08:00 [INF] CORS policy execution successful.
+2026-02-08 10:24:48.836 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:48.837 +08:00 [INF] Route matched with {action = "patientDetails", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] patientDetails(Int32, Int32) on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-08 10:24:48.846 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`, `p`.`email`, `p`.`fname`, `p`.`mname`, `p`.`lname`, `p`.`gender`, `p`.`patient_id`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:48.852 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`age`
+FROM `patientinfo` AS `p`
+2026-02-08 10:24:48.855 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PatientResponse.patientInformationOverviewResponse'.
+2026-02-08 10:24:48.856 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API) in 16.6673ms
+2026-02-08 10:24:48.858 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.patientDetails (Report_and_Analytics_API)'
+2026-02-08 10:24:48.859 +08:00 [INF] HTTP GET /patient/patientDetails responded 200 in 22.8913 ms
+2026-02-08 10:24:48.861 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/patientDetails?page=1&size=5 - 200 null application/json; charset=utf-8 29.4471ms

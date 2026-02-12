@@ -40,7 +40,7 @@ namespace Report_and_Analytics_API.Service
                         else
                         {
                             _logger.LogInformation(message:$"Job already run for the month");
-                            return;
+                            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                         }
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);

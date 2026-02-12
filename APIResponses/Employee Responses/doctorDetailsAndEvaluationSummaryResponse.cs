@@ -9,6 +9,7 @@ namespace APIResponses.Employee_Responses
 {
     public class doctorDetailsAndEvaluationSummaryResponse
     {
+        public string name { get; set; }
         public string department { get; set; }
         public string specialization { get; set; }
         public string role { get; set; }
@@ -16,11 +17,11 @@ namespace APIResponses.Employee_Responses
         public string educationalStatus { get; set; }
         public string degreeType { get; set; }
         public string medicalSchool { get; set; }
-        public int graduationYear { get; set; }
+        public int? graduationYear { get; set; }
         public string licenseType { get; set; }
         public string licenseNumber { get; set; }
         public DateOnly? licenseIssued { get; set; }
         public DateOnly? licenseExpiry { get; set; }
-        public List<doctorSummaryEvaluationResponse> evaluation_records { get; set; }
+        public List<doctorSummaryEvaluationResponse>? evaluation_records { get; set; }
     }
 }

@@ -30,12 +30,17 @@ namespace Report_and_Analytics_API.Service
                     var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
                     int year  = DateTime.Now.Year;
 
-                    if(DateTime.Now.Month == 1 && DateTime.Now.Day >= 5)
+                    if(DateTime.Now.Month == 1 || DateTime.Now.Day >= 5)
                     {
                         if (!await jobRepo.hasRunThisYear("DepartmentBudgetYearReportService",year))
                         {
                             await DepartmentBudgetYearReportService(database);
                             await jobRepo.markAsRunThisYear("DepartmentBudgetYearReportService",year);
+                        }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month.");
+                            await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                         }
                     }
                     await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
@@ -57,8 +62,8 @@ namespace Report_and_Analytics_API.Service
             {
                 var records = await (
                     from budget in reportDb.department_budgets
-                    where budget.request_date.Year == 2025
-                    group budget by budget.budget_id into x
+                    where budget.request_date.Year == 2025 && budget.status == "Approved"
+                    group budget by 1 into x
                     select new department_budget_year_report
                     {
                         total_allocated = x.Sum(x => x.allocated_budget),

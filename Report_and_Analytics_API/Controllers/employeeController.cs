@@ -114,7 +114,7 @@ namespace Report_and_Analytics_API.Controllers
         {
             try
             {
-                var report = await _empRepo.getYearAttendanceReportSummary(year);
+                var report = await _empRepo.yearAttendanceSummary(year);
 
                 if(report == null)
                 {
@@ -197,35 +197,23 @@ namespace Report_and_Analytics_API.Controllers
 
         //ENDPOINT FOR DOCTOR EVALUATION AND DETAILS DASHBOARD
         [HttpGet("getDoctorsDetails")]
-        public async Task <IActionResult> getDoctorsDetails()
+        public async Task <IActionResult> getDoctorsDetails([FromQuery]int page,[FromQuery]int size)
         {
             try
             {
-                var doctors = await _reportDbContext.hr_employees
-                    .Where(i => i.profession == "Doctor" && i.status == "Active")
-                    .Select(i => new
-                    {
-                        i.employee_id,
-                        i.first_name,
-                        i.last_name,
-                        i.middle_name,
-                        i.specialization,
-                        i.role
-                    }).ToListAsync();
-
+                var doctors = await _empRepo.getDoctorsInformation(page,size);
 
                 if(doctors == null || doctors.Count == 0)
                 {
                     return Ok(new
                     {
-                        succeed = true,
-                        message = $"No doctors found",
-                        data = (object?) null
+                        success = true,
+                        message = $"No doctors currently active",
+                        data = (object?)null
                     });
                 }
 
                 return Ok(doctors);
-
             }
             catch (Exception ex)
             {
@@ -351,6 +339,31 @@ namespace Report_and_Analytics_API.Controllers
             {
                 _logger.LogInformation($"Error: {ex.Message}");
                 return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getYearAttendanceSummary")]
+        public async Task<IActionResult> getYearAttendanceSummary([FromQuery]int year)
+        {
+            try
+            {
+                var response = await _empRepo.yearAttendanceSummary(year);
+
+                if(response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No data for {year}",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
 

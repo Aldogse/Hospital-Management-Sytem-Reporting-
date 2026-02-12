@@ -57,7 +57,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 ////builder.Services.AddHostedService<monthShiftAndDutiesReport>();
 //builder.Services.AddHostedService<monthLeaveServiceReport>();
 //builder.Services.AddHostedService<monthPharmacySalesReport>();
-////builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
+//builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
 //builder.Services.AddHostedService<monthPayrollSummaryReportService>();
 //builder.Services.AddHostedService<patientAdmissionAndDischargeSummaryReportService>();
 //builder.Services.AddHostedService<monthAttendanceReportService>();
@@ -86,6 +86,8 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<monthStaffingNeedsDataExtraction>();
 //builder.Services.AddHostedService<monthStaffingNeedsForecastingService>();
 //builder.Services.AddHostedService<monthMedicineSupplyForecastingService>();
+//builder.Services.AddHostedService<monthInsuranceClaimReportService>();
+//builder.Services.AddHostedService<monthOutcomeReportDataExtractionService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository,hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation,hrEmployeeInformation>();
@@ -121,7 +123,7 @@ app.UseCors(policy =>
     policy.AllowAnyHeader();
 });
 
-//app.UseMiddleware<apiKeyMiddleWare>();
+//app.UseMiddleware<apiKeyMiddleware>();
 app.UseHttpsRedirection();
 app.UseSerilogRequestLogging();
 app.MapControllers();

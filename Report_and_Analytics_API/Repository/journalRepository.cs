@@ -98,6 +98,20 @@ namespace Report_and_Analytics_API.Repository
             return response;
         }
 
+        public async Task<List<month_revenue_report>> monthsRevenueReport(int year)
+        {
+            var response = await _reportDb.month_revenue_report.Where(i => i.year == year)
+                .OrderBy(i => i.month)
+                .ToListAsync();
+
+            return response;
+        }
+
+        public async Task<month_revenue_report> monthRevenueReport(int month, int year)
+        {
+            var response = await _reportDb.month_revenue_report.Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
+            return response;
+        }
 
         //BACKGROUND SERVICE QUERY
         public async Task<month_billing_report> getMonthBillingReport(int month, int year)
@@ -259,12 +273,16 @@ namespace Report_and_Analytics_API.Repository
             return yearSummary;
         }
 
-        public async Task<yearly_billing_report> yearBillingReport(int year)
+        public async Task<yearly_billing_report> baseYearBillingReport(int year)
         {
-            var yearReport = await _reportDb.yearly_billing_report.Where(i => i.year == year)
-                .FirstOrDefaultAsync();
+            var baseYear = await _reportDb.yearly_billing_report.Where(i => i.year == year).FirstOrDefaultAsync();
+            return baseYear;    
+        }
 
-            return yearReport;
+        public async Task<yearly_billing_report> comparedYearBillingReport(int year)
+        {
+            var comparedYear = await _reportDb.yearly_billing_report.Where(i => i.year == year).FirstOrDefaultAsync();
+            return comparedYear;
         }
 
         public async Task<List<month_billing_report>> monthsBillingReport(int year)
@@ -517,6 +535,65 @@ namespace Report_and_Analytics_API.Repository
             i.year == year).FirstOrDefaultAsync();
 
             return forecast;
+        }
+
+        //TREATMENT OUTCOME REPORT QUERIES
+        public async Task<month_treatment_outcome_report> getMonthTreatmentOutcomeReport(int month, int year)
+        {
+            var startDate = new DateTime(year,month,1);
+            var endDate = startDate.AddMonths(1);
+
+            var reports = await (
+                from billing in _reportDb.billing_records
+                where billing.billing_date >= startDate && billing.billing_date < endDate
+                group new {billing} by 1 into x
+                select new month_treatment_outcome_report
+                {
+                    total_transactions = x.Count(),
+                    month = month,
+                    year = year,
+                    total_paid_count = x.Where(i => i.billing.status == "Paid").Count(),
+                    total_pending_count = x.Where(i => i.billing.status == "Pending").Count(),
+                    total_cancelled_count = x.Where(i => i.billing.status == "Cancelled").Count(),
+
+                    total_paid_services = x.
+                    Where(i => i.billing.status == "Paid")
+                    .Select(i => i.billing.grand_total).Sum(),
+
+                    total_pending_amount_services = x.
+                    Where(i => i.billing.status == "Pending")
+                    .Select(i => i.billing.grand_total).Sum(),
+                    
+                }).FirstOrDefaultAsync();
+
+            return reports;
+        }
+
+        public async Task<month_treatment_outcome_report> monthTreatmentOutcomeReport(int month, int year)
+        {
+           var report = await _reportDb.month_treatment_outcome_report.Where
+                (i => i.month == month && i.year == year).FirstOrDefaultAsync();
+
+            return report;
+        }
+
+        public async Task<yearBudgetComparisonResponse> departmentBudgetComparisonOutcome(int baseYear, int comparedYear)
+        {
+            var baseReport = await _reportDb.department_budget_year_report.Where(i => i.year == baseYear).FirstOrDefaultAsync();
+            var comparedReport = await _reportDb.department_budget_year_report.Where(i => i.year == comparedYear).FirstOrDefaultAsync();
+
+            return new yearBudgetComparisonResponse
+            {
+                baseTotalAllocated = baseReport?.total_allocated,
+                baseTotalApproved = baseReport?.total_approved,
+                baseTotalRequested = baseReport?.total_requested,
+                baseYear = baseYear,
+                
+                comparedYear = comparedYear,
+                comparedBaseTotalAllocated = comparedReport?.total_allocated,
+                comparedBaseTotalApproved = comparedReport?.total_approved,
+                comparedBaseTotalRequested = comparedReport?.total_requested,
+            };
         }
     }
 }

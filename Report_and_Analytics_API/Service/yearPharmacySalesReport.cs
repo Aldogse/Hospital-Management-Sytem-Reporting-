@@ -32,6 +32,11 @@ namespace Report_and_Analytics_API.Service
                         await YearPharmacySalesReportService(repository, database);
                         await jobRepo.markAsRunThisYear("YearPharmacySalesReportService", year);
                     }
+                    else
+                    {
+                        _logger.LogInformation(message: "Service already run for the month");
+                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                    }
                 }
                 else
                 {

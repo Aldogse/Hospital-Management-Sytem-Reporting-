@@ -15,12 +15,6 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [Key]
         public int record_id { get; set; }
 
-        [ForeignKey("patientinfo")]
-        public int patient_id { get; set; }
-        [JsonIgnore]
-        public patientinfo patientinfo { get; set; }
-
-
         [ForeignKey("hospital_Services")]
         public int service_id { get; set; }
         [JsonIgnore]

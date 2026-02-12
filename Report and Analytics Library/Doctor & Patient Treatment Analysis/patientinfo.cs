@@ -13,7 +13,7 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         [Key]
         public int patient_id { get; set; }
         public string fname { get; set; }
-        public string? mname { get; set; }
+        public string mname { get; set; }
         public string lname { get; set; }
         public string address { get; set; }
         public int age { get; set; }
@@ -23,11 +23,9 @@ namespace Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis
         public string phone_number { get; set; }
         public string email { get; set; }
         public string admission_type { get; set; }
-        public int bed_number { get; set; }
         public int attending_doctor { get; set; }
-        public ICollection<p_appointments> p_Appointments { get; set; }
-        public ICollection<p_bed_assignments> bed_Assignments { get; set; }
-        public ICollection<p_emr> emr { get; set; }
-        public ICollection<p_treatment_history> treatment_Histories { get; set; }
+        public string height { get; set; }
+        public string weight { get; set; }
+        public string color_of_eyes { get; set; }
     }
 }

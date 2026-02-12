@@ -1,34 +1,45 @@
 ﻿using System.Threading.Tasks;
-using MimeKit.Cryptography;
 
 namespace Report_and_Analytics_API.Middleware
 {
-    public class apiKeyMiddleWare
+    public class apiKeyMiddleware
     {
-        private readonly string _apiKey;
         private readonly RequestDelegate _next;
+        private readonly ILogger<apiKeyMiddleware> _logger;
+        private readonly string _apiKey;
 
-        public apiKeyMiddleWare(IConfiguration config,RequestDelegate next)
+        public apiKeyMiddleware(IConfiguration configuration,RequestDelegate next,ILogger<apiKeyMiddleware>logger)
         {
-            _apiKey = config["X-API-KEY"];
             _next = next;
+            _logger = logger;
+            _apiKey = configuration["X-API-KEY"];
         }
 
-        public async Task InvokeAsync(HttpContext context)
+        public async void InvokeAsync(HttpContext context)
         {
-            if (!context.Request.Headers.TryGetValue("X-API-KEY",out var extractedKey))
+            try
             {
-                context.Response.StatusCode = 401;
+                if(!context.Request.Headers.TryGetValue("X-API-KEY",out var extractedKey))
+                {
+                    context.Response.StatusCode = 401;
+                    await context.Response.WriteAsync("Missing Key");
+                    return;
+                }
+
+                if (!extractedKey.Equals(_apiKey))
+                {
+                    context.Response.StatusCode = 401;
+                    await context.Response.WriteAsync("Key not matched");
+                    return;
+                }
+
+                await _next(context);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message:$"Error:{ex.Message}");
                 return;
             }
-
-            if (!_apiKey.Equals(extractedKey))
-            {
-                context.Response.StatusCode = 401;
-                return;
-            }
-
-            await _next(context);
         }
     }
 }

@@ -8,24 +8,33 @@ namespace Report_and_Analytics_API.Service
     public class dailyAttendanceReportGeneratorService : BackgroundService
     {
         private readonly IServiceScopeFactory _serviceScope;
+        private readonly ILogger<dailyAttendanceReportGeneratorService> _logger;
 
-        public dailyAttendanceReportGeneratorService(IServiceScopeFactory serviceScope)
+        public dailyAttendanceReportGeneratorService(IServiceScopeFactory serviceScope,ILogger<dailyAttendanceReportGeneratorService>logger)
         {
             _serviceScope = serviceScope;
+            _logger = logger;
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            using var scope = _serviceScope.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-
+        {          
             while (!stoppingToken.IsCancellationRequested)
             {
-                DateTime now = DateTime.Now;
-                DateTime nextMidnight = DateTime.Now.AddDays(1);
-                TimeSpan delay = now - nextMidnight;
-                await Task.Delay(delay);
+                try
+                {
+                    using var scope = _serviceScope.CreateScope();
+                    var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    DateTime now = DateTime.Now;
+                    DateTime nextMidnight = DateTime.Now.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;
+                    await Task.Delay(delay,stoppingToken);
 
-                await dailyAttendanceReport(dbContext);
+                    await dailyAttendanceReport(dbContext);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error: {ex.Message}");
+                    await Task.Delay(TimeSpan.FromMinutes(20),stoppingToken);
+                }
             }
         }
 
@@ -38,9 +47,9 @@ namespace Report_and_Analytics_API.Service
             {
                 var attendance_report = await (
                     from attendance in reportDb.hr_daily_attendance
-                    where attendance.attendance_date.Day == 31
-                    && attendance.attendance_date.Month == 8
-                    && attendance.attendance_date.Year == 2025
+                    where attendance.attendance_date.Day == prevDay.Day
+                    && attendance.attendance_date.Month == prevDay.Month
+                    && attendance.attendance_date.Year == prevDay.Year
                     group new { attendance } by 1 into x 
                     select new
                     {
@@ -67,7 +76,8 @@ namespace Report_and_Analytics_API.Service
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError($"Error: {ex.Message}");
+                return;
             }
         }
     }

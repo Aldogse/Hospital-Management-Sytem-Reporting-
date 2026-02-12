@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
+using Report_and_Analytics_API.Interface;
 
 namespace Report_and_Analytics_API.Controllers
 {
@@ -11,11 +12,13 @@ namespace Report_and_Analytics_API.Controllers
     {
         private readonly ReportDbContext _reportDbContext;
         private readonly ILogger<billingController> _logger;
+        private readonly IjournalRepository _repository;
 
-        public billingController(ReportDbContext reportDbContext,ILogger<billingController> logger)
+        public billingController(ReportDbContext reportDbContext,ILogger<billingController> logger,IjournalRepository repository)
         {
             _reportDbContext = reportDbContext;
             _logger = logger;
+            _repository = repository;
         }
 
         //ENDPOINT FOR PHARMACY SALES REPORT
@@ -60,37 +63,24 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         //END POINT FOR DEPARTMENT BUDGET REPORT
-        [HttpGet("getYearDepartmentBudgetDetails/{year}")]
-        public async Task<IActionResult> getYearDepartmentBudgetDetails(int year)
+        [HttpGet("compareYearBudgets")]
+        public async Task<IActionResult> compareYearBudgets([FromQuery]int year,[FromQuery]int partnerYear)
         {
             try
             {
-                var budget = await _reportDbContext.department_budgets
-                    .Where(i => i.request_date.Year == year)
-                    .OrderBy(i => i.month)
-                    .ToListAsync();
+                if (year.Equals(partnerYear))
+                {
+                    return StatusCode(400,"cannot compare same year");
+                }
 
-
-                var response = await (
-                    from year_report in _reportDbContext.department_budget_year_report
-                    where year_report.year == year
-                    group year_report by 1 into x
-                    select new departmentBudgetYearSummaryResponse
-                    {
-                        totalAllocated = x.Select(x => x.total_allocated).FirstOrDefault(),
-                        totalApproved =  x.Select(x => x.total_approved).FirstOrDefault(),
-                        totalRequested = x.Select(x => x.total_requested).FirstOrDefault(), 
-                        budgets = budget
-                    }).FirstOrDefaultAsync();
-
+                var response = await _repository.departmentBudgetComparisonOutcome(year,partnerYear);
 
                 if(response == null)
                 {
                     return Ok(new
                     {
                         success = true,
-                        message = $"No data has been extracted..",
-                        data = (object?)null
+                        message = $"No data found for selected year"
                     });
                 }
 

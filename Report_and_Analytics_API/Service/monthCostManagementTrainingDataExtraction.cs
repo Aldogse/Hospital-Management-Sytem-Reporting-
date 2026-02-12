@@ -41,7 +41,7 @@ namespace Report_and_Analytics_API.Service
                         else
                         {
                             _logger.LogError(message: $"Either primary service did not run yet or service already run for the month");
-                            return;
+                            await Task.Delay(TimeSpan.FromMinutes(20),stoppingToken);
                         }                  
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);

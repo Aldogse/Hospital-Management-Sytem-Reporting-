@@ -165,5 +165,29 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("getMonthInsuranceReport")]
+        public async Task<IActionResult> getMonthInsuranceReport([FromQuery]int month,[FromQuery]int year,[FromQuery]int page,[FromQuery]int size)
+        {
+            try
+            {
+                var insuranceReport = await _claimRepository.getMonthsClaimHistory(month,year,page,size);
+
+                if(insuranceReport == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No data found for the month",
+                        data = (object?)null
+                    });
+                }
+                return Ok(insuranceReport);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }

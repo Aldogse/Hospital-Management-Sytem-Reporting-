@@ -1,4 +1,5 @@
-﻿using APIResponses.PayrollResponse;
+﻿using APIResponses.Historical_report.Models;
+using APIResponses.PayrollResponse;
 using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
@@ -12,6 +13,13 @@ namespace Report_and_Analytics_API.Repository
         public hrPayrollRepository(ReportDbContext reportDbContext)
         {
             _reportDbContext = reportDbContext; 
+        }
+
+        public async Task<month_payroll_summary> hospitalMonthPayrollReport(int month, int year)
+        {
+            var report = await _reportDbContext.month_payroll_summary.Where(i => i.month == month && i.year == year)
+                 .FirstOrDefaultAsync();
+            return report;
         }
 
         //GET ALL EMPLOYEE MONTH SALARY SUMMARY

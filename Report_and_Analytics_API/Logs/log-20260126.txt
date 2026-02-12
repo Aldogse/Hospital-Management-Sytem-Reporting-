@@ -1,0 +1,1028 @@
+2026-01-26 13:00:30.153 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 13:00:30.197 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 13:00:30.251 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 13:00:30.253 +08:00 [INF] Hosting environment: Development
+2026-01-26 13:00:30.254 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 13:00:31.432 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger - null null
+2026-01-26 13:00:31.681 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger - 301 0 null 253.1892ms
+2026-01-26 13:00:31.687 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 13:00:31.754 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - null null
+2026-01-26 13:00:31.754 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - null null
+2026-01-26 13:00:31.762 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 74.6964ms
+2026-01-26 13:00:31.755 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - null null
+2026-01-26 13:00:31.799 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-01-26 13:00:31.799 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-01-26 13:00:31.801 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 46.6788ms
+2026-01-26 13:00:31.803 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui.css - 200 152034 text/css 49.6959ms
+2026-01-26 13:00:31.809 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 13:00:31.809 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 13:00:31.818 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-01-26 13:00:31.821 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 65.965ms
+2026-01-26 13:00:31.824 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 15.51ms
+2026-01-26 13:00:31.860 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.4967ms
+2026-01-26 13:00:31.964 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 13:00:31.983 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.39ms
+2026-01-26 13:02:00.261 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2026 - null null
+2026-01-26 13:02:00.267 +08:00 [INF] CORS policy execution successful.
+2026-01-26 13:02:00.281 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2026 - 307 0 null 20.5075ms
+2026-01-26 13:02:00.605 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2026 - null null
+2026-01-26 13:02:00.609 +08:00 [INF] CORS policy execution successful.
+2026-01-26 13:02:00.613 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 13:02:00.636 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 13:02:02.707 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-26 13:02:02.761 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 13:02:02.771 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 2130.3899ms
+2026-01-26 13:02:02.773 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 13:02:02.776 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/9/2026 responded 200 in 2164.2098 ms
+2026-01-26 13:02:02.783 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2026 - 200 null application/json; charset=utf-8 2178.0918ms
+2026-01-26 13:02:03.008 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/8/2026 - null null
+2026-01-26 13:02:03.012 +08:00 [INF] CORS policy execution successful.
+2026-01-26 13:02:03.013 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/8/2026 - 307 0 null 5.4316ms
+2026-01-26 13:02:03.019 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/8/2026 - null null
+2026-01-26 13:02:03.021 +08:00 [INF] CORS policy execution successful.
+2026-01-26 13:02:03.022 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 13:02:03.023 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 13:02:03.056 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-26 13:02:03.059 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 13:02:03.060 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 34.9934ms
+2026-01-26 13:02:03.061 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 13:02:03.062 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/8/2026 responded 200 in 40.1359 ms
+2026-01-26 13:02:03.064 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/8/2026 - 200 null application/json; charset=utf-8 45.6702ms
+2026-01-26 17:32:48.260 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 17:32:48.306 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 17:32:48.356 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 17:32:48.357 +08:00 [INF] Hosting environment: Development
+2026-01-26 17:32:48.359 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 17:32:49.308 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 17:32:49.484 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 179.9392ms
+2026-01-26 17:32:49.502 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 17:32:49.506 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 17:32:49.516 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 15.1438ms
+2026-01-26 17:32:49.549 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.0725ms
+2026-01-26 17:32:49.662 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 17:32:49.686 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.8716ms
+2026-01-26 17:33:07.862 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - null null
+2026-01-26 17:33:07.870 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:33:07.892 +08:00 [INF] Route matched with {action = "getMonthInsuranceReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 17:33:09.366 +08:00 [ERR] Failed executing DbCommand (67ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`approveClaims`, `m`.`declinedClaims`, `m`.`month`, `m`.`pendingClaims`, `m`.`year`
+FROM `monthly_claim_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-26 17:33:09.428 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'm.pendingClaims' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'm.pendingClaims' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-01-26 17:33:09.585 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-01-26 17:33:09.591 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API) in 1694.3351ms
+2026-01-26 17:33:09.593 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:33:09.596 +08:00 [ERR] HTTP GET /insurance/getMonthInsuranceReport responded 500 in 1725.5526 ms
+2026-01-26 17:33:09.604 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - 500 null text/plain; charset=utf-8 1742.2576ms
+2026-01-26 17:33:29.048 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/12/2025 - null null
+2026-01-26 17:33:29.057 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 17:33:29.063 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 17:33:29.277 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-26 17:33:29.299 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 17:33:29.304 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 237.697ms
+2026-01-26 17:33:29.306 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-26 17:33:29.307 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/12/2025 responded 200 in 250.1511 ms
+2026-01-26 17:33:29.309 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/12/2025 - 200 null application/json; charset=utf-8 261.1461ms
+2026-01-26 17:33:50.246 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - null null
+2026-01-26 17:33:50.250 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:33:50.252 +08:00 [INF] Route matched with {action = "getMonthInsuranceReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 17:34:17.849 +08:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`approveClaims`, `m`.`declinedClaims`, `m`.`month`, `m`.`pendingClaims`, `m`.`year`
+FROM `monthly_claim_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-26 17:34:17.853 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+MySqlConnector.MySqlException (0x80004005): Unknown column 'm.pendingClaims' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Unknown column 'm.pendingClaims' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-01-26 17:34:17.942 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-01-26 17:34:17.944 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API) in 27690.9506ms
+2026-01-26 17:34:17.946 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:34:17.947 +08:00 [ERR] HTTP GET /insurance/getMonthInsuranceReport responded 500 in 27696.9086 ms
+2026-01-26 17:34:17.949 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - 500 null text/plain; charset=utf-8 27702.6818ms
+2026-01-26 17:35:03.778 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 17:35:03.812 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 17:35:03.862 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 17:35:03.863 +08:00 [INF] Hosting environment: Development
+2026-01-26 17:35:03.865 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 17:35:04.707 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 17:35:04.874 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 169.8997ms
+2026-01-26 17:35:04.878 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 17:35:04.878 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 17:35:04.898 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 19.4896ms
+2026-01-26 17:35:04.925 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.1152ms
+2026-01-26 17:35:04.955 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 17:35:04.981 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.0918ms
+2026-01-26 17:35:11.541 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - null null
+2026-01-26 17:35:11.554 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:35:11.581 +08:00 [INF] Route matched with {action = "getMonthInsuranceReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 17:35:39.216 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE ((`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)) AND (`i`.`status` = 'approved')
+2026-01-26 17:35:42.231 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE ((`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)) AND (`i`.`status` = 'denied')
+2026-01-26 17:35:45.435 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+2026-01-26 17:35:48.122 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-01-26 17:35:48.135 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT 1 AS `Key`
+    FROM `insurance_claims` AS `i`
+    WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2026-01-26 17:35:56.754 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.claim_response.monthClaimsHistory'.
+2026-01-26 17:35:56.779 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API) in 45191.2461ms
+2026-01-26 17:35:56.783 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 17:35:56.785 +08:00 [INF] HTTP GET /insurance/getMonthInsuranceReport responded 200 in 45232.7313 ms
+2026-01-26 17:35:56.793 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - 200 null application/json; charset=utf-8 45251.8206ms
+2026-01-26 18:05:13.062 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 18:05:13.103 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 18:05:13.129 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-26 18:05:13.212 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 18:05:13.214 +08:00 [INF] Hosting environment: Development
+2026-01-26 18:05:13.215 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 18:05:32.204 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 18:05:32.254 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+2026-01-26 18:06:17.954 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 18:06:17.988 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 18:06:18.019 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-26 18:06:18.042 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 18:06:18.043 +08:00 [INF] Hosting environment: Development
+2026-01-26 18:06:18.049 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 18:06:20.727 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 18:06:20.758 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+2026-01-26 18:06:31.699 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 10976.7802ms
+2026-01-26 18:06:31.704 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 18:06:31.708 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 18:06:31.715 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.2561ms
+2026-01-26 18:06:31.747 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.3857ms
+2026-01-26 18:06:31.775 +08:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `monthly_claim_report` (`month`, `total_approved_claims`, `total_claims`, `total_denied_claims`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `report_ID`
+FROM `monthly_claim_report`
+WHERE ROW_COUNT() = 1 AND `report_ID` = LAST_INSERT_ID();
+2026-01-26 18:06:31.793 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 18:06:31.835 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 42.9102ms
+2026-01-26 18:06:31.844 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'report_ID' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'report_ID' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-01-26 18:06:31.931 +08:00 [ERR] Error: An error occurred while saving the entity changes. See the inner exception for details.
+2026-01-26 18:06:31.962 +08:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `month_job_run_logs` (`job_name`, `last_run`, `run_month`, `run_year`)
+VALUES (@p0, @p1, @p2, @p3);
+INSERT INTO `monthly_claim_report` (`month`, `total_approved_claims`, `total_claims`, `total_denied_claims`, `year`)
+VALUES (@p4, @p5, @p6, @p7, @p8);
+SELECT `report_ID`
+FROM `monthly_claim_report`
+WHERE ROW_COUNT() = 1 AND `report_ID` = LAST_INSERT_ID();
+2026-01-26 18:06:31.971 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'report_ID' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'report_ID' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-01-26 18:06:32.087 +08:00 [ERR] Error:An error occurred while saving the entity changes. See the inner exception for details.
+2026-01-26 18:08:36.626 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 18:08:36.666 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 18:08:36.690 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-26 18:08:36.737 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 18:08:36.739 +08:00 [INF] Hosting environment: Development
+2026-01-26 18:08:36.740 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 18:08:38.674 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 18:08:38.702 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+2026-01-26 18:08:50.125 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 11456.2315ms
+2026-01-26 18:08:50.131 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 18:08:50.133 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 18:08:50.141 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.6296ms
+2026-01-26 18:08:50.178 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.2726ms
+2026-01-26 18:08:50.202 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `monthly_claim_report` (`month`, `total_approved_claims`, `total_claims`, `total_denied_claims`, `year`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `monthly_claim_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-01-26 18:08:50.212 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 18:08:50.234 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.8765ms
+2026-01-26 18:08:55.670 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `month_job_run_logs` (`job_name`, `last_run`, `run_month`, `run_year`)
+VALUES (@p0, @p1, @p2, @p3);
+2026-01-26 18:08:55.695 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__jobName_0='?' (Size = 255), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `month_job_run_logs` AS `m`
+    WHERE ((`m`.`job_name` = @__jobName_0) AND (`m`.`run_month` = @__month_1)) AND (`m`.`run_year` = @__year_2))
+2026-01-26 18:08:55.697 +08:00 [INF] Job already run for the month
+2026-01-26 18:21:24.180 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 18:21:24.231 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 18:21:24.284 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 18:21:24.285 +08:00 [INF] Hosting environment: Development
+2026-01-26 18:21:24.287 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 18:21:24.941 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 18:21:25.139 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 18:21:25.139 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 18:21:25.143 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 206.7992ms
+2026-01-26 18:21:25.146 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.7746ms
+2026-01-26 18:21:25.177 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.9529ms
+2026-01-26 18:21:25.210 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 18:21:25.233 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.8619ms
+2026-01-26 18:22:08.308 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - null null
+2026-01-26 18:22:08.319 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 18:22:08.338 +08:00 [INF] Route matched with {action = "getMonthInsuranceReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-26 18:22:11.905 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`total_approved_claims`, `m`.`total_claims`, `m`.`total_denied_claims`, `m`.`year`
+FROM `monthly_claim_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-26 18:22:12.002 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE ((`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)) AND (`i`.`status` = 'approved')
+2026-01-26 18:22:12.032 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE ((`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)) AND (`i`.`status` = 'denied')
+2026-01-26 18:22:12.041 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+2026-01-26 18:22:12.082 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-01-26 18:22:12.092 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+FROM (
+    SELECT 1 AS `Key`
+    FROM `insurance_claims` AS `i`
+    WHERE (`i`.`resolved_date` >= @__startDate_0) AND (`i`.`resolved_date` < @__endDate_1)
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2026-01-26 18:22:12.099 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.claim_response.monthClaimsHistory'.
+2026-01-26 18:22:12.117 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API) in 3772.5106ms
+2026-01-26 18:22:12.118 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceReport (Report_and_Analytics_API)'
+2026-01-26 18:22:12.121 +08:00 [INF] HTTP GET /insurance/getMonthInsuranceReport responded 200 in 3802.8127 ms
+2026-01-26 18:22:12.129 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthInsuranceReport?month=12&year=2025 - 200 null application/json; charset=utf-8 3821.2785ms
+2026-01-26 19:27:31.176 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-26 19:27:31.219 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-26 19:27:31.275 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 19:27:31.277 +08:00 [INF] Hosting environment: Development
+2026-01-26 19:27:31.277 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-26 19:27:32.150 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-26 19:27:32.419 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 272.9568ms
+2026-01-26 19:27:32.423 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-26 19:27:32.423 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-26 19:27:32.438 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 15.3567ms
+2026-01-26 19:27:32.470 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.6293ms
+2026-01-26 19:27:32.499 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-26 19:27:32.521 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.5479ms
+2026-01-26 19:28:45.375 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/10/2025 - null null
+2026-01-26 19:28:45.394 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:45.420 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-01-26 19:28:47.428 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, (
+    SELECT `h1`.`first_name`
+    FROM `hr_employees` AS `h1`
+    INNER JOIN `employeepayrollmonthreports` AS `e0` ON `h1`.`employee_id` = `e0`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h2` ON `e0`.`employeeId` = `h2`.`employee_id`
+    WHERE ((`e0`.`month` = @__month_0) AND (`e0`.`year` = @__year_1)) AND (`h`.`employee_id` = `h1`.`employee_id`)
+    LIMIT 1) AS `firstName`, (
+    SELECT `h3`.`middle_name`
+    FROM `hr_employees` AS `h3`
+    INNER JOIN `employeepayrollmonthreports` AS `e1` ON `h3`.`employee_id` = `e1`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h4` ON `e1`.`employeeId` = `h4`.`employee_id`
+    WHERE ((`e1`.`month` = @__month_0) AND (`e1`.`year` = @__year_1)) AND (`h`.`employee_id` = `h3`.`employee_id`)
+    LIMIT 1) AS `middleName`, (
+    SELECT `h5`.`last_name`
+    FROM `hr_employees` AS `h5`
+    INNER JOIN `employeepayrollmonthreports` AS `e2` ON `h5`.`employee_id` = `e2`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h6` ON `e2`.`employeeId` = `h6`.`employee_id`
+    WHERE ((`e2`.`month` = @__month_0) AND (`e2`.`year` = @__year_1)) AND (`h`.`employee_id` = `h5`.`employee_id`)
+    LIMIT 1) AS `lastName`, (
+    SELECT `h7`.`department`
+    FROM `hr_employees` AS `h7`
+    INNER JOIN `employeepayrollmonthreports` AS `e3` ON `h7`.`employee_id` = `e3`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h8` ON `e3`.`employeeId` = `h8`.`employee_id`
+    WHERE ((`e3`.`month` = @__month_0) AND (`e3`.`year` = @__year_1)) AND (`h`.`employee_id` = `h7`.`employee_id`)
+    LIMIT 1) AS `department`, (
+    SELECT `h9`.`role`
+    FROM `hr_employees` AS `h9`
+    INNER JOIN `employeepayrollmonthreports` AS `e4` ON `h9`.`employee_id` = `e4`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h10` ON `e4`.`employeeId` = `h10`.`employee_id`
+    WHERE ((`e4`.`month` = @__month_0) AND (`e4`.`year` = @__year_1)) AND (`h`.`employee_id` = `h9`.`employee_id`)
+    LIMIT 1) AS `role`, (
+    SELECT `h12`.`basic_pay`
+    FROM `hr_employees` AS `h11`
+    INNER JOIN `employeepayrollmonthreports` AS `e5` ON `h11`.`employee_id` = `e5`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h12` ON `e5`.`employeeId` = `h12`.`employee_id`
+    WHERE ((`e5`.`month` = @__month_0) AND (`e5`.`year` = @__year_1)) AND (`h`.`employee_id` = `h11`.`employee_id`)
+    LIMIT 1) AS `basicSalary`, (
+    SELECT `h14`.`overtime_pay`
+    FROM `hr_employees` AS `h13`
+    INNER JOIN `employeepayrollmonthreports` AS `e6` ON `h13`.`employee_id` = `e6`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h14` ON `e6`.`employeeId` = `h14`.`employee_id`
+    WHERE (((`e6`.`month` = @__month_0) AND (`e6`.`year` = @__year_1)) AND (`h`.`employee_id` = `h13`.`employee_id`)) AND (EXTRACT(day FROM `h14`.`pay_period_start`) = 16)
+    LIMIT 1) AS `overtimePay`, COALESCE(SUM(CASE
+    WHEN (`h0`.`employee_id` = `h`.`employee_id`) AND (EXTRACT(day FROM `h0`.`pay_period_start`) = 16) THEN `h0`.`sss_deduction`
+END), 0.0) AS `deductions`, (
+    SELECT `e7`.`monthTotalWage`
+    FROM `hr_employees` AS `h15`
+    INNER JOIN `employeepayrollmonthreports` AS `e7` ON `h15`.`employee_id` = `e7`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h16` ON `e7`.`employeeId` = `h16`.`employee_id`
+    WHERE (((`e7`.`month` = @__month_0) AND (`e7`.`year` = @__year_1)) AND (`h`.`employee_id` = `h15`.`employee_id`)) AND (((`e7`.`employeeId` = `h`.`employee_id`) AND (`e7`.`month` = @__month_0)) AND (`e7`.`year` = @__year_1))
+    LIMIT 1) AS `netPay`
+FROM `hr_employees` AS `h`
+INNER JOIN `employeepayrollmonthreports` AS `e` ON `h`.`employee_id` = `e`.`employeeId`
+INNER JOIN `hr_payroll` AS `h0` ON `e`.`employeeId` = `h0`.`employee_id`
+WHERE (`e`.`month` = @__month_0) AND (`e`.`year` = @__year_1)
+GROUP BY `h`.`employee_id`
+2026-01-26 19:28:47.485 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 19:28:47.494 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 2067.2356ms
+2026-01-26 19:28:47.495 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:47.497 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport/10/2025 responded 200 in 2105.5555 ms
+2026-01-26 19:28:47.504 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/10/2025 - 200 null application/json; charset=utf-8 2129.2636ms
+2026-01-26 19:28:50.529 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/11/2025 - null null
+2026-01-26 19:28:50.534 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:50.536 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-01-26 19:28:50.569 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, (
+    SELECT `h1`.`first_name`
+    FROM `hr_employees` AS `h1`
+    INNER JOIN `employeepayrollmonthreports` AS `e0` ON `h1`.`employee_id` = `e0`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h2` ON `e0`.`employeeId` = `h2`.`employee_id`
+    WHERE ((`e0`.`month` = @__month_0) AND (`e0`.`year` = @__year_1)) AND (`h`.`employee_id` = `h1`.`employee_id`)
+    LIMIT 1) AS `firstName`, (
+    SELECT `h3`.`middle_name`
+    FROM `hr_employees` AS `h3`
+    INNER JOIN `employeepayrollmonthreports` AS `e1` ON `h3`.`employee_id` = `e1`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h4` ON `e1`.`employeeId` = `h4`.`employee_id`
+    WHERE ((`e1`.`month` = @__month_0) AND (`e1`.`year` = @__year_1)) AND (`h`.`employee_id` = `h3`.`employee_id`)
+    LIMIT 1) AS `middleName`, (
+    SELECT `h5`.`last_name`
+    FROM `hr_employees` AS `h5`
+    INNER JOIN `employeepayrollmonthreports` AS `e2` ON `h5`.`employee_id` = `e2`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h6` ON `e2`.`employeeId` = `h6`.`employee_id`
+    WHERE ((`e2`.`month` = @__month_0) AND (`e2`.`year` = @__year_1)) AND (`h`.`employee_id` = `h5`.`employee_id`)
+    LIMIT 1) AS `lastName`, (
+    SELECT `h7`.`department`
+    FROM `hr_employees` AS `h7`
+    INNER JOIN `employeepayrollmonthreports` AS `e3` ON `h7`.`employee_id` = `e3`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h8` ON `e3`.`employeeId` = `h8`.`employee_id`
+    WHERE ((`e3`.`month` = @__month_0) AND (`e3`.`year` = @__year_1)) AND (`h`.`employee_id` = `h7`.`employee_id`)
+    LIMIT 1) AS `department`, (
+    SELECT `h9`.`role`
+    FROM `hr_employees` AS `h9`
+    INNER JOIN `employeepayrollmonthreports` AS `e4` ON `h9`.`employee_id` = `e4`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h10` ON `e4`.`employeeId` = `h10`.`employee_id`
+    WHERE ((`e4`.`month` = @__month_0) AND (`e4`.`year` = @__year_1)) AND (`h`.`employee_id` = `h9`.`employee_id`)
+    LIMIT 1) AS `role`, (
+    SELECT `h12`.`basic_pay`
+    FROM `hr_employees` AS `h11`
+    INNER JOIN `employeepayrollmonthreports` AS `e5` ON `h11`.`employee_id` = `e5`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h12` ON `e5`.`employeeId` = `h12`.`employee_id`
+    WHERE ((`e5`.`month` = @__month_0) AND (`e5`.`year` = @__year_1)) AND (`h`.`employee_id` = `h11`.`employee_id`)
+    LIMIT 1) AS `basicSalary`, (
+    SELECT `h14`.`overtime_pay`
+    FROM `hr_employees` AS `h13`
+    INNER JOIN `employeepayrollmonthreports` AS `e6` ON `h13`.`employee_id` = `e6`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h14` ON `e6`.`employeeId` = `h14`.`employee_id`
+    WHERE (((`e6`.`month` = @__month_0) AND (`e6`.`year` = @__year_1)) AND (`h`.`employee_id` = `h13`.`employee_id`)) AND (EXTRACT(day FROM `h14`.`pay_period_start`) = 16)
+    LIMIT 1) AS `overtimePay`, COALESCE(SUM(CASE
+    WHEN (`h0`.`employee_id` = `h`.`employee_id`) AND (EXTRACT(day FROM `h0`.`pay_period_start`) = 16) THEN `h0`.`sss_deduction`
+END), 0.0) AS `deductions`, (
+    SELECT `e7`.`monthTotalWage`
+    FROM `hr_employees` AS `h15`
+    INNER JOIN `employeepayrollmonthreports` AS `e7` ON `h15`.`employee_id` = `e7`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h16` ON `e7`.`employeeId` = `h16`.`employee_id`
+    WHERE (((`e7`.`month` = @__month_0) AND (`e7`.`year` = @__year_1)) AND (`h`.`employee_id` = `h15`.`employee_id`)) AND (((`e7`.`employeeId` = `h`.`employee_id`) AND (`e7`.`month` = @__month_0)) AND (`e7`.`year` = @__year_1))
+    LIMIT 1) AS `netPay`
+FROM `hr_employees` AS `h`
+INNER JOIN `employeepayrollmonthreports` AS `e` ON `h`.`employee_id` = `e`.`employeeId`
+INNER JOIN `hr_payroll` AS `h0` ON `e`.`employeeId` = `h0`.`employee_id`
+WHERE (`e`.`month` = @__month_0) AND (`e`.`year` = @__year_1)
+GROUP BY `h`.`employee_id`
+2026-01-26 19:28:50.572 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 19:28:50.573 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 35.4664ms
+2026-01-26 19:28:50.574 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:50.575 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport/11/2025 responded 200 in 40.4586 ms
+2026-01-26 19:28:50.576 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/11/2025 - 200 null application/json; charset=utf-8 48.0332ms
+2026-01-26 19:28:53.169 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/9/2025 - null null
+2026-01-26 19:28:53.171 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:53.173 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-01-26 19:28:53.234 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, (
+    SELECT `h1`.`first_name`
+    FROM `hr_employees` AS `h1`
+    INNER JOIN `employeepayrollmonthreports` AS `e0` ON `h1`.`employee_id` = `e0`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h2` ON `e0`.`employeeId` = `h2`.`employee_id`
+    WHERE ((`e0`.`month` = @__month_0) AND (`e0`.`year` = @__year_1)) AND (`h`.`employee_id` = `h1`.`employee_id`)
+    LIMIT 1) AS `firstName`, (
+    SELECT `h3`.`middle_name`
+    FROM `hr_employees` AS `h3`
+    INNER JOIN `employeepayrollmonthreports` AS `e1` ON `h3`.`employee_id` = `e1`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h4` ON `e1`.`employeeId` = `h4`.`employee_id`
+    WHERE ((`e1`.`month` = @__month_0) AND (`e1`.`year` = @__year_1)) AND (`h`.`employee_id` = `h3`.`employee_id`)
+    LIMIT 1) AS `middleName`, (
+    SELECT `h5`.`last_name`
+    FROM `hr_employees` AS `h5`
+    INNER JOIN `employeepayrollmonthreports` AS `e2` ON `h5`.`employee_id` = `e2`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h6` ON `e2`.`employeeId` = `h6`.`employee_id`
+    WHERE ((`e2`.`month` = @__month_0) AND (`e2`.`year` = @__year_1)) AND (`h`.`employee_id` = `h5`.`employee_id`)
+    LIMIT 1) AS `lastName`, (
+    SELECT `h7`.`department`
+    FROM `hr_employees` AS `h7`
+    INNER JOIN `employeepayrollmonthreports` AS `e3` ON `h7`.`employee_id` = `e3`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h8` ON `e3`.`employeeId` = `h8`.`employee_id`
+    WHERE ((`e3`.`month` = @__month_0) AND (`e3`.`year` = @__year_1)) AND (`h`.`employee_id` = `h7`.`employee_id`)
+    LIMIT 1) AS `department`, (
+    SELECT `h9`.`role`
+    FROM `hr_employees` AS `h9`
+    INNER JOIN `employeepayrollmonthreports` AS `e4` ON `h9`.`employee_id` = `e4`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h10` ON `e4`.`employeeId` = `h10`.`employee_id`
+    WHERE ((`e4`.`month` = @__month_0) AND (`e4`.`year` = @__year_1)) AND (`h`.`employee_id` = `h9`.`employee_id`)
+    LIMIT 1) AS `role`, (
+    SELECT `h12`.`basic_pay`
+    FROM `hr_employees` AS `h11`
+    INNER JOIN `employeepayrollmonthreports` AS `e5` ON `h11`.`employee_id` = `e5`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h12` ON `e5`.`employeeId` = `h12`.`employee_id`
+    WHERE ((`e5`.`month` = @__month_0) AND (`e5`.`year` = @__year_1)) AND (`h`.`employee_id` = `h11`.`employee_id`)
+    LIMIT 1) AS `basicSalary`, (
+    SELECT `h14`.`overtime_pay`
+    FROM `hr_employees` AS `h13`
+    INNER JOIN `employeepayrollmonthreports` AS `e6` ON `h13`.`employee_id` = `e6`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h14` ON `e6`.`employeeId` = `h14`.`employee_id`
+    WHERE (((`e6`.`month` = @__month_0) AND (`e6`.`year` = @__year_1)) AND (`h`.`employee_id` = `h13`.`employee_id`)) AND (EXTRACT(day FROM `h14`.`pay_period_start`) = 16)
+    LIMIT 1) AS `overtimePay`, COALESCE(SUM(CASE
+    WHEN (`h0`.`employee_id` = `h`.`employee_id`) AND (EXTRACT(day FROM `h0`.`pay_period_start`) = 16) THEN `h0`.`sss_deduction`
+END), 0.0) AS `deductions`, (
+    SELECT `e7`.`monthTotalWage`
+    FROM `hr_employees` AS `h15`
+    INNER JOIN `employeepayrollmonthreports` AS `e7` ON `h15`.`employee_id` = `e7`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h16` ON `e7`.`employeeId` = `h16`.`employee_id`
+    WHERE (((`e7`.`month` = @__month_0) AND (`e7`.`year` = @__year_1)) AND (`h`.`employee_id` = `h15`.`employee_id`)) AND (((`e7`.`employeeId` = `h`.`employee_id`) AND (`e7`.`month` = @__month_0)) AND (`e7`.`year` = @__year_1))
+    LIMIT 1) AS `netPay`
+FROM `hr_employees` AS `h`
+INNER JOIN `employeepayrollmonthreports` AS `e` ON `h`.`employee_id` = `e`.`employeeId`
+INNER JOIN `hr_payroll` AS `h0` ON `e`.`employeeId` = `h0`.`employee_id`
+WHERE (`e`.`month` = @__month_0) AND (`e`.`year` = @__year_1)
+GROUP BY `h`.`employee_id`
+2026-01-26 19:28:53.237 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 19:28:53.238 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 63.2744ms
+2026-01-26 19:28:53.239 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:53.240 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport/9/2025 responded 200 in 69.0050 ms
+2026-01-26 19:28:53.242 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/9/2025 - 200 null application/json; charset=utf-8 73.4204ms
+2026-01-26 19:28:59.559 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/8/2025 - null null
+2026-01-26 19:28:59.563 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:59.564 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-01-26 19:28:59.581 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`employee_id`, (
+    SELECT `h1`.`first_name`
+    FROM `hr_employees` AS `h1`
+    INNER JOIN `employeepayrollmonthreports` AS `e0` ON `h1`.`employee_id` = `e0`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h2` ON `e0`.`employeeId` = `h2`.`employee_id`
+    WHERE ((`e0`.`month` = @__month_0) AND (`e0`.`year` = @__year_1)) AND (`h`.`employee_id` = `h1`.`employee_id`)
+    LIMIT 1) AS `firstName`, (
+    SELECT `h3`.`middle_name`
+    FROM `hr_employees` AS `h3`
+    INNER JOIN `employeepayrollmonthreports` AS `e1` ON `h3`.`employee_id` = `e1`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h4` ON `e1`.`employeeId` = `h4`.`employee_id`
+    WHERE ((`e1`.`month` = @__month_0) AND (`e1`.`year` = @__year_1)) AND (`h`.`employee_id` = `h3`.`employee_id`)
+    LIMIT 1) AS `middleName`, (
+    SELECT `h5`.`last_name`
+    FROM `hr_employees` AS `h5`
+    INNER JOIN `employeepayrollmonthreports` AS `e2` ON `h5`.`employee_id` = `e2`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h6` ON `e2`.`employeeId` = `h6`.`employee_id`
+    WHERE ((`e2`.`month` = @__month_0) AND (`e2`.`year` = @__year_1)) AND (`h`.`employee_id` = `h5`.`employee_id`)
+    LIMIT 1) AS `lastName`, (
+    SELECT `h7`.`department`
+    FROM `hr_employees` AS `h7`
+    INNER JOIN `employeepayrollmonthreports` AS `e3` ON `h7`.`employee_id` = `e3`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h8` ON `e3`.`employeeId` = `h8`.`employee_id`
+    WHERE ((`e3`.`month` = @__month_0) AND (`e3`.`year` = @__year_1)) AND (`h`.`employee_id` = `h7`.`employee_id`)
+    LIMIT 1) AS `department`, (
+    SELECT `h9`.`role`
+    FROM `hr_employees` AS `h9`
+    INNER JOIN `employeepayrollmonthreports` AS `e4` ON `h9`.`employee_id` = `e4`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h10` ON `e4`.`employeeId` = `h10`.`employee_id`
+    WHERE ((`e4`.`month` = @__month_0) AND (`e4`.`year` = @__year_1)) AND (`h`.`employee_id` = `h9`.`employee_id`)
+    LIMIT 1) AS `role`, (
+    SELECT `h12`.`basic_pay`
+    FROM `hr_employees` AS `h11`
+    INNER JOIN `employeepayrollmonthreports` AS `e5` ON `h11`.`employee_id` = `e5`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h12` ON `e5`.`employeeId` = `h12`.`employee_id`
+    WHERE ((`e5`.`month` = @__month_0) AND (`e5`.`year` = @__year_1)) AND (`h`.`employee_id` = `h11`.`employee_id`)
+    LIMIT 1) AS `basicSalary`, (
+    SELECT `h14`.`overtime_pay`
+    FROM `hr_employees` AS `h13`
+    INNER JOIN `employeepayrollmonthreports` AS `e6` ON `h13`.`employee_id` = `e6`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h14` ON `e6`.`employeeId` = `h14`.`employee_id`
+    WHERE (((`e6`.`month` = @__month_0) AND (`e6`.`year` = @__year_1)) AND (`h`.`employee_id` = `h13`.`employee_id`)) AND (EXTRACT(day FROM `h14`.`pay_period_start`) = 16)
+    LIMIT 1) AS `overtimePay`, COALESCE(SUM(CASE
+    WHEN (`h0`.`employee_id` = `h`.`employee_id`) AND (EXTRACT(day FROM `h0`.`pay_period_start`) = 16) THEN `h0`.`sss_deduction`
+END), 0.0) AS `deductions`, (
+    SELECT `e7`.`monthTotalWage`
+    FROM `hr_employees` AS `h15`
+    INNER JOIN `employeepayrollmonthreports` AS `e7` ON `h15`.`employee_id` = `e7`.`employeeId`
+    INNER JOIN `hr_payroll` AS `h16` ON `e7`.`employeeId` = `h16`.`employee_id`
+    WHERE (((`e7`.`month` = @__month_0) AND (`e7`.`year` = @__year_1)) AND (`h`.`employee_id` = `h15`.`employee_id`)) AND (((`e7`.`employeeId` = `h`.`employee_id`) AND (`e7`.`month` = @__month_0)) AND (`e7`.`year` = @__year_1))
+    LIMIT 1) AS `netPay`
+FROM `hr_employees` AS `h`
+INNER JOIN `employeepayrollmonthreports` AS `e` ON `h`.`employee_id` = `e`.`employeeId`
+INNER JOIN `hr_payroll` AS `h0` ON `e`.`employeeId` = `h0`.`employee_id`
+WHERE (`e`.`month` = @__month_0) AND (`e`.`year` = @__year_1)
+GROUP BY `h`.`employee_id`
+2026-01-26 19:28:59.583 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-26 19:28:59.584 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 17.4714ms
+2026-01-26 19:28:59.586 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-01-26 19:28:59.586 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport/8/2025 responded 200 in 23.4420 ms
+2026-01-26 19:28:59.589 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport/8/2025 - 200 null application/json; charset=utf-8 29.8789ms

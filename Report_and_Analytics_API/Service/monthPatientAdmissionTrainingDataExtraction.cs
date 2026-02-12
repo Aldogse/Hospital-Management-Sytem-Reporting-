@@ -49,7 +49,7 @@ namespace Report_and_Analytics_API.Service
                     else
                     {
                         _logger.LogCritical(message:$"service already run this month {date.Month}");
-                        return;
+                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                     }
                 }
             }

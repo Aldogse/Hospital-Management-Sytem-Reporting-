@@ -2257,3 +2257,873 @@ WHERE `m`.`year` = @__year_0
 2026-01-25 10:00:11.113 +08:00 [INF] HTTP GET /patient/getPreviousMonthsAdmissionReport responded 200 in 28.8579 ms
 2026-01-25 10:00:11.115 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPatientAdmissionForecast - 200 null application/json; charset=utf-8 42.1276ms
 2026-01-25 10:00:11.116 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPreviousMonthsAdmissionReport - 200 null application/json; charset=utf-8 43.0834ms
+2026-01-25 10:15:36.848 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-01-25 10:15:37.164 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-01-25 10:15:37.225 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-25 10:15:37.226 +08:00 [INF] Hosting environment: Development
+2026-01-25 10:15:37.228 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-01-25 10:15:38.263 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-01-25 10:15:38.481 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 221.5408ms
+2026-01-25 10:15:38.483 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-01-25 10:15:38.483 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-25 10:15:38.511 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 27.3168ms
+2026-01-25 10:15:38.538 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.5974ms
+2026-01-25 10:15:38.593 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-01-25 10:15:38.618 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.7644ms
+2026-01-25 10:15:56.597 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthAttendanceReport/1/2026 - null null
+2026-01-25 10:15:56.605 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:15:56.621 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthAttendanceReport/1/2026 - 307 0 null 23.8996ms
+2026-01-25 10:15:56.939 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/getMonthAttendanceReport/1/2026 - null null
+2026-01-25 10:15:56.946 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:15:56.951 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:15:56.979 +08:00 [INF] Route matched with {action = "getMonthAttendanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthAttendanceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-01-25 10:15:58.550 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-25 10:15:58.616 +08:00 [INF] No extracted data
+2026-01-25 10:15:58.626 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-25 10:15:58.638 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API) in 1652.6739ms
+2026-01-25 10:15:58.640 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:15:58.643 +08:00 [INF] HTTP GET /employee/getMonthAttendanceReport/1/2026 responded 200 in 1694.0237 ms
+2026-01-25 10:15:58.650 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/getMonthAttendanceReport/1/2026 - 200 null application/json; charset=utf-8 1711.2762ms
+2026-01-25 10:16:01.732 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/getMonthAttendanceReport/10/2025 - null null
+2026-01-25 10:16:01.734 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:01.735 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/getMonthAttendanceReport/10/2025 - 307 0 null 3.7811ms
+2026-01-25 10:16:01.742 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/getMonthAttendanceReport/10/2025 - null null
+2026-01-25 10:16:01.744 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:01.745 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:16:01.746 +08:00 [INF] Route matched with {action = "getMonthAttendanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthAttendanceReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-01-25 10:16:01.771 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-01-25 10:16:01.825 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportResponse'.
+2026-01-25 10:16:01.829 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API) in 82.3392ms
+2026-01-25 10:16:01.831 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getMonthAttendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:16:01.832 +08:00 [INF] HTTP GET /employee/getMonthAttendanceReport/10/2025 responded 200 in 87.6624 ms
+2026-01-25 10:16:01.835 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/getMonthAttendanceReport/10/2025 - 200 null application/json; charset=utf-8 92.996ms
+2026-01-25 10:16:08.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2026-01-25 - null null
+2026-01-25 10:16:08.277 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:08.278 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/employee/attendanceReport/2026-01-25 - 307 0 null 5.4186ms
+2026-01-25 10:16:08.283 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/attendanceReport/2026-01-25 - null null
+2026-01-25 10:16:08.286 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:08.286 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:16:08.291 +08:00 [INF] Route matched with {action = "attendanceReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] attendanceReport(System.DateTime) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-01-25 10:16:08.379 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `hr_employees` AS `h`
+2026-01-25 10:16:08.389 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `hr_employees` AS `h`
+2026-01-25 10:16:08.474 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`, `d`.`absent`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`underTime`
+FROM `daily_attendance_report` AS `d`
+WHERE `d`.`reportDate` = @__date_0
+LIMIT 1
+2026-01-25 10:16:08.487 +08:00 [INF] No extracted data for 25/01/2026 12:00:00 am
+2026-01-25 10:16:08.488 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-25 10:16:08.490 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API) in 197.8726ms
+2026-01-25 10:16:08.492 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.attendanceReport (Report_and_Analytics_API)'
+2026-01-25 10:16:08.492 +08:00 [INF] HTTP GET /employee/attendanceReport/2026-01-25 responded 200 in 206.0579 ms
+2026-01-25 10:16:08.494 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/attendanceReport/2026-01-25 - 200 null application/json; charset=utf-8 211.3077ms
+2026-01-25 10:16:17.287 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2026 - null null
+2026-01-25 10:16:17.290 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:17.291 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2026 - 307 0 null 3.8094ms
+2026-01-25 10:16:17.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2026 - null null
+2026-01-25 10:16:17.304 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:17.305 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:17.310 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:17.451 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:17.455 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:17.456 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 144.7522ms
+2026-01-25 10:16:17.458 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:17.459 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/9/2026 responded 200 in 153.5005 ms
+2026-01-25 10:16:17.460 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2026 - 200 null application/json; charset=utf-8 160.3978ms
+2026-01-25 10:16:23.443 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/10/2026 - null null
+2026-01-25 10:16:23.447 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:23.448 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/10/2026 - 307 0 null 4.9804ms
+2026-01-25 10:16:23.450 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/10/2026 - null null
+2026-01-25 10:16:23.454 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:23.454 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:23.455 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:23.472 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:23.475 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:23.476 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 18.8644ms
+2026-01-25 10:16:23.477 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:23.478 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/10/2026 responded 200 in 23.7413 ms
+2026-01-25 10:16:23.480 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/10/2026 - 200 null application/json; charset=utf-8 29.8278ms
+2026-01-25 10:16:26.828 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/10/2025 - null null
+2026-01-25 10:16:26.830 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:26.831 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/10/2025 - 307 0 null 3.3929ms
+2026-01-25 10:16:26.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/10/2025 - null null
+2026-01-25 10:16:26.837 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:26.839 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:26.840 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:26.850 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:26.853 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:26.855 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 13.5618ms
+2026-01-25 10:16:26.856 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:26.857 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/10/2025 responded 200 in 18.7509 ms
+2026-01-25 10:16:26.859 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/10/2025 - 200 null application/json; charset=utf-8 25.3839ms
+2026-01-25 10:16:34.428 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - null null
+2026-01-25 10:16:34.431 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:34.431 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - 307 0 null 3.8452ms
+2026-01-25 10:16:34.442 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2025 - null null
+2026-01-25 10:16:34.444 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:34.445 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:34.446 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:34.453 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:34.457 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:34.458 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 10.8972ms
+2026-01-25 10:16:34.459 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:34.460 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/9/2025 responded 200 in 15.4379 ms
+2026-01-25 10:16:34.462 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2025 - 200 null application/json; charset=utf-8 20.3846ms
+2026-01-25 10:16:39.196 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/12/2025 - null null
+2026-01-25 10:16:39.199 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:39.199 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/12/2025 - 307 0 null 3.3664ms
+2026-01-25 10:16:39.213 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/12/2025 - null null
+2026-01-25 10:16:39.218 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:39.219 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:39.219 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:39.227 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:39.230 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:39.231 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 10.2083ms
+2026-01-25 10:16:39.232 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:39.233 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/12/2025 responded 200 in 14.5761 ms
+2026-01-25 10:16:39.235 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/12/2025 - 200 null application/json; charset=utf-8 22.3965ms
+2026-01-25 10:16:41.244 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/11/2025 - null null
+2026-01-25 10:16:41.248 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:41.249 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/11/2025 - 307 0 null 5.0466ms
+2026-01-25 10:16:41.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/11/2025 - null null
+2026-01-25 10:16:41.255 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:41.256 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:41.258 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:41.267 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:41.270 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:41.271 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 11.9606ms
+2026-01-25 10:16:41.273 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:41.274 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/11/2025 responded 200 in 17.4910 ms
+2026-01-25 10:16:41.276 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/11/2025 - 200 null application/json; charset=utf-8 24.9494ms
+2026-01-25 10:16:43.651 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - null null
+2026-01-25 10:16:43.654 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:43.655 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/insurance/monthInsuranceClaimsReport/9/2025 - 307 0 null 4.1982ms
+2026-01-25 10:16:43.668 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2025 - null null
+2026-01-25 10:16:43.670 +08:00 [INF] CORS policy execution successful.
+2026-01-25 10:16:43.671 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:43.672 +08:00 [INF] Route matched with {action = "getMonthInsuranceClaimsReport", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthInsuranceClaimsReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-01-25 10:16:43.680 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`log_id`, `t`.`c`, `t`.`c0`, `t`.`c1`, `t`.`c2`, `t`.`c3`, `t`.`c4`, `t`.`c5`, `t`.`c6`, `t`.`c7`, `t`.`c8`, `t0`.`c`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`, `t0`.`request_id`
+FROM (
+    SELECT `i`.`log_id`, (
+        SELECT `p0`.`fname`
+        FROM `insurance_logs` AS `i3`
+        INNER JOIN `patientinfo` AS `p0` ON `i3`.`patient_id` = `p0`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i4` ON `p0`.`patient_id` = `i4`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i5` ON `i4`.`insurance_provider_id` = `i5`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i6` ON `i3`.`patient_id` = `i6`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i3`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i3`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i3`.`log_id`)
+        LIMIT 1) AS `c`, (
+        SELECT `p1`.`mname`
+        FROM `insurance_logs` AS `i7`
+        INNER JOIN `patientinfo` AS `p1` ON `i7`.`patient_id` = `p1`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i8` ON `p1`.`patient_id` = `i8`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i9` ON `i8`.`insurance_provider_id` = `i9`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i10` ON `i7`.`patient_id` = `i10`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i7`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i7`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i7`.`log_id`)
+        LIMIT 1) AS `c0`, (
+        SELECT `p2`.`lname`
+        FROM `insurance_logs` AS `i11`
+        INNER JOIN `patientinfo` AS `p2` ON `i11`.`patient_id` = `p2`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i12` ON `p2`.`patient_id` = `i12`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i13` ON `i12`.`insurance_provider_id` = `i13`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i14` ON `i11`.`patient_id` = `i14`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i11`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i11`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i11`.`log_id`)
+        LIMIT 1) AS `c1`, (
+        SELECT `i17`.`name`
+        FROM `insurance_logs` AS `i15`
+        INNER JOIN `patientinfo` AS `p3` ON `i15`.`patient_id` = `p3`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i16` ON `p3`.`patient_id` = `i16`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i17` ON `i16`.`insurance_provider_id` = `i17`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i18` ON `i15`.`patient_id` = `i18`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i15`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i15`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i15`.`log_id`)
+        LIMIT 1) AS `c2`, COALESCE((
+        SELECT `i22`.`insurance_number`
+        FROM `insurance_logs` AS `i19`
+        INNER JOIN `patientinfo` AS `p4` ON `i19`.`patient_id` = `p4`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i20` ON `p4`.`patient_id` = `i20`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i21` ON `i20`.`insurance_provider_id` = `i21`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i22` ON `i19`.`patient_id` = `i22`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i19`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i19`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i19`.`log_id`)
+        LIMIT 1), 0) AS `c3`, (
+        SELECT `i26`.`notes`
+        FROM `insurance_logs` AS `i23`
+        INNER JOIN `patientinfo` AS `p5` ON `i23`.`patient_id` = `p5`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i24` ON `p5`.`patient_id` = `i24`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i25` ON `i24`.`insurance_provider_id` = `i25`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i26` ON `i23`.`patient_id` = `i26`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i23`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i23`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i23`.`log_id`)
+        LIMIT 1) AS `c4`, COALESCE((
+        SELECT `i27`.`date_transact`
+        FROM `insurance_logs` AS `i27`
+        INNER JOIN `patientinfo` AS `p6` ON `i27`.`patient_id` = `p6`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i28` ON `p6`.`patient_id` = `i28`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i29` ON `i28`.`insurance_provider_id` = `i29`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i30` ON `i27`.`patient_id` = `i30`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i27`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i27`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i27`.`log_id`)
+        LIMIT 1), DATE '0001-01-01') AS `c5`, (
+        SELECT `i31`.`status`
+        FROM `insurance_logs` AS `i31`
+        INNER JOIN `patientinfo` AS `p7` ON `i31`.`patient_id` = `p7`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i32` ON `p7`.`patient_id` = `i32`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i33` ON `i32`.`insurance_provider_id` = `i33`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i34` ON `i31`.`patient_id` = `i34`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i31`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i31`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i31`.`log_id`)
+        LIMIT 1) AS `c6`, COALESCE((
+        SELECT `i38`.`insurance_covered`
+        FROM `insurance_logs` AS `i35`
+        INNER JOIN `patientinfo` AS `p8` ON `i35`.`patient_id` = `p8`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i36` ON `p8`.`patient_id` = `i36`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i37` ON `i36`.`insurance_provider_id` = `i37`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i38` ON `i35`.`patient_id` = `i38`.`patient_id`
+        WHERE (((EXTRACT(month FROM `i35`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i35`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i35`.`log_id`)) AND (`i35`.`status` = 'Approved')
+        LIMIT 1), 0.0) AS `c7`, COALESCE((
+        SELECT `i40`.`claim_amount`
+        FROM `insurance_logs` AS `i39`
+        INNER JOIN `patientinfo` AS `p9` ON `i39`.`patient_id` = `p9`.`patient_id`
+        INNER JOIN `insurance_claims` AS `i40` ON `p9`.`patient_id` = `i40`.`patient_id`
+        INNER JOIN `insurance_provider` AS `i41` ON `i40`.`insurance_provider_id` = `i41`.`insurance_provider_id`
+        INNER JOIN `insurance_request` AS `i42` ON `i39`.`patient_id` = `i42`.`patient_id`
+        WHERE ((EXTRACT(month FROM `i39`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i39`.`date_transact`) = @__year_1)) AND (`i`.`log_id` = `i39`.`log_id`)
+        LIMIT 1), 0.0) AS `c8`
+    FROM `insurance_logs` AS `i`
+    INNER JOIN `patientinfo` AS `p` ON `i`.`patient_id` = `p`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i0` ON `p`.`patient_id` = `i0`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i1` ON `i0`.`insurance_provider_id` = `i1`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i2` ON `i`.`patient_id` = `i2`.`patient_id`
+    WHERE (EXTRACT(month FROM `i`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i`.`date_transact`) = @__year_1)
+    GROUP BY `i`.`log_id`
+) AS `t`
+LEFT JOIN (
+    SELECT (`i46`.`insurance_covered` / `i44`.`claim_amount`) * 100.0 AS `c`, `i43`.`log_id`, `p10`.`patient_id`, `i44`.`insurance_claims_id`, `i45`.`insurance_provider_id`, `i46`.`request_id`
+    FROM `insurance_logs` AS `i43`
+    INNER JOIN `patientinfo` AS `p10` ON `i43`.`patient_id` = `p10`.`patient_id`
+    INNER JOIN `insurance_claims` AS `i44` ON `p10`.`patient_id` = `i44`.`patient_id`
+    INNER JOIN `insurance_provider` AS `i45` ON `i44`.`insurance_provider_id` = `i45`.`insurance_provider_id`
+    INNER JOIN `insurance_request` AS `i46` ON `i43`.`patient_id` = `i46`.`patient_id`
+    WHERE ((EXTRACT(month FROM `i43`.`date_transact`) = @__month_0) AND (EXTRACT(year FROM `i43`.`date_transact`) = @__year_1)) AND (`i43`.`status` = 'Approved')
+) AS `t0` ON `t`.`log_id` = `t0`.`log_id`
+ORDER BY `t`.`log_id`, `t0`.`log_id`, `t0`.`patient_id`, `t0`.`insurance_claims_id`, `t0`.`insurance_provider_id`
+2026-01-25 10:16:43.684 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2'.
+2026-01-25 10:16:43.685 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API) in 11.462ms
+2026-01-25 10:16:43.686 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthInsuranceClaimsReport (Report_and_Analytics_API)'
+2026-01-25 10:16:43.687 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimsReport/9/2025 responded 200 in 16.1993 ms
+2026-01-25 10:16:43.689 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimsReport/9/2025 - 200 null application/json; charset=utf-8 21.6798ms
