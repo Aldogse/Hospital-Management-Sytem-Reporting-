@@ -137,6 +137,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_treatment_outcome_report> month_treatment_outcome_report { get; set; }
         public DbSet<year_hospital_payroll_report> year_hospital_payroll_report { get; set; }
         public DbSet<yearly_claim_report> yearly_claim_report { get; set; }
+        public DbSet<evaluations>evaluations { get; set; }
 
         //PREDICTIONS TABLE
         public DbSet<month_medicine_shortage_training_data> month_medicine_shortage_training_data { get; set; }

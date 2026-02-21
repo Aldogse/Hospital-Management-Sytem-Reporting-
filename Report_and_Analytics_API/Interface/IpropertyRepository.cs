@@ -16,6 +16,7 @@ namespace Report_and_Analytics_API.Interface
         Task<month_admission_and_discharge_report> getYearAdmissionsAndDischargeReport(int year);
         Task<List<month_admission_and_discharge_report>> getMonthsAdmissionData(int year);
         Task<List<yearTotalOccupiedBedsResponse>> getYearAdmissionDataReport(int year);
+        Task<int> numberOfBeds();
 
         //ENDPOINT QUERIES
         Task<yearly_admission_and_discharge_report> yearlyAdmissionAndDischargeReport(int year);

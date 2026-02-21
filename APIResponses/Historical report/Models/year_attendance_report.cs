@@ -23,6 +23,7 @@ namespace APIResponses.Historical_report.Models
         public int? underTime { get; set; }
         public int? average_undertime { get; set; }
         public decimal? attendanceRate { get; set; }
+        public int lastAttendanceIdProcessed { get; set; }
     }
 
 }

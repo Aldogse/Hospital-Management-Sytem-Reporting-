@@ -13,8 +13,9 @@ namespace APIResponses.Historical_report.Models
         public int reportId { get; set; }
         public int month { get; set; }
         public int year { get; set; }
-        public int totalTransactions { get; set; }
+        public int? totalTransactions { get; set; }
         public decimal? totalSales { get; set; }
         public string? topSellingItem { get; set; }
+        public int? lastProcessedSaleId { get; set; } 
     }
 }

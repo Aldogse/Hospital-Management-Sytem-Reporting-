@@ -18,18 +18,21 @@ namespace Report_and_Analytics_Library.Billing
 
 
         [ForeignKey("patientinfo")]
-        public int patient_id { get; set; }
+        public int? patient_id { get; set; }
         [JsonIgnore]
         public patientinfo patientinfo { get; set; }
 
 
         public DateTime billing_date { get; set; }
         public decimal? total_amount { get; set; }
-        public decimal insurance_covered { get; set; }
-        public decimal out_of_pocket { get; set; }
-        public string status { get; set; }
+        public decimal? insurance_covered { get; set; }
+        public decimal? out_of_pocket { get; set; }
+        public string? status { get; set; }
         public string? payment_method { get; set; }
         public string? transaction_id { get; set; }
         public decimal? grand_total { get; set; }
+        public decimal? paid_amount { get; set; }
+        public string? payment_status { get; set; }
+        public decimal? balance { get; set; }
     }
 }

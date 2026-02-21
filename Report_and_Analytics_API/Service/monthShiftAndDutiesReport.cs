@@ -19,29 +19,32 @@ namespace Report_and_Analytics_API.Service
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            while (!stoppingToken.IsCancellationRequested)
             {
-                using var scope = _serviceScope.CreateScope();
-                var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-
-                var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
-                DateTime date = DateTime.Now;
-
-                //this is should be equal to one to know the month already changes
-                if (DateTime.Now.Day >= 5)
+                try
                 {
-                    if (!await jobRepo.hasRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year))
+                    using var scope = _serviceScope.CreateScope();
+                    var dbContext = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+
+                    var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    DateTime date = DateTime.Now;
+
+                    //this is should be equal to one to know the month already changes
+                    if (DateTime.Now.Day >= 5)
                     {
-                        await getMonthShiftAndDutiesReport(dbContext);
-                        await jobRepo.markAsRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year);
+                        if (!await jobRepo.hasRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year))
+                        {
+                            await getMonthShiftAndDutiesReport(dbContext);
+                            await jobRepo.markAsRunThisMonth("getMonthShiftAndDutiesReport", date.Month, date.Year);
+                        }
                     }
+                    await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                 }
-                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(message: $"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
+                }
             }
         }
 
@@ -50,64 +53,81 @@ namespace Report_and_Analytics_API.Service
         //DUTIES AND SHIFT
         private async Task getMonthShiftAndDutiesReport(ReportDbContext reportDbContext)
         {
-            
-            var prevMonth = DateTime.Now.AddMonths(-1);
+            int att = 0;
+            int maxAtt = 5;
 
-            _logger.LogInformation($"Extraction begins for {prevMonth.Month} / {prevMonth.Year}");
-            try
+            while (att < maxAtt)
             {
-                //will populate month appointment duty and report
-                var monthAppointmentsAndDutiesReport = await (
-                    from appointment in reportDbContext.p_appointments
-                    join duty in reportDbContext.duty_assignments
-                    on appointment.appointment_id equals duty.appointment_id
-                    where appointment.appointment_date.Month == prevMonth.Month
-                    && appointment.appointment_date.Year == prevMonth.Year
-                    group new { appointment , duty} by 1 into x
-                    select new
+                try
+                {
+                    att++;
+
+                    var prevMonth = DateTime.Now.AddMonths(-1);
+                    _logger.LogInformation($"Extraction begins for {prevMonth.Month} / {prevMonth.Year}");
+
+
+                    //will populate month appointment duty and report
+                    var monthAppointmentsAndDutiesReport = await (
+                        from appointment in reportDbContext.p_appointments
+                        join duty in reportDbContext.duty_assignments
+                        on appointment.appointment_id equals duty.appointment_id
+                        where appointment.appointment_date.Month == prevMonth.Month
+                        && appointment.appointment_date.Year == prevMonth.Year
+                        group new { appointment, duty } by 1 into x
+                        select new
+                        {
+                            month = prevMonth.Month,
+                            year = prevMonth.Year,
+                            completed = x.Where(i => i.appointment.status == "Completed").Count(),
+                            cancelled = x.Where(i => i.appointment.status == "Pending" || i.appointment.status == "Scheduled")
+                            .Count(),
+                            nurseDuties = x.Select(x => x.duty.nurse_assistant).Count(),
+                            doctorDuties = x.Select(x => x.duty.doctor_id).Count(),
+                        }).FirstOrDefaultAsync();
+
+
+                    //Count total of appointments
+                    var totalAppointments = await reportDbContext.p_appointments.
+                        Where(i => i.appointment_date.Month == prevMonth.Month &&
+                        i.appointment_date.Year == prevMonth.Year).CountAsync();
+
+                    var report = new month_appointment_and_duty_report()
                     {
-                        month = prevMonth.Month,
+                        totalAppointments = totalAppointments,
                         year = prevMonth.Year,
-                        completed = x.Where(i => i.appointment.status == "Completed").Count(),
-                        cancelled = x.Where(i => i.appointment.status == "Pending" || i.appointment.status == "Scheduled")
-                        .Count(),
-                        nurseDuties =  x.Select(x => x.duty.nurse_assistant).Count(),
-                        doctorDuties = x.Select(x => x.duty.doctor_id).Count(),
-                    }).FirstOrDefaultAsync();
+                        month = prevMonth.Month,
+                        completed = monthAppointmentsAndDutiesReport?.completed ?? 0,
+                        cancelled = monthAppointmentsAndDutiesReport?.cancelled ?? 0,
+                        pending = 0,
+                        doctorDuties = monthAppointmentsAndDutiesReport?.doctorDuties ?? 0,
+                        nurseDuties = monthAppointmentsAndDutiesReport?.nurseDuties ?? 0,
+                    };
 
+                    if (report != null)
+                    {
+                        await reportDbContext.month_appointment_and_duty_report.AddAsync(report);
+                    }
+                    else
+                    {
+                        _logger.LogInformation($"No transaction extracted for {prevMonth.Month} - {prevMonth.Year}");
+                    }
 
-                //Count total of appointments
-                var totalAppointments = await reportDbContext.p_appointments.
-                    Where(i => i.appointment_date.Month == prevMonth.Month && 
-                    i.appointment_date.Year == prevMonth.Year).CountAsync();
-
-                var report = new month_appointment_and_duty_report()
-                {
-                    totalAppointments = totalAppointments,
-                    year = prevMonth.Year,
-                    month = prevMonth.Month,
-                    completed = monthAppointmentsAndDutiesReport?.completed ?? 0,
-                    cancelled = monthAppointmentsAndDutiesReport?.cancelled ?? 0,
-                    pending = 0, 
-                    doctorDuties = monthAppointmentsAndDutiesReport?.doctorDuties ?? 0, 
-                    nurseDuties = monthAppointmentsAndDutiesReport?.nurseDuties ?? 0,                    
-                };
-
-                if (report != null)
-                {
-                    await reportDbContext.month_appointment_and_duty_report.AddAsync(report);
+                    await reportDbContext.SaveChangesAsync();
+                    _logger.LogInformation("Extraction finished!");
+                    return;
                 }
-                else
+                catch (Exception ex)
                 {
-                    _logger.LogInformation($"No transaction extracted for {prevMonth.Month} - {prevMonth.Year}");
-                }
+                    _logger.LogError(message: $"Error: {ex.Message}");
 
-                await reportDbContext.SaveChangesAsync();
-                _logger.LogInformation("Extraction finished!");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation($"Error : {ex.Message}");
+                    if (att == maxAtt)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

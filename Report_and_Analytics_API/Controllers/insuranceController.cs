@@ -234,5 +234,26 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("yearInsuranceSummaryDetails")]
+        public async Task<IActionResult> yearInsuranceSummaryDetails([FromQuery]int year)
+        {
+            try
+            {
+                var exist = await _reportDbContext.insurance_claims.AnyAsync(i => i.submmited_date.Year == year);
+
+                if(!exist)
+                {
+                    return StatusCode(404,"No report for the year yet");
+                }
+
+                var report = await _claimRepository.yearInsuranceSummaryReport(year);
+                return Ok(report);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
     }
 }

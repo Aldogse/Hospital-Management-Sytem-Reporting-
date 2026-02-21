@@ -196,6 +196,13 @@ namespace Report_and_Analytics_API.Repository
 
             return report;
         }
+
+        public async Task<int> numberOfBeds()
+        {
+            var num = await _reportDbContext.p_beds.ToListAsync();
+
+            return num.Count;
+        }
     }
 }
   

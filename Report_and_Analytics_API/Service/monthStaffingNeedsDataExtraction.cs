@@ -48,7 +48,7 @@ namespace Report_and_Analytics_API.Service
                 catch (Exception ex)
                 {
                     _logger.LogError(message:$"Error: {ex.Message}");
-                    await Task.Delay(TimeSpan.FromMinutes(10),stoppingToken);
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
             }
         }
@@ -56,25 +56,41 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH OF THE MONTH
         private async Task MonthStaffingNeedsDataExtraction(ReportDbContext database,IemployeeRepository repository)
         {
-            try
+            int att = 0;
+            int maxAtt = 5;
+
+            while (att < maxAtt)
             {
-                DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
-
-                var report = await repository.getMonthStaffingForecastNeeds(prevMonth.Month,prevMonth.Year);
-
-                if(report == null)
+                try
                 {
-                    _logger.LogInformation(message:$"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                    att++;
+
+                    DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
+
+                    var report = await repository.getMonthStaffingForecastNeeds(prevMonth.Month, prevMonth.Year);
+
+                    if (report == null)
+                    {
+                        _logger.LogInformation(message: $"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await database.month_staffing_needs_forecast_training_data.AddRangeAsync(report);
+                    await database.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
 
-                await database.month_staffing_needs_forecast_training_data.AddRangeAsync(report);
-                await database.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(message:$"Error: {ex.Message}");
-                return;
+                    if (att == maxAtt)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

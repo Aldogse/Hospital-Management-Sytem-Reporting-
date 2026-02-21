@@ -54,7 +54,7 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH OF THE FOLLOWING MONTH
         private async Task MonthAttendanceReportGenerator(ReportDbContext reportDbContext,IemployeeRepository empRepo)
         {
-            DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime date = DateTime.Now;
             int attempts = 0;
             int maxAttempts = 5;
 

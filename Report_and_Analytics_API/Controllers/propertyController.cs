@@ -106,6 +106,7 @@ namespace Report_and_Analytics_API.Controllers
         {
             try
             {
+                var totalBeds = await _propertyRepo.numberOfBeds();
                 var yearData = await _propertyRepo.yearlyAdmissionAndDischargeReport(year);
                 var monthData = await _propertyRepo.monthBedsDistribution(year);
              
@@ -123,7 +124,7 @@ namespace Report_and_Analytics_API.Controllers
                     available_beds = yearData.available_beds,
                     occupied_beds = yearData.occupied_beds,
                     broken_beds = yearData.broken_beds,
-                    total_beds = yearData.total_beds,
+                    total_beds = totalBeds,
                     year = year,
                     monthsAdmissionReport = monthData,
                 };

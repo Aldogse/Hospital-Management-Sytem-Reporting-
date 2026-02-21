@@ -10,6 +10,7 @@ using Report_and_Analytics_API.job_logs;
 using Report_and_Analytics_API.Middleware;
 using Report_and_Analytics_API.Repository;
 using Report_and_Analytics_API.Service;
+using Report_and_Analytics_API.service_helpers;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.Email;
@@ -54,7 +55,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 
 //builder.Services.AddHostedService<monthRevenueReportService>();
 //builder.Services.AddHostedService<dailyAttendanceReportGeneratorService>();
-////builder.Services.AddHostedService<monthShiftAndDutiesReport>();
+//builder.Services.AddHostedService<monthShiftAndDutiesReport>();
 //builder.Services.AddHostedService<monthLeaveServiceReport>();
 //builder.Services.AddHostedService<monthPharmacySalesReport>();
 //builder.Services.AddHostedService<departmentBudgetYearlyReportService>();
@@ -64,7 +65,7 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<yearReportSummaryService>();
 //builder.Services.AddHostedService<monthPerformanceReportService>();
 //builder.Services.AddHostedService<monthBillingSummaryReportService>();
-////builder.Services.AddHostedService<yearBillingSummaryReport>();
+//builder.Services.AddHostedService<yearBillingSummaryReport>();
 //builder.Services.AddHostedService<yearAdmissionAndBeddingSummary>();
 //builder.Services.AddHostedService<yearPharmacySalesReport>();
 //builder.Services.AddHostedService<monthBedOccupancyTrainingDataExtraction>();
@@ -90,6 +91,9 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<monthOutcomeReportDataExtractionService>();
 //builder.Services.AddHostedService<yearlyClaimReportDataExtraction>();
 //builder.Services.AddHostedService<yearPayrollBackgroundServiceDataExtraction>();
+builder.Services.AddHostedService<dailyServiceUpdateYearPharmacySales>();
+builder.Services.AddHostedService<dailyServiceUpdateYearBillingSummary>();
+//builder.Services.AddHostedService<AttendanceBackgroundService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository,hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation,hrEmployeeInformation>();

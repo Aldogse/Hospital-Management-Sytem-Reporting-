@@ -58,52 +58,78 @@ namespace Report_and_Analytics_API.Service
         {
             int attempts = 0;
             int maxAttempts = 5;
+
             while (attempts < maxAttempts)
-            {              
+            {
                 try
                 {
                     attempts++;
 
-                    DateTime prevMonth = DateTime.Now.AddMonths(-1);
-                    //Count month total transaction
-                    var monthTotalTransactions = await (
-                        from billingRecords in database.billing_records
-                        join billingItems in database.billing_items
-                        on billingRecords.billing_id equals billingItems.billing_id
-                        where billingRecords.billing_date.Month == prevMonth.Month &&
-                        billingRecords.billing_date.Year == prevMonth.Year
-                        select billingRecords.billing_id
-                        ).Distinct().CountAsync();
+                    DateTime prevMonth = DateTime.Now;
 
-                    //Query the best selling item for the month
-                    var topSellingItem = await
-                         (
-                             from bi in database.billing_items
-                             join br in database.billing_records
-                             on bi.billing_id equals br.billing_id
-                             where br.billing_date.Month == prevMonth.Month
-                             && br.billing_date.Year == prevMonth.Year
-                             && br.status == "Paid"
-                             group bi by bi.item_id into x
-                             orderby x.Sum(x => x.total_price) descending
-                             select x.Key
-                         ).FirstOrDefaultAsync();
+                    // Count month total transactions
+                    var monthTotalTransactions = await database.pharmacy_sales
+                        .Where(i => i.sale_date.Month == prevMonth.Month
+                                 && i.sale_date.Year == prevMonth.Year)
+                        .CountAsync();
 
-                    var monthSalesReport = await (
-                        from billingRecords in database.billing_records
-                        join billingItems in database.billing_items
-                        on billingRecords.billing_id equals billingItems.billing_id
-                        where billingRecords.billing_date.Month == prevMonth.Month &&
-                        billingRecords.billing_date.Year == prevMonth.Year
-                        group new { billingRecords, billingItems } by 1 into x
-                        select new month_pharmacy_sales
+                    // Total sales for the month
+                    var totalSales = await database.pharmacy_sales
+                        .Where(i => i.sale_date.Month == prevMonth.Month
+                                 && i.sale_date.Year == prevMonth.Year)
+                        .Select(i => i.total_price)
+                        .SumAsync();
+
+                    // -------------------------------
+                    // TOP SELLING ITEM (With Tie Logic)
+                    // -------------------------------
+                    var groupedItems = await database.pharmacy_sales
+                        .Where(i => i.sale_date.Month == prevMonth.Month
+                                 && i.sale_date.Year == prevMonth.Year)
+                        .GroupBy(i => i.med_name)
+                        .Select(g => new
                         {
-                            year = prevMonth.Year,
-                            month = prevMonth.Month,
-                            totalSales = x.Select(x => x.billingRecords.total_amount).Sum(),
-                            totalTransactions = monthTotalTransactions,
-                            //topSellingItem = topSellingItem,
-                        }).FirstOrDefaultAsync();
+                            med_name = g.Key,
+                            total_quantity_sold = g.Sum(x => x.quantity_sold),
+                            total_sales = g.Sum(x => x.total_price)
+                        })
+                        .ToListAsync();
+
+                    string finalTopSellingItem = "None";
+
+                    if (groupedItems != null && groupedItems.Count > 0)
+                    {
+                        // Highest quantity sold
+                        var maxQuantity = groupedItems.Max(i => i.total_quantity_sold);
+
+                        // Tie check
+                        var tiedItems = groupedItems
+                            .Where(i => i.total_quantity_sold == maxQuantity)
+                            .ToList();
+
+                        if (tiedItems.Count == 1)
+                        {
+                            // One clear winner
+                            finalTopSellingItem = tiedItems.First().med_name;
+                        }
+                        else
+                        {
+                            // Tied → return NONE
+                            finalTopSellingItem = "None";
+                        }
+                    }
+
+                    // -------------------------------
+                    // INSERT REPORT
+                    // -------------------------------
+                    var monthSalesReport = new month_pharmacy_sales
+                    {
+                        month = prevMonth.Month,
+                        year = prevMonth.Year,
+                        topSellingItem = finalTopSellingItem,
+                        totalTransactions = monthTotalTransactions,
+                        totalSales = totalSales
+                    };
 
                     if (monthSalesReport == null)
                     {
@@ -119,7 +145,7 @@ namespace Report_and_Analytics_API.Service
                 {
                     _logger.LogInformation($"Attempt {attempts}: {ex.Message}");
 
-                    if(attempts == maxAttempts)
+                    if (attempts == maxAttempts)
                     {
                         _logger.LogError("Maximum attempts has been reached.");
                         throw;

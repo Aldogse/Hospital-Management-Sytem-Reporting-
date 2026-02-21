@@ -16,7 +16,7 @@ namespace APIResponses.Training_Models
 
         //TARGET VALUE TO FORECAST 
         public decimal? total_revenue { get; set; }
-        public int pharmacy_total_transactions { get; set; }
+        public int? pharmacy_total_transactions { get; set; }
         public decimal? average_bill_amount { get; set; }
 
         //derived values     

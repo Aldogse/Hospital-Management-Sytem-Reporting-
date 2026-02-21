@@ -72,15 +72,22 @@ namespace Report_and_Analytics_API.Service
 
                     await database.yearly_pharmacy_sales_report.AddAsync(yearSaleData);
                     await database.SaveChangesAsync();
+                    return;
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"Error: {ex.Message}");
-                    return;
+                    _logger.LogError(message: $"Error: {ex.Message}");
+
+                    if (attempts == maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
                 }
             }
-            _logger.LogInformation("Maximum attempt has been reached");
-            return;
+           
         }
     }
 }

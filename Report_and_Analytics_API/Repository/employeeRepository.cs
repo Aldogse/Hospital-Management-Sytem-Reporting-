@@ -159,18 +159,18 @@ namespace Report_and_Analytics_API.Repository
         public async Task<month_employees_performance_and_evaluation_report> getMonthEmployeePerformanceReport(int month, int year)
         {
 
-                var report = await _reportDbContext.evaluation_records
+                var report = await _reportDbContext.evaluations
                     .Where(i => i.evaluation_date.Month == month && i.evaluation_date.Year == year)
                     .ToListAsync();
 
-                var summary = new month_employees_performance_and_evaluation_report()
-                {
-                    month = month,
-                    year = year,
-                    average_score = report.Sum(i => i.score) / report.Count,
-                    total_evaluations = report.Count,
-                    poor_performer_count = report.Where(i => i.score <= 3).Count(),
-                };
+            var summary = new month_employees_performance_and_evaluation_report()
+            {
+                month = month,
+                year = year,
+                average_score = report.Sum(i => i.total_score) / report.Count,
+                total_evaluations = report.Count,
+                poor_performer_count = report.Where(i => i.average_score <= 3).Count()
+            };
                 return summary;           
         }
 

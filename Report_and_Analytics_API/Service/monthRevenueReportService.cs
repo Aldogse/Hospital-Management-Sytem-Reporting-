@@ -58,7 +58,7 @@ namespace Report_and_Analytics_API.Service
             {
                 try
                 {
-                    DateTime prevMonth = DateTime.Now.AddMonths(-1);
+                    DateTime prevMonth = DateTime.Now;
                     var servicesRevenue = await repository.getMonthBillRevenueReport(prevMonth.Month, prevMonth.Year);
                     var pharmacyRevenue = await repository.getMonthPharmacyTotalSales(prevMonth.Month, prevMonth.Year);
 

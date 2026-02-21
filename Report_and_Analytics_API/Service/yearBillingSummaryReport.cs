@@ -56,27 +56,42 @@ namespace Report_and_Analytics_API.Service
         //runs every 10th of january
         private async Task YearSummaryReportService(ReportDbContext reportDb,IjournalRepository repository)
         {
-            try
+            int att = 0;
+            int maxAtt = 0;
+
+            while (att < maxAtt)
             {
-                int year = DateTime.Now.Year - 1;
-
-                var yearReport = await repository.getYearBillingReport(year);
-
-                if (yearReport == null)
+                try
                 {
-                    {
-                        _logger.LogInformation($"Expecting data but nothing was received for {year}");
-                        return;
-                    }
-                }
+                    att++;
+                    int year = DateTime.Now.Year - 1;
 
-                await reportDb.yearly_billing_report.AddAsync(yearReport);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    var yearReport = await repository.getYearBillingReport(year);
+
+                    if (yearReport == null)
+                    {
+                        {
+                            _logger.LogInformation($"Expecting data but nothing was received for {year}");
+                            return;
+                        }
+                    }
+
+                    await reportDb.yearly_billing_report.AddAsync(yearReport);
+                    await reportDb.SaveChangesAsync();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
+
+                    if (att == maxAtt)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
 
         }

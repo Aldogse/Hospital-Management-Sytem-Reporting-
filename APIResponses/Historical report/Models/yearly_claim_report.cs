@@ -15,5 +15,6 @@ namespace APIResponses.Historical_report.Models
         public int total_claims { get; set; }
         public int total_approved_claims { get; set; }
         public int total_denied_claims { get; set; }
+        public int lastInsuranceClaimIdProcessed { get; set; }
     }
 }

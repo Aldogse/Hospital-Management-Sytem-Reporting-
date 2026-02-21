@@ -13,6 +13,7 @@ namespace Report_and_Analytics_Library.Pharmacy
         public int sale_id { get; set; }
 
         public string customer_name { get; set; }
+        public string med_name { get; set; }
         public int quantity_sold { get; set; }
         public decimal price_per_unit { get; set; }
         public decimal? total_price { get; set; }

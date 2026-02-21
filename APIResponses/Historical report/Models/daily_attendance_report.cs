@@ -18,5 +18,6 @@ namespace APIResponses.Historical_report.Models
         public int? leave { get; set; }
         public int? underTime { get; set; }
         public DateTime lastModifiedDate { get; set; }
+        public int lastAttendanceIdProcessed { get; set; }
     }
 }

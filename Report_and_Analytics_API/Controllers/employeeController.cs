@@ -409,12 +409,12 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         //ENDPOINT FOR PERFORMANCE REPORT
-        [HttpGet("getEmployeeMonthReportPerformance/{month}/{year}")]
-        public async Task<IActionResult> getEmployeeMonthReportPerformance(int month,int year)
+        [HttpGet("getEmployeeMonthReportPerformance")]
+        public async Task<IActionResult> getEmployeeMonthReportPerformance([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
-                var response = await _empRepo.getMonthEmployeePerformanceReport(month,year);
+                var response = await _empRepo.monthEmployeesPerformanceReport(month,year);
 
                 if(response == null)
                 {

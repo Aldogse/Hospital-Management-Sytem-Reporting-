@@ -19,6 +19,7 @@ namespace Report_and_Analytics_API.Interface
        Task<List<insurance_claims>> monthClaims(int month,int year,int page,int size);
        Task<yearlyClaimReportResponse> yearClaimsSummary(int year);
         Task<monthsComparisonClaimResponse> monthClaimsComparison(int month,int year,int parterMont,int partnerYear);
+        Task<yearClaimSummaryDetails> yearInsuranceSummaryReport(int year);
       
 
         //QUERIES FOR BACKGROUND SERVICES

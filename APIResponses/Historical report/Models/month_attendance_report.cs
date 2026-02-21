@@ -20,5 +20,6 @@ namespace APIResponses.Historical_report.Models
         public int? leave_count { get; set; }
         public int? underTime { get; set; }
         public DateTime last_modified_date { get; set; }
+        public int lastAttendanceIdProcessed { get; set; }
     }
 }

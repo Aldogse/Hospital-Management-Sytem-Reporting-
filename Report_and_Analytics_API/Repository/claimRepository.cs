@@ -185,7 +185,7 @@ namespace Report_and_Analytics_API.Repository
 
             var claimsReport = await (
                 from claims in _reportDbContext.insurance_claims
-                where claims.resolved_date >= startDate && claims.resolved_date < endDate
+                where claims.submmited_date >= startDate && claims.submmited_date < endDate
                 group claims by 1 into x
                 select new monthClaimsHistory
                 {
@@ -288,6 +288,25 @@ namespace Report_and_Analytics_API.Repository
                 partner_total_claims = partnerMonth?.total_claims ?? 0,
                 partner_total_denied_claims = partnerMonth?.total_denied_claims ?? 0
             };
+        }
+
+        public async Task<yearClaimSummaryDetails> yearInsuranceSummaryReport(int year)
+        {
+            var insuranceList = await _reportDbContext.insurance_claims.Where(i => i.submmited_date.Year == year)
+                .ToListAsync();
+
+            var report = new yearClaimSummaryDetails
+            {
+                year = year,
+                totalApprovePayoutAmount = insuranceList.Where(i => i.status == "approved")
+                .Select(i => i.claim_amount).Sum(),
+                totalHospitalLoss = insuranceList.Where(i => i.status == "denied")
+                .Select(i => i.claim_amount).Sum(),
+                totalClaimApproved = insuranceList.Where(i => i.status == "approved").Count(),
+                totalClaimDenied = insuranceList.Where(i => i.status == "denied").Count(),               
+            };
+
+            return report;
         }
     }
 } 

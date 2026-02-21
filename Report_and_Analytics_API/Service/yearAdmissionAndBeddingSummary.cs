@@ -52,36 +52,50 @@ namespace Report_and_Analytics_API.Service
         //runs every 10th of january
         private async Task YearAdmissionAndBeddingDataService(ReportDbContext reportDb,IpropertyRepository repository)
         {
-            try
+            int att = 0;
+            int maxAtt = 5;
+
+            while (att < maxAtt)
             {
-                
-                var preYear = DateTime.Now.AddYears(-1);
-
-                var reportData = await repository.getYearAdmissionsAndDischargeReport(preYear.Year);
-
-
-                var dataNeeded = new yearly_admission_and_discharge_report()
+                try
                 {
-                    year = preYear.Year,
-                    available_beds = ((float)reportData.available_beds / reportData.total_beds) * 100,
-                    broken_beds = ((float)reportData.broken_beds / reportData.total_beds) * 100,
-                    total_beds = reportData.total_beds,
-                    occupied_beds = ((float)reportData.occupied_beds / reportData.total_beds) * 100
-                };
+                    att++;
+                    var preYear = DateTime.Now.AddYears(-1);
 
-                if(reportData == null)
-                {
-                    _logger.LogInformation($"Expecting data but nothing was extracted for {preYear.Year}");
+                    var reportData = await repository.getYearAdmissionsAndDischargeReport(preYear.Year);
+
+
+                    var dataNeeded = new yearly_admission_and_discharge_report()
+                    {
+                        year = preYear.Year,
+                        available_beds = ((float)reportData.available_beds / reportData.total_beds) * 100,
+                        broken_beds = ((float)reportData.broken_beds / reportData.total_beds) * 100,
+                        total_beds = reportData.total_beds,
+                        occupied_beds = ((float)reportData.occupied_beds / reportData.total_beds) * 100
+                    };
+
+                    if (reportData == null)
+                    {
+                        _logger.LogInformation($"Expecting data but nothing was extracted for {preYear.Year}");
+                        return;
+                    }
+
+                    await reportDb.yearly_admission_and_discharge_report.AddAsync(dataNeeded);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
 
-                await reportDb.yearly_admission_and_discharge_report.AddAsync(dataNeeded);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    if (att == maxAtt)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
 

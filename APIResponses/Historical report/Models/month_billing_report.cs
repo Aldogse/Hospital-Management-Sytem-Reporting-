@@ -19,6 +19,7 @@ namespace APIResponses.Historical_report.Models
         public decimal? total_oop_collected { get; set; }
         public decimal? total_insurance_covered { get; set; }
         public decimal? total_pending_amount { get; set; }
+        public int lastBillingRecordId { get; set; }
 
     }
 }

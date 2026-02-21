@@ -74,6 +74,7 @@ namespace Report_and_Analytics_API.Service
                     }
                     await reportDbContext.year_hospital_payroll_report.AddAsync(yearReport);
                     await reportDbContext.SaveChangesAsync();
+                    return;
 
                 }
                 catch (Exception ex)
