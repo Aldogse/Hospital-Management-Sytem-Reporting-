@@ -20,6 +20,7 @@ namespace Report_and_Analytics_API.Interface
         Task<List<month_staffing_needs_forecast_training_data>> getMonthStaffingForecastNeeds(int month,int year);
         Task<List<doctorDetailsAndEvaluationSummaryResponse>> getDoctorsInformation(int page,int size);
         Task<yearSummaryAttendanceReportResponse> yearAttendanceSummary(int year);
+        Task<monthAttendanceComparisonResponse> monthAttendanceComparisonResponse(int baseMonth,int baseYear,int comparedMonth,int ComparedYear);
 
         //FORECAST RESULTS
         Task<List<month_staffing_needs_forecast_result>> getMontStaffingNeedsForecast(int month,int year);

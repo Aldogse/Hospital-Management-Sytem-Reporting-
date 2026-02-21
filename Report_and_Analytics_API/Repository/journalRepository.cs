@@ -1,4 +1,6 @@
 ﻿using APIResponses;
+using APIResponses.BillingResponse;
+using APIResponses.BudgetResponse;
 using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
@@ -9,6 +11,7 @@ using Microsoft.OpenApi.Validations;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_Library.Billing;
+using Report_and_Analytics_Library.Property_Management;
 
 namespace Report_and_Analytics_API.Repository
 {
@@ -111,6 +114,29 @@ namespace Report_and_Analytics_API.Repository
         {
             var response = await _reportDb.month_revenue_report.Where(i => i.month == month && i.year == year).FirstOrDefaultAsync();
             return response;
+        }
+
+        public async Task<monthRevenueComparisonResponse> monthRevenueComparisonResponse(int month, int year, int partnerMonth, int partnerYear)
+        {
+            var baseMonth = await _reportDb.month_revenue_report.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+            var comparedMonth = await _reportDb.month_revenue_report.Where(i => i.month == partnerMonth && i.year == partnerYear)
+                .FirstOrDefaultAsync();
+
+            return new monthRevenueComparisonResponse
+            {
+                baseMonth = month,
+                baseYear = year,
+                basePharmacyRevenue = baseMonth?.pharmacy_revenue,
+                baseServiceRevenue = baseMonth?.service_revenue,
+                baseTotalRevenue = baseMonth?.total_revenue,
+
+                partnerMonth = partnerMonth,
+                partnerYear = partnerYear,
+                partnerPharmacyRevenue = comparedMonth?.pharmacy_revenue,
+                partnerTotalRevenue = comparedMonth?.total_revenue,
+                partnerServiceRevenue = comparedMonth?.service_revenue
+            };
         }
 
         //BACKGROUND SERVICE QUERY
@@ -594,6 +620,162 @@ namespace Report_and_Analytics_API.Repository
                 comparedBaseTotalApproved = comparedReport?.total_approved,
                 comparedBaseTotalRequested = comparedReport?.total_requested,
             };
+        }
+
+        public async Task<monthPharmacySalesComparisonResponse> monthPharmacySalesComparison(int baseMonth, int baseYear, int partnerMonth, int partnerYear)
+        {
+            var firstMonth = await _reportDb.month_pharmacy_sales.Where(i => i.month == baseMonth && i.year == baseYear).FirstOrDefaultAsync();
+            var secondMonth = await _reportDb.month_pharmacy_sales.Where(i => i.month == partnerMonth && i.year == partnerYear).FirstOrDefaultAsync();
+
+            return new monthPharmacySalesComparisonResponse
+            {
+                baseMonth = baseMonth,
+                baseYear = baseYear,
+                baseTopSellingItem = firstMonth.topSellingItem,
+                baseTotalSales = firstMonth.totalSales,
+                baseTotalTransactions = firstMonth.totalTransactions,
+                partnerMonth = partnerMonth,
+                partnerYear = partnerYear,
+                partnerTopSellingItem = secondMonth.topSellingItem,
+                partnerTotalSales = secondMonth.totalSales,
+                partnerTotalTransactions = secondMonth.totalTransactions,
+            };
+        }
+
+        public async Task<monthBillingReportComparisonResponse> monthBillingComparisonReport(int month, int year, int partnerMonth, int partnerYear)
+        {
+            var baseYear = await _reportDb.month_billing_report.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+            var partYear = await _reportDb.month_billing_report.Where(i => i.month == partnerMonth && i.year == year)
+                .FirstOrDefaultAsync();
+            return new monthBillingReportComparisonResponse
+            {
+                month = month,
+                year = year,
+                total_billed = baseYear?.total_billed ?? 0,
+                total_insurance_covered = baseYear?.total_insurance_covered ?? 0,
+                total_oop_collected = baseYear?.total_oop_collected ?? 0,
+                total_paid = baseYear?.total_paid ?? 0,
+                total_pending_amount = baseYear?.total_pending_amount ?? 0,
+                total_pending_transaction = baseYear?.total_pending_transaction ?? 0,
+
+                partnermonth = partnerMonth,
+                partneryear = partnerYear,
+                partnertotal_pending_amount = partYear?.total_pending_amount,
+                partnertotal_billed = partYear?.total_billed,
+                partnertotal_paid = partYear?.total_paid,
+                partnertotal_insurance_covered = partYear?.total_insurance_covered,
+                partnertotal_oop_collected = partYear?.total_oop_collected,
+                partnertotal_pending_transaction = partYear?.total_pending_transaction
+            };
+        }
+
+        public async Task<yearBillingReportSummary> yearBillingReportSummary(int year)
+        {
+            var yearReport = await _reportDb.yearly_billing_report.Where(i => i.year == year).FirstOrDefaultAsync();
+            var months = await _reportDb.month_billing_report.Where(i => i.year == year)
+                .OrderBy(i => i.month)
+                .ToListAsync();
+
+            return new yearBillingReportSummary
+            {
+                total_pending_amount = yearReport?.total_pending_amount,
+                total_billed = yearReport?.total_billed,
+                total_insurance_covered = yearReport?.total_insurance_covered,
+                total_oop_collected = yearReport?.total_oop_collected,
+                total_paid = yearReport?.total_paid,
+                total_pending_transaction = yearReport?.total_pending_transaction,
+                monthsBilling = months,
+                year = year
+            };
+        }
+
+        public async Task<department_budget_year_report> getYearBudgetReport(int year)
+        {
+            var monthBudgetList = (await _reportDb.department_budgets.Where(i => i.request_date.Year == year &&
+            i.status == "Approved")
+                .ToListAsync())
+                .DistinctBy(i => i.request_date.Month)
+                .ToList();
+
+            return new department_budget_year_report
+            {
+                total_allocated = monthBudgetList.Sum(i => i.allocated_budget),
+                total_approved = monthBudgetList.Sum(i => i.approved_amount),
+                total_requested = monthBudgetList.Sum(i => i.requested_amount),
+                year = year
+            };
+        }
+
+        public async Task<yearDepartmentBudgetSummaryResponse> departmentBudgetYearSummary(int year)
+        {
+            var yearDepartmentBudget = await _reportDb.department_budget_year_report.Where(i => i.year == year).FirstOrDefaultAsync();
+
+            var monthsSummaryReport = (await _reportDb.department_budgets.Where(i => i.request_date.Year == year
+            && i.status == "Approved").ToListAsync())
+            .DistinctBy(i => i.request_date.Month)
+            .ToList();
+
+            return new yearDepartmentBudgetSummaryResponse
+            {
+                total_allocated = yearDepartmentBudget?.total_allocated,
+                total_approved = yearDepartmentBudget?.total_approved,
+                monthBudgetsReport = monthsSummaryReport,
+                total_requested = yearDepartmentBudget?.total_requested,
+                year = year
+            };
+        }
+
+        public async Task<department_budgets> monthDepartmentBudgetSummaryReport(int month, int year)
+        {
+            var monthDepartmentBudget = await _reportDb.department_budgets.Where(i => i.request_date.Month == month
+            && i.request_date.Year == year).FirstOrDefaultAsync();
+
+            return monthDepartmentBudget;
+        }
+
+        public async Task<monthBudgetComparisonSummaryResponse> monthDepartmentBudgetComparisonResponse(int month, int year,int parMonth
+            ,int parYear)
+        {
+            var baseMonth = await _reportDb.department_budgets.Where(i => i.request_date.Month == month && i.request_date.Year == year)
+                .FirstOrDefaultAsync();
+            var partMonth = await _reportDb.department_budgets.Where(i => i.request_date.Month == parMonth && i.request_date.Year == parYear)
+                .FirstOrDefaultAsync();
+
+            return new monthBudgetComparisonSummaryResponse
+            {
+                month = $"{month}-{year}",
+                allocated_budget = baseMonth?.allocated_budget,
+                approved_amount = baseMonth?.approved_amount,
+                status = baseMonth.status,
+                requested_amount = baseMonth.requested_amount,
+                request_date = baseMonth.request_date,
+                
+                partnermonth = $"{parMonth}-{parYear}",
+                partnerapproved_amount = partMonth?.approved_amount,
+                partnerrequested_amount = partMonth?.requested_amount,
+                partnerallocated_budget = partMonth?.allocated_budget,
+                partnerrequest_date = partMonth?.request_date,
+                partnerstatus = partMonth.status
+            };
+        }
+
+        public async Task<List<monthPendingBudgetsReport>> pendingMonthBudgetRequest(int year)
+        {
+            var pendingRequest = (await _reportDb.department_budgets.Where(i => i.request_date.Year == year
+            && i.status == "Pending").ToListAsync()).DistinctBy(i => i.month).ToList();
+
+            var response = pendingRequest.Select(i => new monthPendingBudgetsReport
+            {
+                month = i.month,
+                allocated_budget = i.allocated_budget,
+                approved_amount = i.approved_amount,
+                requested_amount = i.requested_amount,
+                status = i.status,
+                request_date = i.request_date
+            }).ToList();
+
+            return response;
         }
     }
 }

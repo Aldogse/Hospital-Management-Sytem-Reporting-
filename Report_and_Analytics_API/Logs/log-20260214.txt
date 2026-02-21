@@ -1,0 +1,1140 @@
+2026-02-14 10:52:18.229 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-14 10:52:18.272 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-14 10:52:18.322 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-14 10:52:18.324 +08:00 [INF] Hosting environment: Development
+2026-02-14 10:52:18.326 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-14 10:52:19.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-14 10:52:19.625 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 329.7434ms
+2026-02-14 10:52:19.629 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-14 10:52:19.629 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-14 10:52:19.648 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 19.9041ms
+2026-02-14 10:52:19.682 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.8399ms
+2026-02-14 10:52:19.724 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-14 10:52:19.755 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.3599ms
+2026-02-14 10:53:59.939 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport?month=9&year=2025 - null null
+2026-02-14 10:53:59.961 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-02-14 10:53:59.986 +08:00 [INF] Route matched with {action = "getHospitalMonthlyPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getHospitalMonthlyPayrollReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:54:02.006 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:54:02.101 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Historical_report.Models.month_payroll_summary'.
+2026-02-14 10:54:02.118 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API) in 2127.1537ms
+2026-02-14 10:54:02.120 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getHospitalMonthlyPayrollReport (Report_and_Analytics_API)'
+2026-02-14 10:54:02.122 +08:00 [INF] HTTP GET /payroll/getHospitalMonthlyPayrollReport responded 200 in 2161.5047 ms
+2026-02-14 10:54:02.129 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getHospitalMonthlyPayrollReport?month=9&year=2025 - 200 null application/json; charset=utf-8 2190.2779ms
+2026-02-14 10:54:16.104 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 10:54:16.109 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:54:16.114 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:54:16.153 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:54:16.166 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:54:16.170 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:54:16.176 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 59.6251ms
+2026-02-14 10:54:16.178 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:54:16.179 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 69.4076 ms
+2026-02-14 10:54:16.180 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 76.5038ms
+2026-02-14 10:57:40.456 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/getYearAttendanceSummary?year=2026 - null null
+2026-02-14 10:57:40.462 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:57:40.468 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:40.472 +08:00 [INF] Route matched with {action = "getYearAttendanceSummary", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearAttendanceSummary(Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-14 10:57:40.547 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:57:40.598 +08:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-02-14 10:57:40.617 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT (
+    SELECT `t0`.`attendanceRate`
+    FROM (
+        SELECT `y0`.`report_id`, `y0`.`absent`, `y0`.`attendanceRate`, `y0`.`average_absent`, `y0`.`average_late`, `y0`.`average_leave`, `y0`.`average_present`, `y0`.`average_undertime`, `y0`.`late`, `y0`.`leave_count`, `y0`.`present`, `y0`.`underTime`, `y0`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y0`
+        WHERE `y0`.`year` = @__year_0
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1), (
+    SELECT `t1`.`late`
+    FROM (
+        SELECT `y1`.`report_id`, `y1`.`absent`, `y1`.`attendanceRate`, `y1`.`average_absent`, `y1`.`average_late`, `y1`.`average_leave`, `y1`.`average_present`, `y1`.`average_undertime`, `y1`.`late`, `y1`.`leave_count`, `y1`.`present`, `y1`.`underTime`, `y1`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y1`
+        WHERE `y1`.`year` = @__year_0
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1), (
+    SELECT `t2`.`present`
+    FROM (
+        SELECT `y2`.`report_id`, `y2`.`absent`, `y2`.`attendanceRate`, `y2`.`average_absent`, `y2`.`average_late`, `y2`.`average_leave`, `y2`.`average_present`, `y2`.`average_undertime`, `y2`.`late`, `y2`.`leave_count`, `y2`.`present`, `y2`.`underTime`, `y2`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y2`
+        WHERE `y2`.`year` = @__year_0
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1), (
+    SELECT `t3`.`underTime`
+    FROM (
+        SELECT `y3`.`report_id`, `y3`.`absent`, `y3`.`attendanceRate`, `y3`.`average_absent`, `y3`.`average_late`, `y3`.`average_leave`, `y3`.`average_present`, `y3`.`average_undertime`, `y3`.`late`, `y3`.`leave_count`, `y3`.`present`, `y3`.`underTime`, `y3`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y3`
+        WHERE `y3`.`year` = @__year_0
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1), (
+    SELECT `t4`.`year`
+    FROM (
+        SELECT `y4`.`report_id`, `y4`.`absent`, `y4`.`attendanceRate`, `y4`.`average_absent`, `y4`.`average_late`, `y4`.`average_leave`, `y4`.`average_present`, `y4`.`average_undertime`, `y4`.`late`, `y4`.`leave_count`, `y4`.`present`, `y4`.`underTime`, `y4`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y4`
+        WHERE `y4`.`year` = @__year_0
+    ) AS `t4`
+    WHERE `t`.`Key` = `t4`.`Key`
+    LIMIT 1)
+FROM (
+    SELECT 1 AS `Key`
+    FROM `year_attendance_report` AS `y`
+    WHERE `y`.`year` = @__year_0
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2026-02-14 10:57:40.620 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-14 10:57:40.625 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API) in 151.2317ms
+2026-02-14 10:57:40.626 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:40.627 +08:00 [INF] HTTP GET /employee/getYearAttendanceSummary responded 200 in 159.3365 ms
+2026-02-14 10:57:40.629 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/getYearAttendanceSummary?year=2026 - 200 null application/json; charset=utf-8 173.2833ms
+2026-02-14 10:57:43.153 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 10:57:43.156 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:57:43.157 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:43.158 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:57:43.166 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:57:43.172 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:57:43.174 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:57:43.175 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 16.1591ms
+2026-02-14 10:57:43.177 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:43.178 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 20.9383 ms
+2026-02-14 10:57:43.179 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 26.5871ms
+2026-02-14 10:57:48.074 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2026 - null null
+2026-02-14 10:57:48.078 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:57:48.078 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:48.079 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:57:48.087 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:57:48.093 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:57:48.095 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:57:48.096 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.8428ms
+2026-02-14 10:57:48.098 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:48.098 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 19.8992 ms
+2026-02-14 10:57:48.100 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2026 - 200 null application/json; charset=utf-8 25.6187ms
+2026-02-14 10:57:49.892 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2025 - null null
+2026-02-14 10:57:49.894 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:57:49.895 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:49.896 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:57:49.902 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:57:49.908 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:57:49.910 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:57:49.911 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.5963ms
+2026-02-14 10:57:49.912 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:57:49.913 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.9356 ms
+2026-02-14 10:57:49.915 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2025 - 200 null application/json; charset=utf-8 23.3635ms
+2026-02-14 10:58:07.388 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 10:58:07.390 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:58:07.391 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:58:07.392 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:58:07.399 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:58:07.403 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:58:07.405 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:58:07.406 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.8216ms
+2026-02-14 10:58:07.408 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:58:07.409 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.4692 ms
+2026-02-14 10:58:07.410 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 23.0085ms
+2026-02-14 10:59:23.197 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 10:59:23.201 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:59:23.202 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:23.203 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:59:23.210 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:59:23.224 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:59:23.227 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:59:23.228 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 23.3987ms
+2026-02-14 10:59:23.229 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:23.230 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 28.6927 ms
+2026-02-14 10:59:23.233 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 35.7527ms
+2026-02-14 10:59:26.067 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 10:59:26.070 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:59:26.071 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:26.072 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:59:26.079 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:59:26.084 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:59:26.086 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:59:26.087 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.899ms
+2026-02-14 10:59:26.088 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:26.089 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 18.5795 ms
+2026-02-14 10:59:26.091 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 24.1512ms
+2026-02-14 10:59:27.516 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 10:59:27.518 +08:00 [INF] CORS policy execution successful.
+2026-02-14 10:59:27.519 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:27.520 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 10:59:27.527 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 10:59:27.532 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 10:59:27.534 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 10:59:27.535 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.9709ms
+2026-02-14 10:59:27.536 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 10:59:27.537 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.9231 ms
+2026-02-14 10:59:27.539 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 22.6423ms
+2026-02-14 11:02:19.962 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:02:19.965 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:02:19.966 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:19.968 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:02:19.976 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:02:19.988 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:02:19.990 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:02:19.991 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 21.8722ms
+2026-02-14 11:02:19.993 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:19.994 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 28.0443 ms
+2026-02-14 11:02:19.996 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 34.116ms
+2026-02-14 11:02:22.796 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:02:22.799 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:02:22.800 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:22.801 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:02:22.808 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:02:22.813 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:02:22.815 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:02:22.816 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.1752ms
+2026-02-14 11:02:22.817 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:22.818 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.8906 ms
+2026-02-14 11:02:22.820 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 23.9099ms
+2026-02-14 11:02:24.870 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:02:24.874 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:02:24.875 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:24.876 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:02:24.883 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:02:24.888 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:02:24.890 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:02:24.891 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.9338ms
+2026-02-14 11:02:24.893 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:02:24.893 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 18.3662 ms
+2026-02-14 11:02:24.895 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 24.5417ms
+2026-02-14 11:03:14.659 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:03:14.664 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:14.665 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:14.668 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:03:14.677 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:03:14.689 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:14.692 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:03:14.694 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 23.3462ms
+2026-02-14 11:03:14.696 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:14.698 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 32.2003 ms
+2026-02-14 11:03:14.701 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 41.7081ms
+2026-02-14 11:03:16.949 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2026 - null null
+2026-02-14 11:03:16.953 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:16.954 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:16.955 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:03:16.961 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:03:16.966 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:16.968 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:03:16.969 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.2062ms
+2026-02-14 11:03:16.970 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:16.971 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 16.8806 ms
+2026-02-14 11:03:16.972 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2026 - 200 null application/json; charset=utf-8 23.6627ms
+2026-02-14 11:03:19.516 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2025 - null null
+2026-02-14 11:03:19.518 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:19.519 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:19.520 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:03:19.526 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:03:19.531 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:19.532 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:03:19.533 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.7244ms
+2026-02-14 11:03:19.535 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:19.536 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 16.8086 ms
+2026-02-14 11:03:19.537 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=10&year=2025 - 200 null application/json; charset=utf-8 21.8741ms
+2026-02-14 11:03:21.755 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:03:21.758 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:21.758 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:21.759 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:03:21.765 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:03:21.770 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:21.773 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:03:21.774 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.2082ms
+2026-02-14 11:03:21.775 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:03:21.776 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.5245 ms
+2026-02-14 11:03:21.777 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 22.7875ms
+2026-02-14 11:03:33.194 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/billing/compareYearBudgets?year=2025&partnerYear=2024 - null null
+2026-02-14 11:03:33.196 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:33.197 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.billingController.compareYearBudgets (Report_and_Analytics_API)'
+2026-02-14 11:03:33.201 +08:00 [INF] Route matched with {action = "compareYearBudgets", controller = "billing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] compareYearBudgets(Int32, Int32) on controller Report_and_Analytics_API.Controllers.billingController (Report_and_Analytics_API).
+2026-02-14 11:03:33.216 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__baseYear_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`last_update_date`, `d`.`total_allocated`, `d`.`total_approved`, `d`.`total_requested`, `d`.`year`
+FROM `department_budget_year_report` AS `d`
+WHERE `d`.`year` = @__baseYear_0
+LIMIT 1
+2026-02-14 11:03:33.236 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__comparedYear_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`report_id`, `d`.`last_update_date`, `d`.`total_allocated`, `d`.`total_approved`, `d`.`total_requested`, `d`.`year`
+FROM `department_budget_year_report` AS `d`
+WHERE `d`.`year` = @__comparedYear_0
+LIMIT 1
+2026-02-14 11:03:33.239 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearBudgetComparisonResponse'.
+2026-02-14 11:03:33.242 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.billingController.compareYearBudgets (Report_and_Analytics_API) in 40.5005ms
+2026-02-14 11:03:33.244 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.billingController.compareYearBudgets (Report_and_Analytics_API)'
+2026-02-14 11:03:33.245 +08:00 [INF] HTTP GET /billing/compareYearBudgets responded 200 in 48.3597 ms
+2026-02-14 11:03:33.247 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/billing/compareYearBudgets?year=2025&partnerYear=2024 - 200 null application/json; charset=utf-8 53.4028ms
+2026-02-14 11:03:35.497 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - null null
+2026-02-14 11:03:35.500 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:35.501 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-14 11:03:35.504 +08:00 [INF] Route matched with {action = "getYearBillSummaryReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearBillSummaryReport(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-14 11:03:35.789 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-14 11:03:35.807 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-14 11:03:35.810 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.yearsBillingReportComparisons'.
+2026-02-14 11:03:35.814 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API) in 308.626ms
+2026-02-14 11:03:35.815 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearBillSummaryReport (Report_and_Analytics_API)'
+2026-02-14 11:03:35.816 +08:00 [INF] HTTP GET /journal/getYearBillSummaryReport responded 200 in 315.4753 ms
+2026-02-14 11:03:35.818 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearBillSummaryReport?year=2025&comparedYear=2024 - 200 null application/json; charset=utf-8 321.0287ms
+2026-02-14 11:03:38.339 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2026 - null null
+2026-02-14 11:03:38.345 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:38.346 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2026-02-14 11:03:38.350 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-14 11:03:38.365 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-14 11:03:38.378 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:38.380 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-14 11:03:38.382 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 29.3983ms
+2026-02-14 11:03:38.384 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2026-02-14 11:03:38.385 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2026 responded 200 in 38.8180 ms
+2026-02-14 11:03:38.387 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2026 - 200 null application/json; charset=utf-8 48.3034ms
+2026-02-14 11:03:40.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - null null
+2026-02-14 11:03:40.837 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:03:40.837 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2026-02-14 11:03:40.838 +08:00 [INF] Route matched with {action = "getYearPharmacySalesReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearPharmacySalesReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-14 11:03:40.845 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-14 11:03:40.858 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:03:40.867 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearPharmacySalesResponse'.
+2026-02-14 11:03:40.871 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API) in 30.1254ms
+2026-02-14 11:03:40.872 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getYearPharmacySalesReport (Report_and_Analytics_API)'
+2026-02-14 11:03:40.873 +08:00 [INF] HTTP GET /journal/getYearPharmacySalesReport/2025 responded 200 in 35.5065 ms
+2026-02-14 11:03:40.874 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getYearPharmacySalesReport/2025 - 200 null application/json; charset=utf-8 40.5044ms
+2026-02-14 11:04:35.884 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/getYearAttendanceSummary?year=2025 - null null
+2026-02-14 11:04:35.895 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:04:35.896 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API)'
+2026-02-14 11:04:35.897 +08:00 [INF] Route matched with {action = "getYearAttendanceSummary", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getYearAttendanceSummary(Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-14 11:04:35.903 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:04:35.930 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT (
+    SELECT `t0`.`attendanceRate`
+    FROM (
+        SELECT `y0`.`report_id`, `y0`.`absent`, `y0`.`attendanceRate`, `y0`.`average_absent`, `y0`.`average_late`, `y0`.`average_leave`, `y0`.`average_present`, `y0`.`average_undertime`, `y0`.`late`, `y0`.`leave_count`, `y0`.`present`, `y0`.`underTime`, `y0`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y0`
+        WHERE `y0`.`year` = @__year_0
+    ) AS `t0`
+    WHERE `t`.`Key` = `t0`.`Key`
+    LIMIT 1), (
+    SELECT `t1`.`late`
+    FROM (
+        SELECT `y1`.`report_id`, `y1`.`absent`, `y1`.`attendanceRate`, `y1`.`average_absent`, `y1`.`average_late`, `y1`.`average_leave`, `y1`.`average_present`, `y1`.`average_undertime`, `y1`.`late`, `y1`.`leave_count`, `y1`.`present`, `y1`.`underTime`, `y1`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y1`
+        WHERE `y1`.`year` = @__year_0
+    ) AS `t1`
+    WHERE `t`.`Key` = `t1`.`Key`
+    LIMIT 1), (
+    SELECT `t2`.`present`
+    FROM (
+        SELECT `y2`.`report_id`, `y2`.`absent`, `y2`.`attendanceRate`, `y2`.`average_absent`, `y2`.`average_late`, `y2`.`average_leave`, `y2`.`average_present`, `y2`.`average_undertime`, `y2`.`late`, `y2`.`leave_count`, `y2`.`present`, `y2`.`underTime`, `y2`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y2`
+        WHERE `y2`.`year` = @__year_0
+    ) AS `t2`
+    WHERE `t`.`Key` = `t2`.`Key`
+    LIMIT 1), (
+    SELECT `t3`.`underTime`
+    FROM (
+        SELECT `y3`.`report_id`, `y3`.`absent`, `y3`.`attendanceRate`, `y3`.`average_absent`, `y3`.`average_late`, `y3`.`average_leave`, `y3`.`average_present`, `y3`.`average_undertime`, `y3`.`late`, `y3`.`leave_count`, `y3`.`present`, `y3`.`underTime`, `y3`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y3`
+        WHERE `y3`.`year` = @__year_0
+    ) AS `t3`
+    WHERE `t`.`Key` = `t3`.`Key`
+    LIMIT 1), (
+    SELECT `t4`.`year`
+    FROM (
+        SELECT `y4`.`report_id`, `y4`.`absent`, `y4`.`attendanceRate`, `y4`.`average_absent`, `y4`.`average_late`, `y4`.`average_leave`, `y4`.`average_present`, `y4`.`average_undertime`, `y4`.`late`, `y4`.`leave_count`, `y4`.`present`, `y4`.`underTime`, `y4`.`year`, 1 AS `Key`
+        FROM `year_attendance_report` AS `y4`
+        WHERE `y4`.`year` = @__year_0
+    ) AS `t4`
+    WHERE `t`.`Key` = `t4`.`Key`
+    LIMIT 1)
+FROM (
+    SELECT 1 AS `Key`
+    FROM `year_attendance_report` AS `y`
+    WHERE `y`.`year` = @__year_0
+) AS `t`
+GROUP BY `t`.`Key`
+LIMIT 1
+2026-02-14 11:04:35.933 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.yearSummaryAttendanceReportResponse'.
+2026-02-14 11:04:35.940 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API) in 41.4745ms
+2026-02-14 11:04:35.941 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.getYearAttendanceSummary (Report_and_Analytics_API)'
+2026-02-14 11:04:35.942 +08:00 [INF] HTTP GET /employee/getYearAttendanceSummary responded 200 in 46.5279 ms
+2026-02-14 11:04:35.944 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/getYearAttendanceSummary?year=2025 - 200 null application/json; charset=utf-8 59.5136ms
+2026-02-14 11:05:07.363 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2026 - null null
+2026-02-14 11:05:07.365 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:05:07.366 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:05:07.368 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:05:07.374 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:05:07.379 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:05:07.381 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:05:07.382 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.6333ms
+2026-02-14 11:05:07.383 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:05:07.384 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 18.0258 ms
+2026-02-14 11:05:07.386 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2026 - 200 null application/json; charset=utf-8 23.7581ms
+2026-02-14 11:05:09.379 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2025 - null null
+2026-02-14 11:05:09.382 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:05:09.382 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:05:09.383 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:05:09.389 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:05:09.393 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:05:09.396 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:05:09.397 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.5875ms
+2026-02-14 11:05:09.398 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:05:09.399 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 16.7577 ms
+2026-02-14 11:05:09.401 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2025 - 200 null application/json; charset=utf-8 21.5383ms
+2026-02-14 11:06:47.747 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:06:47.750 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:06:47.750 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:47.751 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:06:47.757 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:06:47.769 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:06:47.771 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:06:47.772 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 19.3361ms
+2026-02-14 11:06:47.774 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:47.774 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 24.0514 ms
+2026-02-14 11:06:47.776 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 29.6149ms
+2026-02-14 11:06:50.358 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:06:50.360 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:06:50.361 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:50.362 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:06:50.368 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:06:50.373 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:06:50.375 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:06:50.376 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.2425ms
+2026-02-14 11:06:50.377 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:50.378 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 16.8583 ms
+2026-02-14 11:06:50.379 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 21.8658ms
+2026-02-14 11:06:51.412 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:06:51.415 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:06:51.415 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:51.416 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:06:51.422 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:06:51.426 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:06:51.428 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:06:51.429 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.5783ms
+2026-02-14 11:06:51.430 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:06:51.431 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.9855 ms
+2026-02-14 11:06:51.433 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 21.2413ms
+2026-02-14 11:08:53.019 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:08:53.027 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:08:53.028 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:53.029 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:08:53.038 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:08:53.048 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:08:53.050 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:08:53.051 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 19.8145ms
+2026-02-14 11:08:53.053 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:53.054 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 26.2775 ms
+2026-02-14 11:08:53.056 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 37.334ms
+2026-02-14 11:08:54.781 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:08:54.783 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:08:54.784 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:54.784 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:08:54.790 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:08:54.795 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:08:54.797 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:08:54.799 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.6965ms
+2026-02-14 11:08:54.800 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:54.801 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.1500 ms
+2026-02-14 11:08:54.802 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 21.9772ms
+2026-02-14 11:08:56.212 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:08:56.215 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:08:56.215 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:56.216 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:08:56.222 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:08:56.227 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:08:56.229 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:08:56.230 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.6037ms
+2026-02-14 11:08:56.231 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:08:56.232 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 17.0559 ms
+2026-02-14 11:08:56.234 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 21.9676ms
+2026-02-14 11:11:41.530 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:11:41.539 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:11:41.541 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:41.542 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:11:41.556 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:11:41.562 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:11:41.565 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:11:41.566 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 22.1834ms
+2026-02-14 11:11:41.568 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:41.569 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 28.5570 ms
+2026-02-14 11:11:41.572 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 42.0121ms
+2026-02-14 11:11:43.509 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:11:43.512 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:11:43.513 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:43.513 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:11:43.518 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:11:43.523 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:11:43.525 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:11:43.526 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.3924ms
+2026-02-14 11:11:43.527 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:43.528 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.7000 ms
+2026-02-14 11:11:43.530 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 20.6043ms
+2026-02-14 11:11:44.587 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:11:44.590 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:11:44.591 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:44.592 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:11:44.596 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:11:44.601 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:11:44.603 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:11:44.604 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 10.527ms
+2026-02-14 11:11:44.605 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:11:44.606 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 14.8443 ms
+2026-02-14 11:11:44.607 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 20.2291ms
+2026-02-14 11:12:45.797 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:12:45.806 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:12:45.807 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:45.808 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:12:45.815 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:12:45.832 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:12:45.834 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:12:45.836 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 26.538ms
+2026-02-14 11:12:45.838 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:45.840 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 32.9079 ms
+2026-02-14 11:12:45.842 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 45.4082ms
+2026-02-14 11:12:48.126 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:12:48.129 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:12:48.129 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:48.130 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:12:48.135 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:12:48.140 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:12:48.142 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:12:48.143 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.2084ms
+2026-02-14 11:12:48.144 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:48.145 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.3991 ms
+2026-02-14 11:12:48.146 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 20.6541ms
+2026-02-14 11:12:49.596 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:12:49.599 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:12:49.599 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:49.600 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:12:49.605 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:12:49.610 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:12:49.612 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:12:49.613 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.3144ms
+2026-02-14 11:12:49.614 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:12:49.615 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.2561 ms
+2026-02-14 11:12:49.616 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 19.8233ms
+2026-02-14 11:14:50.201 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:14:50.208 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:14:50.209 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:50.210 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:14:50.216 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:14:50.224 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:14:50.226 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:14:50.227 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.9637ms
+2026-02-14 11:14:50.228 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:50.229 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 20.3015 ms
+2026-02-14 11:14:50.231 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 30.3549ms
+2026-02-14 11:14:52.204 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:14:52.206 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:14:52.207 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:52.208 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:14:52.213 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:14:52.217 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:14:52.219 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:14:52.220 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 10.8432ms
+2026-02-14 11:14:52.221 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:52.222 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 14.8660 ms
+2026-02-14 11:14:52.223 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 19.5566ms
+2026-02-14 11:14:54.012 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:14:54.014 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:14:54.015 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:54.016 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:14:54.021 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:14:54.025 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:14:54.027 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:14:54.028 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 10.2968ms
+2026-02-14 11:14:54.029 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:14:54.030 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 14.8256 ms
+2026-02-14 11:14:54.031 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 20.0649ms
+2026-02-14 11:16:23.523 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:16:23.531 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:16:23.532 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:23.533 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:16:23.539 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:16:23.547 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:16:23.549 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:16:23.550 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 15.9713ms
+2026-02-14 11:16:23.551 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:23.552 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 20.5790 ms
+2026-02-14 11:16:23.554 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 31.0919ms
+2026-02-14 11:16:25.260 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:16:25.262 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:16:25.263 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:25.264 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:16:25.268 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:16:25.273 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:16:25.275 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:16:25.276 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.1672ms
+2026-02-14 11:16:25.277 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:25.278 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.2291 ms
+2026-02-14 11:16:25.279 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 19.7841ms
+2026-02-14 11:16:26.261 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:16:26.264 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:16:26.265 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:26.266 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:16:26.274 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:16:26.280 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:16:26.282 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:16:26.284 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 15.1483ms
+2026-02-14 11:16:26.285 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:16:26.286 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 21.2045 ms
+2026-02-14 11:16:26.288 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 27.8479ms
+2026-02-14 11:17:54.239 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:17:54.248 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:17:54.248 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:54.250 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:17:54.256 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:17:54.268 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:17:54.270 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:17:54.271 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 20.0509ms
+2026-02-14 11:17:54.273 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:54.273 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 24.9021 ms
+2026-02-14 11:17:54.275 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 36.5773ms
+2026-02-14 11:17:57.533 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:17:57.536 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:17:57.536 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:57.537 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:17:57.542 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:17:57.547 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:17:57.549 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:17:57.550 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.2412ms
+2026-02-14 11:17:57.551 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:57.552 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.4448 ms
+2026-02-14 11:17:57.553 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 20.1478ms
+2026-02-14 11:17:58.588 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:17:58.590 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:17:58.591 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:58.592 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:17:58.597 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:17:58.602 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:17:58.604 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:17:58.605 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.52ms
+2026-02-14 11:17:58.606 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:17:58.607 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.6859 ms
+2026-02-14 11:17:58.608 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 20.548ms
+2026-02-14 11:19:52.282 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - null null
+2026-02-14 11:19:52.289 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:19:52.290 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-14 11:19:52.293 +08:00 [INF] Route matched with {action = "getMonthsDetailsRevenueReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthsDetailsRevenueReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-14 11:19:52.309 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-14 11:19:52.326 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearRevenueBreakdownResponse'.
+2026-02-14 11:19:52.330 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API) in 35.4734ms
+2026-02-14 11:19:52.332 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-14 11:19:52.332 +08:00 [INF] HTTP GET /journal/getMonthsDetailsRevenueReport responded 200 in 42.8520 ms
+2026-02-14 11:19:52.334 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2026 - 200 null application/json; charset=utf-8 51.6567ms
+2026-02-14 11:19:54.414 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2025 - null null
+2026-02-14 11:19:54.419 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:19:54.420 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-14 11:19:54.421 +08:00 [INF] Route matched with {action = "getMonthsDetailsRevenueReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthsDetailsRevenueReport(Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-14 11:19:54.427 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-14 11:19:54.435 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.yearRevenueBreakdownResponse'.
+2026-02-14 11:19:54.436 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API) in 13.5908ms
+2026-02-14 11:19:54.438 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsDetailsRevenueReport (Report_and_Analytics_API)'
+2026-02-14 11:19:54.439 +08:00 [INF] HTTP GET /journal/getMonthsDetailsRevenueReport responded 200 in 18.9922 ms
+2026-02-14 11:19:54.441 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthsDetailsRevenueReport?year=2025 - 200 null application/json; charset=utf-8 26.9332ms
+2026-02-14 11:20:04.140 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/getPatientAdmissionForecast - null null
+2026-02-14 11:20:04.141 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/getPreviousMonthsAdmissionReport - null null
+2026-02-14 11:20:04.143 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:20:04.146 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API)'
+2026-02-14 11:20:04.147 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:20:04.148 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API)'
+2026-02-14 11:20:04.150 +08:00 [INF] Route matched with {action = "getPatientAdmissionForecast", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPatientAdmissionForecast() on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-14 11:20:04.151 +08:00 [INF] Route matched with {action = "getPreviousMonthsAdmissionReport", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPreviousMonthsAdmissionReport() on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-14 11:20:04.160 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`month`, `m`.`total_admission`, `m`.`year`
+FROM `month_patient_admission_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:20:04.172 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.forecast_results.month_patient_admission_forecast_result'.
+2026-02-14 11:20:04.175 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API) in 23.9411ms
+2026-02-14 11:20:04.180 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API)'
+2026-02-14 11:20:04.182 +08:00 [INF] HTTP GET /patient/getPatientAdmissionForecast responded 200 in 35.6452 ms
+2026-02-14 11:20:04.184 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPatientAdmissionForecast - 200 null application/json; charset=utf-8 44.3475ms
+2026-02-14 11:20:04.187 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`month`, `m`.`year`, `m`.`total_admission`
+FROM `month_patient_admission_forecasting_training_data` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:20:04.190 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-14 11:20:04.194 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API) in 41.1806ms
+2026-02-14 11:20:04.195 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API)'
+2026-02-14 11:20:04.196 +08:00 [INF] HTTP GET /patient/getPreviousMonthsAdmissionReport responded 200 in 47.7228 ms
+2026-02-14 11:20:04.197 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPreviousMonthsAdmissionReport - 200 null application/json; charset=utf-8 56.0786ms
+2026-02-14 11:24:07.337 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:24:07.345 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:24:07.346 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:07.347 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:24:07.373 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:24:07.377 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:24:07.379 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:24:07.380 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 31.2276ms
+2026-02-14 11:24:07.381 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:07.382 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 35.6404 ms
+2026-02-14 11:24:07.384 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 47.0081ms
+2026-02-14 11:24:09.229 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:24:09.232 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:24:09.233 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:09.234 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:24:09.241 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:24:09.249 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:24:09.251 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:24:09.253 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 17.0061ms
+2026-02-14 11:24:09.254 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:09.255 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 21.8456 ms
+2026-02-14 11:24:09.256 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 27.1338ms
+2026-02-14 11:24:10.212 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:24:10.214 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:24:10.215 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:10.216 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:24:10.222 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:24:10.226 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:24:10.228 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:24:10.229 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.876ms
+2026-02-14 11:24:10.230 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:24:10.231 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.8733 ms
+2026-02-14 11:24:10.232 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 20.3892ms
+2026-02-14 11:25:26.092 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-14 11:25:26.101 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:25:26.102 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:26.104 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:25:26.111 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:25:26.122 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:25:26.124 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:25:26.126 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 19.8808ms
+2026-02-14 11:25:26.127 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:26.128 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 26.0881 ms
+2026-02-14 11:25:26.130 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 38.2382ms
+2026-02-14 11:25:27.838 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - null null
+2026-02-14 11:25:27.841 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:25:27.842 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:27.843 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:25:27.848 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:25:27.853 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:25:27.854 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:25:27.855 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 11.448ms
+2026-02-14 11:25:27.857 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:27.858 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 15.8345 ms
+2026-02-14 11:25:27.859 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2026 - 200 null application/json; charset=utf-8 21.1639ms
+2026-02-14 11:25:28.813 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - null null
+2026-02-14 11:25:28.816 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:25:28.817 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:28.818 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-14 11:25:28.823 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-14 11:25:28.828 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-14 11:25:28.830 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-14 11:25:28.832 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 12.0353ms
+2026-02-14 11:25:28.833 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-14 11:25:28.834 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 16.7257 ms
+2026-02-14 11:25:28.836 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=9&year=2025 - 200 null application/json; charset=utf-8 22.6829ms
+2026-02-14 11:43:16.939 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-14 11:43:17.007 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-14 11:43:17.076 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-14 11:43:17.080 +08:00 [INF] Hosting environment: Development
+2026-02-14 11:43:17.082 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-14 11:43:17.937 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-14 11:43:18.140 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 197.0584ms
+2026-02-14 11:43:18.142 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-14 11:43:18.142 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-14 11:43:18.164 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 22.3418ms
+2026-02-14 11:43:18.188 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.6318ms
+2026-02-14 11:43:18.228 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-14 11:43:18.257 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.6473ms
+2026-02-14 11:43:49.477 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=6&baseYear=2025&partnerMonth=7&partnerYear=2025 - null null
+2026-02-14 11:43:49.497 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:43:49.518 +08:00 [INF] Route matched with {action = "monthAttendanceComparisonEndpoint", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-14 11:43:50.899 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__baseMonth_0='?' (DbType = Int32), @__baseYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__baseMonth_0) AND (`m`.`year` = @__baseYear_1)
+LIMIT 1
+2026-02-14 11:43:50.996 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__comparedMonth_0='?' (DbType = Int32), @__ComparedYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__comparedMonth_0) AND (`m`.`year` = @__ComparedYear_1)
+LIMIT 1
+2026-02-14 11:43:51.005 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceComparisonResponse'.
+2026-02-14 11:43:51.016 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API) in 1491.5557ms
+2026-02-14 11:43:51.017 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:43:51.020 +08:00 [INF] HTTP GET /employee/monthComparisonEndpoint responded 200 in 1522.8341 ms
+2026-02-14 11:43:51.026 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=6&baseYear=2025&partnerMonth=7&partnerYear=2025 - 200 null application/json; charset=utf-8 1549.5216ms
+2026-02-14 11:49:04.893 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=6&baseYear=2025&partnerMonth=7&partnerYear=2025 - null null
+2026-02-14 11:49:04.905 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:49:04.906 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:49:04.907 +08:00 [INF] Route matched with {action = "monthAttendanceComparisonEndpoint", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-14 11:49:04.942 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__baseMonth_0='?' (DbType = Int32), @__baseYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__baseMonth_0) AND (`m`.`year` = @__baseYear_1)
+LIMIT 1
+2026-02-14 11:49:04.947 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__comparedMonth_0='?' (DbType = Int32), @__ComparedYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__comparedMonth_0) AND (`m`.`year` = @__ComparedYear_1)
+LIMIT 1
+2026-02-14 11:49:04.950 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceComparisonResponse'.
+2026-02-14 11:49:04.951 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API) in 43.039ms
+2026-02-14 11:49:04.952 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:49:04.953 +08:00 [INF] HTTP GET /employee/monthComparisonEndpoint responded 200 in 47.5334 ms
+2026-02-14 11:49:04.955 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=6&baseYear=2025&partnerMonth=7&partnerYear=2025 - 200 null application/json; charset=utf-8 62.7064ms
+2026-02-14 11:49:16.669 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=8&baseYear=2025&partnerMonth=10&partnerYear=2025 - null null
+2026-02-14 11:49:16.673 +08:00 [INF] CORS policy execution successful.
+2026-02-14 11:49:16.674 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:49:16.674 +08:00 [INF] Route matched with {action = "monthAttendanceComparisonEndpoint", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-14 11:49:16.738 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__baseMonth_0='?' (DbType = Int32), @__baseYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__baseMonth_0) AND (`m`.`year` = @__baseYear_1)
+LIMIT 1
+2026-02-14 11:49:16.744 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__comparedMonth_0='?' (DbType = Int32), @__ComparedYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (`m`.`month` = @__comparedMonth_0) AND (`m`.`year` = @__ComparedYear_1)
+LIMIT 1
+2026-02-14 11:49:16.746 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceComparisonResponse'.
+2026-02-14 11:49:16.747 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API) in 70.7509ms
+2026-02-14 11:49:16.749 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-14 11:49:16.749 +08:00 [INF] HTTP GET /employee/monthComparisonEndpoint responded 200 in 75.9062 ms
+2026-02-14 11:49:16.751 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthComparisonEndpoint?baseMonth=8&baseYear=2025&partnerMonth=10&partnerYear=2025 - 200 null application/json; charset=utf-8 82.0682ms

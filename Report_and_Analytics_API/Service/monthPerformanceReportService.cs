@@ -17,9 +17,9 @@ namespace Report_and_Analytics_API.Service
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            while (!stoppingToken.IsCancellationRequested)
             {
-                while (!stoppingToken.IsCancellationRequested)
+                try
                 {
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
@@ -32,7 +32,7 @@ namespace Report_and_Analytics_API.Service
                     {
                         if (!await jobRepo.hasRunThisMonth("MonthPayrollSummaryReport", date.Month, date.Year))
                         {
-                            await MonthPerformanceReportExtraction(database,repository);
+                            await MonthPerformanceReportExtraction(database, repository);
                             await jobRepo.markAsRunThisMonth("MonthPerformanceReportExtraction", date.Month, date.Year);
                         }
                         else
@@ -43,36 +43,49 @@ namespace Report_and_Analytics_API.Service
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                 }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
-            }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error starting the service: {ex.Message}");
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                }
+            }     
         }
 
-        //RUNS EVERY TIME THE MONTH ENDS
-        private async Task MonthPerformanceReportExtraction(ReportDbContext reportDb,IemployeeRepository repository)
-        {
-            try
-            {
-                DateTime prevMonth = DateTime.Now.AddMonths(-1);
-                var monthPerformanceReport = await repository.getMonthEmployeePerformanceReport(prevMonth.Month,prevMonth.Year);
 
-                if(monthPerformanceReport == null)
+        //RUNS EVERY TIME THE MONTH ENDS
+        private async Task MonthPerformanceReportExtraction(ReportDbContext reportDb, IemployeeRepository repository)
+        {
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts < maxAttempts)
+            { 
+                try
                 {
-                    _logger.LogCritical($"Expecting data but nothing was reported for {prevMonth.Month}/{prevMonth.Year}");
+                    DateTime prevMonth = DateTime.Now.AddMonths(-1);
+                    var monthPerformanceReport = await repository.getMonthEmployeePerformanceReport(prevMonth.Month, prevMonth.Year);
+
+                    if (monthPerformanceReport == null)
+                    {
+                        _logger.LogCritical($"Expecting data but nothing was reported for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await reportDb.month_employees_performance_and_evaluation_report.AddAsync(monthPerformanceReport);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempts {attempts}: {ex.Message}");
 
-                await reportDb.month_employees_performance_and_evaluation_report.AddAsync(monthPerformanceReport);
-                await reportDb.SaveChangesAsync();
+                    if(attempts == maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempts has been reached.");
+                        throw;
+                    }
 
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    await Task.Delay(TimeSpan.FromSeconds(2));
+                }
             }
         }
     }

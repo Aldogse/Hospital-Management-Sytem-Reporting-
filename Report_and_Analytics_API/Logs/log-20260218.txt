@@ -1,0 +1,415 @@
+2026-02-18 01:37:49.444 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 01:37:49.484 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 01:37:49.537 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 01:37:49.539 +08:00 [INF] Hosting environment: Development
+2026-02-18 01:37:49.541 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 01:37:50.446 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 01:37:50.664 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 01:37:50.664 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 01:37:50.677 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 236.351ms
+2026-02-18 01:37:50.693 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.6405ms
+2026-02-18 01:37:50.734 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.4676ms
+2026-02-18 01:37:50.780 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 01:37:50.805 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.6353ms
+2026-02-18 01:38:27.692 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 01:38:27.706 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 01:38:27.734 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 01:38:29.177 +08:00 [INF] Executed DbCommand (135ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 01:38:29.891 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-18 01:38:29.912 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 01:38:29.930 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 2190.7192ms
+2026-02-18 01:38:29.932 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 01:38:29.934 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 2230.0115 ms
+2026-02-18 01:38:29.942 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - 200 null application/json; charset=utf-8 2249.9319ms
+2026-02-18 01:39:26.477 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 01:39:26.527 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 01:39:26.598 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 01:39:26.599 +08:00 [INF] Hosting environment: Development
+2026-02-18 01:39:26.601 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 01:39:27.212 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 01:39:27.378 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 169.2271ms
+2026-02-18 01:39:27.384 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 01:39:27.384 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 01:39:27.413 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.6356ms
+2026-02-18 01:39:27.438 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.47ms
+2026-02-18 01:39:27.480 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 01:39:27.508 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.6086ms
+2026-02-18 01:39:38.776 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 01:39:38.792 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 01:39:38.816 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 01:39:40.252 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 01:39:40.365 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 01:39:40.388 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 01:39:40.405 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 1582.4782ms
+2026-02-18 01:39:40.407 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 01:39:40.409 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 1619.5148 ms
+2026-02-18 01:39:40.417 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - 200 null application/json; charset=utf-8 1641.5966ms
+2026-02-18 21:32:05.318 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:32:05.355 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:32:05.404 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:32:05.406 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:32:05.407 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:32:06.543 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:32:06.723 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 183.7375ms
+2026-02-18 21:32:06.726 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:32:06.726 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:32:06.736 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.4672ms
+2026-02-18 21:32:06.770 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.7319ms
+2026-02-18 21:32:06.809 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:32:06.829 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.558ms
+2026-02-18 21:32:20.491 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 21:32:20.502 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:32:20.525 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:32:21.804 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:32:21.917 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:32:21.937 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 21:32:21.954 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 1422.5112ms
+2026-02-18 21:32:21.956 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:32:21.958 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 1456.9856 ms
+2026-02-18 21:32:21.965 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - 200 null application/json; charset=utf-8 1474.7202ms
+2026-02-18 21:34:29.906 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/payroll/getYearPayrollSummary/2026 - null null
+2026-02-18 21:34:29.913 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:34:29.917 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/payroll/getYearPayrollSummary/2026 - 307 0 null 11.1209ms
+2026-02-18 21:34:30.233 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getYearPayrollSummary/2026 - null null
+2026-02-18 21:34:30.237 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:34:30.238 +08:00 [INF] HTTP GET /payroll/getYearPayrollSummary/2026 responded 404 in 0.0810 ms
+2026-02-18 21:34:30.241 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getYearPayrollSummary/2026 - 404 0 null 8.3984ms
+2026-02-18 21:34:30.245 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7212/payroll/getYearPayrollSummary/2026, Response status code: 404
+2026-02-18 21:35:01.499 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:35:01.501 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:35:01.502 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:35:01.503 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:35:01.529 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:35:01.539 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:35:07.433 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 21:35:27.495 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:35:28.073 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:35:28.098 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:35:30.993 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-18 21:35:30.997 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 29492.5896ms
+2026-02-18 21:35:30.999 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:35:31.000 +08:00 [ERR] HTTP GET /payroll/yearHospitalPayrollReport responded 500 in 29498.2933 ms
+2026-02-18 21:35:31.002 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - 500 null text/plain; charset=utf-8 29503.7387ms
+2026-02-18 21:35:31.052 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:35:31.057 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:35:31.059 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 21:35:31.060 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 64.7728ms
+2026-02-18 21:35:31.062 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:35:31.063 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 2989.7919 ms
+2026-02-18 21:35:31.064 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - 200 null application/json; charset=utf-8 23632.1436ms
+2026-02-18 21:36:17.151 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:36:17.197 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:36:17.300 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:36:17.304 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:36:17.307 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:36:18.039 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:36:18.204 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 168.185ms
+2026-02-18 21:36:18.210 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:36:18.210 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:36:18.235 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 25.3315ms
+2026-02-18 21:36:18.258 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.3619ms
+2026-02-18 21:36:18.296 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:36:18.324 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.1291ms
+2026-02-18 21:36:22.777 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:36:22.785 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:36:22.789 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:36:22.806 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:36:41.421 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:36:44.814 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:38:29.629 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:38:29.671 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:38:29.727 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:38:29.729 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:38:29.730 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:38:30.658 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:38:30.823 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 168.3179ms
+2026-02-18 21:38:30.836 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:38:30.836 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:38:30.854 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.5808ms
+2026-02-18 21:38:30.877 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.1808ms
+2026-02-18 21:38:30.917 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:38:30.942 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.3358ms
+2026-02-18 21:38:39.966 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:38:39.973 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:38:39.978 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:38:39.998 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:38:49.083 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:38:49.084 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 21:38:49.084 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:38:49.094 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:38:49.095 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:38:49.098 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:38:49.098 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:38:49.099 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:38:49.100 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:38:49.101 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:38:49.102 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:38:49.103 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:39:17.116 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:39:17.116 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:39:17.116 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:39:17.116 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:39:17.184 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:42:50.977 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:42:51.010 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:42:51.060 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:42:51.062 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:42:51.063 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:42:51.604 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:42:51.771 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 169.4101ms
+2026-02-18 21:42:51.772 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:42:51.772 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:42:51.791 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.3474ms
+2026-02-18 21:42:51.825 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.5679ms
+2026-02-18 21:42:51.863 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:42:51.885 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.9448ms
+2026-02-18 21:42:55.794 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:42:55.800 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:42:55.803 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:42:55.821 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:43:08.430 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:43:11.025 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:43:34.740 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 21:43:36.567 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 40739.9502ms
+2026-02-18 21:43:36.569 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:43:36.572 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 40769.2495 ms
+2026-02-18 21:43:36.579 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - 200 null application/json; charset=utf-8 40785.5213ms
+2026-02-18 21:43:52.029 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - null null
+2026-02-18 21:43:52.035 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:43:52.037 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:43:52.039 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:43:56.511 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:43:57.246 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:44:11.735 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 21:44:11.740 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 19698.0232ms
+2026-02-18 21:44:11.742 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:44:11.743 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 19706.2966 ms
+2026-02-18 21:44:11.745 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2025 - 200 null application/json; charset=utf-8 19715.5882ms
+2026-02-18 21:46:01.313 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:46:01.360 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:46:01.411 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:46:01.413 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:46:01.414 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:46:02.044 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:46:02.235 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 194.3559ms
+2026-02-18 21:46:02.240 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:46:02.240 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:46:02.247 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.8988ms
+2026-02-18 21:46:02.276 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.1548ms
+2026-02-18 21:46:02.315 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:46:02.339 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.4422ms
+2026-02-18 21:46:07.257 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:46:07.263 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:46:07.266 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:46:07.284 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:46:13.439 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:46:13.501 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:47:12.860 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.yearSummaryPayrollResponse'.
+2026-02-18 21:47:12.879 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 65590.1205ms
+2026-02-18 21:47:12.881 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:47:12.884 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 65617.8759 ms
+2026-02-18 21:47:12.893 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - 200 null application/json; charset=utf-8 65635.7465ms
+2026-02-18 21:47:13.748 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:47:13.796 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:47:13.796 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:47:13.803 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 55.5159ms
+2026-02-18 21:47:13.812 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 16.2067ms
+2026-02-18 21:47:13.825 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.3907ms
+2026-02-18 21:47:13.860 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:47:13.879 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.042ms
+2026-02-18 21:47:46.742 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:47:46.745 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:47:46.746 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:47:46.751 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:47:51.214 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:47:51.268 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:49:41.746 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:49:41.785 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:49:41.851 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:49:41.852 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:49:41.854 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:49:42.568 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:49:42.730 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 164.9087ms
+2026-02-18 21:49:42.735 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:49:42.735 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:49:42.752 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 17.1886ms
+2026-02-18 21:49:42.849 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 114.3699ms
+2026-02-18 21:49:42.889 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:49:42.913 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.2904ms
+2026-02-18 21:49:48.361 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:49:48.371 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:49:48.378 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:49:48.401 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:49:52.094 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:49:52.158 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:50:42.454 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:50:42.489 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:50:42.534 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:50:42.536 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:50:42.537 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:50:43.451 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:50:43.612 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 163.7694ms
+2026-02-18 21:50:43.616 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:50:43.616 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:50:43.629 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.7819ms
+2026-02-18 21:50:43.665 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.6282ms
+2026-02-18 21:50:43.707 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:50:43.729 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.0504ms
+2026-02-18 21:50:45.789 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:50:45.795 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:50:45.798 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:50:45.816 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:50:49.893 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:50:49.952 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:54:07.566 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-18 21:54:07.616 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-18 21:54:07.668 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-18 21:54:07.671 +08:00 [INF] Hosting environment: Development
+2026-02-18 21:54:07.673 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-18 21:54:08.169 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-18 21:54:08.349 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-18 21:54:08.350 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-18 21:54:08.378 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 203.1211ms
+2026-02-18 21:54:08.382 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 33.6761ms
+2026-02-18 21:54:08.421 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.3509ms
+2026-02-18 21:54:08.467 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-18 21:54:08.497 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.9343ms
+2026-02-18 21:54:11.661 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - null null
+2026-02-18 21:54:11.667 +08:00 [INF] CORS policy execution successful.
+2026-02-18 21:54:11.670 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:54:11.688 +08:00 [INF] Route matched with {action = "yearHospitalPayrollReport", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] yearHospitalPayrollReport(Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-18 21:54:15.424 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`total_employees`, `y`.`year`, `y`.`year_total_deductions`, `y`.`year_total_gross_pay`, `y`.`year_total_net_pay`
+FROM `year_hospital_payroll_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-18 21:54:15.488 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-18 21:54:20.638 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`report_id` = @__p_0
+LIMIT 1
+2026-02-18 21:54:27.364 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-18 21:54:27.375 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API) in 15681.1302ms
+2026-02-18 21:54:27.377 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.yearHospitalPayrollReport (Report_and_Analytics_API)'
+2026-02-18 21:54:27.380 +08:00 [INF] HTTP GET /payroll/yearHospitalPayrollReport responded 200 in 15709.6851 ms
+2026-02-18 21:54:27.387 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/yearHospitalPayrollReport?year=2026 - 200 null application/json; charset=utf-8 15725.934ms

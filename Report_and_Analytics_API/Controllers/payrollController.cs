@@ -17,47 +17,38 @@ namespace Report_and_Analytics_API.Controllers
         private readonly IhrPayrollRepository _payrollRepository;
         private readonly IhrEmployeeInformation _employeeInformation;
         private readonly ReportDbContext _reportDbContext;
+        private readonly ILogger<payrollController> _logger;
 
         public payrollController(IhrPayrollRepository payrollRepository, IhrEmployeeInformation employeeInformation,
-            ReportDbContext reportDbContext)
+            ReportDbContext reportDbContext,ILogger<payrollController>logger)
         {
 
             _payrollRepository = payrollRepository;
             _employeeInformation = employeeInformation;
             _reportDbContext = reportDbContext;
+            _logger = logger;
         }
 
 
         //ENDPOINT FOR PAYROLL DATA SUMMARY
-        [HttpGet("getMonthPayrollSummary/{month}/{year}/{pageSize}/{currentPage}")]
-        public async Task<IActionResult> getMonthPayrollSummary(int month, int year,int pageSize,int currentPage)
+        [HttpGet("getMonthPayrollSummary")]
+        public async Task<IActionResult> getMonthPayrollSummary([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
-                var payrollSummaryList = await _payrollRepository.individualPayrollSummaryReports(month, year, pageSize,currentPage);
+                var monthReport = await _payrollRepository.monthPayrollSummaryResponse(month,year);
 
-                if(payrollSummaryList == null ||  payrollSummaryList.Count == 0)
+                if(monthReport == null)
                 {
                     return Ok(new
                     {
                         success = true,
-                        message = $"No employee data extracted",
+                        message = $"No report for the month",
                         data = (object?)null
                     });
                 }
-                var payrollReport = await _payrollRepository.monthPayrollSummaryResponse(month,year);
-
-                payrollReport.summaryList = payrollSummaryList;
-                if(payrollReport == null)
-                {
-                    return Ok(new
-                    {
-                        success = true,
-                        message = $"No data extracted",
-                        data = (object?)null
-                    });
-                }
-                return Ok(payrollReport);
+                
+                return Ok(monthReport);
             }
             catch (Exception ex)
             {
@@ -91,24 +82,59 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         //ENDPOINT FOR YEAR PAYROLL SUMMARY
-        [HttpGet("getYearPayrollSummary/{year}")]
-        public async Task<IActionResult> getYearPayrollSummary(int year)
+
+        [HttpGet("monthPayrollComparisonEndpoint")]
+        public async Task<IActionResult> monthPayrollComparisonEndpoint([FromQuery]int month, [FromQuery]int year,
+            [FromQuery]int partnerMonth, [FromQuery]int partnerYear)
         {
             try
             {
-                var payrollReport = await _payrollRepository.yearSummaryPayrollResponses(year);
+                if(month == partnerMonth &&  year == partnerYear)
+                {
+                    return StatusCode(400,"Cannot compare same month and year");
+                }
 
-                if(payrollReport == null || payrollReport.Count == 0)
+                var comparisonResponse = await _payrollRepository.monthPayrollComparisonResult(month,year,partnerMonth,partnerYear);
+
+                if(comparisonResponse == null)
                 {
                     return Ok(new
                     {
                         success = true,
-                        message = $"Year report is Empty",
-                        data = (object?)null
+                        message = "No reports for the month.",
+                        Data = (object?)null
                     });
                 }
+                return Ok(comparisonResponse);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
 
-                return Ok(payrollReport);
+        [HttpGet("yearHospitalPayrollReport")]
+        public async Task<IActionResult> yearHospitalPayrollReport([FromQuery]int year)
+        {
+            try
+            {
+
+                var exist = await _reportDbContext.year_hospital_payroll_report
+                    .AnyAsync(i => i.year == year);
+
+               
+
+                if (!exist)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No report yet for the year"
+                    });
+                }
+                var yearPayroll = await _payrollRepository.yearHospitalPayrollSummary(year);
+              
+                return Ok(yearPayroll);
             }
             catch (Exception ex)
             {

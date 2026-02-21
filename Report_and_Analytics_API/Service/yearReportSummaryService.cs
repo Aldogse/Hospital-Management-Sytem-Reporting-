@@ -53,24 +53,29 @@ namespace Report_and_Analytics_API.Service
         private async Task YearReportSummaryGenerator(ReportDbContext reportDb,IemployeeRepository empRepo)
         {
             int year = DateTime.Now.Year - 1;
-
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts <= maxAttempts)
             {
-                var summaryReport = await empRepo.getYearAttendanceReport(year);
-
-                if (summaryReport == null)
+                try
                 {
-                    _logger.LogInformation($"No data extracted for {year}");
+                    attempts++;
+                    var summaryReport = await empRepo.getYearAttendanceReport(year);
+
+                    if (summaryReport == null)
+                    {
+                        _logger.LogInformation($"No data extracted for {year}");
+                        return;
+                    }
+
+                    await reportDb.year_attendance_report.AddAsync(summaryReport);
+                    await reportDb.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical($"Error: {ex.Message}");
                     return;
                 }
-
-                await reportDb.year_attendance_report.AddAsync(summaryReport);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogCritical($"Error: {ex.Message}");
-                return;
             }
         }
     }

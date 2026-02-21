@@ -17,9 +17,9 @@ namespace Report_and_Analytics_API.Service
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            while (!stoppingToken.IsCancellationRequested)
             {
-                while (!stoppingToken.IsCancellationRequested)
+                try
                 {
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
@@ -27,12 +27,12 @@ namespace Report_and_Analytics_API.Service
                     var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
                     DateTime date = DateTime.Now;
 
-                    if (DateTime.Now.Day <= 5)
+                    if (DateTime.Now.Day >= 5)
                     {
-                        if(!await jobRepo.hasRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year))
+                        if (!await jobRepo.hasRunThisMonth("MonthBillingSummaryReportGenerator", date.Month, date.Year))
                         {
-                            await MonthBillingSummaryReportGenerator(database,repo);
-                            await jobRepo.markAsRunThisMonth("MonthBillingSummaryReportGenerator",date.Month,date.Year);
+                            await MonthBillingSummaryReportGenerator(database, repo);
+                            await jobRepo.markAsRunThisMonth("MonthBillingSummaryReportGenerator", date.Month, date.Year);
                         }
                         else
                         {
@@ -40,37 +40,53 @@ namespace Report_and_Analytics_API.Service
                             await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                         }
                     }
-                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                 }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
+                }
+
             }
         }
 
         //RUNS EVERY 5TH OF THE FOLLOWING MONTH
         private async Task MonthBillingSummaryReportGenerator(ReportDbContext database,IjournalRepository repository)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts < maxAttempts)
             {
-                DateTime prevMonth = DateTime.Now.AddMonths(-1);
-                var monthReport = await repository.getMonthBillingReport(prevMonth.Month,prevMonth.Year);
-
-                if(monthReport == null)
+                try
                 {
-                    _logger.LogCritical($"Expecting data but nothing was found for {prevMonth.Month}/{prevMonth.Year}");
+                    attempts++;
+
+                    DateTime prevMonth = DateTime.Now.AddMonths(-1);
+                    var monthReport = await repository.getMonthBillingReport(prevMonth.Month, prevMonth.Year);
+
+                    if (monthReport == null)
+                    {
+                        _logger.LogCritical($"Expecting data but nothing was found for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await database.month_billing_report.AddAsync(monthReport);
+                    await database.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempt{attempts}: {ex.Message}");
 
-                await database.month_billing_report.AddAsync(monthReport);
-                await database.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"{ex.Message}");
-                return;
+                    if(attempts >= maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempts has been reached");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

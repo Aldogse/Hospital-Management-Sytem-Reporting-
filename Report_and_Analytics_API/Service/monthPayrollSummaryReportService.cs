@@ -36,7 +36,7 @@ namespace Report_and_Analytics_API.Service
                     else
                     {
                         _logger.LogInformation("Job already run for the month");
-                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                        await Task.Delay(TimeSpan.FromHours(24),stoppingToken);
                     }
                 }
                 await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
@@ -51,38 +51,52 @@ namespace Report_and_Analytics_API.Service
         //EXTRACT DATA EVERY 5TH OF THE FOLLOWING MONTH
         public async Task MonthPayrollSummaryReport(ReportDbContext reportDb)
         {
-            var prevMonth = DateTime.Now.AddMonths(-1);
-            try
-            {
-                var payrollReport = await reportDb.hr_payroll
-                    .Where(i => i.pay_period_start.Month == prevMonth.Month && i.pay_period_start.Year == prevMonth.Year)
-                    .ToListAsync();
+            int attempts = 0;
+            int maxAttempts = 5;
 
-                if (payrollReport != null)
+            while (attempts < maxAttempts)
+            {
+                var prevMonth = DateTime.Now.AddMonths(-1);
+                try
                 {
-                    var payrollSummary = new month_payroll_summary()
+                    var payrollReport = await reportDb.hr_payroll
+                        .Where(i => i.pay_period_start.Month == prevMonth.Month && i.pay_period_start.Year == prevMonth.Year)
+                        .ToListAsync();
+
+                    if (payrollReport != null)
                     {
-                        month = prevMonth.Month,
-                        year = prevMonth.Year,
-                        total_deductions = payrollReport.Sum(i => i.total_deductions),
-                        total_gross_pay = payrollReport.Sum(i => i.gross_pay),
-                        total_net_pay = payrollReport.Sum(i => i.net_pay),
-                        total_employees = payrollReport.Count
-                    };
+                        var payrollSummary = new month_payroll_summary()
+                        {
+                            month = prevMonth.Month,
+                            year = prevMonth.Year,
+                            total_deductions = payrollReport.Sum(i => i.total_deductions),
+                            total_gross_pay = payrollReport.Sum(i => i.gross_pay),
+                            total_net_pay = payrollReport.Sum(i => i.net_pay),
+                            total_employees = payrollReport.Count
+                        };
 
-                    await reportDb.month_payroll_summary.AddAsync(payrollSummary);
-                    await reportDb.SaveChangesAsync();
+                        await reportDb.month_payroll_summary.AddAsync(payrollSummary);
+                        await reportDb.SaveChangesAsync();
+                        return;
+                    }
+                    else
+                    {
+                        _logger.LogWarning($"No report extracted for {prevMonth.Month}-{prevMonth.Year}");
+                        return;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    _logger.LogWarning($"No report extracted for {prevMonth.Month}-{prevMonth.Year}");
-                    return;
+                    _logger.LogInformation($"Attempt {attempts}: {ex.Message}");
+
+                    if(attempts == maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempt has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromMinutes(10));
                 }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10));
             }
         }
     }

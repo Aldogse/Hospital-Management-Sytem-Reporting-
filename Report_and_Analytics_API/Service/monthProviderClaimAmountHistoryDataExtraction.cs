@@ -10,7 +10,8 @@ namespace Report_and_Analytics_API.Service
         private readonly ILogger<monthProviderClaimAmountHistoryDataExtraction> _logger;
         private readonly IServiceScopeFactory _serviceScope;
 
-        public monthProviderClaimAmountHistoryDataExtraction(ILogger<monthProviderClaimAmountHistoryDataExtraction>logger,IServiceScopeFactory serviceScope)
+        public monthProviderClaimAmountHistoryDataExtraction(ILogger<monthProviderClaimAmountHistoryDataExtraction>logger
+            ,IServiceScopeFactory serviceScope)
         {
             _logger = logger;
             _serviceScope = serviceScope;
@@ -39,13 +40,11 @@ namespace Report_and_Analytics_API.Service
                         {
                             _logger.LogInformation(message:"Job already run for the month");
                             await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
-                            continue;
                         }
                     }
                     else
                     {
-                        await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
-                        continue;
+                        await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                     }
                 }
                 catch (Exception ex)
@@ -59,25 +58,43 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH OF THE MONTH
         private async Task MonthProviderClaimAmountHistoryDataExtraction(ReportDbContext reportDbContext,IinsuranceClaimRepository repository)
         {
-            try
+          
+            int attempts = 0;
+            int maxAtt = 5;
+
+           
+            while (attempts < maxAtt)
             {
-                DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
+                try
+                {                  
+                    attempts++;
+                    DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
 
-                var report = await repository.getProvidersClaimHistoryAmount(prevMonth.Month,prevMonth.Year);
+                    var report = await repository.getProvidersClaimHistoryAmount(prevMonth.Month, prevMonth.Year);
 
-                if(report == null)
-                {
-                    _logger.LogInformation(message:$"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                    if (report == null)
+                    {
+                        _logger.LogInformation(message: $"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await reportDbContext.month_insurance_claim_amount_training_data.AddRangeAsync(report);
+                    await reportDbContext.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Attempt{attempts}: {ex.Message}");
 
-                await reportDbContext.month_insurance_claim_amount_training_data.AddRangeAsync(report);
-                await reportDbContext.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(message:$"Error: {ex.Message}");
-                return;
+                    if(attempts == maxAtt)
+                    {
+                        _logger.LogError("Maximun attempt has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+
+                }
             }
         }
     }

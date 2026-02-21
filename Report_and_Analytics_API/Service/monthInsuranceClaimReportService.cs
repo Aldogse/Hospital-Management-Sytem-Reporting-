@@ -32,27 +32,25 @@ namespace Report_and_Analytics_API.Service
 
                     if (date.Day >= 5)
                     {
-                        if(!await joblogsRepo.hasRunThisMonth("monthInsuranceCoverageReport", date.Month, date.Year))
+                        if (!await joblogsRepo.hasRunThisMonth("monthInsuranceCoverageReport", date.Month, date.Year))
                         {
-                            await monthInsuranceCoverageReport(database,repository);
+                            await monthInsuranceCoverageReport(database, repository);
                             await joblogsRepo.markAsRunThisMonth("monthInsuranceCoverageReport", date.Month, date.Year);
                         }
                         else
                         {
                             _logger.LogInformation("Job already run for the month");
-                            await Task.Delay(TimeSpan.FromMinutes(60),stoppingToken);
+                            await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                         }
                     }
-                    else
-                    {
                         await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
-                    }
+                   
 
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError($"Error:{ex.Message}");
-                    await Task.Delay(TimeSpan.FromMinutes(10),stoppingToken);
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
                  
             }
@@ -64,23 +62,38 @@ namespace Report_and_Analytics_API.Service
         private async Task monthInsuranceCoverageReport(ReportDbContext reportDbContext,IinsuranceClaimRepository repository)
         {
             DateTime prevMonth = DateTime.Now.AddMonths(-1);
-            try
-            {
-                var report = await repository.getMonthClaimReport(prevMonth.Month,prevMonth.Year);
+            int attempts = 0;
+            int maxAttempts = 5;
 
-                if(report == null)
+            while (attempts < maxAttempts)
+            {
+                try
                 {
-                    _logger.LogInformation("Expecting data but nothing was extracted");
+                    attempts++;
+
+                    var report = await repository.getMonthClaimReport(prevMonth.Month, prevMonth.Year);
+
+                    if (report == null)
+                    {
+                        _logger.LogInformation("Expecting data but nothing was extracted");
+                        return;
+                    }
+
+                    await reportDbContext.monthly_claim_report.AddAsync(report);
+                    await reportDbContext.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");
 
-                await reportDbContext.monthly_claim_report.AddAsync(report);
-                await reportDbContext.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(message:$"Error: {ex.Message}");
-                return;
+                    if(attempts >= maxAttempts)
+                    {
+                        _logger.LogError(message:$"Maximum limit has been reached");
+                        throw;
+                    }
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

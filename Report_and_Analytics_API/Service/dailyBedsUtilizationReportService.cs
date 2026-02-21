@@ -26,43 +26,57 @@ namespace Report_and_Analytics_API.Service
 
 
                     DateTime now = DateTime.Now;
-                    DateTime nextMidnight = DateTime.Now.AddDays(1);
-                    TimeSpan delay = now - nextMidnight;
-                    await Task.Delay(delay,stoppingToken);
-
+                    DateTime nextMidnight = now.Date.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;                 
                     await DailyBedsUtilizationReportService(database,repo);
+                    await Task.Delay(delay, stoppingToken);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
         }
 
         //RUNS EVERYDAY
         private async Task DailyBedsUtilizationReportService(ReportDbContext reportDb,IpropertyRepository repository)
         {
-            try
-            {
-                DateTime date = DateTime.Now.AddDays(-1);
-                var results = await repository.getDailyBedsUtilizationReport(date);
+            int attempts = 0;
+            int maxAttempts = 5;
 
-                if (results == null)
+            while (attempts < maxAttempts)
+            {
+                try
                 {
-                    _logger.LogWarning($"Expecting data but nothing was extracted for {date}");
+                    attempts++;
+                    DateTime date = DateTime.Now.AddDays(-1);
+                    var results = await repository.getDailyBedsUtilizationReport(date);
+
+                    if (results == null)
+                    {
+                        _logger.LogWarning($"Expecting data but nothing was extracted for {date}");
+                        return;
+                    }
+
+                    await reportDb.daily_beds_utilization_report.AddAsync(results);
+                    await reportDb.SaveChangesAsync();
+                    _logger.LogInformation($"Records successfully stored for {date}");
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempt {attempts}:{ex.Message}");
 
-                await reportDb.daily_beds_utilization_report.AddAsync(results);
-                await reportDb.SaveChangesAsync();
-                _logger.LogInformation($"Records successfully stored for {date}");
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogInformation(message: "Maximum attempts has been reached");
+                        throw;
+                    }                  
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+         
         }
     }
 }

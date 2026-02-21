@@ -53,26 +53,34 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERTY 5TH of the following year
         private async Task YearPharmacySalesReportService(IjournalRepository repository,ReportDbContext database)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts <= maxAttempts) 
             {
-                int year = DateTime.Now.Year - 1;
-
-                var yearSaleData = await repository.getYearPharmacySales(year);
-
-                if(yearSaleData == null)
+                try
                 {
-                    _logger.LogCritical($"Expecting data but nothing was extracted for {year}");
+                    attempts++;
+                    int year = DateTime.Now.Year - 1;
+
+                    var yearSaleData = await repository.getYearPharmacySales(year);
+
+                    if (yearSaleData == null)
+                    {
+                        _logger.LogCritical($"Expecting data but nothing was extracted for {year}");
+                        return;
+                    }
+
+                    await database.yearly_pharmacy_sales_report.AddAsync(yearSaleData);
+                    await database.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error: {ex.Message}");
                     return;
                 }
-
-                await database.yearly_pharmacy_sales_report.AddAsync(yearSaleData);
-                await database.SaveChangesAsync();
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+            _logger.LogInformation("Maximum attempt has been reached");
+            return;
         }
     }
 }

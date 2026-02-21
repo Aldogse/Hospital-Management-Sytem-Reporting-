@@ -299,5 +299,27 @@ namespace Report_and_Analytics_API.Repository
             return doctor;
         }
 
+        public async Task<monthAttendanceComparisonResponse> monthAttendanceComparisonResponse(int baseMonth, int baseYear, int comparedMonth, int ComparedYear)
+        {
+            var firstMonth = await _reportDbContext.month_attendance_report.Where(i => i.month == baseMonth && i.year == baseYear
+            ).FirstOrDefaultAsync();
+
+            var secondMonth = await _reportDbContext.month_attendance_report.Where(i => i.month == comparedMonth && i.year == ComparedYear
+            ).FirstOrDefaultAsync();
+
+            return new monthAttendanceComparisonResponse
+            {
+                baseMonth = baseMonth,
+                baseYear = baseYear,
+                baseLate = firstMonth.late,
+                basePresent = firstMonth.present,
+                baseUnderTime = firstMonth.underTime,
+                partnerMonth = secondMonth.month,
+                partnerYear = secondMonth.year,
+                partnerLate = secondMonth.late,
+                partnerPresent = secondMonth.present,
+                partnerUnderTime = secondMonth.underTime
+            };
+        }
     }
 }

@@ -19,9 +19,10 @@ namespace Report_and_Analytics_API.Service
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+
+            while (!stoppingToken.IsCancellationRequested)
             {
-                while (!stoppingToken.IsCancellationRequested)
+                try
                 {
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
@@ -32,9 +33,9 @@ namespace Report_and_Analytics_API.Service
                     //this is should be equal to one to know the month already changes
                     if (DateTime.Now.Day >= 1)
                     {
-                        if(!await jobRepo.hasRunThisMonth("MonthBedOccupancyTrainingDataExtraction",date.Month,date.Year))
+                        if (!await jobRepo.hasRunThisMonth("MonthBedOccupancyTrainingDataExtraction", date.Month, date.Year))
                         {
-                            await MonthBedOccupancyTrainingDataExtraction(database,repo);
+                            await MonthBedOccupancyTrainingDataExtraction(database, repo);
                             await jobRepo.markAsRunThisMonth("MonthBedOccupancyTrainingDataExtraction", date.Month, date.Year);
                         }
                         else
@@ -43,48 +44,67 @@ namespace Report_and_Analytics_API.Service
                             await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                         }
                     }
-                    await Task.Delay(TimeSpan.FromHours(24),stoppingToken);
+                    await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error: {ex.Message}");
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                 }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
-            }
+
         }
 
         private async Task MonthBedOccupancyTrainingDataExtraction(ReportDbContext reportDb,IpropertyRepository repository)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+
+            while (attempts < maxAttempts)
             {
-                int year = DateTime.Now.Year - 1;
-
-                var monthData = await repository.getMonthsAdmissionData(year);
-
-                var report = monthData.Select(i => new month_bed_occupancy_training_data
+                try
                 {
-                    month = i.month,
-                    year = i.year,
-                    occupied_beds = i.occupied_beds,
-                    total_beds = i.total_beds,
-                    recently_discharged = i.recently_discharged,
-                    bed_occupancy_rate = ((float)i.occupied_beds / i.total_beds) * 100,
-                    broken_bed_rate  = ((float)i.broken_beds / i.total_beds) * 100
-                }).ToList();
+                    attempts++;
 
-                if(monthData == null)
-                {
-                    _logger.LogCritical($"Expecting data but nothing was extracted for {year}");
+                    int year = DateTime.Now.Year - 1;
+
+                    var monthData = await repository.getMonthsAdmissionData(year);
+
+                    if (monthData == null || !monthData.Any())
+                    {
+                        _logger.LogCritical($"Expecting data but nothing was extracted for {year}");
+                        return;
+                    }
+
+                    var report = monthData.Select(i => new month_bed_occupancy_training_data
+                    {
+                        month = i.month,
+                        year = i.year,
+                        occupied_beds = i.occupied_beds,
+                        total_beds = i.total_beds,
+                        recently_discharged = i.recently_discharged,
+                        bed_occupancy_rate = ((float)i.occupied_beds / i.total_beds) * 100,
+                        broken_bed_rate = ((float)i.broken_beds / i.total_beds) * 100
+                    }).ToList();
+
+
+                    await reportDb.month_bed_occupancy_training_data.AddRangeAsync(report);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message:$"Attempt {attempts}: {ex.Message}");
 
-                await reportDb.month_bed_occupancy_training_data.AddRangeAsync(report);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)  
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10));
+                    if(attempts >= maxAttempts)
+                    {
+                        _logger.LogError($"Maximum number of attempt has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+
+                }
             }
         }
     }

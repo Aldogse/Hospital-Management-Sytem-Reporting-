@@ -120,7 +120,7 @@ namespace Report_and_Analytics_API.Controllers
             try
             {
                 var date = DateTime.UtcNow;
-                var statusReport = await _claimRepository.getMonthProviderClaimStatusForecast(date.Year);
+                var statusReport = await _claimRepository.getMonthProviderClaimStatusForecast(date.Month,date.Year);
 
                 if (statusReport == null)
                 {
@@ -146,7 +146,7 @@ namespace Report_and_Analytics_API.Controllers
             try
             {
                 var date = DateTime.UtcNow;
-                var statusReport = await _claimRepository.getMonthProviderClaimsAmountForecast(date.Year);
+                var statusReport = await _claimRepository.getMonthProviderClaimsAmountForecast(date.Month,date.Year);
 
                 if (statusReport == null)
                 {
@@ -187,6 +187,51 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("getYearInsuranceReport")]
+        public async Task<IActionResult> getYearInsuranceReport([FromQuery]int year)
+        {
+            try
+            {
+                var exist = await _reportDbContext.yearly_claim_report.AnyAsync(i => i.year == year);
+
+                if(!exist)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No report for the year yet"
+                    });
+                }
+
+                var yearReport = await _claimRepository.yearClaimsSummary(year);
+                return Ok(yearReport);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("monthClaimComparisonEndpoint")]
+        public async Task<IActionResult> monthClaimComparisonEndpoint([FromQuery] int month, [FromQuery]int year
+            , [FromQuery]int partnerMonth, [FromQuery]int partnerYear)
+        {
+            try
+            {
+                if (month == partnerMonth && year == partnerYear)
+                {
+                    return StatusCode(400,"Cannot compare same month.");
+                }
+
+                var comparisonResult = await _claimRepository.monthClaimsComparison(month,year,partnerMonth,partnerYear);
+                return Ok(comparisonResult);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
     }

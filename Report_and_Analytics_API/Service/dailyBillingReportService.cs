@@ -25,42 +25,57 @@ namespace Report_and_Analytics_API.Service
                     var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
 
                     DateTime now = DateTime.Now;
-                    DateTime nextMidnight = DateTime.Now.AddDays(1);
-                    TimeSpan delay = now - nextMidnight;
-                    await Task.Delay(delay, stoppingToken);
+                    DateTime nextMidnight = now.Date.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;                 
 
                     await DailyBillingSummaryReport(database, repo);
+                    await Task.Delay(delay,stoppingToken);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
         }
 
         //RUNS EVERY TIME THE DAY ENDS
         private async Task DailyBillingSummaryReport(ReportDbContext reportDb,IjournalRepository repo)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts < maxAttempts)
             {
-                DateOnly prevDay = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
-                var report = await repo.getDailyBillingReport(prevDay);
-
-                if (report == null)
+                try
                 {
-                    _logger.LogCritical($"Expecting data but nothing was extracted for {prevDay}");
+                    attempts++;
+
+                    DateOnly prevDay = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
+                    var report = await repo.getDailyBillingReport(prevDay);
+
+                    if (report == null)
+                    {
+                        _logger.LogCritical($"Expecting data but nothing was extracted for {prevDay}");
+                        return;
+                    }
+
+                    await reportDb.daily_billing_report.AddAsync(report);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempt {attempts}:{ex.Message}");
 
-                await reportDb.daily_billing_report.AddAsync(report);
-                await reportDb.SaveChangesAsync();
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogInformation(message: "Maximum attempts has been reached");
+                        throw;
+                    }                   
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+           
         }
     }
 }

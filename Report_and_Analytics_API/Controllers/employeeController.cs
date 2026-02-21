@@ -459,6 +459,35 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
+        [HttpGet("monthAttendanceComparisonEndpoint")]
+        public async Task<IActionResult> monthAttendanceComparisonEndpoint([FromQuery]int baseMonth,[FromQuery]int baseYear
+            ,[FromQuery]int partnerMonth, [FromQuery]int partnerYear)
+        {
+            try
+            {
+                if (baseMonth == partnerMonth && baseYear == partnerYear)
+                {
+                    return StatusCode(400, "Same month and year not allowed");
+                }
+                var comparisonResponse = await _empRepo.monthAttendanceComparisonResponse(baseMonth, baseYear, partnerMonth, partnerYear);
+
+                if (comparisonResponse == null)
+                {
+                    return Ok(new
+                    {
+                        success = "true",
+                        message = "No report for the following month",
+                        data = (object?)null
+                    });
+                }
+                return Ok(comparisonResponse);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,$"Error:{ex.Message}");
+            }
+        }
+
         //FORECAST CONTROLLERS
         [HttpGet("getMonthStaffForecastNeeds")]
         public async Task<IActionResult> getMonthStaffForecastNeeds([FromQuery]int month, [FromQuery]int year)

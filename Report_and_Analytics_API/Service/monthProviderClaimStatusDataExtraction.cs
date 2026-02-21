@@ -12,7 +12,8 @@ namespace Report_and_Analytics_API.Service
         private readonly ILogger<monthProviderClaimStatusDataExtraction> _logger;
         private readonly IServiceScopeFactory _serviceScope;
 
-        public monthProviderClaimStatusDataExtraction(ILogger<monthProviderClaimStatusDataExtraction>logger,IServiceScopeFactory serviceScope)
+        public monthProviderClaimStatusDataExtraction(ILogger<monthProviderClaimStatusDataExtraction>logger,IServiceScopeFactory serviceScope
+            )
         {
             _logger = logger;
             _serviceScope = serviceScope;
@@ -48,7 +49,7 @@ namespace Report_and_Analytics_API.Service
                 catch (Exception ex)
                 {
                     _logger.LogError(message: $"Error: {ex.Message}");
-                    await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                 }
             }
         }
@@ -56,24 +57,40 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH OF THE MONTH
         private async Task MonthProviderClaimStatusDataExtraction(ReportDbContext reportDbContext,IinsuranceClaimRepository repository)
         {
-            try
-            {
-                var prevMonth = DateTime.UtcNow.AddMonths(-1);
-                var report = await repository.getProvidersClaimsHistoryStatus(prevMonth.Month,prevMonth.Year);
+            int attempts = 0;
+            int maxAtt = 5;
 
-                if(report == null)
+            while (attempts < maxAtt)
+            {
+                try
                 {
-                    _logger.LogInformation(message:$"Expecting data but nothing was extracted");
+                    attempts++;
+
+                    var prevMonth = DateTime.UtcNow.AddMonths(-1);
+                    var report = await repository.getProvidersClaimsHistoryStatus(prevMonth.Month, prevMonth.Year);
+
+                    if (report == null)
+                    {
+                        _logger.LogInformation(message: $"Expecting data but nothing was extracted");
+                        return;
+                    }
+
+                    await reportDbContext.month_insurance_claims_status_training_data.AddRangeAsync(report);
+                    await reportDbContext.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Attempt{attempts}: {ex.Message}");
 
-                await reportDbContext.month_insurance_claims_status_training_data.AddRangeAsync(report);
-                await reportDbContext.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    if (attempts == maxAtt)
+                    {
+                        _logger.LogError("Maximun attempt has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

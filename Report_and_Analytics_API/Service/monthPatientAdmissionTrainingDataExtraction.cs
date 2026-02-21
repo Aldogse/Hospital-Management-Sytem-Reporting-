@@ -45,12 +45,14 @@ namespace Report_and_Analytics_API.Service
                             }
                             await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                         }
+                        else
+                        {
+                            _logger.LogInformation("Job already run for the month.");
+                            await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                        }
                     }
-                    else
-                    {
-                        _logger.LogCritical(message:$"service already run this month {date.Month}");
-                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
-                    }
+                    await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
+                  
                 }
             }
             catch (Exception ex)
@@ -63,46 +65,62 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY TIME THE MONTH ENDS
         private async Task MonthPatientAdmissionTrainingDataExtraction(ReportDbContext reportDb,IpatientAdmissionRepository repository)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+
+            while (attempts < maxAttempts)
             {
-                //the dates are related to target month that is why we put extract -1 to get the right values
-                DateTime lastThreeMonths = DateTime.Now.AddMonths(-4);
-                DateTime lastSixMonths = DateTime.Now.AddMonths(-7);
-
-                //prev month of the prev date so for example if we extract for november this is for october
-                DateTime prevMonthOfTheTargetDate = DateTime.Now.AddMonths(-2);
-
-
-                DateTime preMonthOfTheExistingDate = DateTime.Now.AddMonths(-1);
-
-                var lastThreeMonthsAdmissionCount = await repository.getLastThreeMonthsTotalAdmissions(lastThreeMonths, prevMonthOfTheTargetDate);
-                var lastSixMonthsAdmissionCount = await repository.getLastSixMonthsTotalAdmissions(lastSixMonths, prevMonthOfTheTargetDate);
-                var prevMonthTargetDateAdmissionCount = await repository.getPreviousMonthTotalAdmissions(prevMonthOfTheTargetDate.Month, preMonthOfTheExistingDate.Year);
-                var totalAdmissionCount = await repository.getMonthTotalAdmissions(preMonthOfTheExistingDate.Month,preMonthOfTheExistingDate.Year);
-
-                var trainingData = new month_patient_admission_forecasting_training_data()
+                try
                 {
-                    month = preMonthOfTheExistingDate.Month,
-                    year = preMonthOfTheExistingDate.Year,
-                    total_admission = totalAdmissionCount,
-                    last_sixth_month_admission = lastSixMonthsAdmissionCount,
-                    last_three_month_admission = lastThreeMonthsAdmissionCount,
-                    prev_month_admission = prevMonthTargetDateAdmissionCount,
-                };
+                    attempts++;
 
-                if (trainingData == null)
-                {
-                    _logger.LogCritical(message:$"Expecting data but nothing was extracted for {preMonthOfTheExistingDate.Month}/{preMonthOfTheExistingDate.Year}");
+                    //the dates are related to target month that is why we put extract -1 to get the right values
+                    DateTime lastThreeMonths = DateTime.Now.AddMonths(-4);
+                    DateTime lastSixMonths = DateTime.Now.AddMonths(-7);
+
+                    //prev month of the prev date so for example if we extract for november this is for october
+                    DateTime prevMonthOfTheTargetDate = DateTime.Now.AddMonths(-2);
+
+
+                    DateTime preMonthOfTheExistingDate = DateTime.Now.AddMonths(-1);
+
+                    var lastThreeMonthsAdmissionCount = await repository.getLastThreeMonthsTotalAdmissions(lastThreeMonths, prevMonthOfTheTargetDate);
+                    var lastSixMonthsAdmissionCount = await repository.getLastSixMonthsTotalAdmissions(lastSixMonths, prevMonthOfTheTargetDate);
+                    var prevMonthTargetDateAdmissionCount = await repository.getPreviousMonthTotalAdmissions(prevMonthOfTheTargetDate.Month, preMonthOfTheExistingDate.Year);
+                    var totalAdmissionCount = await repository.getMonthTotalAdmissions(preMonthOfTheExistingDate.Month, preMonthOfTheExistingDate.Year);
+
+                    var trainingData = new month_patient_admission_forecasting_training_data()
+                    {
+                        month = preMonthOfTheExistingDate.Month,
+                        year = preMonthOfTheExistingDate.Year,
+                        total_admission = totalAdmissionCount,
+                        last_sixth_month_admission = lastSixMonthsAdmissionCount,
+                        last_three_month_admission = lastThreeMonthsAdmissionCount,
+                        prev_month_admission = prevMonthTargetDateAdmissionCount,
+                    };
+
+                    if (trainingData == null)
+                    {
+                        _logger.LogCritical(message: $"Expecting data but nothing was extracted for {preMonthOfTheExistingDate.Month}/{preMonthOfTheExistingDate.Year}");
+                        return;
+                    }
+
+                    await reportDb.month_patient_admission_forecasting_training_data.AddAsync(trainingData);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempts {attempts}: {ex.Message}");
+                    
+                    if(attempts == maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempt has been reached.");
+                        throw;
+                    }
 
-                await reportDb.month_patient_admission_forecasting_training_data.AddAsync(trainingData);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

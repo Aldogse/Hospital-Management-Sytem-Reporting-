@@ -1,10 +1,13 @@
 ﻿using APIResponses;
+using APIResponses.BillingResponse;
+using APIResponses.BudgetResponse;
 using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
 using APIResponses.journal_responses;
 using APIResponses.prediction_results;
 using APIResponses.Training_Models;
 using Report_and_Analytics_Library.Billing;
+using Report_and_Analytics_Library.Property_Management;
 
 namespace Report_and_Analytics_API.Interface
 {
@@ -31,6 +34,8 @@ namespace Report_and_Analytics_API.Interface
         public Task<yearly_billing_report> baseYearBillingReport(int year);
         public Task<yearly_billing_report> comparedYearBillingReport(int year);
         public Task<List<month_billing_report>> monthsBillingReport(int year);
+        public Task<monthBillingReportComparisonResponse> monthBillingComparisonReport(int month,int year,int partnerMonth,int partnerYear);
+        public Task<yearBillingReportSummary> yearBillingReportSummary(int year);
 
         //REVENUE QUERIES
         public Task<decimal?> getMonthBillRevenueReport(int month,int year);
@@ -42,6 +47,7 @@ namespace Report_and_Analytics_API.Interface
         public Task<List<yearRevenueResponse>> getMonthsRevenueReport(int year);
         public Task<List<month_revenue_report>> monthsRevenueReport(int year);
         public Task<month_revenue_report> monthRevenueReport(int month,int year);
+        Task<monthRevenueComparisonResponse> monthRevenueComparisonResponse(int month,int year,int partnerMonth,int partnerYear);
             
 
         //MEDICINE AND SUPPKY MANAGEMENT QEURIES
@@ -49,6 +55,7 @@ namespace Report_and_Analytics_API.Interface
         public Task<List<month_medicine_shortage_training_data>> populateCorrectDataforTheSupplyTraining(int month,int year);
         public Task<List<month_medicine_supply_forecast_result>> getMonthMedicineShortageForecast(int month,int year);
         public Task<List<object>> getMedicineMonthDispensed(int month,int year);
+        public Task<monthPharmacySalesComparisonResponse> monthPharmacySalesComparison(int baseMonth,int baseYear,int partnerMonth,int partnerYear);
 
         //GET SPECIFIC MONTH OPERATIONAL COST
         public Task<float> getLastThreeMonthsOperationalCost(DateTime startDate,DateTime endDate);
@@ -69,7 +76,11 @@ namespace Report_and_Analytics_API.Interface
 
         //DEPARTMENT BUDGET QUERIES
         Task<yearBudgetComparisonResponse> departmentBudgetComparisonOutcome(int baseYear,int comparedYear);
-        
+        Task<department_budget_year_report> getYearBudgetReport(int year);
+        Task<yearDepartmentBudgetSummaryResponse> departmentBudgetYearSummary(int year);
+        Task<department_budgets> monthDepartmentBudgetSummaryReport(int month,int year);
+        Task<monthBudgetComparisonSummaryResponse> monthDepartmentBudgetComparisonResponse(int month,int year,int parMonth,int parYear);
+        Task<List<monthPendingBudgetsReport>> pendingMonthBudgetRequest(int year);
     }
 }
   

@@ -88,11 +88,13 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<monthMedicineSupplyForecastingService>();
 //builder.Services.AddHostedService<monthInsuranceClaimReportService>();
 //builder.Services.AddHostedService<monthOutcomeReportDataExtractionService>();
+//builder.Services.AddHostedService<yearlyClaimReportDataExtraction>();
+//builder.Services.AddHostedService<yearPayrollBackgroundServiceDataExtraction>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository,hrPayrollRepository>();
 builder.Services.AddScoped<IhrEmployeeInformation,hrEmployeeInformation>();
 builder.Services.AddScoped<IjournalRepository,journalRepository>();
-builder.Services.AddScoped<IinsuranceClaimRepository,claimRepository>();
+builder.Services.AddScoped<IinsuranceClaimRepository, claimRepository>();
 builder.Services.AddScoped<IpropertyRepository,propertyRepository>();
 builder.Services.AddScoped<IemployeeRepository,employeeRepository>();
 builder.Services.AddScoped<IjoblogsRepository,jobLogsRepository>();

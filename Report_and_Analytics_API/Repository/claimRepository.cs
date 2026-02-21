@@ -130,18 +130,20 @@ namespace Report_and_Analytics_API.Repository
             return claimAmount;
         }
 
-        public async Task<List<month_insurance_claims_status_forecast_result>> getMonthProviderClaimStatusForecast(int year)
+        public async Task<List<month_insurance_claims_status_forecast_result>> getMonthProviderClaimStatusForecast(int month,int year)
         {
             var report = await _reportDbContext.month_insurance_claims_status_forecast_result
-                .Where(i => i.year == year).ToListAsync();
+                .Where(i => i.month == month &&i.year == year)
+                .ToListAsync();
 
             return report;
         }
 
-        public async Task<List<month_insurance_claim_amount_forecast_result>> getMonthProviderClaimsAmountForecast(int year)
+        public async Task<List<month_insurance_claim_amount_forecast_result>> getMonthProviderClaimsAmountForecast(int month,int year)
         {
             var report = await _reportDbContext.month_insurance_claim_amount_forecast_result
-               .Where(i => i.year == year).ToListAsync();
+               .Where(i => i.month == month && i.year == year)
+               .ToListAsync();
 
             return report;
         }
@@ -235,6 +237,57 @@ namespace Report_and_Analytics_API.Repository
 
             return response;
                 
+        }
+
+        public async Task<yearly_claim_report> getYearClaimReport(int year)
+        {
+            var yearReport = await _reportDbContext.monthly_claim_report.Where(i => i.year == year).ToListAsync();
+
+            return new yearly_claim_report
+            {
+                total_approved_claims = yearReport.Sum(i => i.total_approved_claims),
+                total_claims = yearReport.Sum(i => i.total_claims),
+                total_denied_claims = yearReport.Sum(i => i.total_denied_claims),
+                year = year
+            };
+        }
+
+        public async Task<yearlyClaimReportResponse> yearClaimsSummary(int year)
+        {
+            var yearReport = await _reportDbContext.yearly_claim_report.Where(i => i.year == year).FirstOrDefaultAsync();
+            var monthSummary = await _reportDbContext.monthly_claim_report.Where(i => i.year == year).ToListAsync();
+
+            return new yearlyClaimReportResponse
+            {
+                total_approved_claims = yearReport?.total_approved_claims ?? 0,
+                total_claims = yearReport?.total_claims ?? 0,
+                total_denied_claims = yearReport?.total_denied_claims ?? 0,
+                year = year,
+                monthsClaim = monthSummary
+            };
+        }
+
+        public async Task<monthsComparisonClaimResponse> monthClaimsComparison(int month, int year, int parterMont, int partnerYear)
+        {
+            var baseMonth = await _reportDbContext.monthly_claim_report.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+            var partnerMonth = await _reportDbContext.monthly_claim_report.Where(i => i.month == parterMont && i.year == partnerYear)
+                .FirstOrDefaultAsync();
+
+            return new monthsComparisonClaimResponse
+            {
+                basemonth = month,
+                baseyear = year,
+                base_total_approved_claims = baseMonth?.total_approved_claims ?? 0,
+                base_total_claims = baseMonth?.total_claims ?? 0,
+                base_total_denied_claims = baseMonth?.total_denied_claims ?? 0,
+
+                partnermonth = parterMont,
+                partneryear = partnerYear,
+                partner_total_approved_claims = partnerMonth?.total_approved_claims ?? 0,
+                partner_total_claims = partnerMonth?.total_claims ?? 0,
+                partner_total_denied_claims = partnerMonth?.total_denied_claims ?? 0
+            };
         }
     }
 } 

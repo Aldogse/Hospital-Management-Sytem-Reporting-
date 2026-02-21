@@ -26,17 +26,17 @@ namespace Report_and_Analytics_API.Service
                 {
 
                     DateTime now = DateTime.Now;
-                    DateTime nextMidnight = DateTime.Now.AddDays(1);
+                    DateTime nextMidnight = now.Date.AddDays(1);
                     TimeSpan delay = now - nextMidnight;
-                    await Task.Delay(delay, stoppingToken);
-
+                    
                     await DailyPharmacySalesReportService(db,repo);
+                    await Task.Delay(delay, stoppingToken);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
         }
 
@@ -44,24 +44,41 @@ namespace Report_and_Analytics_API.Service
         private async Task DailyPharmacySalesReportService(ReportDbContext reportDb, IjournalRepository repository)
         {
             DateTime date = DateTime.Now.AddDays(-1);
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+            while (attempts <= maxAttempts)
             {
-                var salesReport = await repository.getDailyPharmacySalesReport(date.Month,date.Year,date.Day);
-
-                if(salesReport == null)
+                try
                 {
-                    _logger.LogInformation($"No sales report extracted for {date}");
+                    attempts++;
+
+                    var salesReport = await repository.getDailyPharmacySalesReport(date.Month, date.Year, date.Day);
+
+                    if (salesReport == null)
+                    {
+                        _logger.LogInformation($"No sales report extracted for {date}");
+                        return;
+                    }
+
+                    await reportDb.daily_pharmacy_sales.AddAsync(salesReport);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Attempt {attempts}:{ex.Message}");
+                    
 
-                await reportDb.daily_pharmacy_sales.AddAsync(salesReport);
-                await reportDb.SaveChangesAsync();
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogInformation(message: "Maximum attempts has been reached");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+           
         }
     }
 }

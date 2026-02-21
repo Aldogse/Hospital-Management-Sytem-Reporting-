@@ -1,0 +1,773 @@
+2026-02-16 11:19:35.199 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 11:19:35.241 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 11:19:35.301 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 11:19:35.302 +08:00 [INF] Hosting environment: Development
+2026-02-16 11:19:35.303 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 11:19:36.123 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 11:19:36.405 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-16 11:19:36.406 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-16 11:19:36.409 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 290.703ms
+2026-02-16 11:19:36.434 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.0009ms
+2026-02-16 11:19:36.468 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.2122ms
+2026-02-16 11:19:36.510 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-16 11:19:36.536 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.7611ms
+2026-02-16 11:19:55.060 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=1&year=2025&partnerMonth=1&partnerYear=2025 - null null
+2026-02-16 11:19:55.069 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:19:55.093 +08:00 [INF] Route matched with {action = "monthRevenueComparisonEndpoint", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthRevenueComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-16 11:19:55.815 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-16 11:19:55.821 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API) in 723.5856ms
+2026-02-16 11:19:55.822 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:19:55.825 +08:00 [INF] HTTP GET /journal/monthRevenueComparisonEndpoint responded 400 in 756.9177 ms
+2026-02-16 11:19:55.828 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=1&year=2025&partnerMonth=1&partnerYear=2025 - 400 null text/plain; charset=utf-8 768.4439ms
+2026-02-16 11:20:00.468 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=2&year=2025&partnerMonth=1&partnerYear=2025 - null null
+2026-02-16 11:20:00.476 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:20:00.477 +08:00 [INF] Route matched with {action = "monthRevenueComparisonEndpoint", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthRevenueComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-16 11:20:01.821 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:20:01.931 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__partnerMonth_0='?' (DbType = Int32), @__partnerYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__partnerMonth_0) AND (`m`.`year` = @__partnerYear_1)
+LIMIT 1
+2026-02-16 11:20:01.937 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.monthRevenueComparisonResponse'.
+2026-02-16 11:20:01.948 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API) in 1468.4418ms
+2026-02-16 11:20:01.950 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:20:01.951 +08:00 [INF] HTTP GET /journal/monthRevenueComparisonEndpoint responded 200 in 1474.7229 ms
+2026-02-16 11:20:01.956 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=2&year=2025&partnerMonth=1&partnerYear=2025 - 200 null application/json; charset=utf-8 1489.1459ms
+2026-02-16 11:23:40.709 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=2&year=2025&partnerMonth=1&partnerYear=2025 - null null
+2026-02-16 11:23:40.722 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:23:40.724 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:23:40.725 +08:00 [INF] Route matched with {action = "monthRevenueComparisonEndpoint", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthRevenueComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-16 11:23:40.747 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:23:40.752 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__partnerMonth_0='?' (DbType = Int32), @__partnerYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__partnerMonth_0) AND (`m`.`year` = @__partnerYear_1)
+LIMIT 1
+2026-02-16 11:23:40.754 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.monthRevenueComparisonResponse'.
+2026-02-16 11:23:40.756 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API) in 30.2325ms
+2026-02-16 11:23:40.758 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:23:40.758 +08:00 [INF] HTTP GET /journal/monthRevenueComparisonEndpoint responded 200 in 34.7013 ms
+2026-02-16 11:23:40.760 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=2&year=2025&partnerMonth=1&partnerYear=2025 - 200 null application/json; charset=utf-8 51.8688ms
+2026-02-16 11:23:50.708 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=1&year=2025&partnerMonth=7&partnerYear=2025 - null null
+2026-02-16 11:23:50.711 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:23:50.712 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:23:50.713 +08:00 [INF] Route matched with {action = "monthRevenueComparisonEndpoint", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthRevenueComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-16 11:23:50.768 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:23:50.773 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__partnerMonth_0='?' (DbType = Int32), @__partnerYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE (`m`.`month` = @__partnerMonth_0) AND (`m`.`year` = @__partnerYear_1)
+LIMIT 1
+2026-02-16 11:23:50.775 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.monthRevenueComparisonResponse'.
+2026-02-16 11:23:50.778 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API) in 63.1622ms
+2026-02-16 11:23:50.779 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:23:50.780 +08:00 [INF] HTTP GET /journal/monthRevenueComparisonEndpoint responded 200 in 67.6040 ms
+2026-02-16 11:23:50.781 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=1&year=2025&partnerMonth=7&partnerYear=2025 - 200 null application/json; charset=utf-8 73.5486ms
+2026-02-16 11:24:01.603 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=7&year=2025&partnerMonth=7&partnerYear=2025 - null null
+2026-02-16 11:24:01.607 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:24:01.608 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:24:01.609 +08:00 [INF] Route matched with {action = "monthRevenueComparisonEndpoint", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthRevenueComparisonEndpoint(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-16 11:24:01.612 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-02-16 11:24:01.613 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API) in 1.6824ms
+2026-02-16 11:24:01.614 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthRevenueComparisonEndpoint (Report_and_Analytics_API)'
+2026-02-16 11:24:01.615 +08:00 [INF] HTTP GET /journal/monthRevenueComparisonEndpoint responded 400 in 7.5311 ms
+2026-02-16 11:24:01.617 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthRevenueComparisonEndpoint?month=7&year=2025&partnerMonth=7&partnerYear=2025 - 400 null text/plain; charset=utf-8 14.3409ms
+2026-02-16 11:31:04.162 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 11:31:04.224 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 11:31:04.292 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 11:31:04.294 +08:00 [INF] Hosting environment: Development
+2026-02-16 11:31:04.296 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 11:31:05.396 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 11:31:05.594 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 202.9935ms
+2026-02-16 11:31:05.604 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-16 11:31:05.604 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-16 11:31:05.619 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 15.9772ms
+2026-02-16 11:31:05.656 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.0196ms
+2026-02-16 11:31:05.700 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-16 11:31:05.734 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.4174ms
+2026-02-16 11:31:08.648 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-16 11:31:08.655 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:31:08.659 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:08.678 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:31:10.120 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:31:10.166 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2026 - null null
+2026-02-16 11:31:10.171 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:31:10.172 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:10.173 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:31:10.209 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 11:31:10.219 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:31:10.225 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 11:31:10.225 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:31:10.227 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:31:10.243 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 65.3323ms
+2026-02-16 11:31:10.243 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 1560.4235ms
+2026-02-16 11:31:10.245 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:10.245 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:10.248 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 74.5407 ms
+2026-02-16 11:31:10.248 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 1590.4005 ms
+2026-02-16 11:31:10.256 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 1609.0284ms
+2026-02-16 11:31:10.256 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2026 - 200 null application/json; charset=utf-8 90.4546ms
+2026-02-16 11:31:11.144 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2025 - null null
+2026-02-16 11:31:11.148 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:31:11.149 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:11.151 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:31:11.230 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:31:11.295 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 11:31:11.300 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:31:11.304 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 150.6222ms
+2026-02-16 11:31:11.306 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:31:11.307 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 158.2465 ms
+2026-02-16 11:31:11.309 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=1&year=2025 - 200 null application/json; charset=utf-8 165.6145ms
+2026-02-16 11:32:43.619 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 11:32:43.685 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 11:32:43.741 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 11:32:43.743 +08:00 [INF] Hosting environment: Development
+2026-02-16 11:32:43.744 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 11:32:44.483 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 11:32:44.693 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 214.3968ms
+2026-02-16 11:32:44.698 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-16 11:32:44.698 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-16 11:32:44.725 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 26.4832ms
+2026-02-16 11:32:44.757 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.5808ms
+2026-02-16 11:32:44.799 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-16 11:32:44.824 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.8973ms
+2026-02-16 11:32:49.382 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2025 - null null
+2026-02-16 11:32:49.389 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:32:49.393 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:32:49.412 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:32:50.809 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:32:50.916 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:32:50.925 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:32:50.941 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 1524.1793ms
+2026-02-16 11:32:50.944 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:32:50.947 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 1554.6308 ms
+2026-02-16 11:32:50.957 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2025 - 200 null application/json; charset=utf-8 1575.3648ms
+2026-02-16 11:33:08.694 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2025 - null null
+2026-02-16 11:33:08.699 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:33:08.700 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:08.701 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:33:08.726 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:33:08.732 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:33:08.734 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:33:08.736 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 33.1137ms
+2026-02-16 11:33:08.737 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:08.738 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 38.6314 ms
+2026-02-16 11:33:08.740 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2025 - 200 null application/json; charset=utf-8 45.8182ms
+2026-02-16 11:33:12.152 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2021 - null null
+2026-02-16 11:33:12.155 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:33:12.156 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:12.157 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:33:12.221 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:33:12.228 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:33:12.230 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:33:12.232 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 73.2545ms
+2026-02-16 11:33:12.233 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:12.234 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 78.1318 ms
+2026-02-16 11:33:12.236 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2021 - 200 null application/json; charset=utf-8 84.5536ms
+2026-02-16 11:33:16.815 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2025 - null null
+2026-02-16 11:33:16.817 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:33:16.818 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:16.819 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:33:16.826 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:33:16.833 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:33:16.835 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:33:16.836 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 16.0221ms
+2026-02-16 11:33:16.838 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:33:16.839 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 20.7940 ms
+2026-02-16 11:33:16.840 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=4&year=2025 - 200 null application/json; charset=utf-8 25.7903ms
+2026-02-16 11:34:53.491 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - null null
+2026-02-16 11:34:53.497 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:34:53.498 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:53.499 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:34:53.508 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:34:53.513 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:34:53.515 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:34:53.516 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.5974ms
+2026-02-16 11:34:53.517 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:53.518 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 19.5200 ms
+2026-02-16 11:34:53.519 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=2&year=2026 - 200 null application/json; charset=utf-8 29.0095ms
+2026-02-16 11:34:54.847 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=3&year=2026 - null null
+2026-02-16 11:34:54.849 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:34:54.850 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:54.851 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:34:54.858 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:34:54.864 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:34:54.866 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:34:54.867 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.8869ms
+2026-02-16 11:34:54.868 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:54.869 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 19.1834 ms
+2026-02-16 11:34:54.871 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=3&year=2026 - 200 null application/json; charset=utf-8 24.5825ms
+2026-02-16 11:34:55.896 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=3&year=2025 - null null
+2026-02-16 11:34:55.898 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:34:55.899 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:55.899 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:34:55.906 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:34:55.912 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:34:55.914 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:34:55.915 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.3667ms
+2026-02-16 11:34:55.916 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:34:55.917 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 18.4683 ms
+2026-02-16 11:34:55.919 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=3&year=2025 - 200 null application/json; charset=utf-8 23.3711ms
+2026-02-16 11:35:02.343 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=5&year=2025 - null null
+2026-02-16 11:35:02.346 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:35:02.346 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:35:02.347 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:35:02.354 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:35:02.360 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:35:02.362 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:35:02.363 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 13.8199ms
+2026-02-16 11:35:02.364 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:35:02.365 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 18.9383 ms
+2026-02-16 11:35:02.367 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=5&year=2025 - 200 null application/json; charset=utf-8 23.8189ms
+2026-02-16 11:35:06.545 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=11&year=2025 - null null
+2026-02-16 11:35:06.547 +08:00 [INF] CORS policy execution successful.
+2026-02-16 11:35:06.548 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:35:06.548 +08:00 [INF] Route matched with {action = "getMonthPayrollSummary", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthPayrollSummary(Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-16 11:35:06.556 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-16 11:35:06.561 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+ORDER BY `m`.`month`
+2026-02-16 11:35:06.563 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollSummaryResponse'.
+2026-02-16 11:35:06.564 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API) in 14.7062ms
+2026-02-16 11:35:06.566 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.getMonthPayrollSummary (Report_and_Analytics_API)'
+2026-02-16 11:35:06.567 +08:00 [INF] HTTP GET /payroll/getMonthPayrollSummary responded 200 in 19.1114 ms
+2026-02-16 11:35:06.569 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/getMonthPayrollSummary?month=11&year=2025 - 200 null application/json; charset=utf-8 24.3414ms
+2026-02-16 13:27:38.347 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 13:27:38.382 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 13:27:38.413 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__jobName_0='?' (Size = 255), @__runYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `job_run_logs` AS `j`
+    WHERE (`j`.`job_name` = @__jobName_0) AND (`j`.`run_year` = @__runYear_1))
+2026-02-16 13:27:38.438 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 13:27:38.440 +08:00 [INF] Hosting environment: Development
+2026-02-16 13:27:38.447 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 13:27:59.897 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 13:27:59.957 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE((
+    SELECT `m0`.`month`
+    FROM `month_payroll_summary` AS `m0`
+    WHERE ((`m0`.`year` = @__year_0) AND (`m`.`month` = `m0`.`month`)) AND (`m0`.`month` = 12)
+    LIMIT 1), 0) AS `total_employees`, COALESCE(SUM(`m`.`total_deductions`), 0.0) AS `year_total_deductions`, COALESCE(SUM(`m`.`total_gross_pay`), 0.0) AS `year_total_gross_pay`, @__year_0 AS `year`, COALESCE(SUM(`m`.`total_net_pay`), 0.0) AS `year_total_net_pay`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+GROUP BY `m`.`month`
+LIMIT 1
+2026-02-16 13:32:22.798 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 13:32:22.834 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 13:32:22.864 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__jobName_0='?' (Size = 255), @__runYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `job_run_logs` AS `j`
+    WHERE (`j`.`job_name` = @__jobName_0) AND (`j`.`run_year` = @__runYear_1))
+2026-02-16 13:32:22.913 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 13:32:22.914 +08:00 [INF] Hosting environment: Development
+2026-02-16 13:32:22.915 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 13:32:33.582 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 13:32:33.689 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE((
+    SELECT `m0`.`total_employees`
+    FROM `month_payroll_summary` AS `m0`
+    WHERE ((`m0`.`year` = @__year_0) AND (`m`.`month` = `m0`.`month`)) AND (`m0`.`month` = 12)
+    LIMIT 1), 0) AS `total_employees`, COALESCE(SUM(`m`.`total_deductions`), 0.0) AS `year_total_deductions`, COALESCE(SUM(`m`.`total_gross_pay`), 0.0) AS `year_total_gross_pay`, @__year_0 AS `year`, COALESCE(SUM(`m`.`total_net_pay`), 0.0) AS `year_total_net_pay`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+GROUP BY `m`.`month`
+LIMIT 1
+2026-02-16 13:37:57.727 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-16 13:37:57.761 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-16 13:37:57.786 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__jobName_0='?' (Size = 255), @__runYear_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `job_run_logs` AS `j`
+    WHERE (`j`.`job_name` = @__jobName_0) AND (`j`.`run_year` = @__runYear_1))
+2026-02-16 13:37:57.818 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 13:37:57.825 +08:00 [INF] Hosting environment: Development
+2026-02-16 13:37:57.826 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-16 13:38:08.209 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-16 13:38:08.235 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 13:39:22.265 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 74062.3947ms
+2026-02-16 13:39:22.275 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-16 13:39:22.278 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-16 13:39:22.293 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.502ms
+2026-02-16 13:39:22.336 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.0249ms
+2026-02-16 13:39:22.362 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:22.401 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-16 13:39:22.417 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 13:39:22.418 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - null null
+2026-02-16 13:39:22.440 +08:00 [ERR] Failed executing DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:22.442 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.7472ms
+2026-02-16 13:39:22.446 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-02-16 13:39:22.449 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/favicon-32x32.png - 200 628 image/png 31.9823ms
+2026-02-16 13:39:22.520 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-16 13:39:22.602 +08:00 [ERR] Attempt2 Error:An error occurred while saving the entity changes. See the inner exception for details.
+2026-02-16 13:39:24.627 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 13:39:24.640 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p5, @p6, @p7, @p8, @p9);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:24.653 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-16 13:39:24.715 +08:00 [ERR] Attempt3 Error:An error occurred while saving the entity changes. See the inner exception for details.
+2026-02-16 13:39:26.734 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 13:39:26.750 +08:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Decimal), @p13='?' (DbType = Decimal), @p14='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p5, @p6, @p7, @p8, @p9);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p10, @p11, @p12, @p13, @p14);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:26.758 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-16 13:39:26.817 +08:00 [ERR] Attempt4 Error:An error occurred while saving the entity changes. See the inner exception for details.
+2026-02-16 13:39:28.827 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-16 13:39:28.837 +08:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = Decimal), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Decimal), @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Decimal), @p13='?' (DbType = Decimal), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Decimal), @p18='?' (DbType = Decimal), @p19='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p5, @p6, @p7, @p8, @p9);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p10, @p11, @p12, @p13, @p14);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p15, @p16, @p17, @p18, @p19);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:28.845 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-16 13:39:28.896 +08:00 [ERR] Attempt5 Error:An error occurred while saving the entity changes. See the inner exception for details.
+2026-02-16 13:39:30.915 +08:00 [INF] Maximum attempt has been met.
+2026-02-16 13:39:30.966 +08:00 [ERR] Failed executing DbCommand (14ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Decimal), @p11='?' (DbType = Decimal), @p12='?' (DbType = Decimal), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Decimal), @p16='?' (DbType = Decimal), @p17='?' (DbType = Decimal), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `job_run_logs` (`job_name`, `last_run`, `run_year`)
+VALUES (@p0, @p1, @p2);
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p3, @p4, @p5, @p6, @p7);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p8, @p9, @p10, @p11, @p12);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p13, @p14, @p15, @p16, @p17);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+
+INSERT INTO `year_hospital_payroll_report` (`total_employees`, `year`, `year_total_deductions`, `year_total_gross_pay`, `year_total_net_pay`)
+VALUES (@p18, @p19, @p20, @p21, @p22);
+SELECT `reportId`
+FROM `year_hospital_payroll_report`
+WHERE ROW_COUNT() = 1 AND `reportId` = LAST_INSERT_ID();
+2026-02-16 13:39:30.977 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Report_and_Analytics_API.Data.ReportDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '2025' for key 'year'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-16 13:39:31.083 +08:00 [ERR] Error: An error occurred while saving the entity changes. See the inner exception for details.

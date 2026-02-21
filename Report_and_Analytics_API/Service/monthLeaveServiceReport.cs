@@ -40,7 +40,7 @@ namespace Report_and_Analytics_API.Service
                         else
                         {
                             _logger.LogInformation(message:$"Job already run for the month");
-                            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                            await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                         }
                     }
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
@@ -49,47 +49,63 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogError(message:$"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
         }
 
         private async Task MonthLeaveServiceReport(ReportDbContext reportDb)
         {
             DateTime prevMonth = DateTime.Now.AddMonths(-2);
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+
+            while (attempts < maxAttempts)
             {
-                var totalLeaveRequest = await reportDb.hr_leave
-                    .Where(i => i.submit_at.Month == prevMonth.Month && i.submit_at.Year == prevMonth.Year)
-                    .CountAsync();
-
-                var pastMonthLeaveReport = await (
-                    from leaves in reportDb.hr_leave
-                    where leaves.submit_at.Month == prevMonth.Month
-                    && leaves.submit_at.Year == prevMonth.Year
-                    group new { leaves } by 1 into x 
-                    select new month_leave_report
-                    {                    
-                        year = prevMonth.Year,
-                        month = prevMonth.Month,
-                        total_leave_request = totalLeaveRequest, 
-                        month_approved_leaves = x.Where(i => i.leaves.leave_status == "Approved").Count(),
-                        month_pending_leaves = x.Where(i => i.leaves.leave_status == "Pending").Count(),
-                        month_rejected_leaves = x.Where(i => i.leaves.leave_status == "Rejected").Count()
-                    }).FirstOrDefaultAsync();
-
-                if(pastMonthLeaveReport == null)
+                try
                 {
-                    _logger.LogInformation($"No data extracted for {prevMonth.Month}/{prevMonth.Year}");
-                    return;
-                }
+                    attempts++;
 
-                await reportDb.month_leave_report.AddAsync(pastMonthLeaveReport);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation($"Error: {ex.Message}");
-                return;
+                    var totalLeaveRequest = await reportDb.hr_leave
+                        .Where(i => i.submit_at.Month == prevMonth.Month && i.submit_at.Year == prevMonth.Year)
+                        .CountAsync();
+
+                    var pastMonthLeaveReport = await (
+                        from leaves in reportDb.hr_leave
+                        where leaves.submit_at.Month == prevMonth.Month
+                        && leaves.submit_at.Year == prevMonth.Year
+                        group new { leaves } by 1 into x
+                        select new month_leave_report
+                        {
+                            year = prevMonth.Year,
+                            month = prevMonth.Month,
+                            total_leave_request = totalLeaveRequest,
+                            month_approved_leaves = x.Where(i => i.leaves.leave_status == "Approved").Count(),
+                            month_pending_leaves = x.Where(i => i.leaves.leave_status == "Pending").Count(),
+                            month_rejected_leaves = x.Where(i => i.leaves.leave_status == "Rejected").Count()
+                        }).FirstOrDefaultAsync();
+
+                    if (pastMonthLeaveReport == null)
+                    {
+                        _logger.LogInformation($"No data extracted for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await reportDb.month_leave_report.AddAsync(pastMonthLeaveReport);
+                    await reportDb.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation($"Attempt {attempts}: {ex.Message}");
+                   
+
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogError("Maximum retry has been reached");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

@@ -21,28 +21,32 @@ namespace Report_and_Analytics_API.Service
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                using var scope = _serviceScope.CreateScope();
-                var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-                var repository = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
-                var joblogRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
-                DateTime date = DateTime.UtcNow;
+                try
+                {
+                    using var scope = _serviceScope.CreateScope();
+                    var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    var repository = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
+                    var joblogRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                    DateTime date = DateTime.UtcNow;
 
-                if(date.Day >= 5)
-                {
-                    if (!await joblogRepo.hasRunThisMonth("MonthMedicineSupplyPredictionTrainingDataExtraction",date.Month,date.Year))
+                    if (date.Day >= 5)
                     {
-                        await MonthMedicineSupplyPredictionTrainingDataExtraction(database,repository);
-                        await joblogRepo.markAsRunThisMonth("MonthMedicineSupplyPredictionTrainingDataExtraction", date.Month, date.Year);
+                        if (!await joblogRepo.hasRunThisMonth("MonthMedicineSupplyPredictionTrainingDataExtraction", date.Month, date.Year))
+                        {
+                            await MonthMedicineSupplyPredictionTrainingDataExtraction(database, repository);
+                            await joblogRepo.markAsRunThisMonth("MonthMedicineSupplyPredictionTrainingDataExtraction", date.Month, date.Year);
+                        }
+                        else
+                        {
+                            _logger.LogInformation(message: $"Job already run for the month");
+                            await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
+                        }
                     }
-                    else
-                    {
-                        _logger.LogInformation(message:$"Job already run for the month");
-                        await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
-                        continue;
-                    }
+                    await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
                 }
-                else
+                catch (Exception ex)
                 {
+                    _logger.LogError($"Error: {ex.Message}");
                     await Task.Delay(TimeSpan.FromDays(1),stoppingToken);
                 }
             }
@@ -51,26 +55,42 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH of the following month
         private async Task MonthMedicineSupplyPredictionTrainingDataExtraction(ReportDbContext database,IjournalRepository repository)
         {
-            try
+            int attempts = 0;
+            int maxAttempts = 5;
+
+            while (attempts < maxAttempts)
             {
-                //this should be 1 for prev month
-                DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
-
-                var medicineReport = await repository.getMonthMedicineSupplyTrainingData(prevMonth.Month, prevMonth.Year);
-
-                if (medicineReport == null)
+                try
                 {
-                    _logger.LogInformation(message:$"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                    attempts++;
+
+                    //this should be 1 for prev month
+                    DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
+
+                    var medicineReport = await repository.getMonthMedicineSupplyTrainingData(prevMonth.Month, prevMonth.Year);
+
+                    if (medicineReport == null)
+                    {
+                        _logger.LogInformation(message: $"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    await database.month_medicine_shortage_training_data.AddRangeAsync(medicineReport);
+                    await database.SaveChangesAsync();
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message: $"Error: {ex.Message}");                  
 
-                await database.month_medicine_shortage_training_data.AddRangeAsync(medicineReport);
-                await database.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(message:$"Error: {ex.Message}");
-                return;
+                    if(attempts >= maxAttempts)
+                    {
+                        _logger.LogError("Maximum attempt has been reached");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }

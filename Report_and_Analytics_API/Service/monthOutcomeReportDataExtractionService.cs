@@ -54,8 +54,12 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY 5TH OF THE MONTH
         private async Task MonthOutcomeReportDataExtractionService(ReportDbContext dbContext,IjournalRepository repository)
         {
+            int attempts = 0;
+            int maxAttempts = 5;
             try
             {
+                attempts++;
+
                 DateTime prevMonth = DateTime.UtcNow.AddMonths(-1);
 
                 var report = await repository.getMonthTreatmentOutcomeReport(10,2025);
@@ -68,12 +72,19 @@ namespace Report_and_Analytics_API.Service
 
                 await dbContext.month_treatment_outcome_report.AddAsync(report);
                 await dbContext.SaveChangesAsync();
+                return;
 
             }
             catch (Exception ex)
             {
-                _logger.LogError(message:$"Error: {ex.Message}");
-                return;
+                _logger.LogError(message:$"Attempt {attempts}: {ex.Message}");
+
+                if(attempts >= maxAttempts)
+                {
+                    _logger.LogError("Maximum attempts has been met.");
+                    throw;
+                }
+                await Task.Delay(TimeSpan.FromSeconds(2));
             }
         }
     }

@@ -120,8 +120,8 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         //BILLING SUMMARY END POINTS
-        [HttpGet("getMonthBillingReport/{month}/{year}")]
-        public async Task<IActionResult> getMonthBillingReport(int month,int year)
+        [HttpGet("getMonthBillingReport")]
+        public async Task<IActionResult> getMonthBillingReport([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
@@ -321,6 +321,36 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("monthRevenueComparisonEndpoint")]
+        public async Task<IActionResult> monthRevenueComparisonEndpoint([FromQuery]int month,[FromQuery]int year,
+            [FromQuery]int partnerMonth,[FromQuery]int partnerYear)
+        {
+            try
+            {
+                if(month == partnerMonth &&  year == partnerYear)
+                {
+                    return StatusCode(400,"Cannot compare same month and year");
+                }
+
+                var comparisonResponse = await _journalRepo.monthRevenueComparisonResponse(month,year,partnerMonth,partnerYear);
+
+                if(comparisonResponse == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No report for the months yer",
+                        Data = (object?)null
+                    });
+                }
+                return Ok(comparisonResponse);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,$"Error:{ex.Message}");
             }
         }
 
@@ -527,6 +557,199 @@ namespace Report_and_Analytics_API.Controllers
                 }
 
                 return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("monthPharmacySalesComparisonEndpoint")]
+        public async Task<IActionResult> monthPharmacySalesComparisonEndpoint([FromQuery]int firstMoth,[FromQuery]int firstYear
+            ,[FromQuery]int secondMonth,[FromQuery]int secondYear)
+        {
+            try
+            {
+                if(firstMoth == secondMonth &&  firstYear == secondYear)
+                {
+                    return StatusCode(400,"Same month and year cannot be compared");
+                }
+
+                var response = await _journalRepo.monthPharmacySalesComparison(firstMoth,firstYear,secondMonth,secondYear);
+
+                if(response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No report for the month yet",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,$"Error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("monthBillingReportComparisonEndpoint")]
+        public async Task<IActionResult> monthBillingReportComparisonEndpoint([FromQuery] int firstMoth, [FromQuery] int firstYear
+           , [FromQuery] int secondMonth, [FromQuery] int secondYear)
+        {
+            try
+            {
+                if (firstMoth == secondMonth && firstYear == secondYear)
+                {
+                    return StatusCode(400, "Same month and year cannot be compared");
+                }
+
+                var response = await _journalRepo.monthBillingComparisonReport(firstMoth,firstYear,secondMonth,secondYear);
+
+                if (response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No report for the month yet",
+                        data = (object?)null
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("yearBillingReportSummary")]
+        public async Task<IActionResult> yearBillingReportSummary([FromQuery]int year)
+        {
+            try
+            {
+                bool exist = await _reportDbContext.yearly_billing_report.AnyAsync(i => i.year == year);
+
+                if (!exist)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No report for the year has been generated."
+                    });
+                }
+
+                var billSummary = await _journalRepo.yearBillingReportSummary(year);
+
+                return Ok(billSummary);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("yearDepartmentBudgetSummaryReport")]
+        public async Task<IActionResult> yearDepartmentBudgetSummaryReport([FromQuery]int year)
+        {
+            try
+            {
+                var exist = await _reportDbContext.department_budget_year_report.AnyAsync(i => i.year == year);
+
+                if (!exist)
+                {
+                    return StatusCode(404,"Year report not found.");
+                }
+
+                var yearReport = await _journalRepo.departmentBudgetYearSummary(year);
+                return Ok(yearReport);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500,ex.Message);
+            }
+        }
+
+        [HttpGet("yearPendingBudgetSummary")]
+        public async Task<IActionResult> yearPendingBudgetSummary([FromQuery] int year)
+        {
+            try
+            {
+                var exist = await _reportDbContext.department_budget_year_report.AnyAsync(i => i.year == year);
+
+                if (!exist)
+                {
+                    return StatusCode(404, "Year report not found.");
+                }
+
+                var yearReport = await _journalRepo.pendingMonthBudgetRequest(year);
+                return Ok(yearReport);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("monthDepartmentBudgetSummaryReport")]
+        public async Task<IActionResult> monthDepartmentBudgetSummaryReport([FromQuery]int month,[FromQuery] int year)
+        {
+            try
+            {                
+                var yearReport = await _journalRepo.monthDepartmentBudgetSummaryReport(month,year);
+
+                if(yearReport == null)
+                {
+                    return StatusCode(404,$"No {month} report found.");
+                }
+
+                return Ok(yearReport);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+        [HttpGet("monthBudgetComparitor")]
+        public async Task<IActionResult> monthBudgetComparitor([FromQuery] int month, [FromQuery] int year
+            , [FromQuery] int partnerMonth, [FromQuery] int partnerYear)
+        {
+            try
+            {
+                if (month == partnerMonth && year == partnerYear)
+                {
+                    return StatusCode(400, "Same month and year cannot be compared");
+                }
+                bool firstMonthExist = await _reportDbContext.department_budgets.AnyAsync(i => i.request_date.Month == month 
+                && i.request_date.Year == year);
+
+                bool secondMonthExist = await _reportDbContext.department_budgets.AnyAsync(i => i.request_date.Month == partnerMonth
+                && i.request_date.Year == partnerYear);
+
+                if(!firstMonthExist || !secondMonthExist)
+                {
+                    return StatusCode(404,"One of the compared month does not exist.");
+                }
+
+                var comparisonResponse = await _journalRepo.monthDepartmentBudgetComparisonResponse(month, year, partnerMonth, partnerYear);
+
+                if (comparisonResponse == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "No records for one of the month."
+                    });
+                }
+                return Ok(comparisonResponse);
             }
             catch (Exception ex)
             {

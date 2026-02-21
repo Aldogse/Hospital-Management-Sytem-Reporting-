@@ -28,17 +28,17 @@ namespace Report_and_Analytics_API.Service
 
 
                     DateTime now = DateTime.Now;
-                    DateTime nextMidnight = DateTime.Now.AddDays(1);
-                    TimeSpan delay = now - nextMidnight;
-                    await Task.Delay(delay,stoppingToken);
+                    DateTime nextMidnight = now.Date.AddDays(1);
+                    TimeSpan delay = now - nextMidnight;                    
 
                     await DailyInsuranceTransaction(database,repo);
+                    await Task.Delay(delay,stoppingToken);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogCritical($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
         }
 
@@ -46,25 +46,42 @@ namespace Report_and_Analytics_API.Service
         private async Task DailyInsuranceTransaction(ReportDbContext reportDb,IinsuranceClaimRepository repository)
         {
             DateOnly date = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
-            try
-            {
-                var claimsSummary = await repository.getDailyTransactionsSummary(date);
+            int attempts = 0;
+            int maxAttempts = 5;
 
-                if(claimsSummary == null)
+            while (attempts < maxAttempts)
+            {
+                try
                 {
-                    _logger.LogError($"Expecting date but none was retrieved for {date}");
+                    attempts++;
+                    var claimsSummary = await repository.getDailyTransactionsSummary(date);
+
+                    if (claimsSummary == null)
+                    {
+                        _logger.LogError($"Expecting date but none was retrieved for {date}");
+                        return;
+                    }
+
+                    await reportDb.daily_insurance_submitted_reports.AddAsync(claimsSummary);
+                    await reportDb.SaveChangesAsync();
+                    _logger.LogInformation($"Data successfully added for {date}");
                     return;
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(message:$"Attempt {attempts}:{ex.Message}");
 
-                await reportDb.daily_insurance_submitted_reports.AddAsync(claimsSummary);
-                await reportDb.SaveChangesAsync();
-                _logger.LogInformation($"Data successfully added for {date}");
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogInformation(message: "Maximum attempts has been reached");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+           
         }
     }
 }

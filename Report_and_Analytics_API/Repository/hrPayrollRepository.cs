@@ -46,36 +46,85 @@ namespace Report_and_Analytics_API.Repository
             return payrollSummaryList;
         }
 
-        public async Task<monthPayrollSummaryResponse> monthPayrollSummaryResponse(int month, int year)
+        public async Task<monthPayrollComparisonResponse> monthPayrollComparisonResult(int month, int year, int comparedMonth, int comparedYear)
         {
-            var payrollReport = await (
-                  from payrollData in _reportDbContext.month_payroll_summary
-                  where payrollData.month == month && payrollData.year == year
-                  group payrollData by 1 into x
-                  select new monthPayrollSummaryResponse
-                  {
-                      totalDeductions = x.Select(i => i.total_deductions).FirstOrDefault(),
-                      totalEmployees = x.Select(i => i.total_employees).FirstOrDefault(),
-                      totalGrossPay = x.Select(i => i.total_gross_pay).FirstOrDefault(),
-                      totalNetPay = x.Select(i => i.total_net_pay).FirstOrDefault(),
-                  }).FirstOrDefaultAsync();
+            var baseMonth = await _reportDbContext.month_payroll_summary.Where(i => i.month == month && i.year == year)
+                .FirstOrDefaultAsync();
+            var partnerMonth = await _reportDbContext.month_payroll_summary.Where(i => i.month == comparedMonth && i.year == comparedYear)
+                .FirstOrDefaultAsync();
 
-            return payrollReport;
+            return new monthPayrollComparisonResponse
+            {
+                baseMonth = month,
+                baseYear = year,
+                BaseTotalDeductions = baseMonth?.total_deductions,
+                BaseTotalEmployees = baseMonth?.total_employees,
+                BaseTotalGrossPay = baseMonth?.total_gross_pay,
+                BaseTotalNetPay = baseMonth?.total_net_pay,
+
+                comparedMonth = comparedMonth,
+                comparedYear = comparedYear,
+                comparedTotalDeductions = partnerMonth?.total_deductions,
+                comparedTotalEmployees = partnerMonth?.total_employees,
+                comparedTotalGrossPay = partnerMonth?.total_gross_pay,
+                comparedTotalNetPay = partnerMonth?.total_net_pay
+            };
         }
 
-        public async Task<List<yearSummaryPayrollResponse>> yearSummaryPayrollResponses(int year)
+        public async Task<monthPayrollSummaryResponse> monthPayrollSummaryResponse(int month, int year)
         {
-            var yearReportData = await _reportDbContext.month_payroll_summary
-                .Where(i => i.year == year)
-                .Select(i => new yearSummaryPayrollResponse
-                {
-                    month = i.month,
-                    totalDeductions = i.total_deductions,
-                    totalEmployees = i.total_employees,
-                    totalNetPay = i.total_net_pay,
-                }).ToListAsync();
+            var monthSummary = await _reportDbContext.month_payroll_summary.Where(i => i.month == month
+            && i.year == year).FirstOrDefaultAsync();
 
-            return yearReportData;
+            var yearRecords = await _reportDbContext.month_payroll_summary
+                .Where(i => i.year == year)
+                .OrderBy(i => i.month)
+                .ToListAsync();
+
+            return new monthPayrollSummaryResponse
+            {
+                totalNetPay = monthSummary?.total_net_pay,
+                totalDeductions = monthSummary?.total_deductions,
+                monthsRecords = yearRecords,
+                totalEmployees = monthSummary?.total_employees,
+                totalGrossPay = monthSummary?.total_gross_pay,
+            };
+        }
+
+
+        public async Task<year_hospital_payroll_report> getYearHospitalPayrollReport(int year)
+        {
+            var monthsInfo = await _reportDbContext.month_payroll_summary.Where(i => i.year == year)
+                .ToListAsync();
+
+            return new year_hospital_payroll_report
+            {
+                year = year,
+                total_employees = monthsInfo.Where(i => i.month == 12).Select(i => i.total_employees).FirstOrDefault(),
+                year_total_deductions = monthsInfo.Sum(i => i.total_deductions),
+                year_total_gross_pay = monthsInfo.Sum(i => i.total_gross_pay),
+                year_total_net_pay = monthsInfo.Sum(i => i.total_net_pay)
+            };
+        }
+
+
+        public async Task<yearSummaryPayrollResponse> yearHospitalPayrollSummary(int year)
+        {
+            var yearReport = await _reportDbContext.year_hospital_payroll_report.Where(i => i.year == year).FirstOrDefaultAsync();
+            var monthsPayrollReport = await _reportDbContext.month_payroll_summary
+                .Where(i => i.year == year)
+                .OrderBy(i => i.month)
+                .ToListAsync();
+
+            return new yearSummaryPayrollResponse
+            {
+                total_employees = yearReport?.total_employees ?? 0,
+                year = year,
+                year_total_deductions = yearReport?.year_total_deductions ?? 0,
+                year_total_gross_pay = yearReport?.year_total_gross_pay ?? 0,
+                year_total_net_pay = yearReport?.year_total_net_pay ?? 0,
+                monthsPayroll = monthsPayrollReport
+            };
         }
     }
 }

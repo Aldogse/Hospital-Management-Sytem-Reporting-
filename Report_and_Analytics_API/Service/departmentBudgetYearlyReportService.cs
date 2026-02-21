@@ -21,20 +21,20 @@ namespace Report_and_Analytics_API.Service
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             try
-            {
-                
+            {              
                 while (!stoppingToken.IsCancellationRequested)
                 {
                     using var scope = _serviceScope.CreateScope();
                     var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                    var repo = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
                     var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
                     int year  = DateTime.Now.Year;
 
-                    if(DateTime.Now.Month == 1 || DateTime.Now.Day >= 5)
+                    if(/*DateTime.Now.Month == 1 ||*/ DateTime.Now.Day >= 5)
                     {
                         if (!await jobRepo.hasRunThisYear("DepartmentBudgetYearReportService",year))
                         {
-                            await DepartmentBudgetYearReportService(database);
+                            await DepartmentBudgetYearReportService(database,repo);
                             await jobRepo.markAsRunThisYear("DepartmentBudgetYearReportService",year);
                         }
                         else
@@ -49,44 +49,56 @@ namespace Report_and_Analytics_API.Service
             catch (Exception ex)
             {
                 _logger.LogError(message:$"Job failed: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromDays(1), stoppingToken);
             }
 
         }
         //YEARLY EXTRACTION OF TOTAL BUDGET ACCUMULATED FOR THE PAST YEAR
         //WILL RUN EVERY 5TH OF JANUARY
-        public async Task DepartmentBudgetYearReportService(ReportDbContext reportDb)
+        public async Task DepartmentBudgetYearReportService(ReportDbContext reportDb,IjournalRepository repository)
         {
             int prevYear = DateTime.Now.Year - 1;
-            try
-            {
-                var records = await (
-                    from budget in reportDb.department_budgets
-                    where budget.request_date.Year == 2025 && budget.status == "Approved"
-                    group budget by 1 into x
-                    select new department_budget_year_report
-                    {
-                        total_allocated = x.Sum(x => x.allocated_budget),
-                        total_approved = x.Sum(x => x.approved_amount),
-                        total_requested = x.Sum(x => x.requested_amount),
-                        year = prevYear,
-                        last_update_date = DateTime.Now,
-                    }).FirstOrDefaultAsync();
+            int attempts = 0;
+            int maxAttempts = 5;
 
-                if(records == null)
+            while (attempts < maxAttempts)
+            {
+                try
                 {
-                    _logger.LogWarning($"No budget extracted for {prevYear}");
-                    return;
-                }
+                    attempts++;
 
-                await reportDb.department_budget_year_report.AddAsync(records);
-                await reportDb.SaveChangesAsync();
+                    var records = await repository.getYearBudgetReport(prevYear);
+
+                    if (records == null)
+                    {
+                        _logger.LogWarning($"No budget extracted for {prevYear}");
+                        return;
+                    }
+
+                    bool exist = await reportDb.department_budget_year_report.AnyAsync(i => i.year == prevYear);
+
+                    if (!exist)
+                    {
+                        await reportDb.department_budget_year_report.AddAsync(records);
+                        await reportDb.SaveChangesAsync();
+                        _logger.LogInformation("Department budget records has been saved.");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation($"Attempt {attempts}: {ex.Message}");
+
+                    if (attempts >= maxAttempts)
+                    {
+                        _logger.LogInformation(message: $"Maximum of {maxAttempts} has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(10));
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
-            }
+            
         }
     }
 }

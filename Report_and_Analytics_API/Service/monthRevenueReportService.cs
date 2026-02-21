@@ -18,67 +18,82 @@ namespace Report_and_Analytics_API.Service
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            try
-            {
+        {           
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    using var scope = _serviceScope.CreateScope();
-                    var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
-                    var repository = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
-                    var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
-                    DateTime date = DateTime.Now;
+                    try 
+                    { 
+                        using var scope = _serviceScope.CreateScope();
+                        var database = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+                        var repository = scope.ServiceProvider.GetRequiredService<IjournalRepository>();
+                        var jobRepo = scope.ServiceProvider.GetRequiredService<IjoblogsRepository>();
+                        DateTime date = DateTime.Now;
 
-                    //this is should be equal to one to know the month already changes
-                    if (DateTime.Now.Day >= 5)
-                    {
-                        if (!await jobRepo.hasRunThisMonth("MonthRevenueDataExtraction", date.Month, date.Year))
+                        //this is should be equal to one to know the month already changes
+                        if (DateTime.Now.Day >= 5)
                         {
-                            await MonthRevenueDataExtraction(database,repository);
-                            await jobRepo.markAsRunThisMonth("MonthRevenueDataExtraction", date.Month, date.Year);
+                            if (!await jobRepo.hasRunThisMonth("MonthRevenueDataExtraction", date.Month, date.Year))
+                            {
+                                await MonthRevenueDataExtraction(database,repository);
+                                await jobRepo.markAsRunThisMonth("MonthRevenueDataExtraction", date.Month, date.Year);
+                            }
                         }
+                        await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                     }
-                    await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+                    catch (Exception ex)
+                    {
+                        _logger.LogError($"Error: {ex.Message}");
+                        await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
-            }
+
         }
 
         private async Task MonthRevenueDataExtraction(ReportDbContext reportDb, IjournalRepository repository)
         {
-            try
-            {
-                DateTime prevMonth = DateTime.Now.AddMonths(-1);
-                var servicesRevenue = await repository.getMonthBillRevenueReport(prevMonth.Month, prevMonth.Year);
-                var pharmacyRevenue = await repository.getMonthPharmacyTotalSales(prevMonth.Month, prevMonth.Year);
+            int attempts = 0;
+            int maxAtt = 5;
 
-                if (servicesRevenue == null || pharmacyRevenue == null)
+            while (attempts < maxAtt)
+            {
+                try
                 {
-                    _logger.LogInformation($"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                    DateTime prevMonth = DateTime.Now.AddMonths(-1);
+                    var servicesRevenue = await repository.getMonthBillRevenueReport(prevMonth.Month, prevMonth.Year);
+                    var pharmacyRevenue = await repository.getMonthPharmacyTotalSales(prevMonth.Month, prevMonth.Year);
+
+                    if (servicesRevenue == null || pharmacyRevenue == null)
+                    {
+                        _logger.LogInformation($"Expecting data but nothing was extracted for {prevMonth.Month}/{prevMonth.Year}");
+                        return;
+                    }
+
+                    var monthReport = new month_revenue_report()
+                    {
+                        last_update_date = DateTime.Now,
+                        month = prevMonth.Month,
+                        year = prevMonth.Year,
+                        pharmacy_revenue = pharmacyRevenue,
+                        service_revenue = servicesRevenue,
+                        total_revenue = pharmacyRevenue + servicesRevenue
+                    };
+
+                    await reportDb.month_revenue_report.AddAsync(monthReport);
+                    await reportDb.SaveChangesAsync();
                     return;
                 }
-
-                var monthReport = new month_revenue_report()
+                catch (Exception ex)
                 {
-                    last_update_date = DateTime.Now,
-                    month = prevMonth.Month,
-                    year = prevMonth.Year,
-                    pharmacy_revenue = pharmacyRevenue,
-                    service_revenue = servicesRevenue,
-                    total_revenue = pharmacyRevenue + servicesRevenue
-                };
+                    _logger.LogError(message: $"Attempt{attempts}: {ex.Message}");
 
-                await reportDb.month_revenue_report.AddAsync(monthReport);
-                await reportDb.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error: {ex.Message}");
-                return;
+                    if (attempts == maxAtt)
+                    {
+                        _logger.LogError("Maximun attempt has been reached.");
+                        throw;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
             }
         }
     }
