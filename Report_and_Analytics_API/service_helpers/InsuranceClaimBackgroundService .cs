@@ -95,7 +95,7 @@ namespace Report_and_Analytics_API.service_helpers
             foreach (var claim in newClaims)
             {
                 dailyReport.number_of_claims_submitted++;
-                dailyReport.claim_amount_submitted += claim.claim_amount_submitted;
+                dailyReport.claim_amount_submitted += claim.claim_amount;
 
                 if (claim.status == "approved")
                 {
@@ -104,7 +104,7 @@ namespace Report_and_Analytics_API.service_helpers
                 else if (claim.status == "denied")
                 {
                     dailyReport.claims_denied++;
-                    dailyReport.claims_amount_denied += claim.claim_amount_submitted;
+                    dailyReport.claims_amount_denied += claim.claim_amount;
                 }
                 else
                 {
@@ -148,10 +148,10 @@ namespace Report_and_Analytics_API.service_helpers
             monthReport.total_denied_claims += newClaims.Count(c => c.status == "denied");
             monthReport.total_amount_paid += newClaims
                 .Where(c => c.status == "approved")
-                .Sum(c => c.claim_amount_submitted);
+                .Sum(c => c.claim_amount);
             monthReport.total_amount_denied += newClaims
                 .Where(c => c.status == "denied")
-                .Sum(c => c.claim_amount_submitted);
+                .Sum(c => c.claim_amount);
 
             monthReport.lastInsuranceClaimIdProcessed = dailyReport.lastProcessClaimid;
 
@@ -184,10 +184,10 @@ namespace Report_and_Analytics_API.service_helpers
             yearlyReport.total_denied_claims += newClaims.Count(c => c.status == "denied");
             yearlyReport.total_amount_paid += newClaims
                 .Where(c => c.status == "approved")
-                .Sum(c => c.claim_amount_submitted);
+                .Sum(c => c.claim_amount);
             yearlyReport.total_amount_denied += newClaims
                 .Where(c => c.status == "denied")
-                .Sum(c => c.claim_amount_submitted);
+                .Sum(c => c.claim_amount);
 
             yearlyReport.lastInsuranceClaimIdProcessed = dailyReport.lastProcessClaimid;
 

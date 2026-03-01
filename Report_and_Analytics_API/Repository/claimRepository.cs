@@ -40,7 +40,7 @@ namespace Report_and_Analytics_API.Repository
                 select new daily_insurance_submitted_report
                 {       
                     report_date = today,
-                    claim_amount_submitted = x.Sum(i => i.claim_amount_submitted),
+                    claim_amount_submitted = x.Sum(i => i.claim_amount),
                     number_of_claims_submitted = x.Where(i => i.submmited_date == date).Count(),
                     claims_approved = x.Where(i => i.status == "Approved" && i.resolved_date == date).Count()
                 }).FirstOrDefaultAsync();
@@ -110,21 +110,21 @@ namespace Report_and_Analytics_API.Repository
                    month = month,
                    year = year,
 
-                   total_claim_amount_submitted = x.Sum(i => i.claims.claim_amount_submitted),
+                   total_claim_amount_submitted = x.Sum(i => i.claims.claim_amount),
 
                    total_claim_approved_amount = x
-                   .Where(i => i.claims.status == "approved").Sum(i => i.claims.claim_amount_submitted),
+                   .Where(i => i.claims.status == "approved").Sum(i => i.claims.claim_amount),
 
                    total_claim_declined_amount = x
-                   .Where(i => i.claims.status == "denied").Sum(i => i.claims.claim_amount_submitted),
+                   .Where(i => i.claims.status == "denied").Sum(i => i.claims.claim_amount),
 
                    last_month_total_claim_approved_amount = x
                    .Where(i => i.claims.resolved_date >= last2monthsStartDate && i.claims.resolved_date < last2monthsEndDate)
-                   .Sum(i => i.claims.claim_amount_submitted),
+                   .Sum(i => i.claims.claim_amount),
 
                     last_month_total_claim_declined_amount = x
                    .Where(i => i.claims.resolved_date >= last2monthsStartDate && i.claims.resolved_date < last2monthsEndDate)
-                   .Sum(i => i.claims.claim_amount_submitted)
+                   .Sum(i => i.claims.claim_amount)
 
                 }).ToListAsync();
 
@@ -164,8 +164,8 @@ namespace Report_and_Analytics_API.Repository
                 {
                     month = month,
                     year = year,
-                    approvedAmount = x.Where(i => i.claims.status == "approved").Select(i => i.claims.claim_amount_submitted).Sum(),
-                    declinedAmount = x.Where(i => i.claims.status == "denied").Select(i => i.claims.claim_amount_submitted).Sum(),
+                    approvedAmount = x.Where(i => i.claims.status == "approved").Select(i => i.claims.claim_amount).Sum(),
+                    declinedAmount = x.Where(i => i.claims.status == "denied").Select(i => i.claims.claim_amount).Sum(),
                     provider_id = x.Key
                 }
                 ).ToListAsync();
@@ -235,9 +235,9 @@ namespace Report_and_Analytics_API.Repository
                 total_approved_claims = monthReport.Count(i => i.status == "approved"),
                 total_denied_claims = monthReport.Count(i => i.status == "denied"),
                 total_amount_denied = monthReport.Where(i => i.status == "denied")
-                .Select(i => i.claim_amount_submitted).Sum(),
+                .Select(i => i.claim_amount).Sum(),
                 total_amount_paid = monthReport.Where(i => i.status == "approved")
-                .Select(i => i.claim_amount_submitted).Sum(),
+                .Select(i => i.claim_amount).Sum(),
             }).FirstOrDefault();
 
             return response;
@@ -304,9 +304,9 @@ namespace Report_and_Analytics_API.Repository
             {
                 year = year,
                 totalApprovePayoutAmount = insuranceList.Where(i => i.status == "approved")
-                .Select(i => i.claim_amount_submitted).Sum(),
+                .Select(i => i.claim_amount).Sum(),
                 totalHospitalLoss = insuranceList.Where(i => i.status == "denied")
-                .Select(i => i.claim_amount_submitted).Sum(),
+                .Select(i => i.claim_amount).Sum(),
                 totalClaimApproved = insuranceList.Where(i => i.status == "approved").Count(),
                 totalClaimDenied = insuranceList.Where(i => i.status == "denied").Count(),               
             };
@@ -339,11 +339,11 @@ namespace Report_and_Analytics_API.Repository
 
                 total_amount_approved = claims
                     .Where(c => c.status == "approved")
-                    .Sum(c => c.claim_amount_submitted),
+                    .Sum(c => c.claim_amount),
 
                 total_amount_denied = claims
                     .Where(c => c.status == "denied")
-                    .Sum(c => c.claim_amount_submitted),
+                    .Sum(c => c.claim_amount),
 
                 months = new List<monthly_claim_report>(),
                 providers = new List<provider_claim_report>()
@@ -369,10 +369,10 @@ namespace Report_and_Analytics_API.Repository
                     total_denied_claims = g.Count(c => c.status == "denied"),
 
                     total_amount_paid = g.Where(c => c.status == "approved")
-                                         .Sum(c => c.claim_amount_submitted),
+                                         .Sum(c => c.claim_amount),
 
                     total_amount_denied = g.Where(c => c.status == "denied")
-                                           .Sum(c => c.claim_amount_submitted)
+                                           .Sum(c => c.claim_amount)
                 })
                 .ToList();
 
@@ -405,10 +405,10 @@ namespace Report_and_Analytics_API.Repository
                     denied_claims = g.Count(x => x != null && x.status == "denied"),
 
                     approved_amount = g.Where(x => x != null && x.status == "approved")
-                                       .Sum(x => x.claim_amount_submitted),
+                                       .Sum(x => x.claim_amount),
 
                     denied_amount = g.Where(x => x != null && x.status == "denied")
-                                     .Sum(x => x.claim_amount_submitted)
+                                     .Sum(x => x.claim_amount)
                 }
             ).ToListAsync();
 

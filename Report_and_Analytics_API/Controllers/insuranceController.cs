@@ -49,9 +49,9 @@ namespace Report_and_Analytics_API.Controllers
                         dateOfService = x.Select(i => i.logs.date_transact).FirstOrDefault(),
                         status = x.Select(i => i.logs.status).FirstOrDefault(),
                         insuranceCovered = x.Where(i => i.logs.status == "Approved").Select(i => i.request.insurance_covered).FirstOrDefault(),
-                        claimAmount = x.Select(i => i.claims.claim_amount_submitted).FirstOrDefault(),
+                        claimAmount = x.Select(i => i.claims.claim_amount).FirstOrDefault(),
                         percentageCovered = x.Where(i => i.logs.status == "Approved")
-                        .Select(i => (i.request.insurance_covered / i.claims.claim_amount_submitted) * 100),
+                        .Select(i => (i.request.insurance_covered / i.claims.claim_amount) * 100),
                     }).ToListAsync();
 
 
