@@ -2,6 +2,8 @@
 using APIResponses.PropertyAndManagementResponse;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 
 namespace Report_and_Analytics_API.Controllers
@@ -12,11 +14,13 @@ namespace Report_and_Analytics_API.Controllers
     {
         private readonly IpropertyRepository _propertyRepo;
         private readonly ILogger<propertyController> _logger;
+        private readonly ReportDbContext _reportDbContext;
 
-        public propertyController(IpropertyRepository propertyRepo, ILogger<propertyController>logger)
+        public propertyController(IpropertyRepository propertyRepo, ILogger<propertyController>logger,ReportDbContext reportDbContext)
         {
             _propertyRepo = propertyRepo;
             _logger = logger;
+            _reportDbContext = reportDbContext;
         }
 
         //ENDPOINTS FOR Patient and admission summary
@@ -185,6 +189,43 @@ namespace Report_and_Analytics_API.Controllers
                 }
 
                 return Ok(report);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        //NEW ENDPOINTS
+        [HttpGet("monthBedsAndDischargedRangeQuery")]
+        public async Task<IActionResult> monthBedsAndDischargedRangeQuery([FromQuery] int start, [FromQuery] int startYear,
+            [FromQuery] int endMonth, [FromQuery] int endYear)
+        {
+            try
+            {
+                if (start > endMonth && startYear >= endYear)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+
+                var response = await _propertyRepo.monthBedsAndDishcargeRangeQuery(start,startYear,endMonth,endYear);
+                return Ok(response);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("inventoryReport")]
+        public async Task<IActionResult> inventoryReport()
+        {
+            try
+            {
+
+                var response = (await _reportDbContext.inventory                  
+                    .ToListAsync()).DistinctBy(i => i.item_name).ToList();
+                return Ok(response);
             }
             catch (SqlException ex)
             {

@@ -203,6 +203,28 @@ namespace Report_and_Analytics_API.Repository
 
             return num.Count;
         }
+
+        //NEW SERVICE QUERIES
+        public async Task<monthBedsAndDischargesQueryResponse> monthBedsAndDishcargeRangeQuery(int startmonth, int startyear, int endmonth, int endyear)
+        {
+            int startKey = startyear * 100 + startmonth;
+            int endKey = endyear * 100 + endmonth;
+
+            var data = await _reportDbContext.month_admission_and_discharge_report.Where(i => 
+            (i.year * 100 + i.month) >= startKey && (i.year * 100 + i.month) <= endKey)
+                .OrderBy(i => i.year)
+                .ToListAsync();
+
+            return new monthBedsAndDischargesQueryResponse
+            {
+                available_beds = data.Select(i => i.available_beds).Sum(),
+                broken_beds = data.Select(i => i.broken_beds).Sum(),
+                months = data,
+                occupied_beds = data.Select(i => i.occupied_beds).Sum(),
+                recently_discharged = data.Select(i => i.recently_discharged).Sum(),
+                total_beds = data.Select(i => i.total_beds).LastOrDefault()
+            };
+        }
     }
 }
   

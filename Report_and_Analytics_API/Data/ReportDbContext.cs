@@ -14,6 +14,7 @@ using Report_and_Analytics_Library.Enums;
 using Report_and_Analytics_Library.HR;
 using Report_and_Analytics_Library.Insurance;
 using Report_and_Analytics_Library.JournalEntry;
+using Report_and_Analytics_Library.Laboratory;
 using Report_and_Analytics_Library.Pharmacy;
 using Report_and_Analytics_Library.Property_Management;
 using Report_and_Analytics_Library.Services;
@@ -38,7 +39,6 @@ namespace Report_and_Analytics_API.Data
 
 
         //Doctor and Patient Treatment Analysis Tables
-        public DbSet<dl_services> dl_services { get; set; }
         public DbSet<doctor_evaluation_score> doctor_evaluation_score { get; set; }
         public DbSet<duty_assignment> duty_assignments { get; set; }
         public DbSet<p_emr> p_emr { get; set; }
@@ -118,7 +118,7 @@ namespace Report_and_Analytics_API.Data
         public DbSet<month_attendance_report> month_attendance_report { get; set; }
         public DbSet<year_attendance_report> year_attendance_report { get; set; }
         public DbSet<daily_pharmacy_sales> daily_pharmacy_sales { get; set; }
-        public DbSet<daily_insurance_submitted_report> daily_insurance_submitted_reports { get; set; }
+        public DbSet<daily_insurance_submitted_report> daily_insurance_submitted_report { get; set; }
         public DbSet<daily_beds_utilization_report> daily_beds_utilization_report { get; set; }
         public DbSet<daily_billing_report>daily_billing_report { get; set; }
         public DbSet<month_billing_report> month_billing_report { get; set; }
@@ -138,6 +138,21 @@ namespace Report_and_Analytics_API.Data
         public DbSet<year_hospital_payroll_report> year_hospital_payroll_report { get; set; }
         public DbSet<yearly_claim_report> yearly_claim_report { get; set; }
         public DbSet<evaluations>evaluations { get; set; }
+        public DbSet<inventory>inventory { get; set; }
+        public DbSet<daily_patient_census>daily_patient_census { get; set; }
+        public DbSet<daily_patient_census_details> daily_patient_census_details { get; set; }
+        public DbSet<journal_entries>journal_entries { get; set; }
+        public DbSet<journal_entry_lines> journal_entry_lines { get; set; }
+
+
+        public DbSet<dl_services> dl_services { get; set; }
+        public DbSet<dl_lab_mri> dl_lab_mri { get; set; }
+        public DbSet<dl_lab_tools_used> dl_lab_tools_used { get; set; }
+        public DbSet<dl_lab_xray> dl_lab_xray { get; set; }
+        public DbSet<dl_results> dl_results { get; set; }
+        public DbSet<dl_schedule> dl_schedule { get; set; }
+        public DbSet<dl_lab_ct> dl_lab_ct { get; set; } 
+
 
         //PREDICTIONS TABLE
         public DbSet<month_medicine_shortage_training_data> month_medicine_shortage_training_data { get; set; }

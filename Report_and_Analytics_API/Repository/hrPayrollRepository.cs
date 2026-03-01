@@ -126,5 +126,27 @@ namespace Report_and_Analytics_API.Repository
                 monthsPayroll = monthsPayrollReport
             };
         }
+
+        //NEW SERVICE QUERIES
+        public async Task<monthPayrollQueryRangeResponse> monthPayrollRangeQueryAsync(int startmonth, int startyear, int endmonth, int endyear)
+        {
+            var startKey = startyear * 100 + startmonth;
+            var endKey = endyear * 100 + endmonth;
+
+            var data = await _reportDbContext.month_payroll_summary.Where(i =>
+            (i.year * 100 + i.month) >= startKey
+            && (i.year * 100 + i.month) <= endKey)
+            .OrderBy(i => i.year)
+            .ToListAsync();
+
+            return new monthPayrollQueryRangeResponse
+            {
+                months = data,
+                total_deductions = data.Select(i => i.total_deductions).Sum(),
+                total_employees = data.Select(i => i.total_employees).Sum(),
+                total_gross_pay = data.Select(i => i.total_gross_pay).Sum(),
+                total_net_pay = data.Select(i => i.total_net_pay).Sum()
+            };
+        }
     }
 }

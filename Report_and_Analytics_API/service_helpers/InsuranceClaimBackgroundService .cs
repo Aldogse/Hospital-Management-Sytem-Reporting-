@@ -28,11 +28,11 @@ namespace Report_and_Analytics_API.service_helpers
 
                     await ProcessInsuranceClaims(db);
 
-                    await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken); // Every 2 hours
+                    await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"Insurance Claim Service Error: {ex.Message}");
+                    _logger.LogError($"Insurance Claim Service Error: {ex}");
                     await Task.Delay(TimeSpan.FromMinutes(2), stoppingToken);
                 }
             }
@@ -40,111 +40,156 @@ namespace Report_and_Analytics_API.service_helpers
 
         private async Task ProcessInsuranceClaims(ReportDbContext db)
         {
-            DateTime now = DateTime.UtcNow;
-
-            int month = now.Month;
-            int year = now.Year;
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
 
             // ============================================================
-            // 1. Load existing MONTHLY claim report
+            // 1. FIND TODAY’S DAILY REPORT
             // ============================================================
-            var monthReport = await db.monthly_claim_report
-                .FirstOrDefaultAsync(i => i.month == month && i.year == year);
-
-            int lastMonthlyClaimId = monthReport?.lastInsuranceClaimIdProcessed ?? 0;
-
+            var dailyReport = await db.daily_insurance_submitted_report
+                .FirstOrDefaultAsync(d => d.report_date >= today && d.report_date < today.AddDays(1));
 
             // ============================================================
-            // 2. Load existing YEARLY claim report
+            // 2. CREATE daily report if NONE exists for today
             // ============================================================
-            var yearReport = await db.yearly_claim_report
-                .FirstOrDefaultAsync(i => i.year == year);
+            if (dailyReport == null)
+            {
+                // Get last claim in database ONCE for NEW DAYS ONLY
+                int lastClaimInDb = await db.insurance_claims
+                    .OrderByDescending(c => c.insurance_claims_id)
+                    .Select(c => c.insurance_claims_id)
+                    .FirstOrDefaultAsync();
 
-            int lastYearlyClaimId = yearReport?.lastInsuranceClaimIdProcessed ?? 0;
+                dailyReport = new daily_insurance_submitted_report
+                {
+                    report_date = today,
+                    claim_amount_submitted = 0,
+                    claims_amount_denied = 0,
+                    claims_approved = 0,
+                    claims_pending = 0,
+                    claims_denied = 0,
+                    number_of_claims_submitted = 0,
 
+                    // IMPORTANT:
+                    // Start at latest claim when new day begins
+                    lastProcessClaimid = lastClaimInDb
+                };
 
-            // Get the last processed ID for either (max)
-            int lastProcessedId = Math.Max(lastMonthlyClaimId, lastYearlyClaimId);
-
+                await db.daily_insurance_submitted_report.AddAsync(dailyReport);
+                await db.SaveChangesAsync();
+            }
 
             // ============================================================
-            // 3. Fetch ONLY NEW CLAIMS
+            // 3. GET NEW CLAIMS ONLY AFTER LAST PROCESSED CLAIM ID
             // ============================================================
             var newClaims = await db.insurance_claims
-                .Where(c => c.insurance_claims_id > lastProcessedId)
+                .Where(c => c.insurance_claims_id > dailyReport.lastProcessClaimid)
                 .OrderBy(c => c.insurance_claims_id)
                 .ToListAsync();
 
             if (newClaims.Count == 0)
-            {
-                _logger.LogInformation("No new insurance claims to process.");
                 return;
-            }
-
-            // CLAIM CALCULATIONS
-            int totalClaims = newClaims.Count;
-            int approved = newClaims.Count(c => c.status.ToLower() == "approved");
-            int denied = newClaims.Count(c => c.status.ToLower() == "denied");
-
-            // The highest ID processed this round
-            int maxClaimId = newClaims.Max(c => c.insurance_claims_id);
-
 
             // ============================================================
-            // 4. UPDATE / INSERT MONTHLY REPORT
+            // 4. UPDATE DAILY REPORT TOTALS
             // ============================================================
-            if (monthReport != null)
+            foreach (var claim in newClaims)
             {
-                monthReport.total_claims += totalClaims;
-                monthReport.total_approved_claims += approved;
-                monthReport.total_denied_claims += denied;
-                monthReport.lastInsuranceClaimIdProcessed = maxClaimId;
+                dailyReport.number_of_claims_submitted++;
+                dailyReport.claim_amount_submitted += claim.claim_amount_submitted;
 
-                db.monthly_claim_report.Update(monthReport);
+                if (claim.status == "approved")
+                {
+                    dailyReport.claims_approved++;
+                }
+                else if (claim.status == "denied")
+                {
+                    dailyReport.claims_denied++;
+                    dailyReport.claims_amount_denied += claim.claim_amount_submitted;
+                }
+                else
+                {
+                    dailyReport.claims_pending++;
+                }
+
+                // Update to last processed claim
+                dailyReport.lastProcessClaimid = claim.insurance_claims_id;
             }
-            else
+
+            await db.SaveChangesAsync();
+
+            // ============================================================
+            // 5. UPDATE MONTHLY REPORT
+            // ============================================================
+            int month = today.Month;
+            int year = today.Year;
+
+            var monthReport = await db.monthly_claim_report
+                .FirstOrDefaultAsync(m => m.month == month && m.year == year);
+
+            if (monthReport == null)
             {
                 monthReport = new monthly_claim_report
                 {
                     month = month,
                     year = year,
-                    total_claims = totalClaims,
-                    total_approved_claims = approved,
-                    total_denied_claims = denied,
-                    lastInsuranceClaimIdProcessed = maxClaimId
+                    total_claims = 0,
+                    total_approved_claims = 0,
+                    total_denied_claims = 0,
+                    total_amount_paid = 0,
+                    total_amount_denied = 0,
+                    lastInsuranceClaimIdProcessed = 0
                 };
 
                 await db.monthly_claim_report.AddAsync(monthReport);
             }
 
+            monthReport.total_claims += newClaims.Count;
+            monthReport.total_approved_claims += newClaims.Count(c => c.status == "approved");
+            monthReport.total_denied_claims += newClaims.Count(c => c.status == "denied");
+            monthReport.total_amount_paid += newClaims
+                .Where(c => c.status == "approved")
+                .Sum(c => c.claim_amount_submitted);
+            monthReport.total_amount_denied += newClaims
+                .Where(c => c.status == "denied")
+                .Sum(c => c.claim_amount_submitted);
+
+            monthReport.lastInsuranceClaimIdProcessed = dailyReport.lastProcessClaimid;
+
             await db.SaveChangesAsync();
 
-
             // ============================================================
-            // 5. UPDATE / INSERT YEARLY REPORT
+            // 6. UPDATE YEARLY REPORT
             // ============================================================
-            if (yearReport != null)
-            {
-                yearReport.total_claims += totalClaims;
-                yearReport.total_approved_claims += approved;
-                yearReport.total_denied_claims += denied;
-                yearReport.lastInsuranceClaimIdProcessed = maxClaimId;
+            var yearlyReport = await db.yearly_claim_report
+                .FirstOrDefaultAsync(y => y.year == year);
 
-                db.yearly_claim_report.Update(yearReport);
-            }
-            else
+            if (yearlyReport == null)
             {
-                yearReport = new yearly_claim_report
+                yearlyReport = new yearly_claim_report
                 {
                     year = year,
-                    total_claims = totalClaims,
-                    total_approved_claims = approved,
-                    total_denied_claims = denied,
-                    lastInsuranceClaimIdProcessed = maxClaimId
+                    total_claims = 0,
+                    total_approved_claims = 0,
+                    total_denied_claims = 0,
+                    total_amount_paid = 0,
+                    total_amount_denied = 0,
+                    lastInsuranceClaimIdProcessed = 0
                 };
 
-                await db.yearly_claim_report.AddAsync(yearReport);
+                await db.yearly_claim_report.AddAsync(yearlyReport);
             }
+
+            yearlyReport.total_claims += newClaims.Count;
+            yearlyReport.total_approved_claims += newClaims.Count(c => c.status == "approved");
+            yearlyReport.total_denied_claims += newClaims.Count(c => c.status == "denied");
+            yearlyReport.total_amount_paid += newClaims
+                .Where(c => c.status == "approved")
+                .Sum(c => c.claim_amount_submitted);
+            yearlyReport.total_amount_denied += newClaims
+                .Where(c => c.status == "denied")
+                .Sum(c => c.claim_amount_submitted);
+
+            yearlyReport.lastInsuranceClaimIdProcessed = dailyReport.lastProcessClaimid;
 
             await db.SaveChangesAsync();
         }

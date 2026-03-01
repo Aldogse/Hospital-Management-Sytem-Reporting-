@@ -33,7 +33,7 @@ namespace Report_and_Analytics_Library.Insurance
         [JsonIgnore]
         public insurance_provider insurance_Provider { get; set; }
 
-        public decimal claim_amount { get; set; }
+        public decimal claim_amount_submitted { get; set; }
         public string status { get; set; }
         public DateOnly submmited_date { get; set; }
         public DateOnly resolved_date { get; set; }

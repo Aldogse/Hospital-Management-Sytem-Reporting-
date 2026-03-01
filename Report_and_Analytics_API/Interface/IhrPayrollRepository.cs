@@ -11,5 +11,6 @@ namespace Report_and_Analytics_API.Interface
         Task<monthPayrollComparisonResponse> monthPayrollComparisonResult(int month,int year,int comparedMonth,int comparedYear);
         Task<year_hospital_payroll_report> getYearHospitalPayrollReport(int year);
         Task<yearSummaryPayrollResponse> yearHospitalPayrollSummary(int year);
+        Task<monthPayrollQueryRangeResponse> monthPayrollRangeQueryAsync(int startmonth,int startyear,int endmonth,int endyear);
     }
 }

@@ -1,0 +1,767 @@
+2026-02-23 22:20:25.848 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 22:20:25.965 +08:00 [INF] Executed DbCommand (116ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:20:25.965 +08:00 [INF] Executed DbCommand (116ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:20:25.965 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 22:20:26.050 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 22:20:26.052 +08:00 [INF] Hosting environment: Development
+2026-02-23 22:20:26.053 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 22:20:26.098 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:20:26.098 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:20:26.128 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:20:26.133 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 22:20:26.134 +08:00 [INF] No new sales to process since last update.
+2026-02-23 22:20:26.136 +08:00 [INF] No new billing records to process.
+2026-02-23 22:20:27.105 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 22:20:27.419 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 323.0139ms
+2026-02-23 22:20:27.427 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 22:20:27.444 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 22:20:27.456 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.7931ms
+2026-02-23 22:20:27.541 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 99.0253ms
+2026-02-23 22:20:27.784 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 22:20:27.819 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.5626ms
+2026-02-23 22:20:44.699 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/dates - null null
+2026-02-23 22:20:44.711 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:20:44.728 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-23 22:20:44.808 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2026-02-23 22:20:44.825 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-23 22:20:44.838 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 103.3512ms
+2026-02-23 22:20:44.839 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:20:44.842 +08:00 [INF] HTTP GET /employee/dates responded 200 in 133.7804 ms
+2026-02-23 22:20:44.851 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/dates - 200 null application/json; charset=utf-8 152.1995ms
+2026-02-23 22:22:44.503 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 22:22:44.554 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:22:44.554 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:22:44.556 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 22:22:44.671 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 22:22:44.673 +08:00 [INF] Hosting environment: Development
+2026-02-23 22:22:44.675 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 22:22:44.739 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:22:44.739 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:22:44.773 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:22:44.779 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 22:22:44.779 +08:00 [INF] No new sales to process since last update.
+2026-02-23 22:22:44.781 +08:00 [INF] No new billing records to process.
+2026-02-23 22:22:45.078 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 22:22:45.246 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 171.1377ms
+2026-02-23 22:22:45.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 22:22:45.251 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 22:22:45.260 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.9413ms
+2026-02-23 22:22:45.291 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.0612ms
+2026-02-23 22:22:45.444 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 22:22:45.476 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.7431ms
+2026-02-23 22:23:32.112 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/dates - null null
+2026-02-23 22:23:32.128 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:23:32.143 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-23 22:23:32.222 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2026-02-23 22:23:32.244 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-23 22:23:32.255 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 106.4888ms
+2026-02-23 22:23:32.257 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:23:32.259 +08:00 [INF] HTTP GET /employee/dates responded 200 in 132.5014 ms
+2026-02-23 22:23:32.270 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/dates - 200 null application/json; charset=utf-8 157.8415ms
+2026-02-23 22:27:58.392 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 22:27:58.444 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:27:58.444 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:27:58.444 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 22:27:58.525 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 22:27:58.527 +08:00 [INF] Hosting environment: Development
+2026-02-23 22:27:58.528 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 22:27:58.600 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:27:58.600 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:27:58.634 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:27:58.639 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 22:27:58.640 +08:00 [INF] No new sales to process since last update.
+2026-02-23 22:27:58.641 +08:00 [INF] No new billing records to process.
+2026-02-23 22:27:58.945 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 22:27:59.124 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 183.1068ms
+2026-02-23 22:27:59.130 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 22:27:59.130 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 22:27:59.146 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 16.5814ms
+2026-02-23 22:27:59.177 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.0878ms
+2026-02-23 22:27:59.243 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 22:27:59.291 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 48.4663ms
+2026-02-23 22:28:03.842 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/dates - null null
+2026-02-23 22:28:03.856 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:28:03.872 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-23 22:28:03.954 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2026-02-23 22:28:03.974 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-23 22:28:03.989 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 108.5863ms
+2026-02-23 22:28:03.992 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:28:03.995 +08:00 [INF] HTTP GET /employee/dates responded 200 in 140.7951 ms
+2026-02-23 22:28:04.019 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/dates - 200 null application/json; charset=utf-8 176.9993ms
+2026-02-23 22:28:32.698 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 22:28:32.737 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 22:28:32.738 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:28:32.739 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:28:32.808 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 22:28:32.810 +08:00 [INF] Hosting environment: Development
+2026-02-23 22:28:32.811 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 22:28:32.883 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:28:32.883 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:28:32.920 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:28:32.927 +08:00 [INF] No new sales to process since last update.
+2026-02-23 22:28:32.927 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 22:28:32.931 +08:00 [INF] No new billing records to process.
+2026-02-23 22:28:33.707 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 22:28:33.854 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 150.9004ms
+2026-02-23 22:28:33.862 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 22:28:33.862 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 22:28:33.872 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 10.5284ms
+2026-02-23 22:28:33.902 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.8376ms
+2026-02-23 22:28:33.957 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 22:28:33.994 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.6399ms
+2026-02-23 22:28:36.760 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/dates - null null
+2026-02-23 22:28:36.776 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:28:36.789 +08:00 [INF] Route matched with {action = "dates", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dates() on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-23 22:28:36.871 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportDate`
+FROM `daily_attendance_report` AS `d`
+2026-02-23 22:28:36.887 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-23 22:28:36.897 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API) in 101.9543ms
+2026-02-23 22:28:36.898 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dates (Report_and_Analytics_API)'
+2026-02-23 22:28:36.901 +08:00 [INF] HTTP GET /employee/dates responded 200 in 125.9298 ms
+2026-02-23 22:28:36.909 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/dates - 200 null application/json; charset=utf-8 148.8882ms
+2026-02-23 22:29:32.938 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:29:32.944 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:29:32.950 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:29:32.952 +08:00 [INF] No new sales to process since last update.
+2026-02-23 22:30:32.981 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 22:30:32.989 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 22:30:32.996 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 22:30:32.999 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:09:27.491 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:09:27.531 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:09:27.533 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:09:27.533 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:09:27.600 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:09:27.601 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:09:27.603 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:09:27.665 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:09:27.665 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:09:27.697 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:09:27.701 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:09:27.703 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:09:27.705 +08:00 [INF] No new billing records to process.
+2026-02-23 23:09:28.525 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:09:28.684 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 162.4123ms
+2026-02-23 23:09:28.687 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:09:28.687 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:09:28.699 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.59ms
+2026-02-23 23:09:28.737 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.3544ms
+2026-02-23 23:09:28.798 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:09:28.835 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.4445ms
+2026-02-23 23:12:20.229 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:12:20.268 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:12:20.270 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:12:20.270 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:12:20.338 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:12:20.339 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:12:20.341 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:12:20.402 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:12:20.402 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:12:20.430 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:12:20.434 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:12:20.436 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:12:20.438 +08:00 [INF] No new billing records to process.
+2026-02-23 23:12:21.231 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:12:21.403 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 177.5391ms
+2026-02-23 23:12:21.409 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:12:21.409 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:12:21.423 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.8678ms
+2026-02-23 23:12:21.449 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.9726ms
+2026-02-23 23:12:21.518 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:12:21.555 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.8708ms
+2026-02-23 23:13:20.503 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:13:20.509 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:13:20.515 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:13:20.517 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:13:25.486 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=3&endYear=2025 - null null
+2026-02-23 23:13:25.499 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:13:25.517 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:13:25.556 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__start_0='?' (DbType = Int32), @__startYear_1='?' (DbType = Int32), @__end_2='?' (DbType = Int32), @__endYear_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`month` >= @__start_0) AND (`m`.`year` >= @__startYear_1)) AND (`m`.`month` <= @__end_2)) AND (`m`.`year` <= @__endYear_3)
+2026-02-23 23:13:25.568 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:13:25.585 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 63.4652ms
+2026-02-23 23:13:25.587 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:13:25.589 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 92.0977 ms
+2026-02-23 23:13:25.595 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=3&endYear=2025 - 200 null application/json; charset=utf-8 110.1251ms
+2026-02-23 23:14:20.535 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:14:20.541 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:14:20.546 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:14:20.548 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:14:22.883 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=6&endYear=2025 - null null
+2026-02-23 23:14:22.893 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:14:22.896 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:14:22.906 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__start_0='?' (DbType = Int32), @__startYear_1='?' (DbType = Int32), @__end_2='?' (DbType = Int32), @__endYear_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`month` >= @__start_0) AND (`m`.`year` >= @__startYear_1)) AND (`m`.`month` <= @__end_2)) AND (`m`.`year` <= @__endYear_3)
+2026-02-23 23:14:22.918 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:14:22.920 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 21.7018ms
+2026-02-23 23:14:22.922 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:14:22.923 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 30.1082 ms
+2026-02-23 23:14:22.925 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=6&endYear=2025 - 200 null application/json; charset=utf-8 42.7193ms
+2026-02-23 23:14:49.979 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-23 23:14:49.982 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:14:49.983 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:14:49.993 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__start_0='?' (DbType = Int32), @__startYear_1='?' (DbType = Int32), @__end_2='?' (DbType = Int32), @__endYear_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`month` >= @__start_0) AND (`m`.`year` >= @__startYear_1)) AND (`m`.`month` <= @__end_2)) AND (`m`.`year` <= @__endYear_3)
+2026-02-23 23:14:50.005 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:14:50.006 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 21.6453ms
+2026-02-23 23:14:50.008 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:14:50.009 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 27.2068 ms
+2026-02-23 23:14:50.012 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 33.2754ms
+2026-02-23 23:37:24.629 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:37:24.675 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:37:24.678 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:37:24.678 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:37:25.187 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:37:25.189 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:37:25.190 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:37:25.265 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:37:25.265 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:37:25.300 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:37:25.304 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:37:25.308 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:37:25.311 +08:00 [INF] No new billing records to process.
+2026-02-23 23:37:25.859 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:37:26.015 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 159.0249ms
+2026-02-23 23:37:26.015 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:37:26.015 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:37:26.028 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.3192ms
+2026-02-23 23:37:26.062 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.8428ms
+2026-02-23 23:37:26.121 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:37:26.154 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.5028ms
+2026-02-23 23:37:49.197 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-23 23:37:49.210 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:37:49.230 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:38:17.935 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+2026-02-23 23:38:24.902 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:38:24.918 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 35681.6458ms
+2026-02-23 23:38:24.920 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:38:24.922 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 35713.3972 ms
+2026-02-23 23:38:24.930 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 35733.9412ms
+2026-02-23 23:38:25.318 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:38:25.323 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:38:25.329 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:38:25.331 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:39:08.719 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:39:08.757 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:39:08.761 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:39:08.761 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:39:08.840 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:39:08.844 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:39:08.845 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:39:08.910 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:39:08.910 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:39:08.943 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:39:08.947 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:39:08.949 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:39:08.951 +08:00 [INF] No new billing records to process.
+2026-02-23 23:39:09.428 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:39:09.593 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 166.0001ms
+2026-02-23 23:39:09.599 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:39:09.599 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:39:09.610 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.3085ms
+2026-02-23 23:39:09.657 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.2637ms
+2026-02-23 23:39:09.722 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:39:09.757 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.8104ms
+2026-02-23 23:39:25.938 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-23 23:39:25.951 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:39:25.968 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:39:28.557 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-23 23:39:28.569 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:39:28.586 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 2611.904ms
+2026-02-23 23:39:28.589 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:39:28.592 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 2642.5372 ms
+2026-02-23 23:39:28.599 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 2660.8401ms
+2026-02-23 23:39:51.977 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-23 23:39:51.991 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:39:51.994 +08:00 [INF] Route matched with {action = "monthBudgetRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBudgetRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:39:56.719 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-23 23:40:44.466 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:40:44.478 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API) in 52482.1182ms
+2026-02-23 23:40:44.488 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBudgetRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:40:44.494 +08:00 [INF] HTTP GET /journal/monthBudgetRangeReport responded 200 in 52502.8617 ms
+2026-02-23 23:40:44.504 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:40:44.505 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBudgetRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 52528.2266ms
+2026-02-23 23:40:44.512 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:40:44.519 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:40:44.521 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:40:45.413 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:40:45.429 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 16.0219ms
+2026-02-23 23:40:45.461 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:40:45.466 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:40:45.473 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.7557ms
+2026-02-23 23:40:45.492 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.0162ms
+2026-02-23 23:40:45.577 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:40:45.607 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.0099ms
+2026-02-23 23:41:13.805 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:41:13.815 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 9.3954ms
+2026-02-23 23:41:13.831 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:41:13.832 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:41:13.841 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.9262ms
+2026-02-23 23:41:13.855 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.7816ms
+2026-02-23 23:41:13.886 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:41:13.899 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.8594ms
+2026-02-23 23:41:21.970 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:41:22.007 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:41:22.009 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:41:22.009 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:41:22.069 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:41:22.071 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:41:22.071 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:41:22.126 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:41:22.126 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:41:22.150 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:41:22.153 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:41:22.156 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:41:22.159 +08:00 [INF] No new billing records to process.
+2026-02-23 23:41:22.954 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:41:23.114 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 164.5531ms
+2026-02-23 23:41:23.119 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:41:23.119 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:41:23.131 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.7795ms
+2026-02-23 23:41:23.159 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.3602ms
+2026-02-23 23:41:23.215 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:41:23.249 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.5649ms
+2026-02-23 23:41:35.845 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-23 23:41:35.856 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:41:35.876 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:41:37.330 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-23 23:41:37.344 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.Historical_report.Models.month_billing_report, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-23 23:41:37.362 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 1479.8182ms
+2026-02-23 23:41:37.365 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:41:37.369 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 1514.3284 ms
+2026-02-23 23:41:37.378 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 1533.4245ms
+2026-02-23 23:49:57.426 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:49:57.470 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:49:57.472 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:49:57.472 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:49:57.549 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:49:57.551 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:49:57.552 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:49:57.645 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:49:57.645 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:49:57.679 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:49:57.684 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:49:57.686 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:49:57.688 +08:00 [INF] No new billing records to process.
+2026-02-23 23:49:58.337 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:49:58.505 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:49:58.505 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:49:58.513 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 179.6796ms
+2026-02-23 23:49:58.523 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 17.8705ms
+2026-02-23 23:49:58.555 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.0074ms
+2026-02-23 23:49:58.616 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:49:58.648 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.4888ms
+2026-02-23 23:50:12.448 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=3&endYear=2025 - null null
+2026-02-23 23:50:12.457 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:50:12.475 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-23 23:50:12.568 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-23 23:50:12.586 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-23 23:50:12.606 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 126.2823ms
+2026-02-23 23:50:12.608 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-23 23:50:12.610 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 154.0633 ms
+2026-02-23 23:50:12.620 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=3&endYear=2025 - 200 null application/json; charset=utf-8 172.294ms
+2026-02-23 23:50:57.716 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:50:57.722 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:50:57.727 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:50:57.729 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:53:47.358 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-23 23:53:47.405 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-23 23:53:47.407 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:53:47.407 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-23 23:53:47.491 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-23 23:53:47.492 +08:00 [INF] Hosting environment: Development
+2026-02-23 23:53:47.494 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-23 23:53:47.563 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`reportId`, `y`.`lastProcessedSaleId`, `y`.`topSellingItem`, `y`.`totalSales`, `y`.`totalTransactions`, `y`.`year`
+FROM `yearly_pharmacy_sales_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:53:47.563 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `y`.`report_id`, `y`.`lastBillingRecordId`, `y`.`total_billed`, `y`.`total_insurance_covered`, `y`.`total_oop_collected`, `y`.`total_paid`, `y`.`total_pending_amount`, `y`.`total_pending_transaction`, `y`.`year`
+FROM `yearly_billing_report` AS `y`
+WHERE `y`.`year` = @__year_0
+LIMIT 1
+2026-02-23 23:53:47.592 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedMonthlySaleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`sale_id`, `p`.`customer_name`, `p`.`med_name`, `p`.`payment_method`, `p`.`price_per_unit`, `p`.`quantity_sold`, `p`.`sale_date`, `p`.`staff_name`, `p`.`total_price`
+FROM `pharmacy_sales` AS `p`
+WHERE `p`.`sale_id` > @__lastProcessedMonthlySaleId_0
+ORDER BY `p`.`sale_id`
+2026-02-23 23:53:47.598 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__lastProcessedId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `b`.`billing_id`, `b`.`balance`, `b`.`billing_date`, `b`.`grand_total`, `b`.`insurance_covered`, `b`.`out_of_pocket`, `b`.`paid_amount`, `b`.`patient_id`, `b`.`payment_method`, `b`.`payment_status`, `b`.`status`, `b`.`total_amount`, `b`.`transaction_id`
+FROM `billing_records` AS `b`
+WHERE `b`.`billing_id` > @__lastProcessedId_0
+ORDER BY `b`.`billing_id`
+2026-02-23 23:53:47.598 +08:00 [INF] No new sales to process since last update.
+2026-02-23 23:53:47.601 +08:00 [INF] No new billing records to process.
+2026-02-23 23:53:47.900 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-23 23:53:48.134 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 240.7469ms
+2026-02-23 23:53:48.140 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-23 23:53:48.141 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-23 23:53:48.152 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 12.1519ms
+2026-02-23 23:53:48.190 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.4081ms
+2026-02-23 23:53:48.258 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-23 23:53:48.292 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.6642ms

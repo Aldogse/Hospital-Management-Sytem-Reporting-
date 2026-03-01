@@ -11,7 +11,7 @@ namespace APIResponses.Historical_report.Models
     {
         [Key]
         public int reportId { get; set; }
-        public DateTime reportDate {  get; set; }
+        public DateOnly reportDate {  get; set; }
         public int? present { get; set; }
         public int? absent { get; set; }
         public int? late { get; set; }

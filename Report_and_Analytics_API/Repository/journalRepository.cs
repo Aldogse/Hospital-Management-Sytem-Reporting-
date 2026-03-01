@@ -777,5 +777,50 @@ namespace Report_and_Analytics_API.Repository
 
             return response;
         }
+
+        //ADJUSTED QUERIES FOR NEW REPORT
+        public async Task<billingSearchQueryResponse> monthRangeBillingReportAsync(int start, int startYear, int end, int endYear)
+        {
+            int startKey = startYear * 100 + start; 
+            int endKey = endYear * 100 + end;
+
+            var rangeReport = await _reportDb.month_billing_report.Where(i => 
+            (i.year * 100 + i.month) >= startKey 
+            && (i.year * 100 + i.month) <= endKey)
+                .OrderBy(i => i.month)
+                .ToListAsync();
+            
+            var response = new billingSearchQueryResponse()
+            {
+               total_pending_amount = rangeReport.Select(i => i.total_pending_amount).Sum(),
+               total_billed = rangeReport.Select(i => i.total_billed).Sum(),
+               total_insurance_covered = rangeReport.Select(i => i.total_insurance_covered).Sum(),
+               total_oop_collected = rangeReport.Select(i => i.total_oop_collected).Sum(),
+               total_paid = rangeReport.Select(i => i.total_paid).Sum(),
+               total_pending_transaction = rangeReport.Select(i => i.total_pending_transaction).Sum(),
+               months = rangeReport
+            };
+            return response;
+        }
+
+        public async Task<pharmacyRangeQueryResponse> monthPharmacySalesRangeReport(int startMonth, int startYear, int endMonth, int endYear)
+        {
+            int startKey = startYear * 100 + startMonth;
+            int endKey = endYear * 100 + endMonth;
+
+            var data = await _reportDb.month_pharmacy_sales.Where(i =>
+            (i.year * 100 + i.month) >= startKey
+            && (i.year * 100 + i.month) <= endKey)
+                .OrderBy(i => i.year)
+                .ToListAsync();
+
+            return new pharmacyRangeQueryResponse
+            {
+                months = data,
+                topSellingItem = data.Select(i => i.topSellingItem).Max(),
+                totalSales = data.Select(i => i.totalSales).Sum(),
+                totalTransactions = data.Select(i => i.totalTransactions).Sum()
+            };
+        }
     }
 }

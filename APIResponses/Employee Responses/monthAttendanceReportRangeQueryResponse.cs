@@ -7,13 +7,13 @@ using APIResponses.Historical_report.Models;
 
 namespace APIResponses.Employee_Responses
 {
-    public class dailyAttendanceReportResponse
+    public class monthAttendanceReportRangeQueryResponse
     {
         public int? present { get; set; }
         public int? absent { get; set; }
         public int? late { get; set; }
-        public int? leave { get; set; }
+        public int? leave_count { get; set; }
         public int? underTime { get; set; }
-        public List<daily_attendance_report> days { get; set; }
+        public List<month_attendance_report>months { get; set; }
     }
 }

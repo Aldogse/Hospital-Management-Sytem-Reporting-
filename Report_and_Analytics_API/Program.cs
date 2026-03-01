@@ -91,8 +91,9 @@ builder.Services.AddDbContext<ReportDbContext>(options =>
 //builder.Services.AddHostedService<monthOutcomeReportDataExtractionService>();
 //builder.Services.AddHostedService<yearlyClaimReportDataExtraction>();
 //builder.Services.AddHostedService<yearPayrollBackgroundServiceDataExtraction>();
-builder.Services.AddHostedService<dailyServiceUpdateYearPharmacySales>();
-builder.Services.AddHostedService<dailyServiceUpdateYearBillingSummary>();
+//builder.Services.AddHostedService<dailyServiceUpdateYearPharmacySales>();
+//builder.Services.AddHostedService<dailyServiceUpdateYearBillingSummary>();
+//builder.Services.AddHostedService<InsuranceClaimBackgroundService>();
 //builder.Services.AddHostedService<AttendanceBackgroundService>();
 builder.Services.AddScoped<IhrLeaveRepository,hrLeaveRepository>();
 builder.Services.AddScoped<IhrPayrollRepository,hrPayrollRepository>();

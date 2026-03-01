@@ -92,5 +92,20 @@ namespace Report_and_Analytics_API.Controllers
             }
         }
 
+        [HttpGet("billing")]
+        public async Task<IActionResult> billing()
+        {
+            try
+            {
+                var response = await _reportDbContext.month_billing_report.ToListAsync();
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
     }
 }

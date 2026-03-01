@@ -43,7 +43,7 @@ namespace Report_and_Analytics_API.Service
         //RUNS EVERY END OF DAY
         private async Task dailyAttendanceReport(ReportDbContext reportDb)
         {
-            var prevDay = DateTime.Now.AddDays(-1);
+            var prevDay = DateOnly.FromDateTime(new DateTime(DateTime.Now.Year,DateTime.Now.Month,1).AddDays(-1));
             int attempts = 0;
             int maxAttempts = 5;
             while (attempts < maxAttempts)

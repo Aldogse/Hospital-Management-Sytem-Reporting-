@@ -1,4 +1,5 @@
-﻿using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
+﻿using APIResponses.Employee_Responses;
+using Report_and_Analytics_Library.Doctor___Patient_Treatment_Analysis;
 using Report_and_Analytics_Library.HR;
 
 namespace Report_and_Analytics_API.Interface
@@ -35,6 +36,6 @@ namespace Report_and_Analytics_API.Interface
         Task<decimal?> yearToDateTotalDeductions(int employeeId, int year);
         Task<decimal?> yearToDateNetPay(int employeeId, int year);
         Task<decimal?> yearToDateAbsenceDeduction(int employeeId, int year);
-
+      
     }
 }

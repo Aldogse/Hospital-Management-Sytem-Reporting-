@@ -62,7 +62,7 @@ namespace Report_and_Analytics_API.Service
                         return;
                     }
 
-                    await reportDb.daily_insurance_submitted_reports.AddAsync(claimsSummary);
+                    await reportDb.daily_insurance_submitted_report.AddAsync(claimsSummary);
                     await reportDb.SaveChangesAsync();
                     _logger.LogInformation($"Data successfully added for {date}");
                     return;

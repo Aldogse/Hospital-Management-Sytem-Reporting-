@@ -24,5 +24,8 @@ namespace Report_and_Analytics_API.Interface
 
         //FORECASTED QUERY RESULTS
         Task<month_bed_occupancy_forecast_result> monthForecastedBedOccupancyRate(int month,int year);
+
+        //NEW SERVICE QUERIES
+        Task<monthBedsAndDischargesQueryResponse> monthBedsAndDishcargeRangeQuery(int startmonth,int startyear,int endmonth,int endyear);
     }
 }

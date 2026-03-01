@@ -1,6 +1,7 @@
 ﻿using APIResponses.Employee_Responses;
 using APIResponses.forecast_results;
 using APIResponses.Historical_report.Models;
+using APIResponses.PayrollResponse;
 using APIResponses.Training_Models;
 using APIResponses.Training_Models_forecast;
 using Microsoft.EntityFrameworkCore;
@@ -21,20 +22,18 @@ namespace Report_and_Analytics_API.Repository
             _reportDbContext = reportDbContext;
             _logger = logger;
         }
-        public async Task<dailyAttendanceReportResponse> getDayAttendanceReport(DateTime date)
+        public async Task<dailyAttendanceReportResponse> getDayAttendanceReport(DateOnly date)
         {
             var employees = await _reportDbContext.hr_employees.CountAsync();
             var report = await _reportDbContext.daily_attendance_report
                 .Where(i => i.reportDate == date)
                 .Select(i => new dailyAttendanceReportResponse
                 {
-                    reportDate = i.reportDate.ToShortDateString(),
                     absent = i.absent,
                     late = i.late,
                     leave = i.leave,
                     present = i.present,
                     underTime = i.underTime,
-                    totalEmployees = employees
                 }).FirstOrDefaultAsync();
 
             if(report == null)
@@ -320,6 +319,139 @@ namespace Report_and_Analytics_API.Repository
                 partnerPresent = secondMonth.present,
                 partnerUnderTime = secondMonth.underTime
             };
+        }
+
+        //NEW SERVICE QUERIES
+        public async Task<monthPayrollQueryRangeResponse> monthPayrollRangeQueryAsync(int startmonth, int startyear, int endmonth, int endyear)
+        {
+            var startKey = startyear * 100 + startmonth;
+            var endKey = endyear * 100 + endmonth;
+
+            var data = await _reportDbContext.month_payroll_summary.Where(i =>
+            (i.year * 100 + i.month) >= startKey
+            && (i.year * 100 + i.month) <= endKey)
+            .OrderBy(i => i.year)
+            .ToListAsync();
+
+            return new monthPayrollQueryRangeResponse
+            {
+                months = data,
+                total_deductions = data.Select(i => i.total_deductions).Sum(),
+                total_employees = data.Select(i => i.total_employees).Sum(),
+                total_gross_pay = data.Select(i => i.total_gross_pay).Sum(),
+                total_net_pay = data.Select(i => i.total_net_pay).Sum()
+            };
+        }
+
+        public async Task<monthAttendanceReportRangeQueryResponse> monthAttendanceReportRangeQuery(int startmonth, int startyear, int endmonth, int endyear)
+        {
+            var startKey = startyear * 100 + startmonth;
+            var endKey = endyear * 100 + endmonth;
+
+            var data = await _reportDbContext.month_attendance_report.Where(i =>
+            (i.year * 100 + i.month) >= startKey
+            && (i.year * 100 + i.month) <= endKey)
+            .OrderBy(i => i.year)
+            .ToListAsync();
+
+            return new monthAttendanceReportRangeQueryResponse
+            {
+                months = data,
+                absent = data.Select(i => i.absent).Sum(),
+                late = data.Select(i => i.late).Sum(),
+                leave_count = data.Select(i => i.leave_count).Sum(),
+                present = data.Select(i => i.present).Sum(),
+                underTime = data.Select(i => i.underTime).Sum()
+            };
+        }
+
+        public async Task<dailyAttendanceReportResponse> dailyAttendanceDateRange(DateOnly startDate, DateOnly endDate)
+        {
+            var data = await _reportDbContext.daily_attendance_report.Where(i => i.reportDate >= startDate
+            && i.reportDate <= endDate).ToListAsync();
+
+            return new dailyAttendanceReportResponse
+            {
+                absent = data.Select(i => i.absent).Sum(),
+                late = data.Select(i => i.late).Sum(),
+                leave = data.Select(i => i.leave).Sum(),
+                present = data.Select(i => i.present).Sum(),
+                underTime = data.Select(i => i.absent).Sum(),
+                days = data,
+            };
+        }
+
+        public async Task<List<staffPerformanceAndAttendanceReport>> staffAndPerformanceReport(DateOnly start, DateOnly end)
+        {
+            var data =
+                await (from emp in _reportDbContext.hr_employees
+
+                       join attendance in _reportDbContext.hr_daily_attendance
+                            on emp.employee_id equals attendance.employee_id
+
+                       // LEFT JOIN evaluations
+                       join eval in _reportDbContext.evaluations
+                            on emp.employee_id equals eval.evaluatee_id into evalGroup
+                       from eval in evalGroup.DefaultIfEmpty()
+
+                           // Attendance must be within range
+                       where attendance.attendance_date >= start
+                          && attendance.attendance_date <= end
+
+                          // Eval may be null, or within date range
+                          && (eval == null
+                              || (eval.evaluation_date >= start
+                                  && eval.evaluation_date <= end))
+
+                       group new { emp, attendance, eval } by emp.department into g
+
+                       select new staffPerformanceAndAttendanceReport
+                       {
+                           department = g.Key,
+
+                           deparmentTotalLateEmployee =
+                               g.Where(x => x.attendance.status == "Late")
+                                .Select(x => x.emp.employee_id)
+                                .Distinct()
+                                .Count(),
+
+                           deparmentTotalPresentEmployee =
+                               g.Where(x => x.attendance.status == "Present")
+                                .Select(x => x.emp.employee_id)
+                                .Distinct()
+                                .Count(),
+
+                           deparmentTotalUndertimeEmployee =
+                               g.Where(x => x.attendance.status == "Undertime")
+                                .Select(x => x.emp.employee_id)
+                                .Distinct()
+                                .Count(),
+
+                           departmentTotalOffDuty =
+                               g.Where(x => x.attendance.status == "Off Duty")
+                                .Select(x => x.emp.employee_id)
+                                .Distinct()
+                                .Count(),
+
+                           departmentTotalOvertime =
+                               g.Where(x => x.attendance.status == "Overtime")
+                                .Select(x => x.emp.employee_id)
+                                .Distinct()
+                                .Count(),
+
+                           // Average evaluation score (ignore nulls)
+                           departmentEvaluationAverageScore =
+                               g.Where(x => x.eval != null)
+                                .Average(x => (decimal?)x.eval.average_score) ?? 0,
+
+                           // Sum total evaluation score (ignore nulls)
+                           departmentEvaluationTotalScore =
+                               g.Where(x => x.eval != null)
+                                .Sum(x => (decimal?)x.eval.total_score) ?? 0
+                       })
+                .ToListAsync();
+
+            return data;
         }
     }
 }

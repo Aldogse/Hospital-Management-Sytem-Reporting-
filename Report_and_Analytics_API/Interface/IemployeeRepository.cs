@@ -9,7 +9,7 @@ namespace Report_and_Analytics_API.Interface
 {
     public interface IemployeeRepository
     {
-        Task<dailyAttendanceReportResponse> getDayAttendanceReport(DateTime date);
+        Task<dailyAttendanceReportResponse> getDayAttendanceReport(DateOnly date);
         Task<month_attendance_report> getMonthAttendanceReport(int month,int year);
         Task<month_attendance_report> getMonthAttendanceReportSummary(int month, int year);
         Task<year_attendance_report> getYearAttendanceReport(int year);
@@ -24,5 +24,10 @@ namespace Report_and_Analytics_API.Interface
 
         //FORECAST RESULTS
         Task<List<month_staffing_needs_forecast_result>> getMontStaffingNeedsForecast(int month,int year);
+
+        //NEW ENDPOINTS 
+        Task<monthAttendanceReportRangeQueryResponse> monthAttendanceReportRangeQuery(int startmonth, int startyear, int endmonth, int endyear);
+        Task<dailyAttendanceReportResponse> dailyAttendanceDateRange(DateOnly startDate,DateOnly endDate);
+        Task<List<staffPerformanceAndAttendanceReport>> staffAndPerformanceReport(DateOnly start, DateOnly end);
     }
 }

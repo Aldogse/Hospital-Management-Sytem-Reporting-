@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using APIResponses.Employee_Responses;
+using Microsoft.EntityFrameworkCore;
 using Report_and_Analytics_API.Data;
 using Report_and_Analytics_API.Interface;
 using Report_and_Analytics_Library.HR;
@@ -166,5 +167,25 @@ namespace Report_and_Analytics_API.Repository
                  .SumAsync(t => t.absence_deduction);
         }
 
+        public async Task<monthAttendanceReportRangeQueryResponse> monthAttendanceReportRangeQuery(int startmonth, int startyear, int endmonth, int endyear)
+        {
+            int startKey = startyear * 100 + startmonth;
+            int endKey = endyear * 100 + endmonth;
+
+            var data = await _reportDbContext.month_attendance_report.Where(i =>
+            (i.year * 100 + i.month) >= startKey && (i.year * 100 + i.month) <= endKey)
+                .OrderBy(i => i.year)
+                .ToListAsync();
+
+            return new monthAttendanceReportRangeQueryResponse
+            {
+                absent = data.Select(i => i.absent).Sum(),
+                late = data.Select(i => i.late).Sum(),
+                leave_count = data.Select(i => i.leave_count).Sum(),
+                months = data,
+                present = data.Select(i => i.present).Sum(),
+                underTime = data.Select(i => i.underTime).Sum()
+            };
+        }
     }
 }

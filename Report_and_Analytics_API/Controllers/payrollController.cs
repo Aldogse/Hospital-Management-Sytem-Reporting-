@@ -141,6 +141,37 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
+
+        //NEW ENDPOINTS FOR PAYROLL
+        [HttpGet("monthPayrollRangeQueryAsync")]
+        public async Task<IActionResult> monthPayrollRangeQueryAsync([FromQuery] int startmonth, [FromQuery]int startyear,
+            [FromQuery]int endmonth, [FromQuery]int endyear)
+        {
+            try
+            {
+                if (startmonth > endmonth && startyear >= endyear)
+                {
+                    return StatusCode(400,"Start cannot be greater than the End");
+                }
+
+                var response = await _payrollRepository.monthPayrollRangeQueryAsync(startmonth,startyear,endmonth,endyear);
+
+                if(response == null)
+                {
+                    return Ok(new
+                    {
+                        success = true,
+                        message = $"No report yet for {startmonth}/{startyear} and {endmonth}/{endyear}"
+                    });
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
 

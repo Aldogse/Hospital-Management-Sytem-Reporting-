@@ -49,9 +49,9 @@ namespace Report_and_Analytics_API.Controllers
                         dateOfService = x.Select(i => i.logs.date_transact).FirstOrDefault(),
                         status = x.Select(i => i.logs.status).FirstOrDefault(),
                         insuranceCovered = x.Where(i => i.logs.status == "Approved").Select(i => i.request.insurance_covered).FirstOrDefault(),
-                        claimAmount = x.Select(i => i.claims.claim_amount).FirstOrDefault(),
+                        claimAmount = x.Select(i => i.claims.claim_amount_submitted).FirstOrDefault(),
                         percentageCovered = x.Where(i => i.logs.status == "Approved")
-                        .Select(i => (i.request.insurance_covered / i.claims.claim_amount) * 100),
+                        .Select(i => (i.request.insurance_covered / i.claims.claim_amount_submitted) * 100),
                     }).ToListAsync();
 
 
@@ -167,11 +167,11 @@ namespace Report_and_Analytics_API.Controllers
         }
 
         [HttpGet("getMonthInsuranceReport")]
-        public async Task<IActionResult> getMonthInsuranceReport([FromQuery]int month,[FromQuery]int year,[FromQuery]int page,[FromQuery]int size)
+        public async Task<IActionResult> getMonthInsuranceReport([FromQuery]int month,[FromQuery]int year)
         {
             try
             {
-                var insuranceReport = await _claimRepository.getMonthsClaimHistory(month,year,page,size);
+                var insuranceReport = await _claimRepository.getMonthsClaimHistory(month,year);
 
                 if(insuranceReport == null)
                 {
@@ -253,6 +253,59 @@ namespace Report_and_Analytics_API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500,ex.Message);
+            }
+        }
+
+        //NEW ENDPOINTS
+        [HttpGet("monthInsuranceClaimRangeQuery")]
+        public async Task<IActionResult> monthInsuranceClaimRangeQuery([FromQuery] DateOnly start, [FromQuery] DateOnly end)
+        {
+            try
+            {
+                if (start > end)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+
+                var response = await _claimRepository.monthInsuranceRangeQuery(start,end);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("daysInsuranceClaimRangeQuery")]
+        public async Task<IActionResult> daysInsuranceClaimRangeQuery([FromQuery] DateOnly start, [FromQuery] DateOnly end)
+        {
+            try
+            {
+                if (start > end)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+
+                var response = await _claimRepository.dateRangeSummaryResponseQuery(start,end);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("dayInsuranceClaimReport")]
+        public async Task<IActionResult> dayInsuranceClaimReport([FromQuery] DateOnly date)
+        {
+            try
+            {
+                var response = await _reportDbContext.daily_insurance_submitted_report.Where(i => i.report_date == date).FirstOrDefaultAsync();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
     }

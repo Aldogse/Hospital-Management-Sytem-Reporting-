@@ -756,6 +756,69 @@ namespace Report_and_Analytics_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        //NEW ENDPOINTS FOR RANGE REPORTS
+        [HttpGet("monthBillingRangeReport")]
+        public async Task<IActionResult> monthBillingRangeReport([FromQuery] int start, [FromQuery] int startYear, 
+            [FromQuery]int endMonth, [FromQuery]int endYear)
+        {
+            try
+            {
+                if(start > endMonth && startYear == endYear)
+                {
+                    return StatusCode(400,$"Start date should be less that the end Date.");
+                }
+
+                var response  = await _journalRepo.monthRangeBillingReportAsync(start,startYear,endMonth,endYear);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("monthPharmacyRangeReport")]
+        public async Task<IActionResult> monthPharmacyRangeReport([FromQuery] int start, [FromQuery] int startYear,
+            [FromQuery] int endMonth, [FromQuery] int endYear)
+        {
+            try
+            {
+                if (start > endMonth && startYear >= endYear)
+                {
+                    return StatusCode(400, $"Start date should be less that the end Date.");
+                }
+
+                var response = await _journalRepo.monthPharmacySalesRangeReport(start,startYear,endMonth,endYear);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+        [HttpGet("financialStatus")]
+        public async Task<IActionResult> financialStatus()
+        {
+            try
+            {
+                var response = await (
+                    from je in _reportDbContext.journal_entries
+                    join jel in _reportDbContext.journal_entry_lines
+                    on je.entry_id equals jel.entry_id
+                    group new {je,jel} by je.entry_id).ToListAsync();
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
  

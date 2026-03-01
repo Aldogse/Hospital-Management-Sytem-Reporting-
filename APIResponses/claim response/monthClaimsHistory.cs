@@ -14,7 +14,7 @@ namespace APIResponses.claim_response
         public int? totalClaims { get; set; }
         public int? totalApprovedClaims { get; set; }
         public int? totalDeniedClaims { get; set; }
-        public List<insurance_claims> claimsList{ get; set; }
-
+        public decimal? totalApprovedAmount { get; set; }
+        public decimal? totalDeniedAmount { get; set; }
     }
 }

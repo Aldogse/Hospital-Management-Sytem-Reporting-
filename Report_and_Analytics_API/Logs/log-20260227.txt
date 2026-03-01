@@ -1,0 +1,754 @@
+2026-02-27 10:32:27.392 +08:00 [INF] Now listening on: https://0.0.0.0:7212
+2026-02-27 10:32:27.435 +08:00 [INF] Now listening on: http://0.0.0.0:5288
+2026-02-27 10:32:27.614 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-27 10:32:27.616 +08:00 [INF] Hosting environment: Development
+2026-02-27 10:32:27.617 +08:00 [INF] Content root path: F:\Hospital Management System\Hospital-Management-Sytem-Reporting-\Report_and_Analytics_API
+2026-02-27 10:32:28.203 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-27 10:32:28.516 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-27 10:32:28.518 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-27 10:32:28.521 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 321.9121ms
+2026-02-27 10:32:28.527 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.2915ms
+2026-02-27 10:32:28.562 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.1193ms
+2026-02-27 10:32:28.615 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-27 10:32:28.651 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.3489ms
+2026-02-27 10:32:31.095 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 10:32:31.105 +08:00 [INF] CORS policy execution successful.
+2026-02-27 10:32:31.111 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:32:31.143 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 10:32:33.045 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 10:32:33.161 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 10:32:33.181 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 2030.8459ms
+2026-02-27 10:32:33.184 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:32:33.188 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 2078.0153 ms
+2026-02-27 10:32:33.198 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 2103.2343ms
+2026-02-27 10:32:53.978 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 10:32:53.982 +08:00 [INF] CORS policy execution successful.
+2026-02-27 10:32:53.982 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 10:32:53.986 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 10:32:54.258 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 10:32:54.271 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 10:32:54.275 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 287.2562ms
+2026-02-27 10:32:54.277 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 10:32:54.278 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 295.2785 ms
+2026-02-27 10:32:54.280 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 301.6851ms
+2026-02-27 10:33:24.681 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimRangeQuery?start=2025-02-03&end=2025-12-31 - null null
+2026-02-27 10:33:24.684 +08:00 [INF] CORS policy execution successful.
+2026-02-27 10:33:24.685 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API)'
+2026-02-27 10:33:24.688 +08:00 [INF] Route matched with {action = "monthInsuranceClaimRangeQuery", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthInsuranceClaimRangeQuery(System.DateOnly, System.DateOnly) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-02-27 10:33:24.767 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__start_0='?' (DbType = Date), @__end_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount_submitted`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__start_0) AND (`i`.`resolved_date` <= @__end_1)
+2026-02-27 10:33:24.901 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__start_0='?' (DbType = Date), @__end_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id` AS `provider_id`, `i`.`name` AS `provider_name`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL THEN 1
+END) AS `total_claims`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'approved') THEN 1
+END) AS `approved_claims`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'denied') THEN 1
+END) AS `denied_claims`, COALESCE(SUM(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'approved') THEN `i0`.`claim_amount_submitted`
+END), 0.0) AS `approved_amount`, COALESCE(SUM(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'denied') THEN `i0`.`claim_amount_submitted`
+END), 0.0) AS `denied_amount`
+FROM `insurance_provider` AS `i`
+LEFT JOIN `insurance_claims` AS `i0` ON `i`.`insurance_provider_id` = `i0`.`insurance_provider_id`
+WHERE `i0`.`insurance_claims_id` IS NULL OR ((`i0`.`submmited_date` >= @__start_0) AND (`i0`.`submmited_date` <= @__end_1))
+GROUP BY `i`.`insurance_provider_id`, `i`.`name`
+2026-02-27 10:33:24.905 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.claim_response.monthInsuranceClaimRangeQuery'.
+2026-02-27 10:33:24.916 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API) in 225.3179ms
+2026-02-27 10:33:24.917 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API)'
+2026-02-27 10:33:24.919 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimRangeQuery responded 200 in 233.6991 ms
+2026-02-27 10:33:24.920 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimRangeQuery?start=2025-02-03&end=2025-12-31 - 200 null application/json; charset=utf-8 239.3451ms
+2026-02-27 10:48:59.268 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/dailyAttendanceRangeQueryReport?start=2025-10-14&end=2026-02-08 - null null
+2026-02-27 10:48:59.281 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dailyAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:48:59.284 +08:00 [INF] Route matched with {action = "dailyAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] dailyAttendanceRangeQueryReport(System.DateOnly, System.DateOnly) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 10:48:59.328 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startDate_0='?' (DbType = Date), @__endDate_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`reportId`, `d`.`absent`, `d`.`lastAttendanceIdProcessed`, `d`.`lastModifiedDate`, `d`.`late`, `d`.`leave`, `d`.`present`, `d`.`reportDate`, `d`.`underTime`
+FROM `daily_attendance_report` AS `d`
+WHERE (`d`.`reportDate` >= @__startDate_0) AND (`d`.`reportDate` <= @__endDate_1)
+2026-02-27 10:48:59.342 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.dailyAttendanceReportResponse'.
+2026-02-27 10:48:59.351 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.dailyAttendanceRangeQueryReport (Report_and_Analytics_API) in 65.3433ms
+2026-02-27 10:48:59.352 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.dailyAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:48:59.353 +08:00 [INF] HTTP GET /employee/dailyAttendanceRangeQueryReport responded 200 in 72.4287 ms
+2026-02-27 10:48:59.354 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/dailyAttendanceRangeQueryReport?start=2025-10-14&end=2026-02-08 - 200 null application/json; charset=utf-8 86.949ms
+2026-02-27 10:50:00.564 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 10:50:00.572 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:50:00.573 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 10:50:00.583 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 10:50:00.589 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 10:50:00.590 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 15.4263ms
+2026-02-27 10:50:00.592 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 10:50:00.593 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 20.9964 ms
+2026-02-27 10:50:00.594 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 30.3575ms
+2026-02-27 11:01:41.187 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:01:41.194 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:01:41.195 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:01:41.196 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:01:41.218 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:01:41.220 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:01:41.221 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 24.4092ms
+2026-02-27 11:01:41.223 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:01:41.224 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 28.9849 ms
+2026-02-27 11:01:41.225 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 38.3264ms
+2026-02-27 11:21:18.934 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:21:18.940 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:21:18.941 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:21:18.942 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:21:18.969 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:21:18.971 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:21:18.972 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 28.7945ms
+2026-02-27 11:21:18.973 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:21:18.974 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 33.3102 ms
+2026-02-27 11:21:18.976 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 42.0398ms
+2026-02-27 11:21:37.972 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=3&endYear=2025 - null null
+2026-02-27 11:21:37.975 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:21:37.975 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:21:37.976 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:21:37.984 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:21:37.986 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:21:37.987 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 8.5628ms
+2026-02-27 11:21:37.988 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:21:37.989 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 13.5527 ms
+2026-02-27 11:21:37.990 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=3&endYear=2025 - 200 null application/json; charset=utf-8 18.2907ms
+2026-02-27 11:30:47.948 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:30:47.956 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:30:47.958 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:30:47.959 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:30:47.987 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:30:47.990 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:30:47.991 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 30.5791ms
+2026-02-27 11:30:47.993 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:30:47.994 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 36.2652 ms
+2026-02-27 11:30:47.995 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 47.8384ms
+2026-02-27 11:34:41.268 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=6&endYear=2025 - null null
+2026-02-27 11:34:41.276 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:34:41.276 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:34:41.277 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:34:41.297 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:34:41.299 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:34:41.301 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 22.0807ms
+2026-02-27 11:34:41.302 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:34:41.303 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 26.6721 ms
+2026-02-27 11:34:41.305 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=6&endYear=2025 - 200 null application/json; charset=utf-8 36.1247ms
+2026-02-27 11:37:40.645 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:37:40.652 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:37:40.653 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:37:40.654 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:37:40.666 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:37:40.668 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:37:40.669 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 13.6351ms
+2026-02-27 11:37:40.670 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:37:40.671 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 18.0402 ms
+2026-02-27 11:37:40.672 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 28.6569ms
+2026-02-27 11:38:13.236 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=1&endYear=2025 - null null
+2026-02-27 11:38:13.244 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:38:13.245 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:38:13.247 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:38:13.253 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:38:13.261 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:38:13.263 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 14.5398ms
+2026-02-27 11:38:13.265 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:38:13.266 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 20.3945 ms
+2026-02-27 11:38:13.268 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=1&endYear=2025 - 200 null application/json; charset=utf-8 31.9552ms
+2026-02-27 11:38:17.828 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=2&endYear=2025 - null null
+2026-02-27 11:38:17.832 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:38:17.833 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:38:17.834 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 11:38:17.840 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:38:17.842 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 11:38:17.843 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 8.0205ms
+2026-02-27 11:38:17.844 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 11:38:17.845 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 12.2497 ms
+2026-02-27 11:38:17.846 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=1&startYear=2025&endMonth=2&endYear=2025 - 200 null application/json; charset=utf-8 18.0568ms
+2026-02-27 11:38:45.213 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:38:45.221 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:38:45.221 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:38:45.222 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 11:38:45.233 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:38:45.235 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 11:38:45.236 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 12.3067ms
+2026-02-27 11:38:45.237 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:38:45.238 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 16.2985 ms
+2026-02-27 11:38:45.239 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 26.5822ms
+2026-02-27 11:44:42.092 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:44:42.100 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:44:42.100 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:44:42.101 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 11:44:42.129 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:44:42.131 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 11:44:42.133 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 30.0081ms
+2026-02-27 11:44:42.134 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:44:42.135 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 34.6465 ms
+2026-02-27 11:44:42.136 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 44.0967ms
+2026-02-27 11:47:52.525 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2024&endMonth=12&endYear=2025 - null null
+2026-02-27 11:47:52.532 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:47:52.533 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:47:52.534 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 11:47:52.540 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:47:52.543 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 11:47:52.544 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 8.7563ms
+2026-02-27 11:47:52.545 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:47:52.546 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 13.2138 ms
+2026-02-27 11:47:52.547 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2024&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 22.2372ms
+2026-02-27 11:50:50.213 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 11:50:50.221 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:50:50.221 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:50:50.222 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 11:50:50.232 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:50:50.235 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 11:50:50.237 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 12.9298ms
+2026-02-27 11:50:50.239 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 11:50:50.244 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 22.2010 ms
+2026-02-27 11:50:50.246 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 33.1604ms
+2026-02-27 11:51:37.940 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/monthPayrollRangeQueryAsync?startmonth=2&startyear=2025&endmonth=12&endyear=2025 - null null
+2026-02-27 11:51:37.947 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:51:37.948 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API)'
+2026-02-27 11:51:37.953 +08:00 [INF] Route matched with {action = "monthPayrollRangeQuery", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPayrollRangeQueryAsync(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-27 11:51:37.972 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:51:37.991 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollQueryRangeResponse'.
+2026-02-27 11:51:37.995 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API) in 40.2549ms
+2026-02-27 11:51:37.996 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API)'
+2026-02-27 11:51:37.997 +08:00 [INF] HTTP GET /payroll/monthPayrollRangeQueryAsync responded 200 in 48.6481 ms
+2026-02-27 11:51:37.999 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/monthPayrollRangeQueryAsync?startmonth=2&startyear=2025&endmonth=12&endyear=2025 - 200 null application/json; charset=utf-8 59.0774ms
+2026-02-27 11:52:16.876 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=9&endYear=2025 - null null
+2026-02-27 11:52:16.883 +08:00 [INF] CORS policy execution successful.
+2026-02-27 11:52:16.884 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 11:52:16.888 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 11:52:16.905 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 11:52:16.917 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 11:52:16.921 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 31.7747ms
+2026-02-27 11:52:16.923 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 11:52:16.924 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 39.6109 ms
+2026-02-27 11:52:16.925 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=9&endYear=2025 - 200 null application/json; charset=utf-8 49.0908ms
+2026-02-27 12:02:11.889 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:02:11.903 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:02:11.904 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:02:11.905 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:02:11.933 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:02:11.936 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 12:02:11.937 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 30.6983ms
+2026-02-27 12:02:11.938 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:02:11.939 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 35.0834 ms
+2026-02-27 12:02:11.940 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 53.6441ms
+2026-02-27 12:04:59.525 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:04:59.532 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:04:59.533 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:04:59.534 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:04:59.545 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:04:59.547 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 12:04:59.548 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 12.6249ms
+2026-02-27 12:04:59.550 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:04:59.551 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 18.5752 ms
+2026-02-27 12:04:59.553 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 27.5883ms
+2026-02-27 12:08:31.256 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:08:31.258 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:08:31.259 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:08:31.260 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:08:31.266 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:08:31.271 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 12:08:31.273 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 10.9687ms
+2026-02-27 12:08:31.274 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:08:31.275 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 15.6663 ms
+2026-02-27 12:08:31.276 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 21.7454ms
+2026-02-27 12:12:11.414 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:12:11.421 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:12:11.422 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:12:11.422 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:12:11.447 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:12:11.450 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 12:12:11.451 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 27.1191ms
+2026-02-27 12:12:11.452 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:12:11.453 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 31.7870 ms
+2026-02-27 12:12:11.455 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 41.0397ms
+2026-02-27 12:12:53.214 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:12:53.220 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:12:53.221 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:12:53.225 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:12:53.243 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:12:53.258 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:12:53.262 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 36.1671ms
+2026-02-27 12:12:53.264 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:12:53.265 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 43.6359 ms
+2026-02-27 12:12:53.266 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 52.071ms
+2026-02-27 12:22:20.727 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:22:20.734 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:22:20.735 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:22:20.735 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:22:20.759 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:22:20.761 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:22:20.762 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 25.3349ms
+2026-02-27 12:22:20.764 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:22:20.764 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 29.8108 ms
+2026-02-27 12:22:20.766 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 38.5816ms
+2026-02-27 12:24:05.150 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:24:05.158 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:24:05.159 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:24:05.160 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:24:05.170 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:24:05.174 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:24:05.175 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 12.998ms
+2026-02-27 12:24:05.176 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:24:05.177 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 18.7387 ms
+2026-02-27 12:24:05.179 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=1&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 29.507ms
+2026-02-27 12:26:12.966 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-27 12:26:12.973 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:26:12.974 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:12.975 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:26:12.986 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:26:12.988 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:26:12.989 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 13.3269ms
+2026-02-27 12:26:12.991 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:12.992 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 18.0194 ms
+2026-02-27 12:26:12.993 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 27.6728ms
+2026-02-27 12:26:26.350 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/index.html - null null
+2026-02-27 12:26:26.359 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/index.html - 200 null text/html;charset=utf-8 8.5715ms
+2026-02-27 12:26:26.380 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-27 12:26:26.383 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/_vs/browserLink - null null
+2026-02-27 12:26:26.384 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 4.0138ms
+2026-02-27 12:26:26.411 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.7387ms
+2026-02-27 12:26:26.467 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - null null
+2026-02-27 12:26:26.492 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.0262ms
+2026-02-27 12:26:29.958 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=2&endYear=2026 - null null
+2026-02-27 12:26:29.960 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:26:29.961 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:29.965 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:26:29.981 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-27 12:26:29.983 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:26:29.987 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 19.8703ms
+2026-02-27 12:26:29.988 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:29.989 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 28.3295 ms
+2026-02-27 12:26:29.991 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=2&endYear=2026 - 200 null application/json; charset=utf-8 32.9341ms
+2026-02-27 12:26:57.597 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=3&endYear=2026 - null null
+2026-02-27 12:26:57.606 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:26:57.607 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:57.608 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:26:57.614 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-27 12:26:57.616 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:26:57.618 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 8.184ms
+2026-02-27 12:26:57.619 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:57.620 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 12.7062 ms
+2026-02-27 12:26:57.621 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=3&endYear=2026 - 200 null application/json; charset=utf-8 24.2917ms
+2026-02-27 12:26:58.277 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=3&endYear=2026 - null null
+2026-02-27 12:26:58.280 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:26:58.281 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:58.282 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:26:58.290 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-27 12:26:58.292 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:26:58.293 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 9.0242ms
+2026-02-27 12:26:58.294 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:26:58.295 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 13.7345 ms
+2026-02-27 12:26:58.296 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=8&startYear=2025&endMonth=3&endYear=2026 - 200 null application/json; charset=utf-8 19.3187ms
+2026-02-27 12:27:48.335 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:27:48.338 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:27:48.338 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 12:27:48.342 +08:00 [INF] Route matched with {action = "monthAttendanceRangeQueryReport", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthAttendanceRangeQueryReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.EmployeeController (Report_and_Analytics_API).
+2026-02-27 12:27:48.349 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`absent`, `m`.`lastAttendanceIdProcessed`, `m`.`last_modified_date`, `m`.`late`, `m`.`leave_count`, `m`.`month`, `m`.`present`, `m`.`report_date`, `m`.`underTime`, `m`.`year`
+FROM `month_attendance_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:27:48.352 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.Employee_Responses.monthAttendanceReportRangeQueryResponse'.
+2026-02-27 12:27:48.355 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API) in 11.9013ms
+2026-02-27 12:27:48.357 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.EmployeeController.monthAttendanceRangeQueryReport (Report_and_Analytics_API)'
+2026-02-27 12:27:48.357 +08:00 [INF] HTTP GET /employee/monthAttendanceRangeQueryReport responded 200 in 19.0733 ms
+2026-02-27 12:27:48.359 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/employee/monthAttendanceRangeQueryReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 24.0661ms
+2026-02-27 12:28:09.754 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:28:09.759 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:28:09.760 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 12:28:09.763 +08:00 [INF] Route matched with {action = "monthBedsAndDischargedRangeQuery", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBedsAndDischargedRangeQuery(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:28:09.773 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`available_beds`, `m`.`broken_beds`, `m`.`month`, `m`.`occupied_beds`, `m`.`recently_discharged`, `m`.`total_beds`, `m`.`year`
+FROM `month_admission_and_discharge_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:28:09.776 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PropertyAndManagementResponse.monthBedsAndDischargesQueryResponse'.
+2026-02-27 12:28:09.778 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API) in 13.657ms
+2026-02-27 12:28:09.779 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.monthBedsAndDischargedRangeQuery (Report_and_Analytics_API)'
+2026-02-27 12:28:09.780 +08:00 [INF] HTTP GET /property/monthBedsAndDischargedRangeQuery responded 200 in 20.7072 ms
+2026-02-27 12:28:09.782 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/monthBedsAndDischargedRangeQuery?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 28.0867ms
+2026-02-27 12:28:53.797 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimRangeQuery?start=2025-02-02&end=2025-12-01 - null null
+2026-02-27 12:28:53.805 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:28:53.805 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API)'
+2026-02-27 12:28:53.809 +08:00 [INF] Route matched with {action = "monthInsuranceClaimRangeQuery", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthInsuranceClaimRangeQuery(System.DateOnly, System.DateOnly) on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-02-27 12:28:53.822 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__start_0='?' (DbType = Date), @__end_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_claims_id`, `i`.`bill_id`, `i`.`claim_amount_submitted`, `i`.`insurance_provider_id`, `i`.`patient_id`, `i`.`resolved_date`, `i`.`status`, `i`.`submmited_date`
+FROM `insurance_claims` AS `i`
+WHERE (`i`.`resolved_date` >= @__start_0) AND (`i`.`resolved_date` <= @__end_1)
+2026-02-27 12:28:53.832 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__start_0='?' (DbType = Date), @__end_1='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`insurance_provider_id` AS `provider_id`, `i`.`name` AS `provider_name`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL THEN 1
+END) AS `total_claims`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'approved') THEN 1
+END) AS `approved_claims`, COUNT(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'denied') THEN 1
+END) AS `denied_claims`, COALESCE(SUM(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'approved') THEN `i0`.`claim_amount_submitted`
+END), 0.0) AS `approved_amount`, COALESCE(SUM(CASE
+    WHEN `i0`.`insurance_claims_id` IS NOT NULL AND (`i0`.`status` = 'denied') THEN `i0`.`claim_amount_submitted`
+END), 0.0) AS `denied_amount`
+FROM `insurance_provider` AS `i`
+LEFT JOIN `insurance_claims` AS `i0` ON `i`.`insurance_provider_id` = `i0`.`insurance_provider_id`
+WHERE `i0`.`insurance_claims_id` IS NULL OR ((`i0`.`submmited_date` >= @__start_0) AND (`i0`.`submmited_date` <= @__end_1))
+GROUP BY `i`.`insurance_provider_id`, `i`.`name`
+2026-02-27 12:28:53.834 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.claim_response.monthInsuranceClaimRangeQuery'.
+2026-02-27 12:28:53.837 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API) in 26.9652ms
+2026-02-27 12:28:53.839 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.monthInsuranceClaimRangeQuery (Report_and_Analytics_API)'
+2026-02-27 12:28:53.840 +08:00 [INF] HTTP GET /insurance/monthInsuranceClaimRangeQuery responded 200 in 34.3734 ms
+2026-02-27 12:28:53.841 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/monthInsuranceClaimRangeQuery?start=2025-02-02&end=2025-12-01 - 200 null application/json; charset=utf-8 44.6ms
+2026-02-27 12:29:54.750 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/payroll/monthPayrollRangeQueryAsync?startmonth=1&startyear=2025&endmonth=12&endyear=2025 - null null
+2026-02-27 12:29:54.756 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:29:54.757 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API)'
+2026-02-27 12:29:54.761 +08:00 [INF] Route matched with {action = "monthPayrollRangeQuery", controller = "payroll"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPayrollRangeQueryAsync(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.payrollController (Report_and_Analytics_API).
+2026-02-27 12:29:54.767 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`month`, `m`.`total_deductions`, `m`.`total_employees`, `m`.`total_gross_pay`, `m`.`total_net_pay`, `m`.`year`
+FROM `month_payroll_summary` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:29:54.773 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.PayrollResponse.monthPayrollQueryRangeResponse'.
+2026-02-27 12:29:54.776 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API) in 13.0099ms
+2026-02-27 12:29:54.778 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.payrollController.monthPayrollRangeQueryAsync (Report_and_Analytics_API)'
+2026-02-27 12:29:54.779 +08:00 [INF] HTTP GET /payroll/monthPayrollRangeQueryAsync responded 200 in 22.0194 ms
+2026-02-27 12:29:54.781 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/payroll/monthPayrollRangeQueryAsync?startmonth=1&startyear=2025&endmonth=12&endyear=2025 - 200 null application/json; charset=utf-8 30.5857ms
+2026-02-27 12:31:07.079 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:31:07.087 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:31:07.088 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:31:07.091 +08:00 [INF] Route matched with {action = "monthPharmacyRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthPharmacyRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:31:07.100 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`reportId`, `m`.`lastProcessedSaleId`, `m`.`month`, `m`.`topSellingItem`, `m`.`totalSales`, `m`.`totalTransactions`, `m`.`year`
+FROM `month_pharmacy_sales` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`year`
+2026-02-27 12:31:07.103 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.journal_responses.pharmacyRangeQueryResponse'.
+2026-02-27 12:31:07.105 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API) in 12.6257ms
+2026-02-27 12:31:07.106 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthPharmacyRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:31:07.107 +08:00 [INF] HTTP GET /journal/monthPharmacyRangeReport responded 200 in 19.4070 ms
+2026-02-27 12:31:07.109 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthPharmacyRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 30.2332ms
+2026-02-27 12:31:41.974 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - null null
+2026-02-27 12:31:41.981 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:31:41.982 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:31:41.983 +08:00 [INF] Route matched with {action = "monthBillingRangeReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] monthBillingRangeReport(Int32, Int32, Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:31:41.989 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__startKey_0='?' (DbType = Int32), @__endKey_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`lastBillingRecordId`, `m`.`month`, `m`.`total_billed`, `m`.`total_insurance_covered`, `m`.`total_oop_collected`, `m`.`total_paid`, `m`.`total_pending_amount`, `m`.`total_pending_transaction`, `m`.`year`
+FROM `month_billing_report` AS `m`
+WHERE (((`m`.`year` * 100) + `m`.`month`) >= @__startKey_0) AND (((`m`.`year` * 100) + `m`.`month`) <= @__endKey_1)
+ORDER BY `m`.`month`
+2026-02-27 12:31:41.995 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.BillingResponse.billingSearchQueryResponse'.
+2026-02-27 12:31:41.996 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API) in 11.7509ms
+2026-02-27 12:31:41.997 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.monthBillingRangeReport (Report_and_Analytics_API)'
+2026-02-27 12:31:41.998 +08:00 [INF] HTTP GET /journal/monthBillingRangeReport responded 200 in 16.3534 ms
+2026-02-27 12:31:42.000 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/monthBillingRangeReport?start=2&startYear=2025&endMonth=12&endYear=2025 - 200 null application/json; charset=utf-8 25.7721ms
+2026-02-27 12:31:54.744 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/getMonthForecastResult?month=2&year=2026 - null null
+2026-02-27 12:31:54.749 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:31:54.750 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthForecastResult (Report_and_Analytics_API)'
+2026-02-27 12:31:54.754 +08:00 [INF] Route matched with {action = "getMonthForecastResult", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthForecastResult(Int32, Int32) on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:31:54.772 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`result_id`, `m`.`month`, `m`.`predicted_bed_occupancy_rate`, `m`.`predicted_broken_bed_rate`, `m`.`predicted_occupied_beds`, `m`.`predicted_recently_discharged`, `m`.`year`
+FROM `month_bed_occupancy_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-27 12:31:54.783 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.forecast_results.month_bed_occupancy_forecast_result'.
+2026-02-27 12:31:54.789 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.getMonthForecastResult (Report_and_Analytics_API) in 33.5136ms
+2026-02-27 12:31:54.791 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.getMonthForecastResult (Report_and_Analytics_API)'
+2026-02-27 12:31:54.791 +08:00 [INF] HTTP GET /property/getMonthForecastResult responded 200 in 41.3740 ms
+2026-02-27 12:31:54.793 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/getMonthForecastResult?month=2&year=2026 - 200 null application/json; charset=utf-8 48.6753ms
+2026-02-27 12:31:59.609 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthProviderAmountForecast?month=2&year=2026 - null null
+2026-02-27 12:31:59.610 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/insurance/getMonthProviderStatusForecast?month=2&year=2026 - null null
+2026-02-27 12:31:59.616 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:31:59.616 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:31:59.617 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderAmountForecast (Report_and_Analytics_API)'
+2026-02-27 12:31:59.617 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderStatusForecast (Report_and_Analytics_API)'
+2026-02-27 12:31:59.621 +08:00 [INF] Route matched with {action = "getMonthProviderAmountForecast", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthProviderAmountForecast() on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-02-27 12:31:59.622 +08:00 [INF] Route matched with {action = "getMonthProviderStatusForecast", controller = "insurance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthProviderStatusForecast() on controller Report_and_Analytics_API.Controllers.insuranceController (Report_and_Analytics_API).
+2026-02-27 12:31:59.635 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`result_id`, `m`.`insurance_provider_id`, `m`.`month`, `m`.`total_claim_approved_amount`, `m`.`total_claim_declined_amount`, `m`.`year`
+FROM `month_insurance_claim_amount_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+2026-02-27 12:31:59.659 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`result_id`, `m`.`insurance_provider_id`, `m`.`month`, `m`.`total_claim_approved`, `m`.`total_claim_denied`, `m`.`total_claims`, `m`.`year`
+FROM `month_insurance_claims_status_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+2026-02-27 12:31:59.659 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.prediction_results.month_insurance_claim_amount_forecast_result, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:31:59.665 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderAmountForecast (Report_and_Analytics_API) in 41.5762ms
+2026-02-27 12:31:59.667 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderAmountForecast (Report_and_Analytics_API)'
+2026-02-27 12:31:59.667 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.prediction_results.month_insurance_claims_status_forecast_result, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:31:59.668 +08:00 [INF] HTTP GET /insurance/getMonthProviderAmountForecast responded 200 in 50.9856 ms
+2026-02-27 12:31:59.671 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderStatusForecast (Report_and_Analytics_API) in 45.1654ms
+2026-02-27 12:31:59.671 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthProviderAmountForecast?month=2&year=2026 - 200 null application/json; charset=utf-8 62.3013ms
+2026-02-27 12:31:59.672 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.insuranceController.getMonthProviderStatusForecast (Report_and_Analytics_API)'
+2026-02-27 12:31:59.676 +08:00 [INF] HTTP GET /insurance/getMonthProviderStatusForecast responded 200 in 59.0818 ms
+2026-02-27 12:31:59.678 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/insurance/getMonthProviderStatusForecast?month=2&year=2026 - 200 null application/json; charset=utf-8 68.0437ms
+2026-02-27 12:32:04.511 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthMedicineShortageResult - null null
+2026-02-27 12:32:04.512 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getPreviousMonthMedicineDispensed - null null
+2026-02-27 12:32:04.514 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:04.517 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:04.517 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthMedicineShortageResult (Report_and_Analytics_API)'
+2026-02-27 12:32:04.518 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getPreviousMonthMedicineDispensed (Report_and_Analytics_API)'
+2026-02-27 12:32:04.522 +08:00 [INF] Route matched with {action = "getMonthMedicineShortageResult", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthMedicineShortageResult() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:04.522 +08:00 [INF] Route matched with {action = "getPreviousMonthMedicineDispensed", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPreviousMonthMedicineDispensed() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:04.535 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`avg_daily_use`, `m`.`med_id`, `m`.`month`, `m`.`shortage_occured`, `m`.`year`
+FROM `month_medicine_supply_forecast_result` AS `m`
+WHERE ((`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)) AND (`m`.`shortage_occured` = TRUE)
+2026-02-27 12:32:04.547 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`med_id`, COALESCE(SUM(`m0`.`total_dispensed_month`), 0) AS `dispensed`
+FROM `month_medicine_supply_forecast_result` AS `m`
+INNER JOIN `month_medicine_shortage_training_data` AS `m0` ON `m`.`med_id` = `m0`.`med_id`
+WHERE ((`m`.`shortage_occured` = TRUE) AND (`m0`.`month` = @__month_0)) AND (`m0`.`year` = @__year_1)
+GROUP BY `m`.`med_id`
+2026-02-27 12:32:04.549 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-27 12:32:04.550 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getPreviousMonthMedicineDispensed (Report_and_Analytics_API) in 24.6732ms
+2026-02-27 12:32:04.550 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.prediction_results.month_medicine_supply_forecast_result, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:32:04.551 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getPreviousMonthMedicineDispensed (Report_and_Analytics_API)'
+2026-02-27 12:32:04.553 +08:00 [INF] HTTP GET /journal/getPreviousMonthMedicineDispensed responded 200 in 34.8827 ms
+2026-02-27 12:32:04.555 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getPreviousMonthMedicineDispensed - 200 null application/json; charset=utf-8 43.1176ms
+2026-02-27 12:32:04.558 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthMedicineShortageResult (Report_and_Analytics_API) in 33.9101ms
+2026-02-27 12:32:04.559 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthMedicineShortageResult (Report_and_Analytics_API)'
+2026-02-27 12:32:04.560 +08:00 [INF] HTTP GET /journal/getMonthMedicineShortageResult responded 200 in 42.5591 ms
+2026-02-27 12:32:04.562 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthMedicineShortageResult - 200 null application/json; charset=utf-8 50.6889ms
+2026-02-27 12:32:07.537 +08:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7212/journal/getMonthCostManagementForecast - null null
+2026-02-27 12:32:07.538 +08:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7212/journal/getPreviousMonthsCostManagement - null null
+2026-02-27 12:32:07.539 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:07.541 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:07.542 +08:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7212/journal/getMonthCostManagementForecast - 204 null null 5.4748ms
+2026-02-27 12:32:07.544 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getPreviousMonthsCostManagement - application/json null
+2026-02-27 12:32:07.542 +08:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7212/journal/getPreviousMonthsCostManagement - 204 null null 4.6492ms
+2026-02-27 12:32:07.544 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthCostManagementForecast - application/json null
+2026-02-27 12:32:07.548 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:07.552 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:07.553 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getPreviousMonthsCostManagement (Report_and_Analytics_API)'
+2026-02-27 12:32:07.554 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthCostManagementForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:07.557 +08:00 [INF] Route matched with {action = "getPreviousMonthsCostManagement", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPreviousMonthsCostManagement() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:07.557 +08:00 [INF] Route matched with {action = "getMonthCostManagementForecast", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthCostManagementForecast() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:07.568 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`month`, `m`.`year`, `m`.`total_month_operational_cost`
+FROM `month_cost_management_training_data` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-27 12:32:07.571 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`result_id`, `m`.`month`, `m`.`month_forecasted_cost`, `m`.`year`
+FROM `month_cost_management_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-27 12:32:07.573 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.monthsOperationalCostResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:32:07.577 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getPreviousMonthsCostManagement (Report_and_Analytics_API) in 18.9773ms
+2026-02-27 12:32:07.579 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getPreviousMonthsCostManagement (Report_and_Analytics_API)'
+2026-02-27 12:32:07.580 +08:00 [INF] HTTP GET /journal/getPreviousMonthsCostManagement responded 200 in 27.1128 ms
+2026-02-27 12:32:07.580 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.forecast_results.month_cost_management_forecast_result'.
+2026-02-27 12:32:07.582 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getPreviousMonthsCostManagement - 200 null application/json; charset=utf-8 38.3706ms
+2026-02-27 12:32:07.585 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthCostManagementForecast (Report_and_Analytics_API) in 24.6991ms
+2026-02-27 12:32:07.588 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthCostManagementForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:07.589 +08:00 [INF] HTTP GET /journal/getMonthCostManagementForecast responded 200 in 35.3956 ms
+2026-02-27 12:32:07.591 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthCostManagementForecast - 200 null application/json; charset=utf-8 47.4366ms
+2026-02-27 12:32:11.335 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/getPatientAdmissionForecast - null null
+2026-02-27 12:32:11.337 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/patient/getPreviousMonthsAdmissionReport - null null
+2026-02-27 12:32:11.338 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:11.341 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:11.342 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:11.343 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API)'
+2026-02-27 12:32:11.344 +08:00 [INF] Route matched with {action = "getPatientAdmissionForecast", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPatientAdmissionForecast() on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-27 12:32:11.346 +08:00 [INF] Route matched with {action = "getPreviousMonthsAdmissionReport", controller = "patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getPreviousMonthsAdmissionReport() on controller Report_and_Analytics_API.Controllers.patientController (Report_and_Analytics_API).
+2026-02-27 12:32:11.356 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`month`, `m`.`total_admission`, `m`.`year`
+FROM `month_patient_admission_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-27 12:32:11.360 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`month`, `m`.`year`, `m`.`total_admission`
+FROM `month_patient_admission_forecasting_training_data` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-27 12:32:11.365 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-27 12:32:11.367 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.forecast_results.month_patient_admission_forecast_result'.
+2026-02-27 12:32:11.368 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API) in 20.4647ms
+2026-02-27 12:32:11.369 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API) in 23.5958ms
+2026-02-27 12:32:11.370 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.getPreviousMonthsAdmissionReport (Report_and_Analytics_API)'
+2026-02-27 12:32:11.371 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.patientController.getPatientAdmissionForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:11.372 +08:00 [INF] HTTP GET /patient/getPreviousMonthsAdmissionReport responded 200 in 28.8004 ms
+2026-02-27 12:32:11.372 +08:00 [INF] HTTP GET /patient/getPatientAdmissionForecast responded 200 in 31.3293 ms
+2026-02-27 12:32:11.374 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPreviousMonthsAdmissionReport - 200 null application/json; charset=utf-8 37.4945ms
+2026-02-27 12:32:11.375 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/patient/getPatientAdmissionForecast - 200 null application/json; charset=utf-8 40.8843ms
+2026-02-27 12:32:16.287 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthTotalRevenueForecast?month=2&year=2026 - null null
+2026-02-27 12:32:16.290 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/journal/getMonthsRevenueReport - null null
+2026-02-27 12:32:16.291 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:16.293 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:32:16.293 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTotalRevenueForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:16.294 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsRevenueReport (Report_and_Analytics_API)'
+2026-02-27 12:32:16.297 +08:00 [INF] Route matched with {action = "getMonthTotalRevenueForecast", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthTotalRevenueForecast(Int32, Int32) on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:16.298 +08:00 [INF] Route matched with {action = "getMonthsRevenueReport", controller = "journal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getMonthsRevenueReport() on controller Report_and_Analytics_API.Controllers.journalController (Report_and_Analytics_API).
+2026-02-27 12:32:16.310 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__month_0='?' (DbType = Int32), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`training_id`, `m`.`average_bill_amount`, `m`.`month`, `m`.`pharmacy_total_transactions`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_forecast_result` AS `m`
+WHERE (`m`.`month` = @__month_0) AND (`m`.`year` = @__year_1)
+LIMIT 1
+2026-02-27 12:32:16.315 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`report_id`, `m`.`last_update_date`, `m`.`month`, `m`.`pharmacy_revenue`, `m`.`service_revenue`, `m`.`total_revenue`, `m`.`year`
+FROM `month_revenue_report` AS `m`
+WHERE `m`.`year` = @__year_0
+2026-02-27 12:32:16.325 +08:00 [INF] Executing OkObjectResult, writing value of type 'APIResponses.forecast_results.month_revenue_forecast_result'.
+2026-02-27 12:32:16.327 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthTotalRevenueForecast (Report_and_Analytics_API) in 27.534ms
+2026-02-27 12:32:16.328 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthTotalRevenueForecast (Report_and_Analytics_API)'
+2026-02-27 12:32:16.329 +08:00 [INF] HTTP GET /journal/getMonthTotalRevenueForecast responded 200 in 35.3158 ms
+2026-02-27 12:32:16.329 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[APIResponses.journal_responses.yearRevenueResponse, APIResponses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:32:16.330 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthTotalRevenueForecast?month=2&year=2026 - 200 null application/json; charset=utf-8 43.0042ms
+2026-02-27 12:32:16.332 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.journalController.getMonthsRevenueReport (Report_and_Analytics_API) in 31.7604ms
+2026-02-27 12:32:16.335 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.journalController.getMonthsRevenueReport (Report_and_Analytics_API)'
+2026-02-27 12:32:16.336 +08:00 [INF] HTTP GET /journal/getMonthsRevenueReport responded 200 in 42.0946 ms
+2026-02-27 12:32:16.338 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/journal/getMonthsRevenueReport - 200 null application/json; charset=utf-8 47.6482ms
+2026-02-27 12:33:00.745 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/inventoryReport - null null
+2026-02-27 12:33:00.753 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:33:00.753 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:33:00.756 +08:00 [INF] Route matched with {action = "inventoryReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] inventoryReport() on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:33:00.769 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`id`, `i`.`category`, `i`.`item_id`, `i`.`item_name`, `i`.`item_type`, `i`.`location`, `i`.`max_stock`, `i`.`min_stock`, `i`.`pcs_per_box`, `i`.`price`, `i`.`quantity`, `i`.`received_at`, `i`.`sub_type`, `i`.`total_qty`, `i`.`unit_type`
+FROM `inventory` AS `i`
+2026-02-27 12:33:00.788 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Report_and_Analytics_Library.Property_Management.inventory, Report and Analytics Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:33:00.792 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API) in 34.0244ms
+2026-02-27 12:33:00.794 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:33:00.796 +08:00 [INF] HTTP GET /property/inventoryReport responded 200 in 42.5596 ms
+2026-02-27 12:33:00.798 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/inventoryReport - 200 null application/json; charset=utf-8 53.2859ms
+2026-02-27 12:41:28.664 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/inventoryReport - null null
+2026-02-27 12:41:28.670 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:41:28.671 +08:00 [INF] Route matched with {action = "inventoryReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] inventoryReport() on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:41:28.690 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`id`, `i`.`category`, `i`.`item_id`, `i`.`item_name`, `i`.`item_type`, `i`.`location`, `i`.`max_stock`, `i`.`min_stock`, `i`.`pcs_per_box`, `i`.`price`, `i`.`quantity`, `i`.`received_at`, `i`.`sub_type`, `i`.`total_qty`, `i`.`unit_type`
+FROM `inventory` AS `i`
+2026-02-27 12:41:28.692 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Report_and_Analytics_Library.Property_Management.inventory, Report and Analytics Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:41:28.694 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API) in 21.138ms
+2026-02-27 12:41:28.695 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:41:28.696 +08:00 [INF] HTTP GET /property/inventoryReport responded 200 in 25.9443 ms
+2026-02-27 12:41:28.698 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/inventoryReport - 200 null application/json; charset=utf-8 33.7181ms
+2026-02-27 12:49:19.487 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/inventoryReport - null null
+2026-02-27 12:49:19.497 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:49:19.498 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:49:19.499 +08:00 [INF] Route matched with {action = "inventoryReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] inventoryReport() on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:49:19.528 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`id`, `i`.`category`, `i`.`item_id`, `i`.`item_name`, `i`.`item_type`, `i`.`location`, `i`.`max_stock`, `i`.`min_stock`, `i`.`pcs_per_box`, `i`.`price`, `i`.`quantity`, `i`.`received_at`, `i`.`sub_type`, `i`.`total_qty`, `i`.`unit_type`
+FROM `inventory` AS `i`
+2026-02-27 12:49:19.530 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Report_and_Analytics_Library.Property_Management.inventory, Report and Analytics Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:49:19.531 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API) in 30.8414ms
+2026-02-27 12:49:19.533 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:49:19.534 +08:00 [INF] HTTP GET /property/inventoryReport responded 200 in 35.6945 ms
+2026-02-27 12:49:19.535 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/inventoryReport - 200 null application/json; charset=utf-8 48.2823ms
+2026-02-27 12:58:29.746 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7212/property/inventoryReport - null null
+2026-02-27 12:58:29.755 +08:00 [INF] CORS policy execution successful.
+2026-02-27 12:58:29.756 +08:00 [INF] Executing endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:58:29.757 +08:00 [INF] Route matched with {action = "inventoryReport", controller = "property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] inventoryReport() on controller Report_and_Analytics_API.Controllers.propertyController (Report_and_Analytics_API).
+2026-02-27 12:58:29.782 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`id`, `i`.`category`, `i`.`item_id`, `i`.`item_name`, `i`.`item_type`, `i`.`location`, `i`.`max_stock`, `i`.`min_stock`, `i`.`pcs_per_box`, `i`.`price`, `i`.`quantity`, `i`.`received_at`, `i`.`sub_type`, `i`.`total_qty`, `i`.`unit_type`
+FROM `inventory` AS `i`
+2026-02-27 12:58:29.784 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Report_and_Analytics_Library.Property_Management.inventory, Report and Analytics Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-27 12:58:29.785 +08:00 [INF] Executed action Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API) in 25.9244ms
+2026-02-27 12:58:29.786 +08:00 [INF] Executed endpoint 'Report_and_Analytics_API.Controllers.propertyController.inventoryReport (Report_and_Analytics_API)'
+2026-02-27 12:58:29.787 +08:00 [INF] HTTP GET /property/inventoryReport responded 200 in 31.2667 ms
+2026-02-27 12:58:29.788 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7212/property/inventoryReport - 200 null application/json; charset=utf-8 42.8786ms

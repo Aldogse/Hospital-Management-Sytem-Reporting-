@@ -26,7 +26,7 @@ namespace Report_and_Analytics_API.Controllers
 
         //ENDPOINT FOR DAILY ATTEDANCE REPORT
         [HttpGet("attendanceReport/{date}")]
-        public async Task<IActionResult> attendanceReport(DateTime date)
+        public async Task<IActionResult> attendanceReport(DateOnly date)
         {
             try
             {
@@ -511,6 +511,66 @@ namespace Report_and_Analytics_API.Controllers
             {
                 _logger.LogError(message:$"Error: {ex.Message}");
                 return StatusCode(500,ex.Message);
+            }
+        }
+
+        //NEW ENDPOINTS 
+        [HttpGet("monthAttendanceRangeQueryReport")]
+        public async Task<IActionResult> monthAttendanceRangeQueryReport([FromQuery] int start, [FromQuery] int startYear,
+            [FromQuery] int endMonth, [FromQuery] int endYear
+)
+        {
+            try
+            {
+                if (start > endMonth && startYear >= endYear)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+                var response = await _empRepo.monthAttendanceReportRangeQuery(start,startYear,endMonth,endYear);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message: $"Error: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("dailyAttendanceRangeQueryReport")]
+        public async Task<IActionResult> dailyAttendanceRangeQueryReport([FromQuery] DateOnly start, [FromQuery] DateOnly end)
+        {
+            try
+            {
+                if (start > end)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+                var response = await _empRepo.dailyAttendanceDateRange(start,end);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message: $"Error: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("staffPerformanceAndAttendanceReport")]
+        public async Task<IActionResult> staffPerformanceAndAttendanceReport([FromQuery] DateOnly start, [FromQuery] DateOnly end)
+        {
+            try
+            {
+                if (start > end)
+                {
+                    return StatusCode(400, "Start cannot be greater than the End");
+                }
+                var response = await _empRepo.staffAndPerformanceReport(start,end);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(message: $"Error: {ex.Message}");
+                return StatusCode(500, ex.Message);
             }
         }
     }
